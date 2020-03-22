@@ -1,0 +1,19 @@
+.success-card-wrapper {
+  padding: 150px 200px 40px 200px;
+  .success-card {
+    min-height: 100px;
+    font-size: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5aff5a;
+    box-shadow: 0px 4px 14px 0px rgba(92, 69, 69, 0.2);
+  }
+}
+.checkout-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}

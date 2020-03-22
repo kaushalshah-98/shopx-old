@@ -1,0 +1,123 @@
+<app-jumbotron [Heading]="'ADMIN-MANAGEMENT'"></app-jumbotron>
+<div class="space-medium">
+  <div class="containerr">
+    <div class="roww">
+      <div class="one-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text">Product Management</a>
+          </div>
+          <!-- <div class="showcase-img">
+            <a> <img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+    </div>
+    <br />
+    <div class="roww">
+      <div class="four-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/viewproducts']">
+              View All Products</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+      <div class="four-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/addproduct']">
+              Add a Product</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+      <div class="four-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/updateproduct']">
+              Update a Product</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+      <div class="four-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/deleteproduct']">
+              Delete a Product</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+    </div>
+    <br />
+  </div>
+  <div class="containerr">
+    <div class="roww">
+      <div class="one-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text">User Management</a>
+          </div>
+          <!-- <div class="showcase-img">
+            <a> <img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+    </div>
+    <br />
+    <div class="roww">
+      <div class="three-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/viewusers']">
+              Add a Product</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+      <div class="three-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/blockuser']">
+              Block a User</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+      <div class="three-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/vieworders']">
+              View Orders</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

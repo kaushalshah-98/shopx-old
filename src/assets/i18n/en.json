@@ -1,0 +1,11 @@
+{
+    "lang":"en",
+    "data":{
+        "demo":{
+            "welcome" :"Welcome",
+            "profile" : "Profile",
+            "Logout": "Logout"
+        }
+    },
+    "Logout": "Logout"
+}

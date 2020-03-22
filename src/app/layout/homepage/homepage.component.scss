@@ -1,0 +1,25 @@
+@import "../../../assets/css/variable.scss";
+.c-wrapper {
+  padding-top: 0 !important;
+  // background-color: #1397ca9e;
+  // background-color: #232f3e;
+  // background-color: rgb(40, 53, 147);
+  // background-color: black;
+  // color: white;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.14), 0 0 15px rgba(0, 0, 0, 0.35);
+  .sidenav-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
+.c-go-to-top {
+  position: fixed;
+  cursor: pointer;
+  box-shadow: 0 0 22px #00000063;
+  .mat-icon {
+    margin: -15px;
+  }
+}
