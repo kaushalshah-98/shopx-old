@@ -6,16 +6,21 @@ import { CoreModule } from "./core/core.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { PageNotFoundComponent } from "./page-not-found.component";
-import { HttpClient } from '@angular/common/http';
-import {TranslateModule, TranslateLoader, MissingTranslationHandler, MissingTranslationHandlerParams} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { HttpClient } from "@angular/common/http";
+import {
+  TranslateModule,
+  TranslateLoader,
+  MissingTranslationHandler,
+  MissingTranslationHandlerParams
+} from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
-export class MissingTranslationHelper implements MissingTranslationHandler{
-  handle(params :MissingTranslationHandlerParams){
+export class MissingTranslationHelper implements MissingTranslationHandler {
+  handle(params: MissingTranslationHandlerParams) {
     console.warn(
       `No Translation provided for key ${params.key} in lang file ${params.translateService.currentLang}.json`
     );
@@ -37,16 +42,15 @@ export class MissingTranslationHelper implements MissingTranslationHandler{
     //translate
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
       },
-      missingTranslationHandler:
-       {
-          provide: MissingTranslationHandler, 
-          useClass: MissingTranslationHelper
-        },
-        useDefaultLang: true
+      missingTranslationHandler: {
+        provide: MissingTranslationHandler,
+        useClass: MissingTranslationHelper
+      },
+      useDefaultLang: true
     })
   ],
   providers: [],

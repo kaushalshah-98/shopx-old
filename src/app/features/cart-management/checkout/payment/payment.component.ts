@@ -1,22 +1,34 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import { MatStepper } from "@angular/material/stepper";
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate
+} from "@angular/animations";
 
 @Component({
   selector: "app-payment",
   templateUrl: "./payment.component.html",
   styleUrls: ["./payment.component.scss"],
   animations: [
-    trigger('flipState', [
-      state('active', style({
-        transform: 'rotateY(179deg)'
-      })),
-      state('inactive', style({
-        transform: 'rotateY(0)'
-      })),
-      transition('active => inactive', animate('500ms ease-out')),
-      transition('inactive => active', animate('500ms ease-in'))
+    trigger("flipState", [
+      state(
+        "active",
+        style({
+          transform: "rotateY(179deg)"
+        })
+      ),
+      state(
+        "inactive",
+        style({
+          transform: "rotateY(0)"
+        })
+      ),
+      transition("active => inactive", animate("500ms ease-out")),
+      transition("inactive => active", animate("500ms ease-in"))
     ])
   ]
 })
@@ -62,15 +74,15 @@ export class PaymentComponent implements OnInit {
   ]);
   expiryFormControl = new FormControl("", [Validators.required]);
   @Output() step2status = new EventEmitter<boolean>();
-  flip: string = 'inactive';
+  flip: string = "inactive";
   constructor(private myStepper: MatStepper) {}
 
   ngOnInit() {}
   toggle() {
-    this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
+    this.flip = this.flip == "inactive" ? "active" : "inactive";
   }
-  toggleFlip(status:boolean) {
-    this.flip = (status === true) ? 'active' : 'inactive';
+  toggleFlip(status: boolean) {
+    this.flip = status === true ? "active" : "inactive";
   }
   goForward() {
     if (

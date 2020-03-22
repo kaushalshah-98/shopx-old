@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 import { UserManagementService } from "@services/user-service/user-management.service";
 import { DOCUMENT } from "@angular/common";
 import { ConfirmDialogService } from "@shared/confirm-dialog/confirm-dialog.service";
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-navbar",
@@ -34,13 +34,12 @@ export class NavbarComponent implements OnInit {
     private translate: TranslateService,
     @Inject(DOCUMENT) private document: any
   ) {
-
-    translate.addLangs(['en', 'fr']);
-    translate.setDefaultLang('en');
+    translate.addLangs(["en", "fr"]);
+    translate.setDefaultLang("en");
 
     const browserlang = translate.getBrowserLang();
     this.currentLanguage = browserlang;
-    translate.use(browserlang.match(/en|fr/) ? browserlang : 'en');
+    translate.use(browserlang.match(/en|fr/) ? browserlang : "en");
   }
   userdetails;
   login_status: string;
@@ -113,5 +112,5 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
-  changetheme(value) { }
+  changetheme(value) {}
 }

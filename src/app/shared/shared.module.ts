@@ -19,7 +19,7 @@ import { NgxImageZoomModule } from "ngx-image-zoom";
 import { FooterComponent } from "./footer/footer.component";
 import { JumbotronComponent } from "./jumbotron/jumbotron.component";
 import { LeftPanelContainer } from "./left-panel/left-panel.container";
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -61,7 +61,6 @@ import { TranslateModule } from '@ngx-translate/core';
     NavbarComponent,
     ListProductsComponent,
     SpinnerComponent,
-
 
     FormsModule,
     ReactiveFormsModule,
