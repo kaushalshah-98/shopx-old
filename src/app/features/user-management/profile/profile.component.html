@@ -1,0 +1,17 @@
+<app-navbar [isHidden]="true"></app-navbar>
+<app-jumbotron [Heading]="heading"></app-jumbotron>
+<mat-tab-group
+  [selectedIndex]="selectedIndex"
+  (selectedTabChange)="tabChanged($event)"
+>
+  <mat-tab label="Profile"> <app-view-profile></app-view-profile></mat-tab>
+  <mat-tab label="Edit Profile"
+    ><app-edit-profile
+      [selectedIndex]="selectedIndex"
+      (selectedIndexx)="getselectedIndex($event)"
+    ></app-edit-profile>
+  </mat-tab>
+  <mat-tab label="To Buy List">
+    <div class="profile-container"></div>
+  </mat-tab>
+</mat-tab-group>

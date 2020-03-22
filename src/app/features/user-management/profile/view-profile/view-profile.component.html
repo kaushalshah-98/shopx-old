@@ -1,0 +1,43 @@
+<div class="profile-container" fxLayout="row" fxLayoutAlign="start center">
+  <div fxFlex="40%">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Profile Pic</mat-card-title>
+      </mat-card-header>
+      <div class="profile-image">
+        <img
+          mat-card-image
+          [src]="
+            userdata != undefined
+              ? userdata.photoUrl
+              : '../../../../assets/images/icon-login-profile.svg'
+          "
+          alt="Photo of a Shiba Inu"
+        />
+      </div>
+    </mat-card>
+  </div>
+  <div fxFlex="60%">
+    <mat-card class="profile-card">
+      <mat-card-title>Profile details</mat-card-title>
+      <mat-card-content>
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput readonly value="{{ userdata?.name }}" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput readonly value="{{ userdata?.email }}" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput readonly value="value" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>ProfilePic</mat-label>
+          <input matInput readonly value="{{ userdata?.photoUrl }}" />
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

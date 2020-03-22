@@ -1,0 +1,63 @@
+<app-loading-bar></app-loading-bar>
+<ng-container>
+  <!-- <div class="containerr">
+    <div class="product-list">
+      <div class="roww">
+        <div class="three six" *ngFor="let item of productitems">
+          <div class="white-box">
+            <div class="wishlist-icon">
+              <mat-icon (click)="addToWishlit(item)">favorite_border </mat-icon>
+            </div>
+            <div class="product-img">
+              <img (click)="openBottomSheet(item)" src="{{ item.image }}" />
+            </div>
+            <div class="product-bottom">
+              <div class="product-name">{{ item.name }}</div>
+              <div class="price">
+                <span class="rupee-icon">₹</span>{{ item.price }}
+              </div>
+              <a class="blue-btn">Add to cart</a>
+              <a class="green-btn" (click)="quickview(item)">Quick View</a>
+            </div>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="containerr">
+    <div class="product-list">
+      <div class="roww">
+        <div class="three six" *ngFor="let item of productitems">
+          <mat-card class="product-card">
+            <mat-card-header>
+              <mat-card-title
+                ><div class="wishlist-icon">
+                  <mat-icon (click)="addToWishlit(item)"
+                    >favorite_border
+                  </mat-icon>
+                </div></mat-card-title
+              >
+            </mat-card-header>
+            <mat-card-content>
+              <div class="product-img">
+                <img (click)="openBottomSheet(item)" src="{{ item.image }}" />
+              </div>
+              <div class="product-bottom">
+                <div class="product-name">{{ item.name }}</div>
+                <div class="price"><span>₹</span>{{ item.price }}</div>
+              </div>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary">Add to cart</button>
+              <button mat-raised-button color="warn" (click)="quickview(item)">
+                Quick View
+              </button>
+            </mat-card-actions>
+          </mat-card>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
