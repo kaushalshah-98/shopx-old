@@ -9,6 +9,7 @@ import { SharedModule } from '@shared/shared.module';
 import { WishListComponent } from './wish-list/wish-list.component';
 import { ViewOrdersComponent } from './view-orders/view-orders.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BuyListComponent } from './profile/buy-list/buy-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProfileComponent } from './profile/profile.component';
     EditProfileComponent,
     WishListComponent,
     ViewOrdersComponent,
-    ProfileComponent
+    ProfileComponent,
+    BuyListComponent
   ],
   imports: [CommonModule, UserManagementRoutingModule, SharedModule],
   exports: [ProfileComponent]

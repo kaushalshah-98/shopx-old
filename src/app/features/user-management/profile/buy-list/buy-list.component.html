@@ -1,0 +1,20 @@
+<div class="delete-container">
+  <div class="delete-input">
+    <app-big-input
+      [placeholder]="'I am going to buy a...'"
+      (keyup)="onInputChanged($event.target.value)"
+      [height]="60"
+    >
+      <div class="btn">
+        <button mat-raised-button color="accent" [disabled]="isDisabled">
+          <mat-icon>add</mat-icon>
+        </button>
+        &nbsp;&nbsp;
+        <button mat-raised-button color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </app-big-input>
+  </div>
+</div>
+<app-footer></app-footer>

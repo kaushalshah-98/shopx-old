@@ -7,13 +7,10 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BigInputComponent {
-  @Input()
-  placeholder: string;
-
-  @Input()
-  value = '';
-  @Input()
-  disabled = false;
+  @Input() placeholder: string;
+  @Input() value = '';
+  @Input() disabled = false;
+  @Input() height = 120;
 
   hasFocus = false;
 }

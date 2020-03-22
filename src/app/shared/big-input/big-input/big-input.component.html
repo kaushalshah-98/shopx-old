@@ -1,4 +1,8 @@
-<mat-card class="big-input" [ngClass]="{ 'has-focus': hasFocus }">
+<mat-card
+  class="big-input"
+  [ngStyle]="{'min-height': height + 'px'}"
+  [ngClass]="{ 'has-focus': hasFocus }"
+>
   <input
     (focus)="hasFocus = true"
     (blur)="hasFocus = false"
