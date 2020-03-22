@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buy-list.component.scss']
 })
 export class BuyListComponent implements OnInit {
-  isDisabled: boolean =true;
+  isDisabled: boolean = true;
   constructor() {}
 
   ngOnInit() {}
