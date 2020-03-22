@@ -6,7 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./delete-product.component.scss']
 })
 export class DeleteProductComponent implements OnInit {
+  productid: string;
+  isDisabled: boolean = true;
   constructor() {}
 
   ngOnInit() {}
+  onProductDelete() {
+    console.log(this.productid);
+  }
+  onInputChanged(input: string) {
+    if (input === null || input === '') {
+      this.isDisabled = true;
+    } else {
+      this.isDisabled = false;
+    }
+    this.productid = input;
+  }
 }

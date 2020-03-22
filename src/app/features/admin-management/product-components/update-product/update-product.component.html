@@ -1,1 +1,17 @@
 <app-jumbotron [Heading]="'UPDATE-PRODUCT'"></app-jumbotron>
+<div class="delete-container">
+  <div class="delete-input">
+    <app-big-input [placeholder]="'Enter The Number'" (keyup)="onInputChanged($event.target.value)">
+      <app-big-input-action
+        [color]="'accent'"
+        [iconname]="'edit'"
+        (action)="onProductUpdate()"
+        [disabled]="isDisabled"
+        [matTooltip]="'app.examples.todos.tooltip.remove' | translate"
+        matTooltipPosition="after"
+      >
+      </app-big-input-action>
+    </app-big-input>
+  </div>
+</div>
+<app-footer></app-footer>

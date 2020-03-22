@@ -1,0 +1,13 @@
+button {
+  padding: 0;
+  min-width: 80px;
+  min-height: 60px;
+  margin-right: 25px;
+  margin-top: 20px;
+  mat-icon {
+    font-size: 30px;
+    position: relative;
+    left: -2px;
+    top: -2px;
+  }
+}

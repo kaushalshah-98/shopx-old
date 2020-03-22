@@ -6,12 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./block-user.component.scss']
 })
 export class BlockUserComponent implements OnInit {
-  foods = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' }
-  ];
+  userid: string;
+  isDisabled: boolean = true;
   constructor() {}
 
   ngOnInit() {}
+  onBlockUser() {
+    console.log(this.userid);
+  }
+  onInputChanged(input: string) {
+    if (input === null || input === '') {
+      this.isDisabled = true;
+    } else {
+      this.isDisabled = false;
+    }
+    this.userid = input;
+  }
 }

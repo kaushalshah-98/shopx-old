@@ -1,27 +1,20 @@
 <app-jumbotron [Heading]="'BLOCK-A-USER'"></app-jumbotron>
-<div class="block-container">
-  <div class="block-form">
-    <mat-form-field appearance="outline">
-      <mat-label>Name</mat-label>
-      <input required matInput />
-      <!-- <mat-error
-          *ngIf="
-            nameFormControl.errors?.minlength &&
-            !nameFormControl.hasError('required')
-          "
-        >
-          Name must be at least 3 characters long.
-        </mat-error>
-        <mat-error *ngIf="nameFormControl.hasError('required')">
-          Name is <strong>required</strong>
-        </mat-error> -->
-    </mat-form-field>
-  </div>
-  <br /><br />
-  <div class="block-btn">
-    <button mat-raised-button color="warn">
-      Block
-    </button>
+<div class="delete-container">
+  <div class="delete-input">
+    <app-big-input
+      [placeholder]="'Enter The User-ID'"
+      (keyup)="onInputChanged($event.target.value)"
+    >
+      <app-big-input-action
+        [color]="'warn'"
+        [iconname]="'block'"
+        (action)="onBlockUser()"
+        [disabled]="isDisabled"
+        [matTooltip]="'app.examples.todos.tooltip.remove' | translate"
+        matTooltipPosition="after"
+      >
+      </app-big-input-action>
+    </app-big-input>
   </div>
 </div>
 <app-footer></app-footer>

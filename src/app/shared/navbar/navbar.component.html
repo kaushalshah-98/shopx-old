@@ -52,8 +52,9 @@
       <button [hidden]="isAdmin" mat-raised-button (click)="goToCart()">
         <mat-icon matBadge="3" matBadgeColor="warn" matBadgeOverlap="false" class="cart-icon"
           >shopping_cart
-        </mat-icon></button
-      >&nbsp;&nbsp;
+        </mat-icon>
+      </button>
+      <ng-container *ngIf="!isAdmin"> &nbsp;&nbsp; </ng-container>
       <button mat-raised-button (click)="configureFullscreen()">
         <mat-icon class="fullscreen-icon">{{ getText() }}</mat-icon>
       </button>

@@ -20,6 +20,8 @@ import { FooterComponent } from './footer/footer.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { LeftPanelContainer } from './left-panel/left-panel.container';
 import { TranslateModule } from '@ngx-translate/core';
+import { BigInputActionComponent } from './big-input/big-input-action/big-input-action.component';
+import { BigInputComponent } from './big-input/big-input/big-input.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { TranslateModule } from '@ngx-translate/core';
     ListProductsComponent,
     SpinnerComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    BigInputActionComponent,
+    BigInputComponent
   ],
   imports: [
     CommonModule,
@@ -57,6 +61,8 @@ import { TranslateModule } from '@ngx-translate/core';
     NavbarComponent,
     ListProductsComponent,
     SpinnerComponent,
+    BigInputActionComponent,
+    BigInputComponent,
 
     FormsModule,
     ReactiveFormsModule,

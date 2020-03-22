@@ -13,7 +13,7 @@
   "html.format.wrapAttributes": "aligned-multiple",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.tabSize": 2,
   "editor.insertSpaces": true

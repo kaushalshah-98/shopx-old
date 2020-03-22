@@ -1,23 +1,6 @@
-.block-container {
+.delete-container {
   min-height: 550px;
-  .block-form {
-    display: flex;
-    justify-content: center;
-    padding-top: 150px;
-    .mat-form-field {
-      width: 60%;
-      line-height: 2.125 !important;
-      .mat-input-element {
-        font-size: 30px;
-      }
-    }
-  }
-  .block-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .mat-raised-button {
-      width: 20%;
-    }
+  .delete-input {
+    padding: 150px 150px 0px 150px;
   }
 }
