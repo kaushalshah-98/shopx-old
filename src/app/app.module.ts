@@ -39,7 +39,7 @@ export class MissingTranslationHelper implements MissingTranslationHandler {
     // app
     AppRoutingModule,
 
-    //translate
+    // translate
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
