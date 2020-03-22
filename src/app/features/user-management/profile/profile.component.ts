@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { MatTabChangeEvent } from "@angular/material";
+import { Component, OnInit } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material';
 @Component({
-  selector: "app-profile",
-  templateUrl: "./profile.component.html",
-  styleUrls: ["./profile.component.scss"]
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
   selectedIndex: number;
-  heading = "PROFILE SETTINGS";
+  heading = 'PROFILE SETTINGS';
   constructor() {}
   ngOnInit() {}
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {

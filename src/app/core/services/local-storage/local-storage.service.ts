@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
-const APP_PREFIX = "ANMS-";
+const APP_PREFIX = 'ANMS-';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class LocalStorageService {
   constructor() {}
@@ -22,10 +22,10 @@ export class LocalStorageService {
 
   /** Tests that localStorage exists, can be written to, and read from. */
   testLocalStorage() {
-    const testValue = "testValue";
-    const testKey = "testKey";
+    const testValue = 'testValue';
+    const testKey = 'testKey';
     let retrievedValue: string;
-    const errorMessage = "localStorage did not return expected value";
+    const errorMessage = 'localStorage did not return expected value';
 
     this.setItem(testKey, testValue);
     retrievedValue = this.getItem(testKey);

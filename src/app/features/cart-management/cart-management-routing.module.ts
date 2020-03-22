@@ -1,15 +1,15 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { ViewCartitemsComponent } from "./view-cartitems/view-cartitems.component";
-import { CheckoutComponent } from "./checkout/checkout.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { ViewCartitemsComponent } from './view-cartitems/view-cartitems.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: ViewCartitemsComponent
   },
   {
-    path: "#",
+    path: '#',
     component: CheckoutComponent
   }
 ];

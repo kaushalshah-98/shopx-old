@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QuickviewComponent } from "./quickview.component";
+import { QuickviewComponent } from './quickview.component';
 
-describe("QuickviewComponent", () => {
+describe('QuickviewComponent', () => {
   let component: QuickviewComponent;
   let fixture: ComponentFixture<QuickviewComponent>;
 
@@ -18,7 +18,7 @@ describe("QuickviewComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

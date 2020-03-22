@@ -1,10 +1,10 @@
-import { Component, OnInit, Inject } from "@angular/core";
-import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: "app-quickview",
-  templateUrl: "./quickview.component.html",
-  styleUrls: ["./quickview.component.scss"]
+  selector: 'app-quickview',
+  templateUrl: './quickview.component.html',
+  styleUrls: ['./quickview.component.scss']
 })
 export class QuickviewComponent implements OnInit {
   myThumbnail1: string;

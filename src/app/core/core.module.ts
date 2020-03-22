@@ -1,31 +1,27 @@
-import { CommonModule } from "@angular/common";
-import { NgModule, Optional, SkipSelf, ErrorHandler } from "@angular/core";
-import {
-  HttpClientModule,
-  HttpClient,
-  HTTP_INTERCEPTORS
-} from "@angular/common/http";
+import { CommonModule } from '@angular/common';
+import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 // import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
-import { MatSidenavModule } from "@angular/material/sidenav";
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatListModule } from "@angular/material/list";
-import { MatMenuModule } from "@angular/material/menu";
-import { MatIconModule } from "@angular/material/icon";
-import { MatSelectModule } from "@angular/material/select";
-import { MatTooltipModule } from "@angular/material/tooltip";
-import { FormsModule } from "@angular/forms";
-import { MatSnackBarModule } from "@angular/material/snack-bar";
-import { MatButtonModule } from "@angular/material/button";
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
 
-import { environment } from "../../environments/environment";
+import { environment } from '../../environments/environment';
 
-import { AppErrorHandler } from "./services/error-handler/app-error-handler.service";
-import { LocalStorageService } from "./services/local-storage/local-storage.service";
-import { HttpErrorInterceptor } from "./services/http-interceptors/http-error.interceptor";
-import { NotificationService } from "./services/notification/notification.service";
+import { AppErrorHandler } from './services/error-handler/app-error-handler.service';
+import { LocalStorageService } from './services/local-storage/local-storage.service';
+import { HttpErrorInterceptor } from './services/http-interceptors/http-error.interceptor';
+import { NotificationService } from './services/notification/notification.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   // return new TranslateHttpLoader(
@@ -96,7 +92,7 @@ export class CoreModule {
     parentModule: CoreModule
   ) {
     if (parentModule) {
-      throw new Error("CoreModule is already loaded. Import only in AppModule");
+      throw new Error('CoreModule is already loaded. Import only in AppModule');
     }
   }
 }

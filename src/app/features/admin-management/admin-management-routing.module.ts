@@ -1,55 +1,55 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { AdminpageComponent } from "./adminpage/adminpage.component";
-import { ContentComponent } from "./adminpage/content/content.component";
-import { ViewProductsComponent } from "./product-components/view-products/view-products.component";
-import { AddProductComponent } from "./product-components/add-product/add-product.component";
-import { DeleteProductComponent } from "./product-components/delete-product/delete-product.component";
-import { UpdateProductComponent } from "./product-components/update-product/update-product.component";
-import { ViewUsersComponent } from "./user-components/view-users/view-users.component";
-import { BlockUserComponent } from "./user-components/block-user/block-user.component";
-import { ViewOrdersComponent } from "./user-components/view-orders/view-orders.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AdminpageComponent } from './adminpage/adminpage.component';
+import { ContentComponent } from './adminpage/content/content.component';
+import { ViewProductsComponent } from './product-components/view-products/view-products.component';
+import { AddProductComponent } from './product-components/add-product/add-product.component';
+import { DeleteProductComponent } from './product-components/delete-product/delete-product.component';
+import { UpdateProductComponent } from './product-components/update-product/update-product.component';
+import { ViewUsersComponent } from './user-components/view-users/view-users.component';
+import { BlockUserComponent } from './user-components/block-user/block-user.component';
+import { ViewOrdersComponent } from './user-components/view-orders/view-orders.component';
 
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "admin-management",
-    pathMatch: "full"
+    path: '',
+    redirectTo: 'admin-management',
+    pathMatch: 'full'
   },
   {
-    path: "",
+    path: '',
     component: AdminpageComponent,
     children: [
       {
-        path: "admin-management",
+        path: 'admin-management',
         component: ContentComponent
       },
       {
-        path: "viewproducts",
+        path: 'viewproducts',
         component: ViewProductsComponent
       },
       {
-        path: "addproduct",
+        path: 'addproduct',
         component: AddProductComponent
       },
       {
-        path: "updateproduct",
+        path: 'updateproduct',
         component: UpdateProductComponent
       },
       {
-        path: "deleteproduct",
+        path: 'deleteproduct',
         component: DeleteProductComponent
       },
       {
-        path: "viewusers",
+        path: 'viewusers',
         component: ViewUsersComponent
       },
       {
-        path: "blockuser",
+        path: 'blockuser',
         component: BlockUserComponent
       },
       {
-        path: "vieworders",
+        path: 'vieworders',
         component: ViewOrdersComponent
       }
     ]

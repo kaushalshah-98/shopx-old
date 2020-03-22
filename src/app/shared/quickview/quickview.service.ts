@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { MatDialog } from "@angular/material/dialog";
-import { QuickviewComponent } from "./quickview.component";
+import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { QuickviewComponent } from './quickview.component';
 
 @Injectable()
 export class QuickViewService {

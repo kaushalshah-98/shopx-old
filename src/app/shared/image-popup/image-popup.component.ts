@@ -1,10 +1,10 @@
-import { Component, Inject } from "@angular/core";
-import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from "@angular/material";
+import { Component, Inject } from '@angular/core';
+import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material';
 
 @Component({
-  selector: "app-image-popup",
-  templateUrl: "./image-popup.component.html",
-  styleUrls: ["./image-popup.component.scss"]
+  selector: 'app-image-popup',
+  templateUrl: './image-popup.component.html',
+  styleUrls: ['./image-popup.component.scss']
 })
 export class ImagePopupComponent {
   myThumbnail: string;

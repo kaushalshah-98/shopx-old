@@ -20,9 +20,7 @@
     <div class="search-bar" [hidden]="isHidden || isAdmin">
       <mat-form-field appearance="outline">
         <input matInput />
-        <mat-icon matSuffix style="font-size: 25px;margin-right: 20px;"
-          >search</mat-icon
-        >
+        <mat-icon matSuffix style="font-size: 25px;margin-right: 20px;">search</mat-icon>
       </mat-form-field>
     </div>
     <span class="example-spacer"></span>
@@ -33,25 +31,13 @@
       </button>
       &nbsp;&nbsp;
       <mat-menu #menu="matMenu" xPosition="after">
-        <button
-          [hidden]="isAdmin"
-          mat-menu-item
-          [routerLink]="['/usersettings/profile']"
-        >
+        <button [hidden]="isAdmin" mat-menu-item [routerLink]="['/usersettings/profile']">
           <mat-icon>account_circle</mat-icon>Your Account
         </button>
-        <button
-          [hidden]="isAdmin"
-          mat-menu-item
-          [routerLink]="['/usersettings/my_orders']"
-        >
+        <button [hidden]="isAdmin" mat-menu-item [routerLink]="['/usersettings/my_orders']">
           <mat-icon>assignment</mat-icon>Your Orders
         </button>
-        <button
-          [hidden]="isAdmin"
-          mat-menu-item
-          [routerLink]="['/usersettings/wishlist']"
-        >
+        <button [hidden]="isAdmin" mat-menu-item [routerLink]="['/usersettings/wishlist']">
           <mat-icon>favorite</mat-icon>Your Wishlist
         </button>
         <button mat-menu-item (click)="logout()">
@@ -59,20 +45,12 @@
         </button>
         <button mat-menu-item>
           <mat-icon>nights_stay</mat-icon>Night Mode&nbsp;&nbsp;&nbsp;&nbsp;
-          <mat-slide-toggle
-            [(ngModel)]="value"
-            (change)="changetheme(value)"
-            color="primary"
-          >
+          <mat-slide-toggle [(ngModel)]="value" (change)="changetheme(value)" color="primary">
           </mat-slide-toggle>
         </button>
       </mat-menu>
       <button [hidden]="isAdmin" mat-raised-button (click)="goToCart()">
-        <mat-icon
-          matBadge="3"
-          matBadgeColor="warn"
-          matBadgeOverlap="false"
-          class="cart-icon"
+        <mat-icon matBadge="3" matBadgeColor="warn" matBadgeOverlap="false" class="cart-icon"
           >shopping_cart
         </mat-icon></button
       >&nbsp;&nbsp;

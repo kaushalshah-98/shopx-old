@@ -1,15 +1,15 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, timer, of, Observable } from "rxjs";
-import { map, switchMap, take, tap } from "rxjs/operators";
-import { PLATFORM_ID, Inject } from "@angular/core";
-import { isPlatformBrowser } from "@angular/common";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, timer, of, Observable } from 'rxjs';
+import { map, switchMap, take, tap } from 'rxjs/operators';
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 interface IState {
   value: number;
   requests: number;
 }
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class LoadingBarService {
   private state$ = new BehaviorSubject<IState>({
     requests: null,
@@ -17,8 +17,8 @@ export class LoadingBarService {
   });
 
   readonly progress$ = this.state$.pipe(
-    switchMap(s => this.timer$(s)),
-    map(s => s.value)
+    switchMap((s) => this.timer$(s)),
+    map((s) => s.value)
   );
 
   private timer$(s: IState) {
@@ -32,15 +32,15 @@ export class LoadingBarService {
           ? of(s)
           : timer(0, 500).pipe(
               take(2),
-              map(t => ({ requests: null, value: t === 1 ? 0 : 100 }))
+              map((t) => ({ requests: null, value: t === 1 ? 0 : 100 }))
             );
     } else if (s.requests !== null) {
       state$ = timer(0, 250).pipe(
-        map(t => (t === 0 ? { ...s } : { ...s, value: this._increment() }))
+        map((t) => (t === 0 ? { ...s } : { ...s, value: this._increment() }))
       );
     }
 
-    return state$.pipe(tap(next => this.setState(next, false)));
+    return state$.pipe(tap((next) => this.setState(next, false)));
   }
 
   constructor(@Inject(PLATFORM_ID) private platformId: any) {}
@@ -85,7 +85,7 @@ export class LoadingBarService {
   private setState(state: Partial<IState>, emitEvent = true) {
     emitEvent
       ? this.state$.next({ ...this.state$.value, ...state })
-      : Object.keys(state).forEach(prop => (this.state[prop] = state[prop]));
+      : Object.keys(state).forEach((prop) => (this.state[prop] = state[prop]));
   }
 
   private _increment(rnd = 0) {

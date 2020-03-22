@@ -1,6 +1,4 @@
-<ng-container
-  *ngIf="value !== null ? value : (loader.progress$ | async) as progress"
->
+<ng-container *ngIf="value !== null ? value : (loader.progress$ | async) as progress">
   <div id="loading-bar-spinner" *ngIf="includeSpinner" [style.color]="color">
     <div
       id="divSpinnerIcon"

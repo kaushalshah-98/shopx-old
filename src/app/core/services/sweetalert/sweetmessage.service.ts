@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import swal2 from "sweetalert2";
+import { Injectable } from '@angular/core';
+import swal2 from 'sweetalert2';
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class SweetmessageService {
   constructor() {}
@@ -9,7 +9,7 @@ export class SweetmessageService {
     swal2.fire({
       text: message,
       timer: 2000,
-      icon: "info"
+      icon: 'info'
     });
   }
 
@@ -17,7 +17,7 @@ export class SweetmessageService {
     swal2.fire({
       text: message,
       timer: 2000,
-      icon: "success"
+      icon: 'success'
     });
   }
 
@@ -26,7 +26,7 @@ export class SweetmessageService {
     swal2.fire({
       text: message,
       timer: 2000,
-      icon: "warning"
+      icon: 'warning'
     });
   }
 
@@ -34,7 +34,7 @@ export class SweetmessageService {
     swal2.fire({
       text: message,
       timer: 2000,
-      icon: "error"
+      icon: 'error'
     });
   }
 }

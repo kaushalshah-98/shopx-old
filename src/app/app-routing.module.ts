@@ -1,53 +1,48 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
-import { PageNotFoundComponent } from "./page-not-found.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found.component';
 
 const routes: Routes = [
   {
-    path: "",
-    loadChildren: () =>
-      import("./layout/layout.module").then(m => m.LayoutModule)
+    path: '',
+    loadChildren: () => import('./layout/layout.module').then((m) => m.LayoutModule)
   },
   {
-    path: "admin",
+    path: 'admin',
     loadChildren: () =>
-      import("./features/admin-management/admin-management.module").then(
-        m => m.AdminManagementModule
+      import('./features/admin-management/admin-management.module').then(
+        (m) => m.AdminManagementModule
       )
   },
   {
-    path: "login",
+    path: 'login',
     loadChildren: () =>
-      import("./core/auth-management/auth-management.module").then(
-        m => m.AuthManagementModule
+      import('./core/auth-management/auth-management.module').then((m) => m.AuthManagementModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./core/auth-management/auth-management.module').then((m) => m.AuthManagementModule)
+  },
+  {
+    path: 'cart',
+    loadChildren: () =>
+      import('./features/cart-management/cart-management.module').then(
+        (m) => m.CartManagementModule
       )
   },
   {
-    path: "register",
+    path: 'checkout',
     loadChildren: () =>
-      import("./core/auth-management/auth-management.module").then(
-        m => m.AuthManagementModule
+      import('./features/cart-management/cart-management.module').then(
+        (m) => m.CartManagementModule
       )
   },
   {
-    path: "cart",
+    path: 'usersettings',
     loadChildren: () =>
-      import("./features/cart-management/cart-management.module").then(
-        m => m.CartManagementModule
-      )
-  },
-  {
-    path: "checkout",
-    loadChildren: () =>
-      import("./features/cart-management/cart-management.module").then(
-        m => m.CartManagementModule
-      )
-  },
-  {
-    path: "usersettings",
-    loadChildren: () =>
-      import("./features/user-management/user-management.module").then(
-        m => m.UserManagementModule
+      import('./features/user-management/user-management.module').then(
+        (m) => m.UserManagementModule
       )
   },
   // {
@@ -57,14 +52,14 @@ const routes: Routes = [
   //       m => m.ProductManagementModule
   //     )
   // },
-  { path: "**", component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
       // useHash: true,
-      scrollPositionRestoration: "enabled"
+      scrollPositionRestoration: 'enabled'
       // preloadingStrategy: PreloadAllModules
     })
   ],

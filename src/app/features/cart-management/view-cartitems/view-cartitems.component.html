@@ -127,12 +127,7 @@
       <mat-cell *matCellDef="let element">
         <div class="input-quantity">
           <mat-form-field class="search-field" appearance="outline">
-            <input
-              matInput
-              type="number"
-              value="{{ element.quantity }}"
-              max="10"
-            />
+            <input matInput type="number" value="{{ element.quantity }}" max="10" />
           </mat-form-field>
         </div>
       </mat-cell>
@@ -146,11 +141,7 @@
     <ng-container matColumnDef="action">
       <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="updateCart(qty.value, cartitem)"
-        >
+        <button mat-raised-button color="primary" (click)="updateCart(qty.value, cartitem)">
           <mat-icon>refresh</mat-icon>
         </button>
       </mat-cell>
@@ -163,11 +154,7 @@
         </button>
       </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button
-          mat-raised-button
-          color="warn"
-          (click)="removeFromCart(cartitem)"
-        >
+        <button mat-raised-button color="warn" (click)="removeFromCart(cartitem)">
           <mat-icon>delete</mat-icon>
         </button>
       </mat-cell>
@@ -183,21 +170,11 @@
 </mat-card>
 <br /><br />
 <div class="table-bottom">
-  <button
-    mat-raised-button
-    style="width: 40%;"
-    [routerLink]="['/home']"
-    color="primary"
-  >
+  <button mat-raised-button style="width: 40%;" [routerLink]="['/home']" color="primary">
     Continue Shopping
   </button>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button
-    mat-raised-button
-    style="width: 40%;"
-    [routerLink]="['/checkout/#']"
-    color="warn"
-  >
+  <button mat-raised-button style="width: 40%;" [routerLink]="['/checkout/#']" color="warn">
     Checkout
   </button>
 </div>

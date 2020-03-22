@@ -4,11 +4,7 @@
       <!-- ================== 1-carousel bootstrap  ==================  -->
       <div id="carousel1_indicator" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li
-            data-target="#carousel1_indicator"
-            data-slide-to="0"
-            class="active"
-          ></li>
+          <li data-target="#carousel1_indicator" data-slide-to="0" class="active"></li>
           <li data-target="#carousel1_indicator" data-slide-to="1"></li>
           <li data-target="#carousel1_indicator" data-slide-to="2"></li>
         </ol>
@@ -27,11 +23,7 @@
             </article>
           </div>
           <div class="carousel-item" *ngFor="let item of items_slider1">
-            <img
-              class="d-block w-100"
-              src="{{ item.image }}"
-              alt="Second slide"
-            />
+            <img class="d-block w-100" src="{{ item.image }}" alt="Second slide" />
             <article class="carousel-caption d-none d-md-block">
               <h5 class="item-text">{{ item.name }}</h5>
               <p class="item-text">
@@ -61,11 +53,7 @@
       </div>
     </aside>
     <aside class="col-md-6">
-      <div
-        id="carousel2_indicator"
-        class="carousel slide carousel-fade"
-        data-ride="carousel"
-      >
+      <div id="carousel2_indicator" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
@@ -82,11 +70,7 @@
             <!-- carousel-caption .// -->
           </div>
           <div class="carousel-item" *ngFor="let item of items_slider2">
-            <img
-              class="d-block w-100"
-              src="{{ item.image }}"
-              alt="Second slide"
-            />
+            <img class="d-block w-100" src="{{ item.image }}" alt="Second slide" />
             <article class="carousel-caption d-none d-md-block">
               <h5 class="item-text">{{ item.name }}</h5>
               <p class="item-text">

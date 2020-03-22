@@ -1,94 +1,94 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { HomepageComponent } from "../layout/homepage/homepage.component";
-import { PageContentComponent } from "../layout/homepage/page-content/page-content.component";
-import { FetchTshirtComponent } from "../features/product-management/ProductCategories/MensFashion/fetch-tshirt.component";
-import { FetchShirtComponent } from "../features/product-management/ProductCategories/MensFashion/fetch-shirt.component";
-import { FetchShoesComponent } from "../features/product-management/ProductCategories/MensFashion/fetch-shoes.component";
-import { FetchSunglassComponent } from "../features/product-management/ProductCategories/MensFashion/fetch-sunglass.component";
-import { FetchSareeComponent } from "../features/product-management/ProductCategories/WomensFashion/fetch-saree.component";
-import { FetchDressComponent } from "../features/product-management/ProductCategories/WomensFashion/fetch-dress.component";
-import { FetchLadiesShoesComponent } from "../features/product-management/ProductCategories/WomensFashion/fetch-ladies-shoes.component";
-import { FetchWatchComponent } from "../features/product-management/ProductCategories/WomensFashion/fetch-watch.component";
-import { FetchLadiesNightwearComponent } from "../features/product-management/ProductCategories/WomensFashion/fetch-ladies-nightwear.component";
-import { FetchTvComponent } from "../features/product-management/ProductCategories/Electronics/fetch-tv.component";
-import { FetchLaptopComponent } from "../features/product-management/ProductCategories/Electronics/fetch-laptop.component";
-import { FetchHeadphonesComponent } from "../features/product-management/ProductCategories/Electronics/fetch-headphones.component";
-import { FetchAccessoriesComponent } from "../features/product-management/ProductCategories/Mobiles/fetch-accessories.component";
-import { FetchSmartphonesComponent } from "../features/product-management/ProductCategories/Mobiles/fetch-smartphones.component";
-import { FetchTabletsComponent } from "../features/product-management/ProductCategories/Mobiles/fetch-tablets.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomepageComponent } from '../layout/homepage/homepage.component';
+import { PageContentComponent } from '../layout/homepage/page-content/page-content.component';
+import { FetchTshirtComponent } from '../features/product-management/ProductCategories/MensFashion/fetch-tshirt.component';
+import { FetchShirtComponent } from '../features/product-management/ProductCategories/MensFashion/fetch-shirt.component';
+import { FetchShoesComponent } from '../features/product-management/ProductCategories/MensFashion/fetch-shoes.component';
+import { FetchSunglassComponent } from '../features/product-management/ProductCategories/MensFashion/fetch-sunglass.component';
+import { FetchSareeComponent } from '../features/product-management/ProductCategories/WomensFashion/fetch-saree.component';
+import { FetchDressComponent } from '../features/product-management/ProductCategories/WomensFashion/fetch-dress.component';
+import { FetchLadiesShoesComponent } from '../features/product-management/ProductCategories/WomensFashion/fetch-ladies-shoes.component';
+import { FetchWatchComponent } from '../features/product-management/ProductCategories/WomensFashion/fetch-watch.component';
+import { FetchLadiesNightwearComponent } from '../features/product-management/ProductCategories/WomensFashion/fetch-ladies-nightwear.component';
+import { FetchTvComponent } from '../features/product-management/ProductCategories/Electronics/fetch-tv.component';
+import { FetchLaptopComponent } from '../features/product-management/ProductCategories/Electronics/fetch-laptop.component';
+import { FetchHeadphonesComponent } from '../features/product-management/ProductCategories/Electronics/fetch-headphones.component';
+import { FetchAccessoriesComponent } from '../features/product-management/ProductCategories/Mobiles/fetch-accessories.component';
+import { FetchSmartphonesComponent } from '../features/product-management/ProductCategories/Mobiles/fetch-smartphones.component';
+import { FetchTabletsComponent } from '../features/product-management/ProductCategories/Mobiles/fetch-tablets.component';
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "home",
-    pathMatch: "full"
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
   },
   {
-    path: "",
+    path: '',
     component: HomepageComponent,
     children: [
       {
-        path: "mens_tshirts",
+        path: 'mens_tshirts',
         component: FetchTshirtComponent
       },
       {
-        path: "mens_shirts",
+        path: 'mens_shirts',
         component: FetchShirtComponent
       },
       {
-        path: "mens_shoes",
+        path: 'mens_shoes',
         component: FetchShoesComponent
       },
       {
-        path: "mens_sunglasses",
+        path: 'mens_sunglasses',
         component: FetchSunglassComponent
       },
       {
-        path: "womens_saree",
+        path: 'womens_saree',
         component: FetchSareeComponent
       },
       {
-        path: "womens_dress",
+        path: 'womens_dress',
         component: FetchDressComponent
       },
       {
-        path: "womens_shoes",
+        path: 'womens_shoes',
         component: FetchLadiesShoesComponent
       },
       {
-        path: "womens_watch",
+        path: 'womens_watch',
         component: FetchWatchComponent
       },
       {
-        path: "womens_nightwear",
+        path: 'womens_nightwear',
         component: FetchLadiesNightwearComponent
       },
       {
-        path: "televisions",
+        path: 'televisions',
         component: FetchTvComponent
       },
       {
-        path: "laptops",
+        path: 'laptops',
         component: FetchLaptopComponent
       },
       {
-        path: "headphones",
+        path: 'headphones',
         component: FetchHeadphonesComponent
       },
       {
-        path: "mobile_accessories",
+        path: 'mobile_accessories',
         component: FetchAccessoriesComponent
       },
       {
-        path: "tablets",
+        path: 'tablets',
         component: FetchTabletsComponent
       },
       {
-        path: "smartphones",
+        path: 'smartphones',
         component: FetchSmartphonesComponent
       },
       {
-        path: "home",
+        path: 'home',
         component: PageContentComponent
       }
     ]

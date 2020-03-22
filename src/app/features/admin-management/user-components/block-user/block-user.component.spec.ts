@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlockUserComponent } from "./block-user.component";
+import { BlockUserComponent } from './block-user.component';
 
-describe("BlockUserComponent", () => {
+describe('BlockUserComponent', () => {
   let component: BlockUserComponent;
   let fixture: ComponentFixture<BlockUserComponent>;
 
@@ -18,7 +18,7 @@ describe("BlockUserComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

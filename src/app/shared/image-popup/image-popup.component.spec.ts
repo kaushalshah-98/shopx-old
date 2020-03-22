@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImagePopupComponent } from "./image-popup.component";
+import { ImagePopupComponent } from './image-popup.component';
 
-describe("ImagePopupComponent", () => {
+describe('ImagePopupComponent', () => {
   let component: ImagePopupComponent;
   let fixture: ComponentFixture<ImagePopupComponent>;
 
@@ -18,7 +18,7 @@ describe("ImagePopupComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

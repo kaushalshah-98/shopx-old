@@ -1,27 +1,22 @@
-import { LoadingBarService } from "./loading-bar.service";
-import { Injectable } from "@angular/core";
+import { LoadingBarService } from './loading-bar.service';
+import { Injectable } from '@angular/core';
 import {
   HttpEvent,
   HttpInterceptor,
   HttpHandler,
   HttpRequest,
   HttpEventType
-} from "@angular/common/http";
-import { Observable } from "rxjs";
-import { finalize } from "rxjs/operators";
+} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 @Injectable()
 export class LoadingBarInterceptor implements HttpInterceptor {
   constructor(private loadingBar: LoadingBarService) {}
 
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
-    if (req.headers.has("ignoreLoadingBar")) {
-      return next.handle(
-        req.clone({ headers: req.headers.delete("ignoreLoadingBar") })
-      );
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (req.headers.has('ignoreLoadingBar')) {
+      return next.handle(req.clone({ headers: req.headers.delete('ignoreLoadingBar') }));
     }
 
     const r: Observable<HttpEvent<any>> = next.handle(req);

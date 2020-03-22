@@ -13,21 +13,11 @@
           </mat-card-subtitle>
         </mat-card-header>
         <div class="cancel-button">
-          <button
-            mat-raised-button
-            color="accent"
-            (click)="quickview(item)"
-            style="height: 60px;"
-          >
+          <button mat-raised-button color="accent" (click)="quickview(item)" style="height: 60px;">
             <mat-icon class="cancel-icon">remove_red_eye</mat-icon>
           </button>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button
-            mat-raised-button
-            (click)="cancelOrder(item)"
-            color="warn"
-            style="height: 60px;"
-          >
+          <button mat-raised-button (click)="cancelOrder(item)" color="warn" style="height: 60px;">
             <mat-icon class="cancel-icon">cancel</mat-icon>
           </button>
         </div>
@@ -37,12 +27,7 @@
   </div>
 </ng-container>
 <div class="order-button-wrap">
-  <button
-    mat-raised-button
-    color="primary"
-    [routerLink]="['/home']"
-    class="order-button"
-  >
+  <button mat-raised-button color="primary" [routerLink]="['/home']" class="order-button">
     Continue Shopping
   </button>
 </div>

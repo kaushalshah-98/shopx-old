@@ -22,11 +22,7 @@
     <ng-container matColumnDef="action">
       <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="addTocart(1, element)"
-        >
+        <button mat-raised-button color="primary" (click)="addTocart(1, element)">
           <mat-icon>add_shopping_cart</mat-icon>
         </button>
       </mat-cell>
@@ -39,11 +35,7 @@
         </button>
       </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button
-          mat-raised-button
-          color="warn"
-          (click)="removeFromWishlist(element)"
-        >
+        <button mat-raised-button color="warn" (click)="removeFromWishlist(element)">
           <mat-icon>delete</mat-icon>
         </button>
       </mat-cell>
@@ -55,21 +47,11 @@
 </div>
 <br /><br /><br /><br />
 <div class="table-bottom">
-  <button
-    mat-raised-button
-    style="width: 40%;"
-    [routerLink]="['/home']"
-    color="primary"
-  >
+  <button mat-raised-button style="width: 40%;" [routerLink]="['/home']" color="primary">
     Continue Shopping
   </button>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button
-    mat-raised-button
-    style="width: 40%;"
-    [routerLink]="['/cart']"
-    color="warn"
-  >
+  <button mat-raised-button style="width: 40%;" [routerLink]="['/cart']" color="warn">
     Go To Cart
   </button>
 </div>

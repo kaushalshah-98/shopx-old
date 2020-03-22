@@ -17,31 +17,18 @@
       <div class="u-margin-top-15">
         <div>
           <mat-form-field class="search-block" floatLabel="never">
-            <input
-              matInput
-              autocomplete="off"
-              (keyup)="applyFilter($event)"
-              placeholder="Search"
-            />
+            <input matInput autocomplete="off" (keyup)="applyFilter($event)" placeholder="Search" />
             <mat-icon matSuffix style="font-size: 18px;">search</mat-icon>
           </mat-form-field>
         </div>
         <mat-divider></mat-divider>
         <div>
           <app-spinner [loading]="dataLoading"></app-spinner>
-          <table
-            mat-table
-            [dataSource]="dataSource"
-            matSort
-            multiTemplateDataRows
-          >
+          <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
             <ng-container matColumnDef="image">
               <th mat-header-cell mat-sort-header *matHeaderCellDef>Image</th>
               <td mat-cell *matCellDef="let element">
-                <img
-                  style="width: 40px;height: 40px;"
-                  src="{{ element.image }}"
-                />
+                <img style="width: 40px;height: 40px;" src="{{ element.image }}" />
               </td>
             </ng-container>
             <ng-container matColumnDef="name">
@@ -75,14 +62,9 @@
             </ng-container>
 
             <ng-container matColumnDef="action">
-              <th
-                mat-header-cell
-                mat-sort-header
-                *matHeaderCellDef
-                style="width: 200px;"
-              >
-                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Action
+              <th mat-header-cell mat-sort-header *matHeaderCellDef style="width: 200px;">
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp; Action
               </th>
               <td mat-cell *matCellDef="let element">
                 <button
@@ -96,30 +78,18 @@
                   <mat-icon>remove_red_eye</mat-icon>
                 </button>
                 &nbsp;&nbsp;
-                <button
-                  mat-icon-button
-                  color="accent"
-                  (click)="updateCart(qty.value, cartitem)"
-                >
+                <button mat-icon-button color="accent" (click)="updateCart(qty.value, cartitem)">
                   <mat-icon>edit</mat-icon>
                 </button>
                 &nbsp;&nbsp;
-                <button
-                  mat-icon-button
-                  color="warn"
-                  (click)="removeFromCart(cartitem)"
-                >
+                <button mat-icon-button color="warn" (click)="removeFromCart(cartitem)">
                   <mat-icon>delete</mat-icon>
                 </button>
               </td>
             </ng-container>
             <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
             <ng-container matColumnDef="expandedDetail">
-              <td
-                mat-cell
-                *matCellDef="let element"
-                [attr.colspan]="columnsToDisplay.length"
-              >
+              <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
                 <div
                   class="example-element-detail"
                   [@detailExpand]="
@@ -128,10 +98,7 @@
                 >
                   <div class="example-element-diagram">
                     <div class="example-element-position">
-                      <img
-                        style="width: 100px;height: 100px;"
-                        src="{{ element.image }}"
-                      />
+                      <img style="width: 100px;height: 100px;" src="{{ element.image }}" />
                     </div>
                     <!-- <div class="example-element-symbol">{{ element.name }}</div>
                     <div class="example-element-name">{{ element.price }}</div>
@@ -163,10 +130,7 @@
             ></tr>
           </table>
 
-          <mat-paginator
-            [pageSizeOptions]="[5, 10, 20]"
-            showFirstLastButtons
-          ></mat-paginator>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
         </div>
       </div>
     </mat-card-content>

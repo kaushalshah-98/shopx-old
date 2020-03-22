@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImageSliderComponent } from "./image-slider.component";
+import { ImageSliderComponent } from './image-slider.component';
 
-describe("ImageSliderComponent", () => {
+describe('ImageSliderComponent', () => {
   let component: ImageSliderComponent;
   let fixture: ComponentFixture<ImageSliderComponent>;
 
@@ -18,7 +18,7 @@ describe("ImageSliderComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

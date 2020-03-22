@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { Component, OnInit, Input } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
-  selector: "app-spinner",
-  templateUrl: "./spinner.component.html",
-  styleUrls: ["./spinner.component.scss"]
+  selector: 'app-spinner',
+  templateUrl: './spinner.component.html',
+  styleUrls: ['./spinner.component.scss']
 })
 export class SpinnerComponent implements OnInit {
   showLoader = true;

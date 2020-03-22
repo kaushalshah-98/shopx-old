@@ -1,4 +1,4 @@
-@import "../../../../assets/css/variable.scss";
+@import '../../../../assets/css/variable.scss';
 .nav-menu-list {
   margin-top: -5px !important;
   .menu-name {
@@ -10,8 +10,7 @@
 
     &.activeMenu {
       background-color: #673ab7 !important;
-      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14),
-        0 7px 10px -5px rgba(0, 2, 87, 0.4);
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 2, 87, 0.4);
       color: map-get($map: $global-color, $key: white) !important;
     }
 
@@ -23,11 +22,11 @@
       margin-top: 4px;
       font-weight: 300;
       font-size: 14px;
-      font-family: "Bliss 2", sans-serif;
+      font-family: 'Bliss 2', sans-serif;
     }
   }
 
-  .mat-expansion-panel-header[aria-disabled="true"] {
+  .mat-expansion-panel-header[aria-disabled='true'] {
     color: rgba(34, 34, 34, 1);
     cursor: pointer !important;
 

@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild, EventEmitter } from "@angular/core";
-import { MatSort, MatPaginator, MatTableDataSource } from "@angular/material";
+import { Component, OnInit, ViewChild, EventEmitter } from '@angular/core';
+import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 
 @Component({
-  selector: "app-view-users",
-  templateUrl: "./view-users.component.html",
-  styleUrls: ["./view-users.component.scss"]
+  selector: 'app-view-users',
+  templateUrl: './view-users.component.html',
+  styleUrls: ['./view-users.component.scss']
 })
 export class ViewUsersComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -12,7 +12,7 @@ export class ViewUsersComponent implements OnInit {
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   dataSource: any;
   pageSizeOptions: number[] = [10, 20, 50, 100];
-  columnsToDisplay = ["status", "profilepic", "name", "email", "action"];
+  columnsToDisplay = ['status', 'profilepic', 'name', 'email', 'action'];
   expandedElement: PeriodicElement | null;
   constructor() {}
 
@@ -43,52 +43,52 @@ export interface PeriodicElement {
 }
 const users = [
   {
-    name: "kaushal",
-    email: "hello@gmail.com",
+    name: 'kaushal',
+    email: 'hello@gmail.com',
     status: true,
     profilepic:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg"
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   },
   {
-    name: "vaibhav",
-    email: "hello@gmail.com",
+    name: 'vaibhav',
+    email: 'hello@gmail.com',
     status: false,
     profilepic:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg"
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   },
   {
-    name: "yash",
-    email: "hello@gmail.com",
+    name: 'yash',
+    email: 'hello@gmail.com',
     status: true,
     profilepic:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg"
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   },
   {
-    name: "ram",
-    email: "hello@gmail.com",
+    name: 'ram',
+    email: 'hello@gmail.com',
     status: false,
     profilepic:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg"
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   },
   {
-    name: "manthan",
-    email: "hello@gmail.com",
+    name: 'manthan',
+    email: 'hello@gmail.com',
     status: true,
     profilepic:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg"
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   },
   {
-    name: "vishal",
-    email: "hello@gmail.com",
+    name: 'vishal',
+    email: 'hello@gmail.com',
     status: true,
     profilepic:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg"
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   },
   {
-    name: "sahil",
-    email: "hello@gmail.com",
+    name: 'sahil',
+    email: 'hello@gmail.com',
     status: false,
     profilepic:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg"
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   }
 ];

@@ -1,15 +1,15 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class RoleService {
   constructor() {}
 
   getRole() {
-    return JSON.parse(localStorage.getItem("role"));
+    return JSON.parse(localStorage.getItem('role'));
   }
   setRole(role) {
-    localStorage.setItem("role", JSON.stringify(role));
+    localStorage.setItem('role', JSON.stringify(role));
   }
 }

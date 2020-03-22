@@ -1,4 +1,4 @@
-@import "./../../../assets/css/variable";
+@import './../../../assets/css/variable';
 
 .c-site-left-panel-inner {
   padding-top: 95px;
@@ -69,12 +69,7 @@
             padding-left: 44px;
             position: relative;
             line-height: 18px;
-            color: var(
-              map-get(
-                $map: $global-theme-variable,
-                $key: global_neutral_darkest
-              )
-            );
+            color: var(map-get($map: $global-theme-variable, $key: global_neutral_darkest));
 
             mat-icon {
               position: absolute;

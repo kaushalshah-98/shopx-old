@@ -1,17 +1,11 @@
-import {
-  Component,
-  OnInit,
-  ViewEncapsulation,
-  HostBinding,
-  Input
-} from "@angular/core";
-import { Router } from "@angular/router";
-import { IMenu } from "@shared/interfaces";
+import { Component, OnInit, ViewEncapsulation, HostBinding, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { IMenu } from '@shared/interfaces';
 
 @Component({
-  selector: "app-menuitems",
-  templateUrl: "./menuitems.component.html",
-  styleUrls: ["./menuitems.component.scss"],
+  selector: 'app-menuitems',
+  templateUrl: './menuitems.component.html',
+  styleUrls: ['./menuitems.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class MenuitemsComponent implements OnInit {
@@ -21,7 +15,7 @@ export class MenuitemsComponent implements OnInit {
   @Input() depth;
   @Input() innerdepth = 0;
 
-  @HostBinding("attr.aria-expanded") ariaExpanded = this.expanded;
+  @HostBinding('attr.aria-expanded') ariaExpanded = this.expanded;
   step = 0;
   constructor(public router: Router) {}
 
@@ -31,16 +25,16 @@ export class MenuitemsComponent implements OnInit {
 
   ngOnInit() {
     this.cururl = window.location.pathname
-      .replace("/tm/", "/")
+      .replace('/tm/', '/')
       .substring(1)
-      .concat("/");
+      .concat('/');
     if (this.item.childs) {
       for (const urlLevel1 of this.item.childs) {
         if (
           this.cururl === urlLevel1.url ||
           this.cururl.slice(0, -1) === urlLevel1.url ||
-          this.cururl.concat("/") === urlLevel1.url ||
-          "/".concat(this.cururl).slice(0, -1) === urlLevel1.url
+          this.cururl.concat('/') === urlLevel1.url ||
+          '/'.concat(this.cururl).slice(0, -1) === urlLevel1.url
         ) {
           this.step = this.depth;
         }
@@ -56,11 +50,11 @@ export class MenuitemsComponent implements OnInit {
   }
   getItemCSS(item) {
     if (item.childs) {
-      return "";
+      return '';
     } else if (!item.url) {
-      return "";
+      return '';
     }
-    return "activeMenu";
+    return 'activeMenu';
   }
   getItemURL(item) {
     if (item.url) {

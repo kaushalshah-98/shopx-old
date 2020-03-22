@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteProductComponent } from "./delete-product.component";
+import { DeleteProductComponent } from './delete-product.component';
 
-describe("DeleteProductComponent", () => {
+describe('DeleteProductComponent', () => {
   let component: DeleteProductComponent;
   let fixture: ComponentFixture<DeleteProductComponent>;
 
@@ -18,7 +18,7 @@ describe("DeleteProductComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

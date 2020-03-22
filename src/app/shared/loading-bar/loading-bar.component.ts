@@ -1,20 +1,13 @@
-import { Component, Input, ViewEncapsulation } from "@angular/core";
-import { LoadingBarService } from "./loading-bar.service";
-import {
-  map,
-  take,
-  delay,
-  withLatestFrom,
-  finalize,
-  tap
-} from "rxjs/operators";
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { LoadingBarService } from './loading-bar.service';
+import { map, take, delay, withLatestFrom, finalize, tap } from 'rxjs/operators';
 
 @Component({
-  selector: "app-loading-bar",
-  templateUrl: "./loading-bar.component.html",
+  selector: 'app-loading-bar',
+  templateUrl: './loading-bar.component.html',
   preserveWhitespaces: false,
   encapsulation: ViewEncapsulation.Emulated,
-  styleUrls: ["./loading-bar.component.scss"]
+  styleUrls: ['./loading-bar.component.scss']
 })
 export class LoadingBarComponent {
   @Input() includeSpinner = false;

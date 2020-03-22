@@ -1,25 +1,16 @@
-import { Component, OnInit, ViewChild, EventEmitter } from "@angular/core";
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger
-} from "@angular/animations";
-import { MatSort, MatPaginator, MatTableDataSource } from "@angular/material";
+import { Component, OnInit, ViewChild, EventEmitter } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 
 @Component({
-  selector: "app-view-products",
-  templateUrl: "./view-products.component.html",
-  styleUrls: ["./view-products.component.scss"],
+  selector: 'app-view-products',
+  templateUrl: './view-products.component.html',
+  styleUrls: ['./view-products.component.scss'],
   animations: [
-    trigger("detailExpand", [
-      state("collapsed", style({ height: "0px", minHeight: "0" })),
-      state("expanded", style({ height: "*" })),
-      transition(
-        "expanded <=> collapsed",
-        animate("225ms cubic-bezier(0.4, 0.0, 0.2, 1)")
-      )
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
     ])
   ]
 })
@@ -29,7 +20,7 @@ export class ViewProductsComponent implements OnInit {
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   dataSource: any;
   pageSizeOptions: number[] = [10, 20, 50, 100];
-  columnsToDisplay = ["image", "name", "quantity", "price", "action"];
+  columnsToDisplay = ['image', 'name', 'quantity', 'price', 'action'];
   expandedElement: PeriodicElement | null;
   constructor() {}
 
@@ -58,71 +49,71 @@ export interface PeriodicElement {
 }
 const products = [
   {
-    name: "shirt",
+    name: 'shirt',
     price: 50000,
     quantity: 1,
     image:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg",
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 50,
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
   {
-    name: "tshirt",
+    name: 'tshirt',
     price: 40000,
     quantity: 6,
     image:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg",
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 50,
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
   {
-    name: "tv",
+    name: 'tv',
     price: 500000,
     quantity: 6,
     image:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg",
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 90,
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
   {
-    name: "top",
+    name: 'top',
     price: 500,
     quantity: 6,
     image:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg",
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 10,
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
   {
-    name: "earphone",
+    name: 'earphone',
     price: 800,
     quantity: 6,
     image:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg",
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 20,
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
   {
-    name: "mobile",
+    name: 'mobile',
     price: 60000,
     quantity: 36,
     image:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg",
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 30,
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
   {
-    name: "samsung",
+    name: 'samsung',
     price: 5000,
     quantity: 6,
     image:
-      "https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg",
+      'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 40,
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
