@@ -1,7 +1,10 @@
 <app-jumbotron [Heading]="'DELETE-PRODUCT'"></app-jumbotron>
 <div class="delete-container">
   <div class="delete-input">
-    <app-big-input [placeholder]="'Enter The Number'" (keyup)="onInputChanged($event.target.value)">
+    <app-big-input
+      [placeholder]="'Enter The Product-ID'"
+      (keyup)="onInputChanged($event.target.value)"
+    >
       <app-big-input-action
         [color]="'warn'"
         [iconname]="'delete_outline'"

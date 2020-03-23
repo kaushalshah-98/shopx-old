@@ -23,10 +23,10 @@ export class EditProfileComponent implements OnInit {
   }
   cancel() {
     if (
-      this.emailFormControl.dirty ||
-      this.passwordFormControl.dirty ||
-      this.photoFormControl.dirty ||
-      this.usernameFormControl.dirty
+      this.emailFormControl.touched ||
+      this.passwordFormControl.touched ||
+      this.photoFormControl.touched ||
+      this.usernameFormControl.touched
     ) {
       this.dialog.showConfirmDialog('Are You Sure Want to Cancel ?').subscribe((result) => {
         if (result === 'yes') {

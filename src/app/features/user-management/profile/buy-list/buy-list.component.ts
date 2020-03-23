@@ -15,10 +15,10 @@ export class BuyListComponent implements OnInit {
     { name: 'one short', done: false },
     { name: 'television', done: false },
     { name: 'mobile', done: false },
-    { name: 'headphones', done: true },
+    { name: 'headphones', done: true }
   ];
   buylist: any;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.buylist = this.list;
@@ -41,7 +41,7 @@ export class BuyListComponent implements OnInit {
     }
   }
   onAddToBuyList() {
-    let item = { name: this.inputvalue, done: false }
+    let item = { name: this.inputvalue, done: false };
     this.buylist.push(item);
     this.onClear();
   }
@@ -54,7 +54,7 @@ export class BuyListComponent implements OnInit {
     this.check();
   }
   onRemoveItem() {
-    this.list = this.list.filter(item => !item.done === true);
+    this.list = this.list.filter((item) => !item.done === true);
     this.buylist = this.list;
     this.isSelected = true;
   }
@@ -64,10 +64,10 @@ export class BuyListComponent implements OnInit {
         this.buylist = this.list;
         break;
       case 'DONE':
-        this.buylist = this.list.filter(item => item.done === true)
+        this.buylist = this.list.filter((item) => item.done === true);
         break;
       case 'ACTIVE':
-        this.buylist = this.list.filter(item => item.done === false)
+        this.buylist = this.list.filter((item) => item.done === false);
         break;
     }
   }
