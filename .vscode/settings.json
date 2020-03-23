@@ -6,7 +6,7 @@
   },
   "workbench.iconTheme": "vscode-icons",
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "files.autoSave": "off", // let this be off
   "sass.disableAutoIndent": true,

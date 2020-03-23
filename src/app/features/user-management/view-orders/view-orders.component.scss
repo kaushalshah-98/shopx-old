@@ -1,38 +1,52 @@
 .order-container {
   padding: 50px 50px 38px 50px;
-  .order-card {
-    border-radius: 10px;
-    box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
-    &:hover {
-      -webkit-box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
-      // box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-      //   0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.24),
-        0 3px 14px 2px rgba(0, 0, 0, 0.22);
-      transform: translateY(-0.5px);
-    }
-    .order-header {
-      padding-left: 100px;
-      .order-image {
-        height: 70px;
-        width: 70px;
-        border-radius: 50%;
-        flex-shrink: 0;
-        position: absolute;
-        left: 20px;
-        object-fit: cover;
+  min-height: 550px;
+  .roww {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    .order-card {
+      border-radius: 10px;
+      box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+      height: 115px;
+      width: 100%;
+      &:hover {
+        -webkit-box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+        // box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+        //   0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.24),
+          0 3px 14px 2px rgba(0, 0, 0, 0.22);
+        transform: translateY(-0.5px);
       }
-    }
-    .cancel-button {
-      position: absolute;
-      top: 40px;
-      left: 83%;
-
-      .cancel-icon {
-        font-size: 36px;
-        margin-top: -11px;
-        margin-left: -11px;
+      .order-header {
+        padding-left: 100px;
+        p {
+          margin-bottom: 0.6rem !important;
+        }
+        .order-image {
+          height: 70px;
+          width: 70px;
+          border-radius: 50%;
+          flex-shrink: 0;
+          position: absolute;
+          left: 20px;
+          object-fit: cover;
+        }
+      }
+      .cancel-button {
+        position: absolute;
+        top: 30px;
+        left: 70%;
+        .mat-raised-button {
+          height: 50px;
+          .cancel-icon {
+            font-size: 30px;
+            margin-top: -5px;
+            margin-left: -5px;
+          }
+        }
       }
     }
   }
@@ -42,6 +56,6 @@
   justify-content: center;
   align-items: center;
   .order-button {
-    width: 40%;
+    width: 30%;
   }
 }

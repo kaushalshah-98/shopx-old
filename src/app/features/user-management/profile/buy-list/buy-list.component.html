@@ -3,18 +3,70 @@
     <app-big-input
       [placeholder]="'I am going to buy a...'"
       (keyup)="onInputChanged($event.target.value)"
+      (keyup.enter)="!isDisabled && onAddToBuyList()"
+      [value]="inputvalue"
+      (keyup.escape)="onClear()"
       [height]="60"
+      [radius]="5"
     >
       <div class="btn">
-        <button mat-raised-button color="accent" [disabled]="isDisabled">
+        <button mat-raised-button color="accent" (click)="onAddToBuyList()" [disabled]="isDisabled">
           <mat-icon>add</mat-icon>
         </button>
         &nbsp;&nbsp;
-        <button mat-raised-button color="warn">
+        <button mat-raised-button color="warn" (click)="onRemoveItem()" [disabled]="isSelected">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
     </app-big-input>
   </div>
+  <ng-container *ngIf="list">
+    <div class="buy-card-container">
+      <div class="filter-btn">
+        <button mat-icon-button [matMenuTriggerFor]="todosFilter">
+          <mat-icon>filter_list</mat-icon>
+        </button>
+        <mat-chip-list>
+          <mat-chip [disabled]="true">
+            Displaying {{buylist.length}} item
+          </mat-chip>
+        </mat-chip-list>
+        <mat-menu #todosFilter="matMenu" xPosition="before">
+          <button mat-menu-item (click)="onFilter('ALL')" rtl>
+            <mat-icon> view_list </mat-icon>
+            <span>All</span>
+          </button>
+          <button mat-menu-item (click)="onFilter('DONE')">
+            <mat-icon> check </mat-icon>
+            <span>Done</span>
+          </button>
+          <button mat-menu-item (click)="onFilter('ACTIVE')">
+            <mat-icon> notifications_active </mat-icon>
+            <span>Active</span>
+          </button>
+        </mat-menu>
+      </div>
+      <br />
+      <div class="roww">
+        <div class="two-part" *ngFor="let item of buylist">
+          <mat-card class="todo">
+            <mat-checkbox
+              color="primary"
+              class="todo-done"
+              [checked]="item.done"
+              (change)="onToggleTodo(item)"
+            ></mat-checkbox>
+            <span
+              class="todo-label"
+              [ngClass]="{ 'todo-label-done': item.done }"
+              (click)="onToggleTodo(item)"
+            >
+              &nbsp;{{item.name}}&nbsp;
+            </span>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </ng-container>
 </div>
 <app-footer></app-footer>

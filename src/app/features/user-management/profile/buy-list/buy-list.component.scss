@@ -1,9 +1,47 @@
 .delete-container {
-  min-height: 550px;
+  min-height: 501px;
   .delete-input {
     padding: 40px 300px 0px 300px;
     .btn {
       margin-right: 10px;
+    }
+  }
+  .buy-card-container {
+    padding: 15px 150px 0px 150px;
+    .filter-btn {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .roww {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+      .mat-card {
+        box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.3), 0 1px 1px 0 rgba(0, 0, 0, 0.24),
+          0 1px 3px 0 rgba(0, 0, 0, 0.22);
+        margin-bottom: 10px;
+      }
+      .todo {
+        display: flex;
+        margin-bottom: 10px;
+
+        .todo-done {
+          margin: 0 20px 0 0;
+        }
+
+        .todo-label {
+          position: relative;
+          top: -1px;
+          cursor: pointer;
+
+          &.todo-label-done {
+            text-decoration: line-through;
+            opacity: 0.5;
+          }
+        }
+      }
     }
   }
 }

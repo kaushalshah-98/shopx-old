@@ -11,6 +11,7 @@ export class BigInputComponent {
   @Input() value = '';
   @Input() disabled = false;
   @Input() height = 120;
+  @Input() radius = 10;
 
   hasFocus = false;
 }
