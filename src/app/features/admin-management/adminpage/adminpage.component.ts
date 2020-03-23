@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IMenu } from '@shared/interfaces';
 
 @Component({
@@ -7,9 +7,6 @@ import { IMenu } from '@shared/interfaces';
   styleUrls: ['./adminpage.component.scss']
 })
 export class AdminpageComponent implements OnInit {
-  // go to top
-  isShow: boolean;
-  topPosToStartShowing = 20;
   menuItems: IMenu[];
 
   constructor() {}
@@ -69,24 +66,5 @@ export class AdminpageComponent implements OnInit {
         ]
       }
     ];
-  }
-  @HostListener('window:scroll')
-  checkScroll() {
-    const scrollPosition =
-      window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (scrollPosition >= this.topPosToStartShowing) {
-      this.isShow = true;
-    } else {
-      this.isShow = false;
-    }
-  }
-
-  // TODO: Cross browsing
-  gotoTop() {
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
   }
 }

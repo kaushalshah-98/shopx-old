@@ -18,11 +18,13 @@
       width: 100%;
     }
   }
-  .edit-footer {
-    display: block;
-    .footer-button {
-      position: relative;
-      left: 80%;
-    }
+}
+.edit-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+  .mat-raised-button {
+    width: 20%;
   }
 }

@@ -9,7 +9,9 @@ export class ProfileComponent implements OnInit {
   selectedIndex: number;
   heading = 'PROFILE SETTINGS';
   constructor() {}
+
   ngOnInit() {}
+
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {
     this.selectedIndex = tabChangeEvent.index;
   }

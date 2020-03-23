@@ -84,17 +84,12 @@
     </div> -->
 </div>
 <mat-toolbar color="primary" class="edit-footer">
-  <div
-    class="footer-button"
-    style="position: relative;
-    left: 80%;"
-  >
-    <button mat-raised-button style="width: 60%">
-      Save
-    </button>
-    &nbsp;
-    <button mat-raised-button style="width: 60%;" (click)="cancel()" color="warn">
-      Cancel
-    </button>
-  </div>
+  <button mat-raised-button (click)="AddProduct()">
+    Save
+  </button>
+  &nbsp; &nbsp; &nbsp; &nbsp;
+
+  <button mat-raised-button (click)="cancel()" color="warn">
+    Cancel
+  </button>
 </mat-toolbar>
