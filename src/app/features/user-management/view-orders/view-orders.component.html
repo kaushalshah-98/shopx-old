@@ -2,30 +2,68 @@
 <app-jumbotron [Heading]="heading"></app-jumbotron>
 <ng-container>
   <div class="order-container">
-    <div class="roww">
-      <div class="two-part" *ngFor="let item of orderitems">
-        <mat-card class="order-card">
-          <mat-card-header class="order-header">
-            <img class="order-image" src="{{ item.image }}" />
-            <mat-card-title>{{ item.name }}</mat-card-title>
-            <mat-card-subtitle>
-              <p>Purchased On : {{ item.date }}</p>
-              <p>Price : {{ item.price }}</p>
-            </mat-card-subtitle>
-          </mat-card-header>
-          <div class="cancel-button">
-            <button mat-raised-button color="accent" (click)="quickview(item)">
-              <mat-icon class="cancel-icon">remove_red_eye</mat-icon>
-            </button>
-            &nbsp;&nbsp;&nbsp;
-            <button mat-raised-button (click)="cancelOrder(item)" color="warn">
-              <mat-icon class="cancel-icon">cancel</mat-icon>
-            </button>
-          </div>
-        </mat-card>
+    <mat-accordion>
+      <div *ngFor="let order of orderitems">
+        <mat-expansion-panel>
+          {{reset()}}
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{order.name}}
+            </mat-panel-title>
+            <mat-panel-description>
+              {{order.date}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <table mat-table [dataSource]="order.products">
+            <ng-container matColumnDef="number">
+              <th mat-header-cell *matHeaderCellDef>No</th>
+              <td mat-cell *matCellDef="let element">
+                {{increment()}}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="image">
+              <th mat-header-cell *matHeaderCellDef>Image</th>
+              <td mat-cell *matCellDef="let element">
+                <img class="product-image" src="{{ element.image }}" />
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let element">{{element.name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef>Price</th>
+              <td mat-cell *matCellDef="let element">{{element.price}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef>Quantity</th>
+              <td mat-cell *matCellDef="let element">{{element.quantity}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef style="width: 100px;">
+                <button class="cancel-btn" mat-raised-button color="warn">
+                  Cancel this order
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-icon-button color="primary" (click)="quickview(element)">
+                  <mat-icon>remove_red_eye</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </mat-expansion-panel>
         <br />
       </div>
-    </div>
+    </mat-accordion>
     <br /><br /><br /><br />
     <div class="order-button-wrap">
       <button mat-raised-button color="primary" [routerLink]="['/home']" class="order-button">

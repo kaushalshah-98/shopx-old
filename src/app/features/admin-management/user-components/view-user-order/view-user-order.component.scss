@@ -11,48 +11,42 @@
         background-color: white !important;
       }
       .mat-expansion-panel-header {
-        &:hover{
-          background: rgba(0,0,0,.01);
-        }
-        .roww {
-          display: flex;
-          flex-wrap: wrap;
-          margin-right: -15px;
-          margin-left: -15px;
-        }
         height: 80px !important;
+        &:hover {
+          background: rgba(0, 0, 0, 0.01);
+        }
+        .user-image {
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
+          position: relative;
+          left: 5%;
+          object-fit: cover;
+        }
         p {
           position: relative;
           top: 17%;
           left: -37%;
         }
       }
-    }
-    .product-image {
-      width: 30px;
-      height: 30px;
-    }
-    .mat-table {
-      width: 100%;
-      th.mat-header-cell:last-of-type {
-        padding-right: 0px;
-      }
-      .mat-row {
-        &:hover {
-          background: whitesmoke;
+      .mat-table {
+        width: 100%;
+        th.mat-header-cell:last-of-type {
+          padding-right: 0px;
+        }
+        .mat-row {
+          &:hover {
+            background: whitesmoke;
+          }
+          .product-image {
+            width: 30px;
+            height: 30px;
+          }
         }
       }
-    }
-    .mat-card {
-      box-shadow: none;
-    }
-    .user-image {
-      height: 40px;
-      width: 40px;
-      border-radius: 50%;
-      position: relative;
-      left: 5%;
-      object-fit: cover;
+      .mat-card {
+        box-shadow: none;
+      }
     }
   }
 }
