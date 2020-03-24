@@ -12,10 +12,9 @@ export class ViewOrdersComponent implements OnInit {
   i: number = 0;
   orderitems: any;
   displayedColumns: string[] = ['number', 'image', 'name', 'price', 'quantity', 'action'];
-  constructor(private view: QuickViewService, private dialog: ConfirmDialogService) { }
+  constructor(private view: QuickViewService, private dialog: ConfirmDialogService) {}
 
   ngOnInit() {
-
     this.orderitems = [
       {
         name: 'Order-1',
@@ -82,8 +81,8 @@ export class ViewOrdersComponent implements OnInit {
             productqty: 50
           }
         ]
-      },
-    ]
+      }
+    ];
   }
   quickview(item) {
     this.view.showQuickview(item);
@@ -102,6 +101,6 @@ export class ViewOrdersComponent implements OnInit {
   }
   increment() {
     this.i = this.i + 1;
-    return (this.i);
+    return this.i;
   }
 }

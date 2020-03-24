@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-user-order.component.scss']
 })
 export class ViewUserOrderComponent implements OnInit {
-  constructor() { }
+  constructor() {}
   displayedColumns: string[] = ['number', 'image', 'name', 'price', 'quantity'];
   i = 0;
   user = [
@@ -79,18 +79,25 @@ export class ViewUserOrderComponent implements OnInit {
               productqty: 50
             }
           ]
-        },
+        }
       ]
     },
-    { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS0Hrk0TLzUYvbfxcbXCmAqPmIkg7UgVhl9ansXE8K_K2f7ASo-', name: 'Yash' },
-    { image: 'https://assets.thehansindia.com/hansindia-bucket/kaushal%20army_5962.jpg', name: 'kaushal' },
-  ]
-  ngOnInit() { }
+    {
+      image:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS0Hrk0TLzUYvbfxcbXCmAqPmIkg7UgVhl9ansXE8K_K2f7ASo-',
+      name: 'Yash'
+    },
+    {
+      image: 'https://assets.thehansindia.com/hansindia-bucket/kaushal%20army_5962.jpg',
+      name: 'kaushal'
+    }
+  ];
+  ngOnInit() {}
   reset() {
     this.i = 0;
   }
   increment() {
     this.i = this.i + 1;
-    return (this.i);
+    return this.i;
   }
 }
