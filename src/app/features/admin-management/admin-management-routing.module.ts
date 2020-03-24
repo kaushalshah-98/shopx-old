@@ -9,6 +9,7 @@ import { UpdateProductComponent } from './product-components/update-product/upda
 import { ViewUsersComponent } from './user-components/view-users/view-users.component';
 import { BlockUserComponent } from './user-components/block-user/block-user.component';
 import { ViewUserOrderComponent } from './user-components/view-user-order/view-user-order.component';
+import { UpdateComponent } from './product-components/update-product/update/update.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,11 @@ const routes: Routes = [
       },
       {
         path: 'updateproduct',
-        component: UpdateProductComponent
+        component: UpdateProductComponent,
+      },
+      {
+        path: 'update',
+        component: UpdateComponent
       },
       {
         path: 'deleteproduct',
@@ -51,7 +56,7 @@ const routes: Routes = [
       {
         path: 'vieworders',
         component: ViewUserOrderComponent
-      }
+      },
     ]
   }
 ];
@@ -59,4 +64,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminManagementRoutingModule {}
+export class AdminManagementRoutingModule { }

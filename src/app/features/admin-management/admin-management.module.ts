@@ -12,6 +12,8 @@ import { UpdateProductComponent } from './product-components/update-product/upda
 import { DeleteProductComponent } from './product-components/delete-product/delete-product.component';
 import { ContentComponent } from './adminpage/content/content.component';
 import { ViewUserOrderComponent } from './user-components/view-user-order/view-user-order.component';
+import { UpdateComponent } from './product-components/update-product/update/update.component';
+
 @NgModule({
   declarations: [
     AdminpageComponent,
@@ -22,7 +24,8 @@ import { ViewUserOrderComponent } from './user-components/view-user-order/view-u
     UpdateProductComponent,
     DeleteProductComponent,
     ContentComponent,
-    ViewUserOrderComponent
+    ViewUserOrderComponent,
+    UpdateComponent
   ],
   imports: [CommonModule, SharedModule, AdminManagementRoutingModule]
 })

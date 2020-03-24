@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, EventEmitter } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-products',
@@ -21,8 +22,8 @@ export class ViewProductsComponent implements OnInit {
   dataSource: any;
   pageSizeOptions: number[] = [10, 20, 50, 100];
   columnsToDisplay = ['image', 'name', 'quantity', 'price', 'action'];
-  expandedElement: PeriodicElement | null;
-  constructor() {}
+  expandedElement: any;
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.dataLoading.emit(true);
@@ -38,20 +39,22 @@ export class ViewProductsComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  updateProduct(product) {
+    console.log(product);
+    this.router.navigateByUrl('/admin/update', { state: product });
+  }
+  removeProduct(product) {
+    console.log(product);
+  }
 }
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-  description: string;
-}
 const products = [
   {
     name: 'shirt',
     price: 50000,
     quantity: 1,
+    category: 'MensFashion',
+    innercategory: 'shirt',
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 50,
@@ -62,6 +65,8 @@ const products = [
     name: 'tshirt',
     price: 40000,
     quantity: 6,
+    category: 'MensFashion',
+    innercategory: 'shirt',
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 50,
@@ -72,6 +77,8 @@ const products = [
     name: 'tv',
     price: 500000,
     quantity: 6,
+    category: 'MensFashion',
+    innercategory: 'shirt',
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 90,
@@ -82,6 +89,8 @@ const products = [
     name: 'top',
     price: 500,
     quantity: 6,
+    category: 'MensFashion',
+    innercategory: 'shirt',
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 10,
@@ -92,6 +101,8 @@ const products = [
     name: 'earphone',
     price: 800,
     quantity: 6,
+    category: 'MensFashion',
+    innercategory: 'shirt',
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 20,
@@ -102,6 +113,8 @@ const products = [
     name: 'mobile',
     price: 60000,
     quantity: 36,
+    category: 'MensFashion',
+    innercategory: 'shirt',
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 30,
@@ -112,6 +125,8 @@ const products = [
     name: 'samsung',
     price: 5000,
     quantity: 6,
+    category: 'MensFashion',
+    innercategory: 'shirt',
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 40,

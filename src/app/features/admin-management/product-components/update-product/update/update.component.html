@@ -1,0 +1,163 @@
+<app-jumbotron [Heading]="'ADD-PRODUCT'"></app-jumbotron>
+<div class="billing-container">
+  <mat-card class="edit-profile-card">
+    <mat-card-content>
+      <form>
+        <table class="table-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-label>Category</mat-label>
+                <mat-select
+                  required
+                  [(ngModel)]="productdata.category"
+                  [formControl]="selectedcategory"
+                  (selectionChange)="onCategorySelect($event.value)"
+                >
+                  <mat-option *ngFor="let category of category" [value]="category.name">
+                    {{ category.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="selectedcategory.hasError('required')"
+                  >You must make a selection</mat-error
+                >
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label>InnerCategory</mat-label>
+                <mat-select
+                  required
+                  [(ngModel)]="productdata.innerCategory"
+                  [formControl]="selectedinnerCategory"
+                >
+                  <mat-option
+                    *ngFor="let innerCategory of InnerCategory"
+                    [value]="innerCategory.name"
+                  >
+                    {{ innerCategory.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="selectedinnerCategory.hasError('required')"
+                  >You must make a selection</mat-error
+                >
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <table class="table-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-label>Product Name</mat-label>
+                <input
+                  required
+                  matInput
+                  [(ngModel)]="productdata.name"
+                  [formControl]="productNameFormControl"
+                />
+                <mat-error *ngIf="productNameFormControl.hasError('required')">
+                  Product Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <table class="table-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-label>Quantity</mat-label>
+                <input
+                  required
+                  matInput
+                  [(ngModel)]="productdata.quantity"
+                  [formControl]="quantityFormControl"
+                />
+                <mat-error *ngIf="quantityFormControl.hasError('required')">
+                  Quantity is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-label>Price</mat-label>
+                <input
+                  required
+                  matInput
+                  [(ngModel)]="productdata.price"
+                  [formControl]="priceFormControl"
+                />
+                <mat-error *ngIf="priceFormControl.hasError('required')">
+                  Price is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <table class="table-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-label>Product Description</mat-label>
+                <textarea
+                  matInput
+                  required
+                  [(ngModel)]="productdata.description"
+                  [formControl]="productDescriptionFormControl"
+                ></textarea>
+                <mat-error *ngIf="productDescriptionFormControl.hasError('required')">
+                  Product Description is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <table class="table-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-label>Image URL</mat-label>
+                <input
+                  required
+                  matInput
+                  [(ngModel)]="productdata.image"
+                  [formControl]="productImage1FormControl"
+                />
+                <mat-error *ngIf="productImage1FormControl.hasError('required')">
+                  Image is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-label>Image URL-2</mat-label>
+                <input matInput [formControl]="productImage2FormControl" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-label>Image URL-3</mat-label>
+                <input matInput [formControl]="productImage3FormControl" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<mat-toolbar color="primary" class="edit-footer">
+  <button mat-raised-button (click)="AddProduct()">
+    Save
+  </button>
+  &nbsp; &nbsp; &nbsp; &nbsp;
+
+  <button mat-raised-button (click)="cancel()" color="warn">
+    Cancel
+  </button>
+</mat-toolbar>
