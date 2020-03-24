@@ -8,7 +8,7 @@ import { DeleteProductComponent } from './product-components/delete-product/dele
 import { UpdateProductComponent } from './product-components/update-product/update-product.component';
 import { ViewUsersComponent } from './user-components/view-users/view-users.component';
 import { BlockUserComponent } from './user-components/block-user/block-user.component';
-import { ViewOrdersComponent } from './user-components/view-orders/view-orders.component';
+import { ViewUserOrderComponent } from './user-components/view-user-order/view-user-order.component';
 
 const routes: Routes = [
   {
@@ -50,7 +50,7 @@ const routes: Routes = [
       },
       {
         path: 'vieworders',
-        component: ViewOrdersComponent
+        component: ViewUserOrderComponent
       }
     ]
   }

@@ -11,18 +11,18 @@ import { AddProductComponent } from './product-components/add-product/add-produc
 import { UpdateProductComponent } from './product-components/update-product/update-product.component';
 import { DeleteProductComponent } from './product-components/delete-product/delete-product.component';
 import { ContentComponent } from './adminpage/content/content.component';
-import { ViewOrdersComponent } from './user-components/view-orders/view-orders.component';
+import { ViewUserOrderComponent } from './user-components/view-user-order/view-user-order.component';
 @NgModule({
   declarations: [
     AdminpageComponent,
     ViewUsersComponent,
-    ViewOrdersComponent,
     BlockUserComponent,
     ViewProductsComponent,
     AddProductComponent,
     UpdateProductComponent,
     DeleteProductComponent,
-    ContentComponent
+    ContentComponent,
+    ViewUserOrderComponent
   ],
   imports: [CommonModule, SharedModule, AdminManagementRoutingModule]
 })
