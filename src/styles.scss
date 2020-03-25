@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import "assets/css/Globalportal.scss";
-@import "assets/css/variable";
+@import 'assets/css/Globalportal.scss';
+@import 'assets/css/variable';
 
 .product-list-page {
   height: 100%;
@@ -8,6 +8,9 @@
 }
 .mat-button-focus-overlay {
   background-color: transparent !important;
+}
+.mat-tab-body.mat-tab-body-active {
+  overflow-y: hidden !important;
 }
 button:focus {
   outline: none !important;
@@ -73,9 +76,8 @@ button:focus {
     // min-width: 300px;
     width: 420px;
     min-height: 560px;
-    &.mat-card:not([class*="mat-elevation-z"]) {
-      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16),
-        0 3px 6px 0 rgba(0, 0, 0, 0.12);
+    &.mat-card:not([class*='mat-elevation-z']) {
+      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12);
     }
     &.mat-card {
       padding: 0;

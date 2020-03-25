@@ -72,30 +72,43 @@
         </ul>
       </div>
       <div class="details col-md-6">
-        <h3 class="product-title">{{ data.name }}</h3>
-        <p class="product-description">
-          Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae
-          et! Massa senectus enim minim sociosqu delectus posuere.
-        </p>
-        <h2 class="price">current price: <span>₹{{ data.price }}</span></h2>
-        <p class="vote">
-          <strong>91%</strong> of buyers enjoyed this product!
-          <strong>(87 votes)</strong>
-        </p>
-        <div class="action">
-          <button mat-raised-button color="primary" (click)="AddToCart(data)">
-            Add To Cart
-          </button>
-          &nbsp;
-          <button mat-raised-button color="warn">
-            <mat-icon>favorite</mat-icon>
-          </button>
-          &nbsp;
-          <button mat-raised-button (click)="onNoClick()">
-            BACK
-          </button>
-        </div>
-      </div>
-    </div></mat-card
-  >
+        <mat-tab-group class="info-container">
+          <mat-tab label="Description">
+            <br />
+            <h3 class="product-title">{{ data.name }}</h3>
+            <p class="product-description">
+              Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem!
+              Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.
+            </p>
+            <h2 class="price">current price: <span>₹{{ data.price }}</span></h2>
+            <div class="action">
+              <button mat-raised-button color="primary" (click)="AddToCart(data)">
+                Add To Cart
+              </button>
+              &nbsp;
+              <button mat-raised-button color="warn">
+                <mat-icon>favorite</mat-icon>
+              </button>
+              &nbsp;
+              <button mat-raised-button (click)="onNoClick()">
+                BACK
+              </button>
+            </div>
+          </mat-tab>
+          <mat-tab label="Review">
+            <mat-list>
+              <div mat-subheader>User Reviews</div>
+              <ng-container *ngFor="let review of reviews">
+                <mat-list-item>
+                  <mat-icon mat-list-icon>folder</mat-icon>
+                  <div mat-line>{{review.username}}</div>
+                  <div mat-line>{{review.review}}</div>
+                </mat-list-item>
+              </ng-container>
+              <mat-divider></mat-divider>
+            </mat-list>
+          </mat-tab>
+        </mat-tab-group>
+      </div></div
+  ></mat-card>
 </div>

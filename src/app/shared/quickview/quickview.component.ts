@@ -12,6 +12,14 @@ export class QuickviewComponent implements OnInit {
   myThumbnail3: string;
   myThumbnail4: string;
   myThumbnail5: string;
+  reviews = [
+    { username: 'kaushal', review: 'It is a good product' },
+    { username: 'kaushal', review: 'It is a good product' },
+    { username: 'kaushal', review: 'It is a good product' },
+    { username: 'kaushal', review: 'It is a good product' },
+    { username: 'kaushal', review: 'It is a good product' },
+    { username: 'kaushal', review: 'It is a good product' }
+  ];
   constructor(
     public dialogRef: MatDialogRef<QuickviewComponent>,
     @Inject(MAT_DIALOG_DATA) public data
