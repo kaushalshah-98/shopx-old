@@ -59,14 +59,17 @@
         <mat-icon class="fullscreen-icon">{{ getText() }}</mat-icon>
       </button>
       &nbsp;&nbsp;
-      <button mat-raised-button class="language-dropdown">
+      <button mat-raised-button [matMenuTriggerFor]="languagemenu">
         {{ currentLanguage }}
-        <mat-select (selectionChange)="onLanguageSelect($event)">
-          <mat-option *ngFor="let lang of translate.getLangs()" [value]="lang">
-            {{ lang | uppercase }}
-          </mat-option>
-        </mat-select>
+        <mat-icon>arrow_drop_down </mat-icon>
       </button>
+      <mat-menu #languagemenu="matMenu" xPosition="after">
+        <ng-container *ngFor="let language of translate.getLangs()">
+          <button [hidden]="isAdmin" mat-menu-item (click)="onLanguageSelect(language)">
+            {{ language |translate }}
+          </button>
+        </ng-container>
+      </mat-menu>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

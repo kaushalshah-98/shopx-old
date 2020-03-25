@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-buy-list',
@@ -6,23 +6,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buy-list.component.scss']
 })
 export class BuyListComponent implements OnInit {
+  dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   isDisabled: boolean = true;
   isSelected: boolean = true;
+  show: boolean = false;
   inputvalue: string = '';
-  list = [
-    { name: 'shirts', done: false },
-    { name: 'pants', done: true },
-    { name: 'one short', done: false },
-    { name: 'television', done: false },
-    { name: 'mobile', done: false },
-    { name: 'headphones', done: true }
-  ];
-  buylist: any;
-  constructor() {}
+  list = [];
+  buylist = [];
+  constructor() { }
 
   ngOnInit() {
-    this.buylist = this.list;
-    this.check();
+    this.list = [
+      { name: 'shirts', done: false },
+      { name: 'pants', done: true },
+      { name: 'one short', done: false },
+      { name: 'television', done: false },
+      { name: 'mobile', done: false },
+      { name: 'headphones', done: true }
+    ];
+    setTimeout(() => {
+      this.dataLoading.emit(false);
+      this.show = true;
+      this.buylist = this.list;
+      this.check();
+    }, 3000);
   }
   check() {
     this.isSelected = true;

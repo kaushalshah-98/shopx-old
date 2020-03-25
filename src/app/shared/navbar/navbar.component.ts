@@ -5,6 +5,7 @@ import { UserManagementService } from '@services/user-service/user-management.se
 import { DOCUMENT } from '@angular/common';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { TranslateService } from '@ngx-translate/core';
+import { NotificationService } from '@services/notification/notification.service';
 
 @Component({
   selector: 'app-navbar',
@@ -26,6 +27,7 @@ export class NavbarComponent implements OnInit {
     private userservice: UserManagementService,
     private dialog: ConfirmDialogService,
     private translate: TranslateService,
+    private notification: NotificationService,
     @Inject(DOCUMENT) private document: any
   ) {
     translate.addLangs(['en', 'fr']);
@@ -53,10 +55,10 @@ export class NavbarComponent implements OnInit {
       return this.username;
     }
   }
-  onLanguageSelect({ value: language }) {
+  onLanguageSelect(language) {
     this.translate.use(language);
+    this.notification.info(`Selected Language is ${language}`)
   }
-
   getLoginStatus() {
     if (this.isAdmin) {
       return 'Logout';
@@ -104,5 +106,5 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
-  changetheme(value) {}
+  changetheme(value) { }
 }

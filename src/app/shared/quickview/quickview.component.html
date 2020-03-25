@@ -100,6 +100,7 @@
               <div mat-subheader>{{totalreviewcount}} User Reviews</div>
               <mat-form-field appearance="outline">
                 <mat-label>Write a Review</mat-label>
+                <app-spinner [loading]="dataLoading"></app-spinner>
                 <input
                   matInput
                   [formControl]="reviewtext"
@@ -129,6 +130,7 @@
             </mat-list>
           </mat-tab>
         </mat-tab-group>
-      </div></div
-  ></mat-card>
+      </div>
+    </div>
+  </mat-card>
 </div>

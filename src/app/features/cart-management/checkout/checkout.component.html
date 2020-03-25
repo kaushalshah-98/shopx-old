@@ -6,7 +6,7 @@
     <app-billing (step1status)="setstep1status($event)"></app-billing>
   </mat-step>
   <mat-step [completed]="step2" [editable]="false">
-    <ng-template matStepLabel>outline out your address</ng-template>
+    <ng-template matStepLabel>Fill out your address</ng-template>
     <app-payment (step2status)="setstep2status($event)"></app-payment>
   </mat-step>
   <mat-step [completed]="false" [editable]="false">

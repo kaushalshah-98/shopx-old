@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
 
@@ -14,16 +14,10 @@ export class QuickviewComponent implements OnInit {
   myThumbnail4: string;
   myThumbnail5: string;
   reviewtext: FormControl = new FormControl('');
-  reviews = [
-    { username: 'kaushal', review: 'It is a good product' },
-    { username: 'kaushal', review: 'It is a good product' },
-    { username: 'kaushal', review: 'It is a good product' },
-    { username: 'DEFAULT', review: 'It is a good product' },
-    { username: 'DEFAULT', review: 'It is a good product' },
-    { username: 'kaushal', review: 'It is a good product' },
-    { username: 'DEFAULT', review: 'It is a good product' }
-  ];
+  reviews = [];
   totalreviewcount: number = 0;
+  dataLoading: EventEmitter<boolean> = new EventEmitter(false);
+
   constructor(
     public dialogRef: MatDialogRef<QuickviewComponent>,
     @Inject(MAT_DIALOG_DATA) public data
@@ -36,7 +30,21 @@ export class QuickviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.totalreviewcount = this.reviews.length;
+    this.reset();
+    this.dataLoading.emit(true);
+    setTimeout(() => {
+      this.dataLoading.emit(false);
+      this.reviews = [
+        { username: 'kaushal', review: 'It is a good product' },
+        { username: 'kaushal', review: 'It is a good product' },
+        { username: 'kaushal', review: 'It is a good product' },
+        { username: 'DEFAULT', review: 'It is a good product' },
+        { username: 'DEFAULT', review: 'It is a good product' },
+        { username: 'kaushal', review: 'It is a good product' },
+        { username: 'DEFAULT', review: 'It is a good product' }
+      ];
+      this.totalreviewcount = this.reviews.length;
+    }, 3000);
   }
   onNoClick(): void {
     this.dialogRef.close();
@@ -46,9 +54,13 @@ export class QuickviewComponent implements OnInit {
     this.totalreviewcount = this.reviews.length;
   }
   addreview() {
-    let item = { username: 'DEFAULT', review: this.reviewtext.value };
-    this.reviews.unshift(item);
-    this.reset();
+    this.dataLoading.emit(true);
+    setTimeout(() => {
+      this.dataLoading.emit(false);
+      let item = { username: 'DEFAULT', review: this.reviewtext.value };
+      this.reviews.unshift(item);
+      this.reset();
+    }, 3000);
   }
   isUserReview(username) {
     if (username === 'DEFAULT') {
@@ -57,9 +69,13 @@ export class QuickviewComponent implements OnInit {
     return false;
   }
   deletereview(review) {
-    this.reviews = this.reviews.filter(
-      (item) => !(item.review === review.review && item.username === review.username)
-    );
-    this.reset();
+    this.dataLoading.emit(true);
+    setTimeout(() => {
+      this.dataLoading.emit(false);
+      this.reviews = this.reviews.filter(
+        (item) => !(item.review === review.review && item.username === review.username)
+      );
+      this.reset();
+    }, 3000);
   }
 }

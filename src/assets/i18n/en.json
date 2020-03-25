@@ -1,11 +1,53 @@
 {
-    "lang":"en",
-    "data":{
-        "demo":{
-            "welcome" :"Welcome",
-            "profile" : "Profile",
-            "Logout": "Logout"
-        }
+  "admin": {
+    "content": {
+      "product_management": "Product Management",
+      "view_all_products": "View All Products",
+      "add_a_product": "Add a Product",
+      "update_a_product": "Update a Product",
+      "delete_a_product": "Delete a Product",
+
+      "user_management": "User Management",
+      "add_a_user": "Add a User",
+      "block_a_user": "Block a User",
+      "view_orders": "View Orders"
     },
-    "Logout": "Logout"
+    "form": {
+      "username": "User Name",
+      "name":"Name",
+      "lastname" :"Lastname",
+      "passowrd": "Password",
+      "email": "Email",
+      "profile pic": "Profile Picture",
+      "adress_line_1" :"Address Line 1",
+      "adress_line_2" :"Address Line 2",
+      "country":"Country",
+      "state":"State",
+      "pincode":"Pin Code",
+
+
+    },
+    "form_heading":{
+      "fill_out_your_billing_address":"Fill out your Billing Address",
+      "fill_out_your_address":"Fill out your address",
+      "sucess":"Success",
+      "enter_billing_details":"Enter Billing Details",
+      "order_is_placed_successfully":"Order Is Placed Successfully"
+    },
+    "table": {
+      "no": "Number",
+      "image": "Image",
+      "name": "Name",
+      "price": "Price",
+      "quantity": "Quantity",
+      "action": "Action",
+      "cancel_this_order": "Cancel this Order",
+      "empty_the_cart": "Empty the Cart"
+    },
+    "cart": {
+      "continue_shopping": "Continue Shopping",
+      "go_to_cart": "Go To Cart",
+      "checkout": "Checkout"
+    }
+  }
 }

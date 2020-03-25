@@ -20,7 +20,8 @@
       </div>
     </app-big-input>
   </div>
-  <ng-container *ngIf="list">
+  <app-spinner [loading]="dataLoading"></app-spinner>
+  <ng-container *ngIf="list && show">
     <div class="buy-card-container">
       <div class="filter-btn">
         <button mat-icon-button [matMenuTriggerFor]="todosFilter">
