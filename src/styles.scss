@@ -15,7 +15,9 @@
 button:focus {
   outline: none !important;
 }
-
+.mat-dialog-container {
+  overflow: hidden;
+}
 //----------------------------PRE - LOADER------------------------------------------------
 .pre-loader {
   display: block;
@@ -137,19 +139,19 @@ button:focus {
         text-align: center;
       }
     }
-  }
-  .input-form {
-    min-width: 295px;
-    width: 100%;
-    padding: 30px 60px 0px 60px;
-    .input-full-width {
-      margin-bottom: 10px;
+    .input-form {
+      min-width: 295px;
       width: 100%;
-      .mat-input-element {
-        margin-top: 1em;
-      }
-      .mat-form-field-label {
-        font-size: 17px;
+      padding: 30px 60px 0px 60px;
+      .input-full-width {
+        margin-bottom: 10px;
+        width: 100%;
+        .mat-input-element {
+          margin-top: 1em;
+        }
+        .mat-form-field-label {
+          font-size: 17px;
+        }
       }
     }
   }

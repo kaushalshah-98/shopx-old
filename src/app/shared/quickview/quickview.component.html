@@ -97,15 +97,35 @@
           </mat-tab>
           <mat-tab label="Review">
             <mat-list>
-              <div mat-subheader>User Reviews</div>
+              <div mat-subheader>{{Total}} User Reviews</div>
+              <mat-form-field appearance="outline">
+                <mat-label>Write a Review</mat-label>
+                <input
+                  matInput
+                  [formControl]="reviewtext"
+                  (keyup.enter)="addreview()"
+                  (keyup.escape)="reset()"
+                />
+                <button mat-icon-button matSuffix (click)="addreview()">
+                  <mat-icon>add_circle</mat-icon>
+                </button>
+              </mat-form-field>
               <ng-container *ngFor="let review of reviews">
                 <mat-list-item>
-                  <mat-icon mat-list-icon>folder</mat-icon>
+                  <mat-icon mat-list-icon>star</mat-icon>
                   <div mat-line>{{review.username}}</div>
                   <div mat-line>{{review.review}}</div>
+                  <button
+                    *ngIf="isUserReview(review.username)"
+                    mat-icon-button
+                    matSuffix
+                    (click)="deletereview(review)"
+                  >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                  <mat-divider></mat-divider>
                 </mat-list-item>
               </ng-container>
-              <mat-divider></mat-divider>
             </mat-list>
           </mat-tab>
         </mat-tab-group>

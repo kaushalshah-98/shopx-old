@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-quickview',
@@ -12,14 +13,17 @@ export class QuickviewComponent implements OnInit {
   myThumbnail3: string;
   myThumbnail4: string;
   myThumbnail5: string;
+  reviewtext: FormControl = new FormControl('');
   reviews = [
     { username: 'kaushal', review: 'It is a good product' },
     { username: 'kaushal', review: 'It is a good product' },
     { username: 'kaushal', review: 'It is a good product' },
+    { username: 'DEFAULT', review: 'It is a good product' },
+    { username: 'DEFAULT', review: 'It is a good product' },
     { username: 'kaushal', review: 'It is a good product' },
-    { username: 'kaushal', review: 'It is a good product' },
-    { username: 'kaushal', review: 'It is a good product' }
+    { username: 'DEFAULT', review: 'It is a good product' }
   ];
+  Total: number = 0;
   constructor(
     public dialogRef: MatDialogRef<QuickviewComponent>,
     @Inject(MAT_DIALOG_DATA) public data
@@ -31,9 +35,29 @@ export class QuickviewComponent implements OnInit {
     this.myThumbnail5 = data.image4;
   }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    this.Total = this.reviews.length;
+  }
   onNoClick(): void {
     this.dialogRef.close();
+  }
+  reset() {
+    this.reviewtext.reset();
+    this.Total = this.reviews.length;
+  }
+  addreview() {
+    let item = { username: 'DEFAULT', review: this.reviewtext.value };
+    this.reviews.unshift(item);
+    this.reset();
+  }
+  isUserReview(username) {
+    if (username === 'DEFAULT') {
+      return true;
+    }
+    return false;
+  }
+  deletereview(review) {
+    this.reviews = this.reviews.filter((item) => !(item.review === review.review && item.username === review.username));
+    this.reset();
   }
 }
