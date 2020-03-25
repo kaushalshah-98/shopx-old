@@ -127,7 +127,13 @@
       <mat-cell *matCellDef="let element">
         <div class="input-quantity">
           <mat-form-field class="search-field" appearance="outline">
-            <input autocomplete="off"  matInput type="number" value="{{ element.quantity }}" max="10" />
+            <input
+              autocomplete="off"
+              matInput
+              type="number"
+              value="{{ element.quantity }}"
+              max="10"
+            />
           </mat-form-field>
         </div>
       </mat-cell>

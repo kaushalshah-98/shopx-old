@@ -27,12 +27,12 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private role: RoleService,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.loginform = this.formBuilder.group({
       usernameFormControl: ['', [Validators.required, Validators.minLength(3)]],
-      passwordFormControl: ['', [Validators.required, Validators.minLength(4)]],
+      passwordFormControl: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
   public hasError(controlName: string, errorName: string) {

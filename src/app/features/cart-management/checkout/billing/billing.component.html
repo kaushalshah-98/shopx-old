@@ -8,7 +8,7 @@
             <td>
               <mat-form-field appearance="outline">
                 <mat-label>Name</mat-label>
-                <input autocomplete="off"  required matInput formControlName="nameFormControl" />
+                <input autocomplete="off" required matInput formControlName="nameFormControl" />
                 <mat-error *ngIf="hasError('nameFormControl','minlength')">
                   Name must be at least 3 characters long.
                 </mat-error>
@@ -20,7 +20,7 @@
             <td>
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label>LastName</mat-label>
-                <input autocomplete="off"  required matInput formControlName="LastnameFormControl" />
+                <input autocomplete="off" required matInput formControlName="LastnameFormControl" />
                 <mat-error *ngIf="hasError('LastnameFormControl','required')">
                   Name is <strong>required</strong>
                 </mat-error>
@@ -29,7 +29,7 @@
             <td>
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label>Email</mat-label>
-                <input autocomplete="off"  required matInput formControlName="emailFormControl" />
+                <input autocomplete="off" required matInput formControlName="emailFormControl" />
                 <mat-error *ngIf="hasError('emailFormControl','email')">
                   Please enter a valid email address
                 </mat-error>
@@ -46,7 +46,7 @@
             <td>
               <mat-form-field appearance="outline">
                 <mat-label>Address Line 1</mat-label>
-                <input autocomplete="off"  required matInput formControlName="address1FormControl" />
+                <input autocomplete="off" required matInput formControlName="address1FormControl" />
                 <mat-error *ngIf="hasError('address1FormControl','required')">
                   Address is <strong>required</strong>
                 </mat-error>
@@ -55,7 +55,7 @@
             <td>
               <mat-form-field appearance="outline">
                 <mat-label>Address Line 2</mat-label>
-                <input autocomplete="off"  matInput formControlName="address2FormControl" />
+                <input autocomplete="off" matInput formControlName="address2FormControl" />
               </mat-form-field>
             </td>
           </tr>
@@ -92,7 +92,8 @@
             <td>
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label>Pin Code</mat-label>
-                <input autocomplete="off"
+                <input
+                  autocomplete="off"
                   required
                   matInput
                   formControlName="PincodeFormControl"

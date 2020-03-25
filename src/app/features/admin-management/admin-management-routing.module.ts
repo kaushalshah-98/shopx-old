@@ -35,7 +35,7 @@ const routes: Routes = [
       },
       {
         path: 'updateproduct',
-        component: UpdateProductComponent,
+        component: UpdateProductComponent
       },
       {
         path: 'update',
@@ -56,7 +56,7 @@ const routes: Routes = [
       {
         path: 'vieworders',
         component: ViewUserOrderComponent
-      },
+      }
     ]
   }
 ];
@@ -64,4 +64,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminManagementRoutingModule { }
+export class AdminManagementRoutingModule {}

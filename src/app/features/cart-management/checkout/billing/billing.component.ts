@@ -34,22 +34,21 @@ export class BillingComponent implements OnInit {
 
   billingform: FormGroup;
 
-  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder) { }
+  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.billingform = this.formBuilder.group({
       nameFormControl: ['', [Validators.required, Validators.minLength(3)]],
       emailFormControl: ['', [Validators.required, Validators.email]],
-      PincodeFormControl: ['', [
-        Validators.required,
-        Validators.maxLength(6),
-        Validators.pattern('[0-9]*')
-      ]],
+      PincodeFormControl: [
+        '',
+        [Validators.required, Validators.maxLength(6), Validators.pattern('[0-9]*')]
+      ],
       LastnameFormControl: ['', [Validators.required]],
       address1FormControl: ['', [Validators.required]],
       selectedstate: ['', [Validators.required]],
       address2FormControl: [],
-      selectedcountry: ['', [Validators.required]],
+      selectedcountry: ['', [Validators.required]]
     });
   }
   public hasError(controlName: string, errorName: string) {

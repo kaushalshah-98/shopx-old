@@ -6,7 +6,7 @@
     <form class="input-form" [formGroup]="loginform">
       <mat-form-field class="input-full-width">
         <mat-label>Username</mat-label>
-        <input autocomplete="off"   matInput formControlName="usernameFormControl" />
+        <input autocomplete="off" matInput formControlName="usernameFormControl" />
         <mat-error *ngIf="hasError('usernameFormControl','minlength')">
           Username must be at least 3 characters long.
         </mat-error>
@@ -16,7 +16,7 @@
       </mat-form-field>
       <mat-form-field class="input-full-width">
         <mat-label>Password</mat-label>
-        <input autocomplete="off"  matInput formControlName="passwordFormControl" />
+        <input autocomplete="off" matInput formControlName="passwordFormControl" />
         <mat-error *ngIf="hasError('passwordFormControl','minlength')">
           Password must be at least 4 characters long.
         </mat-error>

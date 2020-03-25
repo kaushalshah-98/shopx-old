@@ -193,7 +193,12 @@
                   <td>
                     <mat-form-field appearance="outline" (click)="toggleFlip(false)">
                       <mat-label>Name</mat-label>
-                      <input autocomplete="off"  matInput formControlName="nameFormControl" [(ngModel)]="name" />
+                      <input
+                        autocomplete="off"
+                        matInput
+                        formControlName="nameFormControl"
+                        [(ngModel)]="name"
+                      />
                       <button mat-icon-button matSuffix>
                         <mat-icon>account_circle</mat-icon>
                       </button>
@@ -210,7 +215,8 @@
                   <td>
                     <mat-form-field appearance="outline" (click)="toggleFlip(false)">
                       <mat-label>Card Number</mat-label>
-                      <input autocomplete="off"
+                      <input
+                        autocomplete="off"
                         matInput
                         formControlName="cardnumberFormControl"
                         [(ngModel)]="cardnumber"
@@ -238,7 +244,8 @@
                       (click)="toggleFlip(false)"
                     >
                       <mat-label>Expiry Date</mat-label>
-                      <input autocomplete="off"
+                      <input
+                        autocomplete="off"
                         matInput
                         placeholder="05/08"
                         [(ngModel)]="expiry"
@@ -259,7 +266,8 @@
                       (click)="toggleFlip(true)"
                     >
                       <mat-label>CVV</mat-label>
-                      <input autocomplete="off"
+                      <input
+                        autocomplete="off"
                         matInput
                         #CvvCode
                         formControlName="cvvFormControl"

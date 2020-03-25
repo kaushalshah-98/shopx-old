@@ -23,7 +23,7 @@ export class ViewProductsComponent implements OnInit {
   pageSizeOptions: number[] = [10, 20, 50, 100];
   columnsToDisplay = ['image', 'name', 'quantity', 'price', 'action'];
   expandedElement: any;
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.dataLoading.emit(true);
@@ -58,8 +58,8 @@ const products = [
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 50,
-    image1:'',
-    image2:'',
+    image1: '',
+    image2: '',
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
@@ -72,8 +72,8 @@ const products = [
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 50,
-    image1:'',
-    image2:'',
+    image1: '',
+    image2: '',
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
@@ -86,8 +86,8 @@ const products = [
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 90,
-    image1:'',
-    image2:'',
+    image1: '',
+    image2: '',
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
@@ -100,8 +100,8 @@ const products = [
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 10,
-    image1:'',
-    image2:'',
+    image1: '',
+    image2: '',
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
@@ -114,8 +114,8 @@ const products = [
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 20,
-    image1:'',
-    image2:'',
+    image1: '',
+    image2: '',
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
@@ -128,8 +128,8 @@ const products = [
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 30,
-    image1:'',
-    image2:'',
+    image1: '',
+    image2: '',
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
@@ -142,8 +142,8 @@ const products = [
     image:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
     productqty: 40,
-    image1:'',
-    image2:'',
+    image1: '',
+    image2: '',
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
     atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   }

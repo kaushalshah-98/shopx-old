@@ -15,7 +15,8 @@ export class UpdateComponent implements OnInit {
   constructor(
     private dialog: ConfirmDialogService,
     private activateRouter: ActivatedRoute,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder
+  ) {}
   category = [
     { name: 'Electronics' },
     { name: 'Mobile' },
@@ -44,29 +45,24 @@ export class UpdateComponent implements OnInit {
   ngOnInit() {
     this.state$ = this.activateRouter.paramMap
       .pipe(map(() => window.history.state))
-      .subscribe(res => this.productdata = res);
+      .subscribe((res) => (this.productdata = res));
 
     this.updateproductform = this.formBuilder.group({
       selectedcategory: ['', [Validators.required]],
       selectedinnerCategory: ['', [Validators.required]],
       productNameFormControl: ['', [Validators.required]],
-      quantityFormControl: ['', [
-        Validators.required,
-        Validators.pattern('[0-9]*'),
-        Validators.min(1)
-      ]],
-      priceFormControl: ['', [
-        Validators.required,
-        Validators.pattern('[0-9]*'),
-        Validators.min(1)
-      ]],
-      productDescriptionFormControl: ['', [
-        Validators.required,
-        Validators.minLength(10)
-      ]],
+      quantityFormControl: [
+        '',
+        [Validators.required, Validators.pattern('[0-9]*'), Validators.min(1)]
+      ],
+      priceFormControl: [
+        '',
+        [Validators.required, Validators.pattern('[0-9]*'), Validators.min(1)]
+      ],
+      productDescriptionFormControl: ['', [Validators.required, Validators.minLength(10)]],
       productImage1FormControl: ['', [Validators.required]],
       productImage2FormControl: [''],
-      productImage3FormControl: [''],
+      productImage3FormControl: ['']
     });
   }
   public hasError(controlName: string, errorName: string) {

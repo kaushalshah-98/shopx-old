@@ -20,14 +20,14 @@ export class EditProfileComponent implements OnInit {
     private dialog: ConfirmDialogService,
     private userservice: UserManagementService,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
   ngOnInit() {
     this.userdata = this.userservice.getUserData();
     this.editform = this.formBuilder.group({
       usernameFormControl: ['', [Validators.required, Validators.minLength(3)]],
       passwordFormControl: ['', [Validators.required, Validators.minLength(4)]],
       emailFormControl: ['', [Validators.required, Validators.email]],
-      photoFormControl: ['', [Validators.required]],
+      photoFormControl: ['', [Validators.required]]
     });
   }
   public hasError(controlName: string, errorName: string) {
@@ -50,7 +50,7 @@ export class EditProfileComponent implements OnInit {
       name: this.editform.controls.usernameFormControl.value,
       password: this.editform.controls.passwordFormControl.value,
       email: this.editform.controls.emailFormControl.value,
-      photo: this.editform.controls.photoFormControl.value,
+      photo: this.editform.controls.photoFormControl.value
     };
     console.log(userdata);
   }
