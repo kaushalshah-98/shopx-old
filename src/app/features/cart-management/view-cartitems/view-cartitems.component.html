@@ -28,7 +28,7 @@
                 <td><img src="{{ cartitem.image }}" /></td>
                 <td>{{ cartitem.name }}</td>
                 <td>
-                  <input
+                  <input autocomplete="off"
                     #qty
                     class="form-control"
                     type="number"
@@ -127,7 +127,7 @@
       <mat-cell *matCellDef="let element">
         <div class="input-quantity">
           <mat-form-field class="search-field" appearance="outline">
-            <input matInput type="number" value="{{ element.quantity }}" max="10" />
+            <input autocomplete="off"  matInput type="number" value="{{ element.quantity }}" max="10" />
           </mat-form-field>
         </div>
       </mat-cell>

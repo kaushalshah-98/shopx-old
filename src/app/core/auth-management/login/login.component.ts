@@ -5,7 +5,7 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from 'ng4-social-login';
-import { FormControl, Validators } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { UserManagementService } from 'src/app/core/services/user-service/user-management.service';
 import { Router } from '@angular/router';
 import { RoleService } from '@services/role-service/role.service';
@@ -18,16 +18,26 @@ import { RoleService } from '@services/role-service/role.service';
 })
 export class LoginComponent implements OnInit {
   public user: SocialUser;
-  usernameFormControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
-  passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(4)]);
+
+  loginform: FormGroup;
+
   constructor(
     private socialAuthService: AuthService,
     private userservice: UserManagementService,
     private router: Router,
-    private role: RoleService
-  ) {}
+    private role: RoleService,
+    private formBuilder: FormBuilder
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loginform = this.formBuilder.group({
+      usernameFormControl: ['', [Validators.required, Validators.minLength(3)]],
+      passwordFormControl: ['', [Validators.required, Validators.minLength(4)]],
+    });
+  }
+  public hasError(controlName: string, errorName: string) {
+    return this.loginform.controls[controlName].hasError(errorName);
+  }
   login() {
     this.role.setRole('admin');
     this.router.navigate(['admin']);

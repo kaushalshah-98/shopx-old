@@ -45,7 +45,8 @@ import { BigInputComponent } from './big-input/big-input/big-input.component';
     MaterialModule,
     RouterModule,
     LoadingBarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
   ],
   providers: [ConfirmDialogService, ImagePopupService, QuickViewService],
   entryComponents: [ConfirmDialogComponent, ImagePopupComponent, QuickviewComponent],

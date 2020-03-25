@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,12 +8,29 @@ import { FormControl, Validators } from '@angular/forms';
   encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
-  usernameFormControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
-  passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(4)]);
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  photoFormControl = new FormControl('', [Validators.required]);
-  constructor() {}
 
-  ngOnInit() {}
-  register() {}
+  registerform: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
+
+  ngOnInit() {
+    this.registerform = this.formBuilder.group({
+      usernameFormControl: ['', [Validators.required, Validators.minLength(3)]],
+      passwordFormControl: ['', [Validators.required, Validators.minLength(4)]],
+      emailFormControl: ['', [Validators.required, Validators.email]],
+      photoFormControl: ['', [Validators.required]],
+    })
+  }
+  register() {
+    let userdata = {
+      name: this.registerform.controls.usernameFormControl.value,
+      password: this.registerform.controls.passwordFormControl.value,
+      email: this.registerform.controls.emailFormControl.value,
+      photo: this.registerform.controls.photoFormControl.value,
+    };
+    console.log(userdata);
+  }
+  public hasError(controlName: string, errorName: string) {
+    return this.registerform.controls[controlName].hasError(errorName);
+  }
 }

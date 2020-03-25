@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
-import { FormControl, Validators } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-product',
@@ -9,7 +9,8 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class AddProductComponent implements OnInit {
   isDisabled: boolean = true;
-  constructor(private dialog: ConfirmDialogService) {}
+  constructor(private dialog: ConfirmDialogService, private formBuilder: FormBuilder
+  ) { }
   category = [
     { name: 'Electronics' },
     { name: 'Mobile' },
@@ -17,53 +18,47 @@ export class AddProductComponent implements OnInit {
     { name: 'WomensFashion' }
   ];
   InnerCategory = [];
+  addproductform: FormGroup;
 
-  selectedcategory = new FormControl('', [Validators.required]);
-  selectedinnerCategory = new FormControl('', [Validators.required]);
-  productNameFormControl = new FormControl('', [Validators.required]);
-  quantityFormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern('[0-9]*'),
-    Validators.min(1)
-  ]);
-  priceFormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern('[0-9]*'),
-    Validators.min(1)
-  ]);
-  productDescriptionFormControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(10)
-  ]);
-  productImage1FormControl = new FormControl('', [Validators.required]);
-  productImage2FormControl = new FormControl('');
-  productImage3FormControl = new FormControl('');
-  ngOnInit() {}
+  ngOnInit() {
+    this.addproductform = this.formBuilder.group({
+      selectedcategory: ['', [Validators.required]],
+      selectedinnerCategory: ['', [Validators.required]],
+      productNameFormControl: ['', [Validators.required]],
+      quantityFormControl: ['', [
+        Validators.required,
+        Validators.pattern('[0-9]*'),
+        Validators.min(1)
+      ]],
+      priceFormControl: ['', [
+        Validators.required,
+        Validators.pattern('[0-9]*'),
+        Validators.min(1)
+      ]],
+      productDescriptionFormControl: ['', [
+        Validators.required,
+        Validators.minLength(10)
+      ]],
+      productImage1FormControl: ['', [Validators.required]],
+      productImage2FormControl: [''],
+      productImage3FormControl: [''],
+    });
+  }
+  public hasError(controlName: string, errorName: string) {
+    return this.addproductform.controls[controlName].hasError(errorName);
+  }
   cancel() {
-    if (
-      this.selectedcategory.touched ||
-      this.productNameFormControl.touched ||
-      this.quantityFormControl.touched ||
-      this.priceFormControl.touched ||
-      this.productDescriptionFormControl.touched ||
-      this.productImage1FormControl.touched
-    ) {
+    if (this.addproductform.touched) {
       this.dialog.showConfirmDialog('Are You Sure Want to Cancel ?').subscribe((result) => {
         if (result === 'yes') {
-          this.productDescriptionFormControl.reset();
-          this.quantityFormControl.reset();
-          this.productNameFormControl.reset();
-          this.priceFormControl.reset();
-          this.selectedinnerCategory.reset();
-          this.selectedcategory.reset();
-          this.productImage1FormControl.reset();
+          this.addproductform.reset();
         }
       });
     }
   }
   onCategorySelect(event) {
     this.isDisabled = false;
-    this.selectedinnerCategory.reset();
+    this.addproductform.controls.selectedinnerCategory.reset();
     switch (event.value) {
       case 'Electronics':
         this.InnerCategory = [{ name: 'TV' }, { name: 'Laptop' }, { name: 'Headphones' }];
@@ -96,16 +91,17 @@ export class AddProductComponent implements OnInit {
   }
   AddProduct() {
     let productdata = {
-      name: this.productNameFormControl.value,
-      description: this.productDescriptionFormControl.value,
-      quantity: this.quantityFormControl.value,
-      price: this.priceFormControl.value,
-      category: this.selectedcategory.value,
-      innercategory: this.selectedinnerCategory.value,
-      image1: this.productImage1FormControl.value,
-      image2: this.productImage2FormControl.value || '',
-      image3: this.productImage3FormControl.value || ''
+      name: this.addproductform.controls.productNameFormControl.value,
+      description: this.addproductform.controls.productDescriptionFormControl.value,
+      quantity: this.addproductform.controls.quantityFormControl.value,
+      price: this.addproductform.controls.priceFormControl.value,
+      category: this.addproductform.controls.selectedcategory.value,
+      innercategory: this.addproductform.controls.selectedinnerCategory.value,
+      image1: this.addproductform.controls.productImage1FormControl.value,
+      image2: this.addproductform.controls.productImage2FormControl.value || '',
+      image3: this.addproductform.controls.productImage3FormControl.value || ''
     };
     console.log(productdata);
+
   }
 }

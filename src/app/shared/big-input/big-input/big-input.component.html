@@ -3,7 +3,7 @@
   [ngStyle]="{'min-height': height + 'px' ,'border-radius' : radius + 'px'}"
   [ngClass]="{ 'has-focus': hasFocus }"
 >
-  <input
+  <input autocomplete="off"
     (focus)="hasFocus = true"
     (blur)="hasFocus = false"
     [value]="value"

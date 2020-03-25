@@ -187,108 +187,103 @@
         <mat-card class="payment-card">
           <mat-card-title>Card details</mat-card-title>
           <mat-card-content>
-            <table class="table-full-width" cellspacing="0">
-              <tr>
-                <td>
-                  <mat-form-field appearance="outline" (click)="toggleFlip(false)">
-                    <mat-label>Name</mat-label>
-                    <input matInput [formControl]="nameFormControl" [(ngModel)]="name" />
-                    <button mat-icon-button matSuffix>
-                      <mat-icon>account_circle</mat-icon>
-                    </button>
-                    <mat-error *ngIf="nameFormControl.hasError('required')">
-                      Card Holder Name is <strong>required</strong>
-                    </mat-error>
-                  </mat-form-field>
-                </td>
-              </tr>
-            </table>
+            <form [formGroup]="paymentform">
+              <table class="table-full-width" cellspacing="0">
+                <tr>
+                  <td>
+                    <mat-form-field appearance="outline" (click)="toggleFlip(false)">
+                      <mat-label>Name</mat-label>
+                      <input autocomplete="off"  matInput formControlName="nameFormControl" [(ngModel)]="name" />
+                      <button mat-icon-button matSuffix>
+                        <mat-icon>account_circle</mat-icon>
+                      </button>
+                      <mat-error *ngIf="hasError('nameFormControl','required')">
+                        Card Holder Name is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </td>
+                </tr>
+              </table>
 
-            <table class="table-full-width" cellspacing="0">
-              <tr>
-                <td>
-                  <mat-form-field appearance="outline" (click)="toggleFlip(false)">
-                    <mat-label>Card Number</mat-label>
-                    <input
-                      matInput
-                      [formControl]="cardnumberFormControl"
-                      [(ngModel)]="cardnumber"
-                    />
-                    <button mat-icon-button matSuffix>
-                      <mat-icon>credit_card</mat-icon>
-                    </button>
-                    <mat-error
-                      *ngIf="
-                        cardnumberFormControl.errors?.minlength &&
-                        !cardnumberFormControl.hasError('required')
-                      "
-                    >
-                      Credit card length must be 12 letters
-                    </mat-error>
-                    <mat-error *ngIf="cardnumberFormControl.hasError('required')">
-                      Card Number is <strong>required</strong>
-                    </mat-error>
-                  </mat-form-field>
-                </td>
-              </tr>
-            </table>
+              <table class="table-full-width" cellspacing="0">
+                <tr>
+                  <td>
+                    <mat-form-field appearance="outline" (click)="toggleFlip(false)">
+                      <mat-label>Card Number</mat-label>
+                      <input autocomplete="off"
+                        matInput
+                        formControlName="cardnumberFormControl"
+                        [(ngModel)]="cardnumber"
+                      />
+                      <button mat-icon-button matSuffix>
+                        <mat-icon>credit_card</mat-icon>
+                      </button>
+                      <mat-error *ngIf="hasError('cardnumberFormControl','minlength')">
+                        Credit card length must be 12 letters
+                      </mat-error>
+                      <mat-error *ngIf="hasError('cardnumberFormControl','required')">
+                        Card Number is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </td>
+                </tr>
+              </table>
 
-            <table class="table-full-width" cellspacing="0">
-              <tr>
-                <td>
-                  <mat-form-field
-                    appearance="outline"
-                    class="example-full-width"
-                    (click)="toggleFlip(false)"
-                  >
-                    <mat-label>Expiry Date</mat-label>
-                    <input
-                      matInput
-                      placeholder="05/08"
-                      [(ngModel)]="expiry"
-                      [formControl]="expiryFormControl"
-                    />
-                    <button mat-icon-button matSuffix>
-                      <mat-icon>calendar_today</mat-icon>
-                    </button>
-                    <mat-error *ngIf="expiryFormControl.hasError('required')">
-                      Expiry Date is <strong>required</strong>
-                    </mat-error>
-                  </mat-form-field>
-                </td>
-                <td>
-                  <mat-form-field
-                    appearance="outline"
-                    class="example-full-width"
-                    (click)="toggleFlip(true)"
-                  >
-                    <mat-label>CVV</mat-label>
-                    <input
-                      matInput
-                      #CvvCode
-                      [formControl]="cvvFormControl"
-                      placeholder="945"
-                      [(ngModel)]="code"
-                    />
-                    <button mat-icon-button matSuffix>
-                      <mat-icon>contact_support</mat-icon>
-                    </button>
-                    <mat-hint align="end">{{ CvvCode.value.length }} / 3 </mat-hint>
-                    <mat-error
-                      *ngIf="
-                        cvvFormControl.errors?.maxLength &&
-                        !cvvFormControl.hasError('required')
-                      "
+              <table class="table-full-width" cellspacing="0">
+                <tr>
+                  <td>
+                    <mat-form-field
+                      appearance="outline"
+                      class="example-full-width"
+                      (click)="toggleFlip(false)"
                     >
-                      Cvv must be of 3 digits
-                    </mat-error>
-                    <mat-error *ngIf="cvvFormControl.hasError('required')">
-                      Cvv is <strong>required</strong>
-                    </mat-error>
-                  </mat-form-field>
-                </td>
-              </tr>
-            </table>
+                      <mat-label>Expiry Date</mat-label>
+                      <input autocomplete="off"
+                        matInput
+                        placeholder="05/08"
+                        [(ngModel)]="expiry"
+                        formControlName="expiryFormControl"
+                      />
+                      <button mat-icon-button matSuffix>
+                        <mat-icon>calendar_today</mat-icon>
+                      </button>
+                      <mat-error *ngIf="hasError('expiryFormControl','required')">
+                        Expiry Date is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </td>
+                  <td>
+                    <mat-form-field
+                      appearance="outline"
+                      class="example-full-width"
+                      (click)="toggleFlip(true)"
+                    >
+                      <mat-label>CVV</mat-label>
+                      <input autocomplete="off"
+                        matInput
+                        #CvvCode
+                        formControlName="cvvFormControl"
+                        placeholder="945"
+                        [(ngModel)]="code"
+                      />
+                      <button mat-icon-button matSuffix>
+                        <mat-icon>contact_support</mat-icon>
+                      </button>
+                      <mat-hint align="end">{{ CvvCode.value.length }} / 3 </mat-hint>
+                      <mat-error *ngIf="hasError('cvvFormControl','maxlength')">
+                        Cvv must be of 3 digits
+                      </mat-error>
+                      <mat-error *ngIf="hasError('cvvFormControl','minlength')">
+                        Cvv must be of 3 digits
+                      </mat-error>
+                      <mat-error *ngIf="hasError('cvvFormControl','required')">
+                        Cvv is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </td>
+                </tr>
+              </table>
+            </form>
           </mat-card-content>
         </mat-card>
       </div>
@@ -296,7 +291,7 @@
   </div>
 </div>
 <div class="checkout-button">
-  <button mat-raised-button color="warn" (click)="goForward()">
+  <button mat-raised-button color="warn" [disabled]="paymentform.invalid" (click)="goForward()">
     Confirm And Continue
   </button>
 </div>

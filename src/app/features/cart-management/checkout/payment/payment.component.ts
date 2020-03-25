@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
@@ -27,8 +27,6 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class PaymentComponent implements OnInit {
-  front = true;
-  backk = false;
   code = 895;
   expiry = '09/06';
   cardnumber = 676767676767;
@@ -55,23 +53,33 @@ export class PaymentComponent implements OnInit {
     { name: 'India' },
     { name: 'India' }
   ];
-  nameFormControl = new FormControl('', [Validators.required]);
-  cvvFormControl = new FormControl('', [
-    Validators.required,
-    Validators.maxLength(3),
-    Validators.pattern('[0-9]*')
-  ]);
-  cardnumberFormControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(12),
-    Validators.pattern('[0-9]*')
-  ]);
-  expiryFormControl = new FormControl('', [Validators.required]);
+
   @Output() step2status = new EventEmitter<boolean>();
   flip: string = 'inactive';
-  constructor(private myStepper: MatStepper) {}
+  paymentform: FormGroup;
 
-  ngOnInit() {}
+  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder) { }
+
+  ngOnInit() {
+    this.paymentform = this.formBuilder.group({
+      nameFormControl: ['', [Validators.required]],
+      cvvFormControl: ['', [
+        Validators.required,
+        Validators.maxLength(3),
+        Validators.minLength(3),
+        Validators.pattern('[0-9]*')
+      ]],
+      cardnumberFormControl: ['', [
+        Validators.required,
+        Validators.minLength(12),
+        Validators.pattern('[0-9]*')
+      ]],
+      expiryFormControl: ['', [Validators.required]],
+    });
+  }
+  public hasError(controlName: string, errorName: string) {
+    return this.paymentform.controls[controlName].hasError(errorName);
+  }
   toggle() {
     this.flip = this.flip == 'inactive' ? 'active' : 'inactive';
   }
@@ -79,12 +87,7 @@ export class PaymentComponent implements OnInit {
     this.flip = status === true ? 'active' : 'inactive';
   }
   goForward() {
-    if (
-      this.nameFormControl.status === 'VALID' &&
-      this.cardnumberFormControl.status === 'VALID' &&
-      this.expiryFormControl.status === 'VALID' &&
-      this.cvvFormControl.status === 'VALID'
-    ) {
+    if (this.paymentform.status === 'VALID') {
       this.myStepper.next();
       this.step2status.emit(true);
     } else {

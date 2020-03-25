@@ -6,7 +6,6 @@ import { LoginComponent } from './login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   SocialLoginModule,
   AuthServiceConfig,
@@ -14,6 +13,7 @@ import {
   FacebookLoginProvider
 } from 'ng4-social-login';
 import { UserManagementModule } from 'src/app/features/user-management/user-management.module';
+import { SharedModule } from '@shared/shared.module';
 
 const config = new AuthServiceConfig(
   [
@@ -38,15 +38,13 @@ export function provideConfig() {
 @NgModule({
   declarations: [LoginComponent],
   imports: [
-    FormsModule,
-    ReactiveFormsModule,
     MatButtonModule,
     UserManagementModule,
     MatCardModule,
     MatInputModule,
     CommonModule,
     AuthManagementRoutingModule,
-
+    SharedModule,
     SocialLoginModule
   ],
   providers: [{ provide: AuthServiceConfig, useFactory: provideConfig }]

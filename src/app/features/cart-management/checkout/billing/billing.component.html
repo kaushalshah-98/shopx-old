@@ -2,22 +2,17 @@
   <mat-card class="edit-profile-card">
     <mat-card-title>Enter Billing Details</mat-card-title>
     <mat-card-content>
-      <form>
+      <form [formGroup]="billingform">
         <table class="table-full-width" cellspacing="0">
           <tr>
             <td>
               <mat-form-field appearance="outline">
                 <mat-label>Name</mat-label>
-                <input required matInput [formControl]="nameFormControl" />
-                <mat-error
-                  *ngIf="
-                    nameFormControl.errors?.minlength &&
-                    !nameFormControl.hasError('required')
-                  "
-                >
+                <input autocomplete="off"  required matInput formControlName="nameFormControl" />
+                <mat-error *ngIf="hasError('nameFormControl','minlength')">
                   Name must be at least 3 characters long.
                 </mat-error>
-                <mat-error *ngIf="nameFormControl.hasError('required')">
+                <mat-error *ngIf="hasError('nameFormControl','required')">
                   Name is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
@@ -25,8 +20,8 @@
             <td>
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label>LastName</mat-label>
-                <input required matInput [formControl]="LastnameFormControl" />
-                <mat-error *ngIf="LastnameFormControl.hasError('required')">
+                <input autocomplete="off"  required matInput formControlName="LastnameFormControl" />
+                <mat-error *ngIf="hasError('LastnameFormControl','required')">
                   Name is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
@@ -34,16 +29,11 @@
             <td>
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label>Email</mat-label>
-                <input required matInput [formControl]="emailFormControl" />
-                <mat-error
-                  *ngIf="
-                    emailFormControl.hasError('email') &&
-                    !emailFormControl.hasError('required')
-                  "
-                >
+                <input autocomplete="off"  required matInput formControlName="emailFormControl" />
+                <mat-error *ngIf="hasError('emailFormControl','email')">
                   Please enter a valid email address
                 </mat-error>
-                <mat-error *ngIf="emailFormControl.hasError('required')">
+                <mat-error *ngIf="hasError('emailFormControl','required')">
                   Email is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
@@ -56,8 +46,8 @@
             <td>
               <mat-form-field appearance="outline">
                 <mat-label>Address Line 1</mat-label>
-                <input required matInput [formControl]="address1FormControl" />
-                <mat-error *ngIf="address1FormControl.hasError('required')">
+                <input autocomplete="off"  required matInput formControlName="address1FormControl" />
+                <mat-error *ngIf="hasError('address1FormControl','required')">
                   Address is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
@@ -65,7 +55,7 @@
             <td>
               <mat-form-field appearance="outline">
                 <mat-label>Address Line 2</mat-label>
-                <input matInput [formControl]="address2FormControl" />
+                <input autocomplete="off"  matInput formControlName="address2FormControl" />
               </mat-form-field>
             </td>
           </tr>
@@ -76,12 +66,12 @@
             <td>
               <mat-form-field appearance="outline">
                 <mat-label>Country</mat-label>
-                <mat-select required [formControl]="selectedcountry">
+                <mat-select required formControlName="selectedcountry">
                   <mat-option *ngFor="let country of country" [value]="country.name">
                     {{ country.name }}
                   </mat-option>
                 </mat-select>
-                <mat-error *ngIf="selectedcountry.hasError('required')"
+                <mat-error *ngIf="hasError('selectedcountry','required')"
                   >You must make a selection</mat-error
                 >
               </mat-form-field>
@@ -89,12 +79,12 @@
             <td>
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label>State</mat-label>
-                <mat-select required [formControl]="selectedstate">
+                <mat-select required formControlName="selectedstate">
                   <mat-option *ngFor="let state of state" [value]="state.name">
                     {{ state.name }}
                   </mat-option>
                 </mat-select>
-                <mat-error *ngIf="selectedstate.hasError('required')"
+                <mat-error *ngIf="hasError('selectedstate','required')"
                   >You must make a selection</mat-error
                 >
               </mat-form-field>
@@ -102,22 +92,17 @@
             <td>
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label>Pin Code</mat-label>
-                <input
+                <input autocomplete="off"
                   required
                   matInput
-                  [formControl]="PincodeFormControl"
+                  formControlName="PincodeFormControl"
                   #pinCode
                   placeholder="Ex. 94105"
                 />
-                <mat-error
-                  *ngIf="
-                    PincodeFormControl.errors?.maxLength &&
-                    !PincodeFormControl.hasError('required')
-                  "
-                >
-                  Pin Code must be of 3 digits
+                <mat-error *ngIf=" hasError('PincodeFormControl','maxlength') ">
+                  Pin Code must be of 6 digits
                 </mat-error>
-                <mat-error *ngIf="PincodeFormControl.hasError('required')">
+                <mat-error *ngIf="hasError('PincodeFormControl','required')">
                   Pin Code is <strong>required</strong>
                 </mat-error>
                 <mat-hint align="end">{{ pinCode.value.length }} / 6 </mat-hint>
@@ -130,7 +115,7 @@
   </mat-card>
 </div>
 <div class="checkout-button">
-  <button mat-raised-button color="warn" (click)="goForward()">
+  <button mat-raised-button color="warn" [disabled]="billingform.invalid" (click)="goForward()">
     Confirm And Continue
   </button>
 </div>

@@ -23,56 +23,41 @@
     <mat-card-title>Edit Profile details</mat-card-title>
     <br />
     <mat-card-content>
-      <form #myForm="ngForm">
+      <form [formGroup]="editform">
         <mat-form-field appearance="outline">
           <mat-label>Username</mat-label>
-          <input matInput [formControl]="usernameFormControl" />
-          <mat-error
-            *ngIf="
-              usernameFormControl.errors?.minlength &&
-              !usernameFormControl.hasError('required')
-            "
-          >
+          <input autocomplete="off" matInput formControlName="usernameFormControl" />
+          <mat-error *ngIf="hasError('usernameFormControl','minlength')">
             Name must be at least 3 characters long.
           </mat-error>
-          <mat-error *ngIf="usernameFormControl.hasError('required')">
+          <mat-error *ngIf="hasError('usernameFormControl','required')">
             Username is <strong>required</strong>
           </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput [formControl]="emailFormControl" />
-          <mat-error
-            *ngIf="
-              emailFormControl.hasError('email') &&
-              !emailFormControl.hasError('required')
-            "
-          >
+          <input autocomplete="off" matInput formControlName="emailFormControl" />
+          <mat-error *ngIf="hasError('usernameFormControl','email')">
             Please enter a valid email address
           </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('required')">
+          <mat-error *ngIf="hasError('usernameFormControl','required')">
             Email is <strong>required</strong>
           </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Profile Pic</mat-label>
-          <input matInput [formControl]="photoFormControl" />
-          <mat-error *ngIf="photoFormControl.hasError('required')">
+          <input autocomplete="off" matInput formControlName="photoFormControl" />
+          <mat-error *ngIf="hasError('photoFormControl','required')">
             Profile Pic is <strong>required</strong>
           </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
-          <input matInput [formControl]="passwordFormControl" />
-          <mat-error
-            *ngIf="
-              passwordFormControl.errors?.minlength &&
-              !passwordFormControl.hasError('required')
-            "
-          >
+          <input autocomplete="off" matInput formControlName="passwordFormControl" />
+          <mat-error *ngIf="hasError('passwordFormControl','minlength')">
             Password must be at least 4 characters long.
           </mat-error>
-          <mat-error *ngIf="passwordFormControl.hasError('required')">
+          <mat-error *ngIf="hasError('passwordFormControl','required')">
             Password is <strong>required</strong>
           </mat-error>
         </mat-form-field>
@@ -84,7 +69,7 @@
     </div> -->
 </div>
 <mat-toolbar color="primary" class="edit-footer">
-  <button mat-raised-button (click)="AddProduct()">
+  <button mat-raised-button [disabled]="editform.invalid" (click)="save()">
     Save
   </button>
   &nbsp; &nbsp; &nbsp; &nbsp;

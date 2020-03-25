@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 
@@ -12,67 +12,79 @@ import { map } from 'rxjs/operators';
 export class UpdateComponent implements OnInit {
   state$: any;
   productdata: any;
-  constructor(private dialog: ConfirmDialogService, private activateRouter: ActivatedRoute) { }
+  constructor(
+    private dialog: ConfirmDialogService,
+    private activateRouter: ActivatedRoute,
+    private formBuilder: FormBuilder) { }
   category = [
     { name: 'Electronics' },
     { name: 'Mobile' },
     { name: 'MensFashion' },
     { name: 'WomensFashion' }
   ];
-  InnerCategory: any;
-
-  selectedcategory = new FormControl('', [Validators.required]);
-  selectedinnerCategory = new FormControl('', [Validators.required]);
-  productNameFormControl = new FormControl('', [Validators.required]);
-  quantityFormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern('[0-9]*'),
-    Validators.min(1)
-  ]);
-  priceFormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern('[0-9]*'),
-    Validators.min(1)
-  ]);
-  productDescriptionFormControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(10)
-  ]);
-  productImage1FormControl = new FormControl('', [Validators.required]);
-  productImage2FormControl = new FormControl('');
-  productImage3FormControl = new FormControl('');
+  InnerCategory = [
+    { name: 'Accessories' },
+    { name: 'Tablets' },
+    { name: 'Smartphones' },
+    { name: 'T-shirts' },
+    { name: 'Shirt' },
+    { name: 'Shoes' },
+    { name: 'Goggles' },
+    { name: 'TV' },
+    { name: 'Laptop' },
+    { name: 'Headphones' },
+    { name: 'Saree' },
+    { name: 'Dress' },
+    { name: 'Shoes' },
+    { name: 'Watch' },
+    { name: 'Nightwear' }
+  ];
+  updateproductform: FormGroup;
 
   ngOnInit() {
     this.state$ = this.activateRouter.paramMap
       .pipe(map(() => window.history.state))
-      .subscribe(res => this.productdata = res)
-  }
+      .subscribe(res => this.productdata = res);
 
+    this.updateproductform = this.formBuilder.group({
+      selectedcategory: ['', [Validators.required]],
+      selectedinnerCategory: ['', [Validators.required]],
+      productNameFormControl: ['', [Validators.required]],
+      quantityFormControl: ['', [
+        Validators.required,
+        Validators.pattern('[0-9]*'),
+        Validators.min(1)
+      ]],
+      priceFormControl: ['', [
+        Validators.required,
+        Validators.pattern('[0-9]*'),
+        Validators.min(1)
+      ]],
+      productDescriptionFormControl: ['', [
+        Validators.required,
+        Validators.minLength(10)
+      ]],
+      productImage1FormControl: ['', [Validators.required]],
+      productImage2FormControl: [''],
+      productImage3FormControl: [''],
+    });
+  }
+  public hasError(controlName: string, errorName: string) {
+    return this.updateproductform.controls[controlName].hasError(errorName);
+  }
   cancel() {
-    if (
-      this.selectedcategory.touched ||
-      this.productNameFormControl.touched ||
-      this.quantityFormControl.touched ||
-      this.priceFormControl.touched ||
-      this.productDescriptionFormControl.touched ||
-      this.productImage1FormControl.touched
-    ) {
+    if (this.updateproductform.touched) {
       this.dialog.showConfirmDialog('Are You Sure Want to Cancel ?').subscribe((result) => {
         if (result === 'yes') {
-          this.productDescriptionFormControl.reset();
-          this.quantityFormControl.reset();
-          this.productNameFormControl.reset();
-          this.priceFormControl.reset();
-          this.selectedinnerCategory.reset();
-          this.selectedcategory.reset();
-          this.productImage1FormControl.reset();
+          this.updateproductform.reset();
         }
       });
     }
   }
   onCategorySelect(event) {
-    this.selectedinnerCategory.reset();
-    switch (event) {
+    console.log('hi');
+    this.updateproductform.controls.selectedinnerCategory.reset();
+    switch (event.value) {
       case 'Electronics':
         this.InnerCategory = [{ name: 'TV' }, { name: 'Laptop' }, { name: 'Headphones' }];
         break;
@@ -104,15 +116,15 @@ export class UpdateComponent implements OnInit {
   }
   AddProduct() {
     let productdata = {
-      name: this.productNameFormControl.value,
-      description: this.productDescriptionFormControl.value,
-      quantity: this.quantityFormControl.value,
-      price: this.priceFormControl.value,
-      category: this.selectedcategory.value,
-      innercategory: this.selectedinnerCategory.value,
-      image1: this.productImage1FormControl.value,
-      image2: this.productImage2FormControl.value || '',
-      image3: this.productImage3FormControl.value || ''
+      name: this.updateproductform.controls.productNameFormControl.value,
+      description: this.updateproductform.controls.productDescriptionFormControl.value,
+      quantity: this.updateproductform.controls.quantityFormControl.value,
+      price: this.updateproductform.controls.priceFormControl.value,
+      category: this.updateproductform.controls.selectedcategory.value,
+      innercategory: this.updateproductform.controls.selectedinnerCategory.value,
+      image1: this.updateproductform.controls.productImage1FormControl.value,
+      image2: this.updateproductform.controls.productImage2FormControl.value || '',
+      image3: this.updateproductform.controls.productImage3FormControl.value || ''
     };
     console.log(productdata);
   }

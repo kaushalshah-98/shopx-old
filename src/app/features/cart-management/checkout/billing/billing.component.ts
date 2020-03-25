@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 
 @Component({
@@ -32,32 +32,31 @@ export class BillingComponent implements OnInit {
   ];
   @Output() step1status = new EventEmitter<boolean>();
 
-  nameFormControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  PincodeFormControl = new FormControl('', [
-    Validators.required,
-    Validators.maxLength(6),
-    Validators.pattern('[0-9]*')
-  ]);
-  LastnameFormControl = new FormControl('', [Validators.required]);
-  address1FormControl = new FormControl('', [Validators.required]);
-  selectedstate = new FormControl('', [Validators.required]);
-  address2FormControl = new FormControl();
-  selectedcountry = new FormControl('', [Validators.required]);
+  billingform: FormGroup;
 
-  constructor(private myStepper: MatStepper) {}
-  ngOnInit() {}
+  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder) { }
 
+  ngOnInit() {
+    this.billingform = this.formBuilder.group({
+      nameFormControl: ['', [Validators.required, Validators.minLength(3)]],
+      emailFormControl: ['', [Validators.required, Validators.email]],
+      PincodeFormControl: ['', [
+        Validators.required,
+        Validators.maxLength(6),
+        Validators.pattern('[0-9]*')
+      ]],
+      LastnameFormControl: ['', [Validators.required]],
+      address1FormControl: ['', [Validators.required]],
+      selectedstate: ['', [Validators.required]],
+      address2FormControl: [],
+      selectedcountry: ['', [Validators.required]],
+    });
+  }
+  public hasError(controlName: string, errorName: string) {
+    return this.billingform.controls[controlName].hasError(errorName);
+  }
   goForward() {
-    if (
-      this.nameFormControl.status === 'VALID' &&
-      this.emailFormControl.status === 'VALID' &&
-      this.PincodeFormControl.status === 'VALID' &&
-      this.address1FormControl.status === 'VALID' &&
-      this.LastnameFormControl.status === 'VALID' &&
-      this.selectedstate.status === 'VALID' &&
-      this.selectedcountry.status === 'VALID'
-    ) {
+    if (this.billingform.status === 'VALID') {
       this.myStepper.next();
       this.step1status.emit(true);
     } else {
