@@ -23,7 +23,7 @@ export class QuickviewComponent implements OnInit {
     { username: 'kaushal', review: 'It is a good product' },
     { username: 'DEFAULT', review: 'It is a good product' }
   ];
-  Total: number = 0;
+  totalreviewcount: number = 0;
   constructor(
     public dialogRef: MatDialogRef<QuickviewComponent>,
     @Inject(MAT_DIALOG_DATA) public data
@@ -36,14 +36,14 @@ export class QuickviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.Total = this.reviews.length;
+    this.totalreviewcount = this.reviews.length;
   }
   onNoClick(): void {
     this.dialogRef.close();
   }
   reset() {
     this.reviewtext.reset();
-    this.Total = this.reviews.length;
+    this.totalreviewcount = this.reviews.length;
   }
   addreview() {
     let item = { username: 'DEFAULT', review: this.reviewtext.value };
@@ -57,7 +57,9 @@ export class QuickviewComponent implements OnInit {
     return false;
   }
   deletereview(review) {
-    this.reviews = this.reviews.filter((item) => !(item.review === review.review && item.username === review.username));
+    this.reviews = this.reviews.filter(
+      (item) => !(item.review === review.review && item.username === review.username)
+    );
     this.reset();
   }
 }
