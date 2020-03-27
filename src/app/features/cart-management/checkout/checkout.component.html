@@ -22,10 +22,16 @@
         {{"user.form_heading.order_is_placed_successfully" | translate}}
       </mat-card>
     </div>
-    <div class="checkout-button">
+    <!-- <div class="checkout-button">
       <button mat-raised-button color="warn" [routerLink]="['/home']">
         {{"user.cart.continue_shopping" | translate}}
       </button>
-    </div>
+    </div> -->
+    <mat-toolbar color="primary" class="c-bottom-action-bar checkout-button">
+      <button mat-raised-button [routerLink]="['/home']" class="order-button">
+        {{"user.cart.continue_shopping" | translate}}
+      </button>
+    </mat-toolbar>
+
   </mat-step>
 </mat-horizontal-stepper>

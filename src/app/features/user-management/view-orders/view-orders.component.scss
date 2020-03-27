@@ -1,17 +1,17 @@
 .order-container {
-  padding: 50px 50px 38px 50px;
-  min-height: 550px;
+  padding: 50px 50px 0px 50px;
+  // min-height: 550px;
 
   .mat-expansion-panel {
     border-radius: 10px !important;
     &:hover {
       box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.1), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
         0 3px 14px 2px rgba(0, 0, 0, 0.12);
-      transform: translateY(0.5px);
-      background-color: white !important;
+      transform: translateY(4px);
     }
     .mat-expansion-panel-header {
       height: 80px !important;
+      background-color: whitesmoke;
       &:hover {
         background: rgba(0, 0, 0, 0.01);
       }

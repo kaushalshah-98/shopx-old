@@ -160,13 +160,12 @@
     </mat-card-content>
   </mat-card>
 </div>
-<mat-toolbar color="primary" class="edit-footer">
-  <button mat-raised-button [disabled]="addproductform.invalid" (click)="AddProduct()">
+<mat-toolbar color="primary" class="c-bottom-action-bar u-text-right">
+  <button id="btnSave" mat-flat-button (click)="AddProduct()">
     {{"admin.productform.save" | translate}}
   </button>
-  &nbsp; &nbsp; &nbsp; &nbsp;
-
-  <button mat-raised-button (click)="cancel()" color="warn">
+  &nbsp;&nbsp;
+  <button id="btnCancel" mat-flat-button (click)="cancel()" color="warn">
     {{"admin.productform.cancel" | translate}}
   </button>
 </mat-toolbar>

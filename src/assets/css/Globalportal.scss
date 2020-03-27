@@ -1,8 +1,8 @@
-@import "variable";
-@import "u-general";
-@import "c-angular-component";
-@import "primeNG";
-@import "module";
+@import 'variable';
+@import 'u-general';
+@import 'c-angular-component';
+@import 'primeNG';
+@import 'module';
 
 * {
   box-sizing: border-box;
@@ -104,8 +104,8 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  right: 0;
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
   height: 56px;
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.08), 0 -2px 8px rgba(0, 0, 0, 0.12);
   background-color: map-get($map: $global-color, $key: white);
@@ -118,7 +118,7 @@ body {
 
 // Legends
 
-[class*="u-status-indicator"] {
+[class*='u-status-indicator'] {
   width: 10px;
   height: 10px;
   display: inline-block;
@@ -132,14 +132,12 @@ body {
 }
 
 .u-status-indicator-disabled {
-  border-color: var(
-    map-get($map: $global-theme-variable, $key: global_color_raspberry)
-  );
+  border-color: var(map-get($map: $global-theme-variable, $key: global_color_raspberry));
 }
 
 //TODO: jay
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

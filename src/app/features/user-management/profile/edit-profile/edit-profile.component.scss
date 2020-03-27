@@ -1,10 +1,11 @@
 .edit-container {
   width: 100%;
-  min-height: 521px;
+  // min-height: 521px;
+  min-height: 425px;
   padding: 30px 90px 0px 90px;
   .edit-profile-card {
-    min-height: 400px;
     // width: 800px;
+    max-height: 370px;
     width: 100%;
     border-radius: 10px;
     box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
@@ -17,14 +18,5 @@
     .mat-form-field {
       width: 100%;
     }
-  }
-}
-.edit-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-right: 20px;
-  .mat-raised-button {
-    width: 20%;
   }
 }

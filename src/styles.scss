@@ -18,6 +18,9 @@ button:focus {
 .mat-dialog-container {
   overflow: hidden;
 }
+.mat-horizontal-content-container {
+  padding: 0 !important;
+}
 //----------------------------PRE - LOADER------------------------------------------------
 .pre-loader {
   display: block;

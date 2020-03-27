@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, EventEmitter } from '@angular/core';
 import {
   AuthService,
   SocialUser,
@@ -18,16 +18,17 @@ import { RoleService } from '@services/role-service/role.service';
 })
 export class LoginComponent implements OnInit {
   public user: SocialUser;
-
+  dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   loginform: FormGroup;
-
+  show: boolean = false;
   constructor(
     private socialAuthService: AuthService,
     private userservice: UserManagementService,
     private router: Router,
     private role: RoleService,
     private formBuilder: FormBuilder
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.loginform = this.formBuilder.group({
@@ -39,21 +40,38 @@ export class LoginComponent implements OnInit {
     return this.loginform.controls[controlName].hasError(errorName);
   }
   login() {
-    this.role.setRole('admin');
-    this.router.navigate(['admin']);
-    // this.userservice.setRole("user");
-    // this.router.navigate(["home"]);
+    this.dataLoading.emit(true);
+    this.show = true;
+    setTimeout(() => {
+      this.dataLoading.emit(false);
+      this.role.setRole('admin');
+      this.router.navigate(['admin']);
+      // this.userservice.setRole("user");
+      // this.router.navigate(["home"]);
+    }, 3000);
   }
   loginWithFacebook() {
-    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then((userdata) => {
-      this.userservice.setUserData(userdata);
-      this.router.navigate(['home']);
-    });
+    this.dataLoading.emit(true);
+    this.show = true;
+    setTimeout(() => {
+      this.dataLoading.emit(false);
+      this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then((userdata) => {
+        this.userservice.setUserData(userdata);
+        this.router.navigate(['home']);
+      });
+    }, 3000);
+
   }
   loginWithGoogle() {
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userdata) => {
-      this.userservice.setUserData(userdata);
-      this.router.navigate(['home']);
-    });
+    this.dataLoading.emit(true);
+    this.show = true;
+    setTimeout(() => {
+      this.dataLoading.emit(false);
+      this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userdata) => {
+        this.userservice.setUserData(userdata);
+        this.router.navigate(['home']);
+      });
+    }, 3000);
+
   }
 }

@@ -65,11 +65,9 @@
       <br />
     </div>
   </mat-accordion>
-  <br /><br /><br /><br />
-  <div class="order-button-wrap">
-    <button mat-raised-button color="primary" [routerLink]="['/home']" class="order-button">
-      {{"user.cart.continue_shopping" | translate}}
-    </button>
-  </div>
 </div>
-<app-footer></app-footer>
+<mat-toolbar color="primary" class="c-bottom-action-bar order-button-wrap">
+  <button mat-raised-button [routerLink]="['/home']" class="order-button">
+    {{"user.cart.continue_shopping" | translate}}
+  </button>
+</mat-toolbar>

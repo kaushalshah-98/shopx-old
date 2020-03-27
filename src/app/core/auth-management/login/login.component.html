@@ -52,3 +52,8 @@
     </div>
   </mat-card>
 </div>
+<app-spinner
+  *ngIf="show"
+  style="position: absolute;top: 66%;left: 48%;"
+  [loading]="dataLoading"
+></app-spinner>

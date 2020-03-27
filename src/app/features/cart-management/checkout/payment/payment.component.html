@@ -307,8 +307,13 @@
     </div>
   </div>
 </div>
-<div class="checkout-button">
+<!-- <div class="checkout-button">
   <button mat-raised-button color="warn" [disabled]="paymentform.invalid" (click)="goForward()">
     {{"user.form.confirm_and_continue" | translate}}
   </button>
-</div>
+</div> -->
+<mat-toolbar color="primary" class="c-bottom-action-bar u-text-right checkout-button">
+  <button mat-raised-button color="warn" [disabled]="paymentform.invalid" (click)="goForward()">
+    {{"user.form.confirm_and_continue" | translate}}
+  </button>
+</mat-toolbar>

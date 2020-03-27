@@ -7,7 +7,7 @@ import { Product, sliderProduct } from '@shared/interfaces';
   styleUrls: ['./page-content.component.scss']
 })
 export class PageContentComponent implements OnInit {
-  dataLoading: EventEmitter<boolean> = new EventEmitter(false);
+  dataLoading: EventEmitter<boolean> = new EventEmitter(true);
   categoryitems: Product[];
   items_category1: Product[];
   items_category2: Product[];
