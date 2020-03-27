@@ -3,7 +3,7 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-fetch-sunglass',
   template: `
-    <app-jumbotron [Heading]="'SUNGLASSES'"></app-jumbotron>
+    <app-jumbotron [Heading]="'menu_item.sunglass'"></app-jumbotron>
     <div class="product-list-page">
       <app-spinner [loading]="dataLoading"></app-spinner>
       <app-list-products [productitems]="productitems"></app-list-products>

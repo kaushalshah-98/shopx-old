@@ -3,7 +3,7 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-fetch-laptop',
   template: `
-    <app-jumbotron [Heading]="'LAPTOPS'"></app-jumbotron>
+    <app-jumbotron [Heading]="'menu_item.laptops'"></app-jumbotron>
 
     <div class="product-list-page">
       <app-spinner [loading]="dataLoading"></app-spinner>

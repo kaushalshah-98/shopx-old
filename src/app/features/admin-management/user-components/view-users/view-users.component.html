@@ -1,4 +1,4 @@
-<app-jumbotron [Heading]="'ALL-USERS'"></app-jumbotron>
+<app-jumbotron [Heading]="'admin.main_heading.all_users'"></app-jumbotron>
 <div class="outer-wrap">
   <mat-card class="display-products-card">
     <mat-card-content>
@@ -23,7 +23,7 @@
               matInput
               autocomplete="off"
               (keyup)="applyFilter($event)"
-              placeholder="Search"
+              placeholder="{{'admin.table.search' | translate}}"
             />
             <mat-icon matSuffix style="font-size: 18px;">search</mat-icon>
           </mat-form-field>
@@ -46,7 +46,7 @@
             </ng-container>
             <ng-container matColumnDef="profilepic">
               <th mat-header-cell mat-sort-header *matHeaderCellDef>
-                ProfilePic
+                {{"admin.table.profile_pic" | translate}}
               </th>
               <td mat-cell *matCellDef="let element">
                 <img style="width: 40px;height: 40px;" src="{{ element.profilepic }}" />
@@ -54,14 +54,15 @@
             </ng-container>
             <ng-container matColumnDef="name">
               <th mat-header-cell mat-sort-header *matHeaderCellDef>
-                &nbsp;&nbsp;Name
+                &nbsp;&nbsp; {{"admin.table.name" | translate}}
               </th>
               <td mat-cell *matCellDef="let element">{{ element.name }}</td>
             </ng-container>
 
             <ng-container matColumnDef="email">
               <th mat-header-cell mat-sort-header *matHeaderCellDef>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{"admin.table.email" | translate}}
               </th>
               <td mat-cell *matCellDef="let element">
                 {{ element.email }}
@@ -69,7 +70,7 @@
             </ng-container>
             <ng-container matColumnDef="action">
               <th mat-header-cell mat-sort-header *matHeaderCellDef>
-                &nbsp;Action
+                &nbsp; {{"admin.table.action" | translate}}
               </th>
               <td mat-cell *matCellDef="let element">
                 <button mat-icon-button color="warn" (click)="blockuser(element)">

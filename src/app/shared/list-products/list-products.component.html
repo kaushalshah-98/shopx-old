@@ -20,9 +20,11 @@
             </div>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-raised-button color="primary">Add to cart</button>
+            <button mat-raised-button color="primary">
+              {{"user.product.add_to_cart" | translate}}
+            </button>
             <button mat-raised-button color="warn" (click)="quickview(item)">
-              Quick View
+              {{"user.product.quick_view" | translate}}
             </button>
           </mat-card-actions>
         </mat-card>

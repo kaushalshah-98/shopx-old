@@ -1,5 +1,5 @@
 <app-navbar [isHidden]="true"></app-navbar>
-<app-jumbotron [Heading]="heading"></app-jumbotron>
+<app-jumbotron [Heading]="'user.main_heading.shopx_cart'"></app-jumbotron>
 <!-- <div class="container mb-4">
     <div class="row">
       <div class="col-12">
@@ -111,19 +111,19 @@
 <div class="table-wrapper">
   <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="image">
-      <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> {{"user.product.image" | translate}} </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <img class="product-image" src="{{ element.image }}" />
       </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> {{"user.product.name" | translate}} </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="quantity">
-      <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> {{"user.product.quantity" | translate}} </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <div class="input-quantity">
           <mat-form-field class="search-field" appearance="outline">
@@ -140,12 +140,14 @@
     </ng-container>
 
     <ng-container matColumnDef="price">
-      <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> {{"user.product.price" | translate}} </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{ element.price }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="action">
-      <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>
+        {{"user.product.action" | translate}}
+      </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <button mat-raised-button color="primary" (click)="updateCart(qty.value, cartitem)">
           <mat-icon>refresh</mat-icon>
@@ -156,7 +158,7 @@
     <ng-container matColumnDef="delete">
       <mat-header-cell *matHeaderCellDef>
         <button mat-raised-button color="accent" (click)="emptycart()">
-          Empty the Cart
+          {{"user.product.empty_the_cart" | translate}}
         </button>
       </mat-header-cell>
       <mat-cell *matCellDef="let element">
@@ -172,16 +174,16 @@
 </div>
 <br />
 <mat-card class="table-bottom">
-  Total Price : Rs 8000
+  {{"user.cart.total_price" | translate}} : Rs 8000
 </mat-card>
 <br /><br />
 <div class="table-bottom">
   <button mat-raised-button style="width: 40%;" [routerLink]="['/home']" color="primary">
-    Continue Shopping
+    {{"user.cart.continue_shopping" | translate}}
   </button>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <button mat-raised-button style="width: 40%;" [routerLink]="['/checkout/#']" color="warn">
-    Checkout
+    {{"user.cart.checkout" | translate}}
   </button>
 </div>
 <br /><br />

@@ -1,4 +1,4 @@
-<app-jumbotron [Heading]="'ADD-PRODUCT'"></app-jumbotron>
+<app-jumbotron [Heading]="'admin.main_heading.add_product'"></app-jumbotron>
 <div class="billing-container">
   <mat-card class="edit-profile-card">
     <mat-card-content>
@@ -7,7 +7,7 @@
           <tr>
             <td>
               <mat-form-field appearance="outline">
-                <mat-label>Category</mat-label>
+                <mat-label>{{"admin.productform.category" | translate}}</mat-label>
                 <mat-select
                   required
                   formControlName="selectedcategory"
@@ -17,14 +17,14 @@
                     {{ category.name }}
                   </mat-option>
                 </mat-select>
-                <mat-error *ngIf="hasError('selectedcategory','required')"
-                  >You must make a selection</mat-error
-                >
+                <mat-error *ngIf="hasError('selectedcategory','required')">
+                  {{"admin.productform_validations.you_must_make_a_selection" |translate}}
+                </mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field appearance="outline" class="example-full-width">
-                <mat-label>InnerCategory</mat-label>
+                <mat-label>{{"admin.productform.innercategory" | translate}}</mat-label>
                 <mat-select
                   required
                   formControlName="selectedinnerCategory"
@@ -37,9 +37,9 @@
                     {{ innerCategory.name }}
                   </mat-option>
                 </mat-select>
-                <mat-error *ngIf="hasError('selectedinnerCategory','required')"
-                  >You must make a selection</mat-error
-                >
+                <mat-error *ngIf="hasError('selectedinnerCategory','required')">
+                  {{"admin.productform_validations.you_must_make_a_selection" |translate}}
+                </mat-error>
               </mat-form-field>
             </td>
           </tr>
@@ -49,7 +49,7 @@
           <tr>
             <td>
               <mat-form-field appearance="outline">
-                <mat-label>Product Name</mat-label>
+                <mat-label>{{"admin.productform.product_name" | translate}}</mat-label>
                 <input
                   autocomplete="off"
                   required
@@ -57,7 +57,8 @@
                   formControlName="productNameFormControl"
                 />
                 <mat-error *ngIf="hasError('productNameFormControl','required')">
-                  Product Name is <strong>required</strong>
+                  {{"admin.productform.product_name" | translate}}
+                  {{"admin.productform_validations.is_required" | translate}}
                 </mat-error>
               </mat-form-field>
             </td>
@@ -68,31 +69,33 @@
           <tr>
             <td>
               <mat-form-field appearance="outline">
-                <mat-label>Quantity</mat-label>
+                <mat-label>{{"admin.productform.quantity" | translate}}</mat-label>
                 <input autocomplete="off" required matInput formControlName="quantityFormControl" />
                 <mat-error *ngIf="hasError('quantityFormControl','min')">
-                  Enter Positive <strong>value</strong>
+                  {{"admin.productform_validations.enter_positive_value" | translate}}
                 </mat-error>
                 <mat-error *ngIf="hasError('quantityFormControl','pattern')">
-                  Enter valid <strong>value</strong>
+                  {{"admin.productform_validations.enter_valid_value" | translate}}
                 </mat-error>
                 <mat-error *ngIf="hasError('quantityFormControl','required')">
-                  Quantity is <strong>required</strong>
+                  {{"admin.productform.quantity" | translate}}
+                  {{"admin.productform_validations.is_required" | translate}}
                 </mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field appearance="outline">
-                <mat-label>Price</mat-label>
+                <mat-label>{{"admin.productform.price" | translate}}</mat-label>
                 <input autocomplete="off" required matInput formControlName="priceFormControl" />
                 <mat-error *ngIf="hasError('priceFormControl','min')">
-                  Enter Positive <strong>value</strong>
+                  {{"admin.productform_validations.enter_positive_value" | translate}}
                 </mat-error>
                 <mat-error *ngIf="hasError('priceFormControl','pattern')">
-                  Enter valid <strong>value</strong>
+                  {{"admin.productform_validations.enter_valid_value" | translate}}
                 </mat-error>
                 <mat-error *ngIf="hasError('priceFormControl','required')">
-                  Price is <strong>required</strong>
+                  {{"admin.productform.price" | translate}}
+                  {{"admin.productform_validations.is_required" | translate}}
                 </mat-error>
               </mat-form-field>
             </td>
@@ -103,14 +106,19 @@
           <tr>
             <td>
               <mat-form-field appearance="outline">
-                <mat-label>Product Description</mat-label>
+                <mat-label>{{"admin.productform.product_description" | translate}}</mat-label>
                 <textarea
                   matInput
                   required
                   formControlName="productDescriptionFormControl"
                 ></textarea>
+                <mat-error *ngIf="hasError('productDescriptionFormControl','minlength')">
+                  {{"admin.productform.product_description" | translate}}
+                  {{"admin.productform_validations.must_have_minimum_10_characters" | translate}}
+                </mat-error>
                 <mat-error *ngIf="hasError('productDescriptionFormControl','required')">
-                  Product Description is <strong>required</strong>
+                  {{"admin.productform.product_description" | translate}}
+                  {{"admin.productform_validations.is_required" | translate}}
                 </mat-error>
               </mat-form-field>
             </td>
@@ -121,7 +129,7 @@
           <tr>
             <td>
               <mat-form-field appearance="outline">
-                <mat-label>Image URL</mat-label>
+                <mat-label>{{"admin.productform.image_url" | translate}}</mat-label>
                 <input
                   autocomplete="off"
                   required
@@ -129,19 +137,20 @@
                   formControlName="productImage1FormControl"
                 />
                 <mat-error *ngIf="hasError('productImage1FormControl','required')">
-                  Image is <strong>required</strong>
+                  {{"admin.productform.image" | translate}}
+                  {{"admin.productform_validations.is_required" | translate}}
                 </mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field appearance="outline">
-                <mat-label>Image URL-2</mat-label>
+                <mat-label>{{"admin.productform.image_url_2" | translate}}</mat-label>
                 <input autocomplete="off" matInput formControlName="productImage2FormControl" />
               </mat-form-field>
             </td>
             <td>
               <mat-form-field appearance="outline">
-                <mat-label>Image URL-3</mat-label>
+                <mat-label>{{"admin.productform.image_url_3" | translate}}</mat-label>
                 <input autocomplete="off" matInput formControlName="productImage3FormControl" />
               </mat-form-field>
             </td>
@@ -153,11 +162,11 @@
 </div>
 <mat-toolbar color="primary" class="edit-footer">
   <button mat-raised-button [disabled]="addproductform.invalid" (click)="AddProduct()">
-    Save
+    {{"admin.productform.save" | translate}}
   </button>
   &nbsp; &nbsp; &nbsp; &nbsp;
 
   <button mat-raised-button (click)="cancel()" color="warn">
-    Cancel
+    {{"admin.productform.cancel" | translate}}
   </button>
 </mat-toolbar>

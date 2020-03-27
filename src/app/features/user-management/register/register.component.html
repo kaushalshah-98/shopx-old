@@ -5,40 +5,42 @@
     </mat-card-header>
     <form class="input-form" [formGroup]="registerform">
       <mat-form-field class="input-full-width">
-        <mat-label>Username</mat-label>
+        <mat-label>{{"user.form.username" | translate}}</mat-label>
         <input autocomplete="off" matInput formControlName="usernameFormControl" />
         <mat-error *ngIf="hasError('usernameFormControl','minlength')">
-          Name must be at least 3 characters long.
+          {{"user.form.username" | translate}}
+          {{"user.form_validations.must_be_at_least_3_characters_long" | translate}}.
         </mat-error>
         <mat-error *ngIf="hasError('usernameFormControl','required')">
-          Username is <strong>required</strong>
+          {{"user.form.username" | translate}} {{"user.form_validations.is_required" | translate}}
         </mat-error>
       </mat-form-field>
       <mat-form-field class="input-full-width">
-        <mat-label>Email</mat-label>
+        <mat-label>{{"user.form.email" | translate}}</mat-label>
         <input autocomplete="off" matInput formControlName="emailFormControl" />
         <mat-error *ngIf="hasError('emailFormControl','email')">
-          Please enter a valid email address
+          {{"user.form_validations.please_enter_a_valid_email_address" | translate}}
         </mat-error>
         <mat-error *ngIf="hasError('emailFormControl','required')">
-          Email is <strong>required</strong>
+          {{"user.form.email" | translate}} {{"user.form_validations.is_required" | translate}}
         </mat-error>
       </mat-form-field>
       <mat-form-field class="input-full-width">
         <mat-label>Profile Pic</mat-label>
         <input autocomplete="off" matInput formControlName="photoFormControl" />
         <mat-error *ngIf="hasError('photoFormControl','required')">
-          Profile Pic is <strong>required</strong>
+          {{"user.form.profile_pic" | translate}} {{"user.form_validations.is_required" |
+          translate}}
         </mat-error>
       </mat-form-field>
       <mat-form-field class="input-full-width">
-        <mat-label>Password</mat-label>
+        <mat-label>{{"user.form.passowrd" | translate}}</mat-label>
         <input autocomplete="off" matInput formControlName="passwordFormControl" />
         <mat-error *ngIf="hasError('passwordFormControl','minlength')">
-          Password must be at least 4 characters long.
+          {{"user.form.passowrd" | translate}} must be at least 4 characters long.
         </mat-error>
         <mat-error *ngIf="hasError('passwordFormControl','required')">
-          Password is <strong>required</strong>
+          {{"user.form.passowrd" | translate}} {{"user.form_validations.is_required" | translate}}
         </mat-error>
       </mat-form-field>
     </form>
@@ -50,12 +52,12 @@
         class="signin-btn"
         (click)="register()"
       >
-        Register
+        {{"user.form.register" | translate}}
       </button>
     </mat-card-actions>
     <div class="input-text" style="margin-top: -34px;">
-      Already a member?
-      <a [routerLink]="['/login']"> login</a>
+      {{"user.form.already_a_member" | translate}}
+      <a [routerLink]="['/login']"> {{"user.form.login" | translate}} </a>
     </div>
   </mat-card>
 </div>

@@ -13,19 +13,23 @@ export class WishListComponent implements OnInit {
   dataSource;
   constructor(private dialog: ConfirmDialogService) {}
   removeFromWishlist(wishlistitem) {
-    this.dialog.showConfirmDialog('Are You Sure Want to Remove this item ?').subscribe((result) => {
-      if (result === 'yes') {
-        console.log('removed');
-      }
-    });
+    this.dialog
+      .showConfirmDialog('confirm.are_you_sure_want_to_remove_this_item')
+      .subscribe((result) => {
+        if (result === 'yes') {
+          console.log('removed');
+        }
+      });
   }
   addTocart(qty, item) {}
   emptywishList() {
-    this.dialog.showConfirmDialog('Are You Sure Want to Clear Your List ?').subscribe((result) => {
-      if (result === 'yes') {
-        console.log('emptied');
-      }
-    });
+    this.dialog
+      .showConfirmDialog('confirm.are_you_sure_want_to_clear_your_list')
+      .subscribe((result) => {
+        if (result === 'yes') {
+          console.log('emptied');
+        }
+      });
   }
   ngOnInit() {
     this.wishlistitems = [

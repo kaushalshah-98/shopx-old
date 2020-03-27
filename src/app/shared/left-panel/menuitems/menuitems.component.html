@@ -14,7 +14,7 @@
       <mat-icon [id]="item.name"> {{ item.icon }}</mat-icon>
     </mat-panel-title>
     <mat-panel-description class="menu-name">
-      {{ item.name }}
+      {{ "menu_item."+item.name | lowercase | translate }}
     </mat-panel-description>
   </mat-expansion-panel-header>
   <div>

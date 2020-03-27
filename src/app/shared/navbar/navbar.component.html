@@ -20,31 +20,32 @@
     <div class="search-bar" [hidden]="isHidden || isAdmin">
       <mat-form-field appearance="outline">
         <input autocomplete="off" matInput />
-        <mat-icon matSuffix style="font-size: 25px;margin-right: 20px;">search</mat-icon>
+        <mat-icon matSuffix class="search-icon">search</mat-icon>
       </mat-form-field>
     </div>
     <span class="example-spacer"></span>
     <div>
       <button mat-raised-button [matMenuTriggerFor]="menu">
-        Hello, {{ getUserName() }}
+        {{'nav_bar.hello'| translate}}, {{ getUserName() }}
         <mat-icon>arrow_drop_down </mat-icon>
       </button>
       &nbsp;&nbsp;
       <mat-menu #menu="matMenu" xPosition="after">
         <button [hidden]="isAdmin" mat-menu-item [routerLink]="['/usersettings/profile']">
-          <mat-icon>account_circle</mat-icon>Your Account
+          <mat-icon>account_circle</mat-icon>{{'nav_bar.menu.your_account' | translate}}
         </button>
         <button [hidden]="isAdmin" mat-menu-item [routerLink]="['/usersettings/my_orders']">
-          <mat-icon>assignment</mat-icon>Your Orders
+          <mat-icon>assignment</mat-icon>{{'nav_bar.menu.your_order' | translate}}
         </button>
         <button [hidden]="isAdmin" mat-menu-item [routerLink]="['/usersettings/wishlist']">
-          <mat-icon>favorite</mat-icon>Your Wishlist
+          <mat-icon>favorite</mat-icon>{{'nav_bar.menu.your_wishlist' | translate}}
         </button>
         <button mat-menu-item (click)="logout()">
           <mat-icon>exit_to_app</mat-icon>{{ getLoginStatus() | translate }}
         </button>
         <button mat-menu-item>
-          <mat-icon>nights_stay</mat-icon>Night Mode&nbsp;&nbsp;&nbsp;&nbsp;
+          <mat-icon>nights_stay</mat-icon>{{'nav_bar.menu.night_mode' |
+          translate}}&nbsp;&nbsp;&nbsp;&nbsp;
           <mat-slide-toggle [(ngModel)]="value" (change)="changetheme(value)" color="primary">
           </mat-slide-toggle>
         </button>
@@ -64,9 +65,9 @@
         <mat-icon>arrow_drop_down </mat-icon>
       </button>
       <mat-menu #languagemenu="matMenu" xPosition="after">
-        <ng-container *ngFor="let language of translate.getLangs()">
-          <button [hidden]="isAdmin" mat-menu-item (click)="onLanguageSelect(language)">
-            {{ language |translate }}
+        <ng-container *ngFor="let lang of translate.getLangs()">
+          <button mat-menu-item (click)="onLanguageSelect(lang)">
+            {{"language."+lang | lowercase | translate }}
           </button>
         </ng-container>
       </mat-menu>

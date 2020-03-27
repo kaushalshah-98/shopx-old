@@ -1,11 +1,11 @@
-<app-jumbotron [Heading]="'ADMIN-MANAGEMENT'"></app-jumbotron>
+<app-jumbotron [Heading]="'admin.main_heading.admin_management'"></app-jumbotron>
 <div class="space-medium">
   <div class="containerr">
     <div class="roww">
       <div class="one-part">
         <mat-card class="showcase-block">
           <div class="display-logo ">
-            <a class="display-text">Product Management</a>
+            <a class="display-text">{{"menu_item.product_management" | translate}}</a>
           </div>
           <!-- <div class="showcase-img">
             <a> <img class="small-image" src="" alt=""/></a>
@@ -18,7 +18,9 @@
       <div class="four-part">
         <mat-card class="showcase-block">
           <div class="display-logo ">
-            <a class="display-text" [routerLink]="['/admin/viewproducts']"> View All Products</a>
+            <a class="display-text" [routerLink]="['/admin/viewproducts']">
+              {{"menu_item.view_all_products" | translate}}</a
+            >
           </div>
           <!-- <div class="showcase-img">
             <a><img class="small-image" src="" alt=""/></a>
@@ -28,7 +30,9 @@
       <div class="four-part">
         <mat-card class="showcase-block">
           <div class="display-logo ">
-            <a class="display-text" [routerLink]="['/admin/addproduct']"> Add a Product</a>
+            <a class="display-text" [routerLink]="['/admin/addproduct']">
+              {{"menu_item.add_a_product" | translate}}</a
+            >
           </div>
           <!-- <div class="showcase-img">
             <a><img class="small-image" src="" alt=""/></a>
@@ -38,7 +42,9 @@
       <div class="four-part">
         <mat-card class="showcase-block">
           <div class="display-logo ">
-            <a class="display-text" [routerLink]="['/admin/updateproduct']"> Update a Product</a>
+            <a class="display-text" [routerLink]="['/admin/updateproduct']">
+              {{"menu_item.update_a_product" | translate}}</a
+            >
           </div>
           <!-- <div class="showcase-img">
             <a><img class="small-image" src="" alt=""/></a>
@@ -48,7 +54,9 @@
       <div class="four-part">
         <mat-card class="showcase-block">
           <div class="display-logo ">
-            <a class="display-text" [routerLink]="['/admin/deleteproduct']"> Delete a Product</a>
+            <a class="display-text" [routerLink]="['/admin/deleteproduct']">
+              {{"menu_item.delete_a_product" | translate}}</a
+            >
           </div>
           <!-- <div class="showcase-img">
             <a><img class="small-image" src="" alt=""/></a>
@@ -63,7 +71,7 @@
       <div class="one-part">
         <mat-card class="showcase-block">
           <div class="display-logo ">
-            <a class="display-text">User Management</a>
+            <a class="display-text">{{"menu_item.user_management" | translate}}</a>
           </div>
           <!-- <div class="showcase-img">
             <a> <img class="small-image" src="" alt=""/></a>
@@ -76,7 +84,9 @@
       <div class="three-part">
         <mat-card class="showcase-block">
           <div class="display-logo ">
-            <a class="display-text" [routerLink]="['/admin/viewusers']"> Add a User</a>
+            <a class="display-text" [routerLink]="['/admin/viewusers']">
+              {{"menu_item.view_user" | translate}}</a
+            >
           </div>
           <!-- <div class="showcase-img">
             <a><img class="small-image" src="" alt=""/></a>
@@ -86,7 +96,9 @@
       <div class="three-part">
         <mat-card class="showcase-block">
           <div class="display-logo ">
-            <a class="display-text" [routerLink]="['/admin/blockuser']"> Block a User</a>
+            <a class="display-text" [routerLink]="['/admin/blockuser']">
+              {{"menu_item.block_user" | translate}}</a
+            >
           </div>
           <!-- <div class="showcase-img">
             <a><img class="small-image" src="" alt=""/></a>
@@ -96,7 +108,9 @@
       <div class="three-part">
         <mat-card class="showcase-block">
           <div class="display-logo ">
-            <a class="display-text" [routerLink]="['/admin/vieworders']"> View Orders</a>
+            <a class="display-text" [routerLink]="['/admin/vieworders']">
+              {{"menu_item.view_orders" | translate}}</a
+            >
           </div>
           <!-- <div class="showcase-img">
             <a><img class="small-image" src="" alt=""/></a>

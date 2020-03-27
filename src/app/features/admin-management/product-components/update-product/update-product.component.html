@@ -1,7 +1,10 @@
-<app-jumbotron [Heading]="'UPDATE-PRODUCT'"></app-jumbotron>
+<app-jumbotron [Heading]="'admin.main_heading.update_product'"></app-jumbotron>
 <div class="delete-container">
   <div class="delete-input">
-    <app-big-input [placeholder]="'Enter The Number'" (keyup)="onInputChanged($event.target.value)">
+    <app-big-input
+      [placeholder]="'admin.productform.enter_the_productid'"
+      (keyup)="onInputChanged($event.target.value)"
+    >
       <app-big-input-action
         [color]="'accent'"
         [iconname]="'edit'"

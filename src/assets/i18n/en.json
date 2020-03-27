@@ -1,40 +1,192 @@
 {
-  "admin": {
-    "content": {
-      "product_management": "Product Management",
-      "view_all_products": "View All Products",
-      "add_a_product": "Add a Product",
-      "update_a_product": "Update a Product",
-      "delete_a_product": "Delete a Product",
+  "language": {
+    "en": "English",
+    "fr": "francis"
+  },
+  "nav_bar": {
+    "hello": "Hello",
+    "menu": {
+      "login": "Login",
+      "logout": "Logout",
+      "night_mode": "Night Mode",
+      "your_account": "Your Account",
+      "your_order": "Your Orders",
+      "your_wishlist": "Your Wishlist"
+    }
+  },
+  "footer": {
+    "made_with": "Made With",
+    "by": "by"
+  },
+  "confirm": {
+    "are_you_sure_want_to_remove_this_item": "Are You Sure Want to Remove this item ?",
+    "are_you_sure_want_to_empty_your_cart": "Are You Sure Want to Empty Your Cart ?",
+    "are_you_sure_want_to_clear_your_list": "Are You Sure Want to Clear Your List ?",
+    "are_you_sure_want_to_logout": "Are You Sure Want to Logout ?",
+    "are_you_sure": "Are You Sure ?",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No"
+  },
 
-      "user_management": "User Management",
-      "add_a_user": "Add a User",
-      "block_a_user": "Block a User",
-      "view_orders": "View Orders"
+  "admin": {
+    "productform": {
+      "category": "Category",
+      "innercategory": "Innercategory",
+      "product_name": "Product Name",
+      "quantity": "Quantity",
+      "price": "Price",
+      "product_description": "Product Description",
+      "image": "Image",
+      "image_url": "Image URL",
+      "image_url_2": "Image URL-2",
+      "image_url_3": "Image URL-3",
+      "enter_the_productid": "Enter The Product-ID",
+      "enter_the_userid": "Enter The User-ID",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "main_heading": {
+      "admin_management": "ADMIN-MANAGEMENT",
+      "all_products": "ALL-PRODUCTS",
+      "add_product": "ADD-PRODUCT",
+      "update_product": "UPDATE-PRODUCT",
+      "delete_product": "DELETE-PRODUCT",
+      "block_user": "BLOCK USER",
+      "all_users": "ALL-USERS",
+      "all_orders": "ALL-USER-ORDERS"
+    },
+    "productform_validations": {
+      "you_must_make_a_selection": "You must make a selection",
+      "must_have_minimum_10_characters": "must have minimum 10 characters",
+      "enter_positive_value": "Enter Positive value",
+      "enter_valid_value": "Enter valid value",
+      "is_required": "is required"
+    },
+    "table": {
+      "image": "Image",
+      "name": "Name",
+      "quantity": "Quantity",
+      "price": "Price",
+      "action": "Action",
+      "search": "Search",
+      "add_product": "Add Product",
+      "profile_pic": "Profile Picture",
+      "email": "Email"
+    },
+    "tooltip": {
+      "block": "Block",
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete",
+      "go_to_cart": "Go To Cart",
+      "fullscreen": "fullscreen",
+      "exit_fullscreen": "exit fullscreen",
+      "filter": "filter"
+    }
+  },
+  "menu_item": {
+    "product_management": "Product Management",
+    "view_all_products": "View All Products",
+    "add_a_product": "Add a Product",
+    "update_a_product": "Update a Product",
+    "delete_a_product": "Delete a Product",
+    "user_management": "User Management",
+    "view_user": "View Users",
+    "block_user": "Block User",
+    "view_orders": "View Orders",
+
+    "home": "Home",
+    "electronics": "Electronics",
+    "televisions": "Televisions",
+    "laptops": "Laptops",
+    "headphones": "Headphones",
+    "mobile": "Mobile",
+    "accessories": "Accessories",
+    "tablets": "Tablets",
+    "smartphones": "Smartphones",
+    "mens_fashion": "Mens Fashion",
+    "tshirts": "T-Shirts",
+    "shirts": "Shirts",
+    "shoes": "Shoes",
+    "sunglass": "Sunglasses",
+    "womens_fashion": "Womens Fashion",
+    "saree": "Saree",
+    "dress": "Dress",
+    "watch": "Watches",
+    "nightwear": "NightWear"
+  },
+  "user": {
+    "tooltip": {
+      "add_item": "Add a Item",
+      "delete_item": "Delete a Item",
+      "update": "Update",
+      "delete": "Delete",
+      "empty_cart": "Empty the Cart",
+      "add_to_cart": "Add To Cart",
+      "clear_list": "Clear List"
     },
     "form": {
       "username": "User Name",
-      "name":"Name",
-      "lastname" :"Lastname",
+      "name": "Name",
+      "lastname": "Lastname",
       "passowrd": "Password",
       "email": "Email",
-      "profile pic": "Profile Picture",
-      "adress_line_1" :"Address Line 1",
-      "adress_line_2" :"Address Line 2",
-      "country":"Country",
-      "state":"State",
-      "pincode":"Pin Code",
-
-
+      "profile_pic": "Profile Picture",
+      "address": "Address",
+      "adress_line_1": "Address Line 1",
+      "adress_line_2": "Address Line 2",
+      "country": "Country",
+      "state": "State",
+      "pincode": "Pin Code",
+      "card_number": "Card Number",
+      "expiry_date": "Expiry Date",
+      "cvv": "CVV",
+      "cardholder name": "cardholder name",
+      "expiration": "expiration",
+      "valid_thru": "valid thru",
+      "securiy_code": "security code",
+      "sign_in": "Sign In",
+      "register": "Register",
+      "login": "Login",
+      "sign_up_with_google": "Sign up with google",
+      "sign_up_with_facebook": "Sign up with Facebook",
+      "not_a_member": "Not a meber?",
+      "already_a_member": "Already a member",
+      "save": "Save",
+      "cancel": "Cancel",
+      "confirm_and_continue": "Confirm And Continue"
     },
-    "form_heading":{
-      "fill_out_your_billing_address":"Fill out your Billing Address",
-      "fill_out_your_address":"Fill out your address",
-      "sucess":"Success",
-      "enter_billing_details":"Enter Billing Details",
-      "order_is_placed_successfully":"Order Is Placed Successfully"
+    "form_validations": {
+      "must_be_of_6_digits": "must be of 6 digits",
+      "must_be_at_least_4_characters_long": "must be at least 4 characters long",
+      "must_be_at_least_3_characters_long": "must be at least 3 characters long",
+      "please_enter_a_valid_email_address": "Please enter a valid email address",
+      "you_must_make_a_selection": "You must make a selection",
+      "is_required": "is required"
     },
-    "table": {
+    "form_heading": {
+      "profile": "Profile",
+      "edit_profile": "Edit Profile",
+      "to_buy_list": "To Buy List",
+      "fill_out_your_billing_address": "Fill out your Billing Address",
+      "fill_out_your_address": "Fill out your address",
+      "sucess": "Success",
+      "enter_billing_details": "Enter Billing Details",
+      "order_is_placed_successfully": "Order Is Placed Successfully",
+      "i_am_going_to_buy_a": "I am going to buy a...",
+      "displaying_item": "Displaying {{buylist.length}} Items",
+      "profile_details": "Profile details",
+      "edit_profile_details": "Edit Profile details",
+      "card_details": "Card details"
+    },
+    "product": {
+      "add_to_cart": "Add To Cart",
+      "quick_view": "Quick View",
+      "back": "back",
+      "current_price": "Current Price",
+      "description": "description",
+      "review": "Review",
       "no": "Number",
       "image": "Image",
       "name": "Name",
@@ -42,12 +194,24 @@
       "quantity": "Quantity",
       "action": "Action",
       "cancel_this_order": "Cancel this Order",
-      "empty_the_cart": "Empty the Cart"
+      "empty_the_cart": "Empty the Cart",
+      "clear_list": "Clear All List",
+      "user_reviews": "User Reviews",
+      "write_a_review": "Write a Review"
     },
     "cart": {
       "continue_shopping": "Continue Shopping",
       "go_to_cart": "Go To Cart",
-      "checkout": "Checkout"
+      "checkout": "Checkout",
+      "total_price": "Total Price"
+    },
+    "main_heading": {
+      "homepage": "homepage",
+      "shopx_cart": "SHOPX-CART",
+      "your_account": "your account",
+      "your_orders": "your orders",
+      "your_wish_list": "your wish-list",
+      "checkout_form": "checkout-form"
     }
   }
 }

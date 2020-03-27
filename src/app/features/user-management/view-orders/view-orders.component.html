@@ -1,5 +1,5 @@
 <app-navbar [isHidden]="true"></app-navbar>
-<app-jumbotron [Heading]="heading"></app-jumbotron>
+<app-jumbotron [Heading]="'user.main_heading.your_orders'"></app-jumbotron>
 <div class="order-container">
   <mat-accordion>
     <div *ngFor="let order of orderitems">
@@ -66,7 +66,7 @@
   <br /><br /><br /><br />
   <div class="order-button-wrap">
     <button mat-raised-button color="primary" [routerLink]="['/home']" class="order-button">
-      Continue Shopping
+      {{"user.cart.continue_shopping" | translate}}
     </button>
   </div>
 </div>

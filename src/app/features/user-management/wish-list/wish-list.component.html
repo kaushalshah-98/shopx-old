@@ -1,26 +1,26 @@
 <app-navbar [isHidden]="true"></app-navbar>
-<app-jumbotron [Heading]="heading"></app-jumbotron>
+<app-jumbotron [Heading]="'user.main_heading.your_wish_list'"></app-jumbotron>
 <div class="table-wrapper">
   <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="image">
-      <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> {{"user.product.image" | translate}} </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <img class="product-image" src="{{ element.image }}" />
       </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> {{"user.product.name" | translate}} </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="price">
-      <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> {{"user.product.price" | translate}} </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{ element.price }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="action">
-      <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> {{"user.product.action" | translate}} </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <button mat-raised-button color="primary" (click)="addTocart(1, element)">
           <mat-icon>add_shopping_cart</mat-icon>
@@ -31,7 +31,7 @@
     <ng-container matColumnDef="delete">
       <mat-header-cell *matHeaderCellDef>
         <button mat-raised-button color="accent" (click)="emptywishList()">
-          Clear All List
+          {{"user.product.clear_list" | translate}}
         </button>
       </mat-header-cell>
       <mat-cell *matCellDef="let element">
@@ -48,11 +48,11 @@
 <br /><br /><br /><br />
 <div class="table-bottom">
   <button mat-raised-button style="width: 40%;" [routerLink]="['/home']" color="primary">
-    Continue Shopping
+    {{"user.cart.continue_shopping" | translate}}
   </button>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <button mat-raised-button style="width: 40%;" [routerLink]="['/cart']" color="warn">
-    Go To Cart
+    {{"user.cart.go_to_cart" | translate}}
   </button>
 </div>
 <br /><br /><br /><br />

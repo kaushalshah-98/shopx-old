@@ -9,7 +9,6 @@ import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.serv
 })
 export class ViewCartitemsComponent implements OnInit {
   cartitems = [];
-  heading = 'SHOPX-CART';
   displayedColumns: string[] = ['image', 'name', 'quantity', 'price', 'action', 'delete'];
   dataSource;
   totalprice;
@@ -18,18 +17,22 @@ export class ViewCartitemsComponent implements OnInit {
   addToWishlit() {}
   updateCart(qty, cartitem) {}
   removeFromCart(cartitem) {
-    this.dialog.showConfirmDialog('Are You Sure Want to Remove this item ?').subscribe((result) => {
-      if (result === 'yes') {
-        console.log('removed');
-      }
-    });
+    this.dialog
+      .showConfirmDialog('confirm.are_you_sure_want_to_remove_this_item')
+      .subscribe((result) => {
+        if (result === 'yes') {
+          console.log('removed');
+        }
+      });
   }
   emptycart() {
-    this.dialog.showConfirmDialog('Are You Sure Want to Empty Your Cart ?').subscribe((result) => {
-      if (result === 'yes') {
-        console.log('emptied');
-      }
-    });
+    this.dialog
+      .showConfirmDialog('confirm.are_you_sure_want_to_empty_your_cart')
+      .subscribe((result) => {
+        if (result === 'yes') {
+          console.log('emptied');
+        }
+      });
   }
   ngOnInit() {
     this.cartitems = [

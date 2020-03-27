@@ -1,4 +1,6 @@
 import { Component, ViewEncapsulation, HostListener } from '@angular/core';
+import defaultLanguage from '../assets/i18n/en.json';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +12,10 @@ export class AppComponent {
   title = 'SHOPX';
   isShow: boolean;
   topPosToStartShowing = 20;
-  constructor() {}
-
+  constructor(private translate: TranslateService) {
+    translate.setTranslation('en', defaultLanguage);
+    translate.setDefaultLang('en');
+  }
   @HostListener('window:scroll')
   checkScroll() {
     const scrollPosition =

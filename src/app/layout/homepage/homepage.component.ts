@@ -23,12 +23,12 @@ export class HomepageComponent implements OnInit {
         icon: 'developer_board',
         childs: [
           {
-            name: 'TV',
+            name: 'Televisions',
             icon: 'tv',
             url: '/televisions'
           },
           {
-            name: 'Laptop',
+            name: 'Laptops',
             icon: 'laptop',
             url: '/laptops'
           },
@@ -54,18 +54,18 @@ export class HomepageComponent implements OnInit {
             url: '/tablets'
           },
           {
-            name: 'Smartphone',
+            name: 'Smartphones',
             icon: 'mobile_friendly',
             url: '/smartphones'
           }
         ]
       },
       {
-        name: 'Mens Fashion',
+        name: 'mens_fashion',
         icon: 'accessibility',
         childs: [
           {
-            name: 'T-Shirts',
+            name: 'TShirts',
             url: '/mens_tshirts'
           },
           {
@@ -77,17 +77,17 @@ export class HomepageComponent implements OnInit {
             url: '/mens_shoes'
           },
           {
-            name: 'Googles',
+            name: 'sunglass',
             url: '/mens_sunglasses'
           }
         ]
       },
       {
-        name: 'Womens Fashion',
+        name: 'womens_fashion',
         icon: 'accessibility_new',
         childs: [
           {
-            name: 'Sarees',
+            name: 'Saree',
             url: '/womens_saree'
           },
           {
@@ -103,41 +103,41 @@ export class HomepageComponent implements OnInit {
             url: '/womens_watch'
           },
           {
-            name: 'Night-wear',
+            name: 'nightwear',
             url: '/womens_nightwear'
           }
         ]
-      },
-      {
-        name: 'Multiple Level',
-        icon: 'view_module',
-        childs: [
-          {
-            name: 'Level-1',
-            childs: [
-              {
-                name: 'Level-2',
-                childs: [
-                  {
-                    name: 'Level-3',
-                    childs: [
-                      {
-                        name: 'Level-4',
-                        childs: [
-                          {
-                            name: 'Level-5',
-                            url: '/trialurl9'
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
       }
+      // {
+      //   name: 'Multiple Level',
+      //   icon: 'view_module',
+      //   childs: [
+      //     {
+      //       name: 'Level-1',
+      //       childs: [
+      //         {
+      //           name: 'Level-2',
+      //           childs: [
+      //             {
+      //               name: 'Level-3',
+      //               childs: [
+      //                 {
+      //                   name: 'Level-4',
+      //                   childs: [
+      //                     {
+      //                       name: 'Level-5',
+      //                       url: '/trialurl9'
+      //                     }
+      //                   ]
+      //                 }
+      //               ]
+      //             }
+      //           ]
+      //         }
+      //       ]
+      //     }
+      //   ]
+      // }
     ];
   }
 }

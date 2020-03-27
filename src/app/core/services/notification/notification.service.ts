@@ -5,7 +5,7 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
   providedIn: 'root'
 })
 export class NotificationService {
-  constructor(private readonly snackBar: MatSnackBar, private readonly zone: NgZone) { }
+  constructor(private readonly snackBar: MatSnackBar, private readonly zone: NgZone) {}
 
   default(message: string) {
     this.show(message, {

@@ -57,21 +57,22 @@ export class NavbarComponent implements OnInit {
   }
   onLanguageSelect(language) {
     this.translate.use(language);
-    this.notification.info(`Selected Language is ${language}`)
+    this.currentLanguage = language;
+    this.notification.info(`Selected Language is ${language}`);
   }
   getLoginStatus() {
     if (this.isAdmin) {
-      return 'Logout';
+      return 'nav_bar.menu.logout';
     } else {
-      if (this.userdetails === null) return 'Login';
-      return 'Logout';
+      if (this.userdetails === null) return 'nav_bar.menu.login';
+      return 'nav_bar.menu.logout';
     }
   }
   logout() {
-    if (this.getLoginStatus() === 'Login') {
+    if (this.getLoginStatus() === 'nav_bar.menu.login') {
       this.router.navigate(['login']);
     } else {
-      this.dialog.showConfirmDialog('Are You Sure Want to Logout ?').subscribe((result) => {
+      this.dialog.showConfirmDialog('confirm.are_you_sure_want_to_logout').subscribe((result) => {
         if (result === 'yes') {
           localStorage.clear();
           this.router.navigate(['login']);
@@ -106,5 +107,5 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
-  changetheme(value) { }
+  changetheme(value) {}
 }
