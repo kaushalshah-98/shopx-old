@@ -34,13 +34,13 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field class="input-full-width">
-        <mat-label>{{"user.form.passowrd" | translate}}</mat-label>
+        <mat-label>{{"user.form.password" | translate}}</mat-label>
         <input autocomplete="off" matInput formControlName="passwordFormControl" />
         <mat-error *ngIf="hasError('passwordFormControl','minlength')">
-          {{"user.form.passowrd" | translate}} must be at least 4 characters long.
+          {{"user.form.password" | translate}} must be at least 4 characters long.
         </mat-error>
         <mat-error *ngIf="hasError('passwordFormControl','required')">
-          {{"user.form.passowrd" | translate}} {{"user.form_validations.is_required" | translate}}
+          {{"user.form.password" | translate}} {{"user.form_validations.is_required" | translate}}
         </mat-error>
       </mat-form-field>
     </form>

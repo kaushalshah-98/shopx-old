@@ -59,7 +59,7 @@
                   formControlName="productNameFormControl"
                 />
                 <mat-error *ngIf="hasError('productNameFormControl','required')">
-                  Product Name is <strong>required</strong>
+                  Product Name {{"user.form_validations.is_required" | translate}}
                 </mat-error>
               </mat-form-field>
             </td>
@@ -85,7 +85,7 @@
                   Enter valid <strong>value</strong>
                 </mat-error>
                 <mat-error *ngIf="hasError('quantityFormControl','required')">
-                  Quantity is <strong>required</strong>
+                  Quantity {{"user.form_validations.is_required" | translate}}
                 </mat-error>
               </mat-form-field>
             </td>
@@ -106,7 +106,7 @@
                   Enter valid <strong>value</strong>
                 </mat-error>
                 <mat-error *ngIf="hasError('priceFormControl','required')">
-                  Price is <strong>required</strong>
+                  Price {{"user.form_validations.is_required" | translate}}
                 </mat-error>
               </mat-form-field>
             </td>
@@ -125,7 +125,7 @@
                   formControlName="productDescriptionFormControl"
                 ></textarea>
                 <mat-error *ngIf="hasError('productDescriptionFormControl','required')">
-                  Product Description is <strong>required</strong>
+                  Product Description {{"user.form_validations.is_required" | translate}}
                 </mat-error>
               </mat-form-field>
             </td>
@@ -145,7 +145,7 @@
                   formControlName="productImage1FormControl"
                 />
                 <mat-error *ngIf="hasError('productImage1FormControl','required')">
-                  Image is <strong>required</strong>
+                  Image {{"user.form_validations.is_required" | translate}}
                 </mat-error>
               </mat-form-field>
             </td>

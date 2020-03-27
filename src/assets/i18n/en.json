@@ -1,7 +1,12 @@
 {
   "language": {
     "en": "English",
-    "fr": "francis"
+    "fr": "francis",
+    "de": "German",
+    "sk": "Slovak",
+    "hi": "Hindi",
+    "es": "Spanish",
+    "he": "Hebrew"
   },
   "nav_bar": {
     "hello": "Hello",
@@ -64,6 +69,7 @@
       "is_required": "is required"
     },
     "table": {
+      "no": "Number",
       "image": "Image",
       "name": "Name",
       "quantity": "Quantity",
@@ -130,7 +136,7 @@
       "username": "User Name",
       "name": "Name",
       "lastname": "Lastname",
-      "passowrd": "Password",
+      "password": "Password",
       "email": "Email",
       "profile_pic": "Profile Picture",
       "address": "Address",
@@ -142,9 +148,8 @@
       "card_number": "Card Number",
       "expiry_date": "Expiry Date",
       "cvv": "CVV",
-      "cardholder name": "cardholder name",
+      "cardholder_name": "Cardholder name",
       "expiration": "expiration",
-      "valid_thru": "valid thru",
       "securiy_code": "security code",
       "sign_in": "Sign In",
       "register": "Register",
@@ -158,12 +163,19 @@
       "confirm_and_continue": "Confirm And Continue"
     },
     "form_validations": {
+      "must_be_of_3_digits": "must be of 3 digits",
       "must_be_of_6_digits": "must be of 6 digits",
+      "must_be_of_12_digits": "must be of 12 digits",
       "must_be_at_least_4_characters_long": "must be at least 4 characters long",
       "must_be_at_least_3_characters_long": "must be at least 3 characters long",
       "please_enter_a_valid_email_address": "Please enter a valid email address",
       "you_must_make_a_selection": "You must make a selection",
       "is_required": "is required"
+    },
+    "filter": {
+      "all": "All",
+      "done": "Done",
+      "active": "Active"
     },
     "form_heading": {
       "profile": "Profile",
@@ -175,7 +187,7 @@
       "enter_billing_details": "Enter Billing Details",
       "order_is_placed_successfully": "Order Is Placed Successfully",
       "i_am_going_to_buy_a": "I am going to buy a...",
-      "displaying_item": "Displaying {{buylist.length}} Items",
+      "displaying_item": "Displaying {{totalitems}} Items",
       "profile_details": "Profile details",
       "edit_profile_details": "Edit Profile details",
       "card_details": "Card details"

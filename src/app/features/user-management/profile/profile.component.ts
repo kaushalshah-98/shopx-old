@@ -7,7 +7,6 @@ import { MatTabChangeEvent } from '@angular/material';
 })
 export class ProfileComponent implements OnInit {
   selectedIndex: number;
-  heading = 'PROFILE SETTINGS';
   constructor() {}
 
   ngOnInit() {}

@@ -1,14 +1,16 @@
 <app-navbar [isHidden]="true"></app-navbar>
-<app-jumbotron [Heading]="heading"></app-jumbotron>
+<app-jumbotron [Heading]="'user.main_heading.your_account'"></app-jumbotron>
 <mat-tab-group [selectedIndex]="selectedIndex" (selectedTabChange)="tabChanged($event)">
-  <mat-tab label="Profile"> <app-view-profile></app-view-profile></mat-tab>
-  <mat-tab label="Edit Profile"
+  <mat-tab label="{{'user.form_heading.profile' | translate}}">
+    <app-view-profile></app-view-profile
+  ></mat-tab>
+  <mat-tab label="{{'user.form_heading.edit_profile' | translate}}"
     ><app-edit-profile
       [selectedIndex]="selectedIndex"
       (selectedIndexx)="getselectedIndex($event)"
     ></app-edit-profile>
   </mat-tab>
-  <mat-tab label="To Buy List">
+  <mat-tab label="{{'user.form_heading.to_buy_list' | translate}}">
     <div class="profile-container"></div>
     <app-buy-list></app-buy-list>
   </mat-tab>

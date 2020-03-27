@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
     private notification: NotificationService,
     @Inject(DOCUMENT) private document: any
   ) {
-    translate.addLangs(['en', 'fr']);
+    translate.addLangs(['en', 'fr', 'de', 'sk', 'hi', 'es', 'he']);
     translate.setDefaultLang('en');
 
     const browserlang = translate.getBrowserLang();
@@ -107,5 +107,5 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
-  changetheme(value) {}
+  changetheme(value) { }
 }

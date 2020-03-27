@@ -1,7 +1,7 @@
 <div class="delete-container">
   <div class="delete-input">
     <app-big-input
-      [placeholder]="'I am going to buy a...'"
+      [placeholder]="'user.form_heading.i_am_going_to_buy_a'"
       (keyup)="onInputChanged($event.target.value)"
       (keyup.enter)="!isDisabled && onAddToBuyList()"
       [value]="inputvalue"
@@ -29,21 +29,21 @@
         </button>
         <mat-chip-list>
           <mat-chip [disabled]="true">
-            Displaying {{buylist.length}} item
+            {{"user.form_heading.displaying_item" | translate :{'totalitems':buylist.length} }}
           </mat-chip>
         </mat-chip-list>
         <mat-menu #todosFilter="matMenu" xPosition="before">
-          <button mat-menu-item (click)="onFilter('ALL')" rtl>
+          <button mat-menu-item (click)="onFilter('ALL')">
             <mat-icon> view_list </mat-icon>
-            <span>All</span>
+            <span>{{'user.filter.all' | translate}} </span>
           </button>
           <button mat-menu-item (click)="onFilter('DONE')">
             <mat-icon> check </mat-icon>
-            <span>Done</span>
+            <span>{{'user.filter.done' | translate}}</span>
           </button>
           <button mat-menu-item (click)="onFilter('ACTIVE')">
             <mat-icon> notifications_active </mat-icon>
-            <span>Active</span>
+            <span>{{'user.filter.active' | translate}}</span>
           </button>
         </mat-menu>
       </div>

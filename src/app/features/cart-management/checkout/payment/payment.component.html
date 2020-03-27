@@ -49,13 +49,13 @@
                     {{ name }}
                   </text>
                   <text transform="matrix(1 0 0 1 54.1074 389.8793)" class="st7 st5 st8">
-                    cardholder name
+                    {{"user.form.cardholder_name" | translate}}
                   </text>
                   <text transform="matrix(1 0 0 1 479.7754 388.8793)" class="st7 st5 st8">
-                    expiration
+                    {{"user.form.expiration" | translate}}
                   </text>
                   <text transform="matrix(1 0 0 1 65.1054 241.5)" class="st7 st5 st8">
-                    card number
+                    {{"user.form.card_number" | translate}}
                   </text>
                   <g>
                     <text
@@ -165,7 +165,7 @@
                   </text>
                   <g class="st8">
                     <text transform="matrix(1 0 0 1 518.083 280.0879)" class="st9 st6 st10">
-                      security code
+                      {{"user.form.securiy_code" | translate}}
                     </text>
                   </g>
                   <rect x="58.1" y="378.6" class="st11" width="375.5" height="13.5" />
@@ -185,14 +185,16 @@
       </div>
       <div class="col-lg-6">
         <mat-card class="payment-card">
-          <mat-card-title>Card details</mat-card-title>
+          <mat-card-title>
+            {{"user.form_heading.card_details" | translate}}
+          </mat-card-title>
           <mat-card-content>
             <form [formGroup]="paymentform">
               <table class="table-full-width" cellspacing="0">
                 <tr>
                   <td>
                     <mat-form-field appearance="outline" (click)="toggleFlip(false)">
-                      <mat-label>Name</mat-label>
+                      <mat-label>{{"user.form.cardholder_name" | translate}}</mat-label>
                       <input
                         autocomplete="off"
                         matInput
@@ -203,7 +205,8 @@
                         <mat-icon>account_circle</mat-icon>
                       </button>
                       <mat-error *ngIf="hasError('nameFormControl','required')">
-                        Card Holder Name is <strong>required</strong>
+                        {{"user.form.cardholder_name" | translate}}
+                        {{"user.form_validations.is_required" | translate}}
                       </mat-error>
                     </mat-form-field>
                   </td>
@@ -214,7 +217,7 @@
                 <tr>
                   <td>
                     <mat-form-field appearance="outline" (click)="toggleFlip(false)">
-                      <mat-label>Card Number</mat-label>
+                      <mat-label> {{"user.form.card_number" | translate}} </mat-label>
                       <input
                         autocomplete="off"
                         matInput
@@ -225,10 +228,12 @@
                         <mat-icon>credit_card</mat-icon>
                       </button>
                       <mat-error *ngIf="hasError('cardnumberFormControl','minlength')">
-                        Credit card length must be 12 letters
+                        {{"user.form.card_number" | translate}}
+                        {{"user.form_validations.must_be_of_12_digits" | translate}}
                       </mat-error>
                       <mat-error *ngIf="hasError('cardnumberFormControl','required')">
-                        Card Number is <strong>required</strong>
+                        {{"user.form.card_number" | translate}}
+                        {{"user.form_validations.is_required" | translate}}
                       </mat-error>
                     </mat-form-field>
                   </td>
@@ -243,7 +248,7 @@
                       class="example-full-width"
                       (click)="toggleFlip(false)"
                     >
-                      <mat-label>Expiry Date</mat-label>
+                      <mat-label> {{"user.form.expiry_date" | translate}} </mat-label>
                       <input
                         autocomplete="off"
                         matInput
@@ -255,7 +260,8 @@
                         <mat-icon>calendar_today</mat-icon>
                       </button>
                       <mat-error *ngIf="hasError('expiryFormControl','required')">
-                        Expiry Date is <strong>required</strong>
+                        {{"user.form.expiry_date" | translate}}
+                        {{"user.form_validations.is_required" | translate}}
                       </mat-error>
                     </mat-form-field>
                   </td>
@@ -265,7 +271,7 @@
                       class="example-full-width"
                       (click)="toggleFlip(true)"
                     >
-                      <mat-label>CVV</mat-label>
+                      <mat-label> {{"user.form.cvv" | translate}} </mat-label>
                       <input
                         autocomplete="off"
                         matInput
@@ -279,13 +285,16 @@
                       </button>
                       <mat-hint align="end">{{ CvvCode.value.length }} / 3 </mat-hint>
                       <mat-error *ngIf="hasError('cvvFormControl','maxlength')">
-                        Cvv must be of 3 digits
+                        {{"user.form.cvv" | translate}}
+                        {{"user.form_validations.must_be_of_3_digits" | translate}}
                       </mat-error>
                       <mat-error *ngIf="hasError('cvvFormControl','minlength')">
-                        Cvv must be of 3 digits
+                        {{"user.form.cvv" | translate}}
+                        {{"user.form_validations.must_be_of_3_digits" | translate}}
                       </mat-error>
                       <mat-error *ngIf="hasError('cvvFormControl','required')">
-                        Cvv is <strong>required</strong>
+                        {{"user.form.cvv" | translate}} {{"user.form_validations.is_required" |
+                        translate}}
                       </mat-error>
                     </mat-form-field>
                   </td>
@@ -300,6 +309,6 @@
 </div>
 <div class="checkout-button">
   <button mat-raised-button color="warn" [disabled]="paymentform.invalid" (click)="goForward()">
-    Confirm And Continue
+    {{"user.form.confirm_and_continue" | translate}}
   </button>
 </div>
