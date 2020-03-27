@@ -23,6 +23,25 @@
     "made_with": "Made With",
     "by": "by"
   },
+  "tooltip": {
+    "add_item": "Add a Item",
+    "delete_item": "Delete a Item",
+    "update": "Update",
+    "delete": "Delete",
+    "empty_cart": "Empty the Cart",
+    "add_to_cart": "Add To Cart",
+    "clear_list": "Clear List",
+    "dispatch":"dispatch",
+    "cancel":"Cancel",
+
+    "block": "Block",
+    "view": "View",
+    "edit": "Edit",
+    "go_to_cart": "Go To Cart",
+    "fullscreen": "fullscreen",
+    "fullscreen_exit": "exit fullscreen",
+    "filter": "filter"
+  },
   "confirm": {
     "are_you_sure_want_to_remove_this_item": "Are You Sure Want to Remove this item ?",
     "are_you_sure_want_to_empty_your_cart": "Are You Sure Want to Empty Your Cart ?",
@@ -79,16 +98,6 @@
       "add_product": "Add Product",
       "profile_pic": "Profile Picture",
       "email": "Email"
-    },
-    "tooltip": {
-      "block": "Block",
-      "view": "View",
-      "edit": "Edit",
-      "delete": "Delete",
-      "go_to_cart": "Go To Cart",
-      "fullscreen": "fullscreen",
-      "exit_fullscreen": "exit fullscreen",
-      "filter": "filter"
     }
   },
   "menu_item": {
@@ -123,15 +132,6 @@
     "nightwear": "NightWear"
   },
   "user": {
-    "tooltip": {
-      "add_item": "Add a Item",
-      "delete_item": "Delete a Item",
-      "update": "Update",
-      "delete": "Delete",
-      "empty_cart": "Empty the Cart",
-      "add_to_cart": "Add To Cart",
-      "clear_list": "Clear List"
-    },
     "form": {
       "username": "User Name",
       "name": "Name",

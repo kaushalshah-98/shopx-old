@@ -10,8 +10,9 @@
         [iconname]="'edit'"
         (action)="onProductUpdate()"
         [disabled]="isDisabled"
-        [matTooltip]="'app.examples.todos.tooltip.remove' | translate"
-        matTooltipPosition="after"
+        matTooltip="{{'tooltip.update' | translate}}"
+        [matTooltipShowDelay]="1000"
+        matTooltipPosition="below"
       >
       </app-big-input-action>
     </app-big-input>

@@ -22,7 +22,13 @@
     <ng-container matColumnDef="action">
       <mat-header-cell *matHeaderCellDef> {{"user.product.action" | translate}} </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button mat-raised-button color="primary" (click)="addTocart(1, element)">
+        <button
+          mat-raised-button
+          color="primary"
+          matTooltip="{{'tooltip.add_to_cart' | translate}}"
+          matTooltipPosition="right"
+          (click)="addTocart(1, element)"
+        >
           <mat-icon>add_shopping_cart</mat-icon>
         </button>
       </mat-cell>
@@ -30,12 +36,25 @@
 
     <ng-container matColumnDef="delete">
       <mat-header-cell *matHeaderCellDef>
-        <button mat-raised-button color="accent" (click)="emptywishList()">
+        <button
+          mat-raised-button
+          color="accent"
+          matTooltip="{{'tooltip.clear_list' | translate}}"
+          matTooltipPosition="above"
+          [matTooltipShowDelay]="1000"
+          (click)="emptywishList()"
+        >
           {{"user.product.clear_list" | translate}}
         </button>
       </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button mat-raised-button color="warn" (click)="removeFromWishlist(element)">
+        <button
+          mat-raised-button
+          color="warn"
+          matTooltip="{{'tooltip.delete_item' | translate}}"
+          matTooltipPosition="right"
+          (click)="removeFromWishlist(element)"
+        >
           <mat-icon>delete</mat-icon>
         </button>
       </mat-cell>

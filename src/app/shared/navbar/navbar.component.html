@@ -50,13 +50,22 @@
           </mat-slide-toggle>
         </button>
       </mat-menu>
-      <button [hidden]="isAdmin" mat-raised-button (click)="goToCart()">
+      <button
+        [hidden]="isAdmin"
+        matTooltip="{{'tooltip.go_to_cart' | translate}}"
+        mat-raised-button
+        (click)="goToCart()"
+      >
         <mat-icon matBadge="3" matBadgeColor="warn" matBadgeOverlap="false" class="cart-icon"
           >shopping_cart
         </mat-icon>
       </button>
       <ng-container *ngIf="!isAdmin"> &nbsp;&nbsp; </ng-container>
-      <button mat-raised-button (click)="configureFullscreen()">
+      <button
+        mat-raised-button
+        (click)="configureFullscreen()"
+        matTooltip="{{'tooltip.'+getText() | translate}}"
+      >
         <mat-icon class="fullscreen-icon">{{ getText() }}</mat-icon>
       </button>
       &nbsp;&nbsp;

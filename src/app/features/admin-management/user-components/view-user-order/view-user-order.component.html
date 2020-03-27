@@ -72,11 +72,21 @@
                   <div fxFlex="20%">
                     <mat-card>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <button mat-icon-button color="primary">
+                      <button
+                        mat-icon-button
+                        matTooltip="{{'tooltip.dispatch' | translate}}"
+                        matTooltipPosition="below"
+                        color="primary"
+                      >
                         <mat-icon>check_circle</mat-icon>
                       </button>
                       &nbsp;&nbsp;&nbsp;&nbsp;
-                      <button mat-icon-button color="warn">
+                      <button
+                        mat-icon-button
+                        matTooltip="{{'tooltip.cancel' | translate}}"
+                        matTooltipPosition="below"
+                        color="warn"
+                      >
                         <mat-icon>cancel</mat-icon>
                       </button>
                     </mat-card>

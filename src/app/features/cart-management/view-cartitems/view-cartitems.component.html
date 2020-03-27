@@ -149,7 +149,13 @@
         {{"user.product.action" | translate}}
       </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button mat-raised-button color="primary" (click)="updateCart(qty.value, cartitem)">
+        <button
+          mat-raised-button
+          color="primary"
+          matTooltip="{{'tooltip.update' | translate}}"
+          matTooltipPosition="right"
+          (click)="updateCart(qty.value, cartitem)"
+        >
           <mat-icon>refresh</mat-icon>
         </button>
       </mat-cell>
@@ -157,12 +163,25 @@
 
     <ng-container matColumnDef="delete">
       <mat-header-cell *matHeaderCellDef>
-        <button mat-raised-button color="accent" (click)="emptycart()">
+        <button
+          mat-raised-button
+          color="accent"
+          matTooltip="{{'tooltip.empty_cart' | translate}}"
+          matTooltipPosition="above"
+          [matTooltipShowDelay]="1000"
+          (click)="emptycart()"
+        >
           {{"user.product.empty_the_cart" | translate}}
         </button>
       </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button mat-raised-button color="warn" (click)="removeFromCart(cartitem)">
+        <button
+          mat-raised-button
+          color="warn"
+          matTooltip="{{'tooltip.delete_item' | translate}}"
+          matTooltipPosition="right"
+          (click)="removeFromCart(cartitem)"
+        >
           <mat-icon>delete</mat-icon>
         </button>
       </mat-cell>

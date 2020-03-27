@@ -10,8 +10,9 @@
         [iconname]="'delete_outline'"
         (action)="onProductDelete()"
         [disabled]="isDisabled"
-        [matTooltip]="'app.examples.todos.tooltip.remove' | translate"
-        matTooltipPosition="after"
+        matTooltip="{{'tooltip.delete' | translate}}"
+        [matTooltipShowDelay]="1000"
+        matTooltipPosition="below"
       >
       </app-big-input-action>
     </app-big-input>

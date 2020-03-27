@@ -7,8 +7,8 @@
           <button
             mat-icon-button
             class="pull-right"
-            [matTooltip]="'hello'"
-            matTooltipPosition="above"
+            matTooltip="{{'tooltip.add_item' | translate}}"
+            matTooltipPosition="left"
           >
             <mat-icon>add_circle</mat-icon>
           </button>
@@ -82,6 +82,7 @@
                 <button
                   mat-icon-button
                   color="primary"
+                  matTooltip="{{'tooltip.view' | translate}}"
                   (click)="
                     expandedElement =
                       expandedElement === element ? null : element
@@ -90,11 +91,21 @@
                   <mat-icon>remove_red_eye</mat-icon>
                 </button>
                 &nbsp;&nbsp;
-                <button mat-icon-button color="accent" (click)="updateProduct(element)">
+                <button
+                  mat-icon-button
+                  color="accent"
+                  matTooltip="{{'tooltip.edit' | translate}}"
+                  (click)="updateProduct(element)"
+                >
                   <mat-icon>edit</mat-icon>
                 </button>
                 &nbsp;&nbsp;
-                <button mat-icon-button color="warn" (click)="removeProduct(element)">
+                <button
+                  mat-icon-button
+                  color="warn"
+                  matTooltip="{{'tooltip.delete' | translate}}"
+                  (click)="removeProduct(element)"
+                >
                   <mat-icon>delete</mat-icon>
                 </button>
               </td>
