@@ -23,14 +23,14 @@ export class QuickviewComponent implements OnInit {
     private router: Router
   ) {
     this.productdata = data;
-    console.log(this.productdata);
 
     this.myThumbnail1 = data.image[0].imageurl;
     this.myThumbnail2 = data.image[1].imageurl;
     this.myThumbnail3 = data.image[2].imageurl;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
   onNoClick(): void {
     this.dialogRef.close();
   }

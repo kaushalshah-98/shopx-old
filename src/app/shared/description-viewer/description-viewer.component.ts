@@ -10,6 +10,6 @@ export class DescriptionViewerComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.product[0].specs);
+    console.log(this.product);
   }
 }

@@ -11,6 +11,8 @@ export class ImageViewerComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    console.log(this.product);
+
     this.displayimage = this.product[0].imageurl;
   }
   changeimage(imageurl) {

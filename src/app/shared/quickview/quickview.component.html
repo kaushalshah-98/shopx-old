@@ -1,7 +1,7 @@
-<div class="containerr">
+<div>
   <mat-card class="cardd">
-    <div class="wrapper row">
-      <div class="preview col-md-6">
+    <div fxLayout="row" fxLayoutAlign="start">
+      <div fxFlex="50%">
         <div class="preview-pic tab-content">
           <div class="tab-pane active" id="pic-1">
             <img [src]="myThumbnail1" />
@@ -14,44 +14,26 @@
             ></ngx-image-zoom> -->
           </div>
           <div class="tab-pane" id="pic-2">
-            <ngx-image-zoom
+            <img [src]="myThumbnail2" />
+            <!-- <ngx-image-zoom
               [thumbImage]="myThumbnail2"
               [magnification]="1.5"
               [enableScrollZoom]="true"
               [enableLens]="true"
               [lensWidth]="100"
               [lensHeight]="100"
-            ></ngx-image-zoom>
+            ></ngx-image-zoom> -->
           </div>
           <div class="tab-pane" id="pic-3">
-            <ngx-image-zoom
+            <img [src]="myThumbnail3" />
+            <!-- <ngx-image-zoom
               [thumbImage]="myThumbnail3"
               [magnification]="1.5"
               [enableScrollZoom]="true"
               [enableLens]="true"
               [lensWidth]="100"
               [lensHeight]="100"
-            ></ngx-image-zoom>
-          </div>
-          <div class="tab-pane" id="pic-4">
-            <ngx-image-zoom
-              [thumbImage]="myThumbnail4"
-              [magnification]="1.5"
-              [enableScrollZoom]="true"
-              [enableLens]="true"
-              [lensWidth]="100"
-              [lensHeight]="100"
-            ></ngx-image-zoom>
-          </div>
-          <div class="tab-pane" id="pic-5">
-            <ngx-image-zoom
-              [thumbImage]="myThumbnail5"
-              [magnification]="1.5"
-              [enableScrollZoom]="true"
-              [enableLens]="true"
-              [lensWidth]="100"
-              [lensHeight]="100"
-            ></ngx-image-zoom>
+            ></ngx-image-zoom> -->
           </div>
         </div>
         <ul class="preview-thumbnail nav nav-tabs">
@@ -66,7 +48,7 @@
           </li>
         </ul>
       </div>
-      <div class="details col-md-6">
+      <div fxFlex="50%">
         <h3 class="product-title">{{ data.name }}</h3>
         <p class="product-description">
           {{data.description}}
