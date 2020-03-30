@@ -27,8 +27,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private role: RoleService,
     private formBuilder: FormBuilder
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.loginform = this.formBuilder.group({
@@ -60,7 +59,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['home']);
       });
     }, 3000);
-
   }
   loginWithGoogle() {
     this.dataLoading.emit(true);
@@ -72,6 +70,5 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['home']);
       });
     }, 3000);
-
   }
 }

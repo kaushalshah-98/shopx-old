@@ -6,9 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./image-viewer.component.scss']
 })
 export class ImageViewerComponent implements OnInit {
-  displayimage: string
+  displayimage: string;
   @Input() product;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.displayimage = this.product[0].imageurl;

@@ -7,13 +7,12 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./reviews-viewer.component.scss']
 })
 export class ReviewsViewerComponent implements OnInit {
-
   totalreviewcount: number = 0;
   reviews = [];
   reviewtext: FormControl = new FormControl('');
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.dataLoading.emit(false);
@@ -56,4 +55,5 @@ export class ReviewsViewerComponent implements OnInit {
       );
       this.reset();
     }, 3000);
-  }}
+  }
+}

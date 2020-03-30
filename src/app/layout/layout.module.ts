@@ -17,7 +17,7 @@ import { ProductManagementModule } from '../features/product-management/product-
     ImageSliderComponent,
     CategoryTilesComponent
   ],
-  imports: [CommonModule, LayoutRoutingModule,ProductManagementModule, SharedModule, RouterModule]
+  imports: [CommonModule, LayoutRoutingModule, ProductManagementModule, SharedModule, RouterModule]
 })
 export class LayoutModule {
   constructor() {

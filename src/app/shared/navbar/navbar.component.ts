@@ -107,5 +107,5 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
-  changetheme(value) { }
+  changetheme(value) {}
 }

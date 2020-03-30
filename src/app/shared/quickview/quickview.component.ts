@@ -22,7 +22,7 @@ export class QuickviewComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data,
     private router: Router
   ) {
-    this.productdata= data;
+    this.productdata = data;
     console.log(this.productdata);
 
     this.myThumbnail1 = data.image[0].imageurl;
@@ -30,12 +30,11 @@ export class QuickviewComponent implements OnInit {
     this.myThumbnail3 = data.image[2].imageurl;
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   onNoClick(): void {
     this.dialogRef.close();
   }
-  detailview(){
+  detailview() {
     this.dialogRef.close();
     this.router.navigateByUrl('/detailview', { state: this.productdata });
   }
