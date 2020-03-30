@@ -8,6 +8,10 @@ const routes: Routes = [
     loadChildren: () => import('./layout/layout.module').then((m) => m.LayoutModule)
   },
   {
+    path: 'detailview',
+    loadChildren: () => import('./shared/shared.module').then((m) => m.SharedModule)
+  },
+  {
     path: 'admin',
     loadChildren: () =>
       import('./features/admin-management/admin-management.module').then(
@@ -45,13 +49,6 @@ const routes: Routes = [
         (m) => m.UserManagementModule
       )
   },
-  // {
-  //   path: "product",
-  //   loadChildren: () =>
-  //     import("./features/product-management/product-management.module").then(
-  //       m => m.ProductManagementModule
-  //     )
-  // },
   { path: '**', component: PageNotFoundComponent }
 ];
 

@@ -22,9 +22,20 @@ import { LeftPanelContainer } from './left-panel/left-panel.container';
 import { TranslateModule } from '@ngx-translate/core';
 import { BigInputActionComponent } from './big-input/big-input-action/big-input-action.component';
 import { BigInputComponent } from './big-input/big-input/big-input.component';
+import { FilterInputComponent } from './filter-input/filter-input.component';
+import { DetailviewComponent } from './detailview/detailview.component';
+import { ImageViewerComponent } from './image-viewer/image-viewer.component';
+import { ReviewsViewerComponent } from './reviews-viewer/reviews-viewer.component';
+import { SharedRoutingModule } from './shared-routing.module';
+import { DescriptionViewerComponent } from './description-viewer/description-viewer.component';
 
 @NgModule({
   declarations: [
+    DescriptionViewerComponent,
+    ReviewsViewerComponent,
+    ImageViewerComponent,
+    DetailviewComponent,
+    FilterInputComponent,
     LeftPanelContainer,
     MenuitemsComponent,
     JumbotronComponent,
@@ -39,6 +50,7 @@ import { BigInputComponent } from './big-input/big-input/big-input.component';
     BigInputComponent
   ],
   imports: [
+    SharedRoutingModule,
     CommonModule,
     TranslateModule,
     NgxImageZoomModule.forRoot(),
@@ -51,6 +63,11 @@ import { BigInputComponent } from './big-input/big-input/big-input.component';
   providers: [ConfirmDialogService, ImagePopupService, QuickViewService],
   entryComponents: [ConfirmDialogComponent, ImagePopupComponent, QuickviewComponent],
   exports: [
+    DescriptionViewerComponent,
+    ReviewsViewerComponent,
+    ImageViewerComponent,
+    DetailviewComponent,
+    FilterInputComponent,
     LeftPanelContainer,
     FooterComponent,
     JumbotronComponent,

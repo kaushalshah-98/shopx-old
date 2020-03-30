@@ -11,17 +11,20 @@ export class ListProductsComponent implements OnInit {
   @Input() productitems;
   totalprice;
   shipping;
-  constructor(private imagepopup: ImagePopupService, private view: QuickViewService) {}
+  constructor(private imagepopup: ImagePopupService, private view: QuickViewService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.productitems);
+
+  }
   openBottomSheet(item) {
     this.imagepopup.openBottomSheet(item);
   }
   quickview(item) {
     this.view.showQuickview(item);
   }
-  addToWishlit(item) {}
-  updateCart() {}
-  removeFromCart() {}
-  emptycart() {}
+  addToWishlit(item) { }
+  updateCart() { }
+  removeFromCart() { }
+  emptycart() { }
 }

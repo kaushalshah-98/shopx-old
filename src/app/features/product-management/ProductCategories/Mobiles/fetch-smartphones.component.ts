@@ -12,7 +12,7 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
   styles: []
 })
 export class FetchSmartphonesComponent implements OnInit {
-  productitems: { name: string; image: string; price: number }[];
+  productitems:any;
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   constructor() {}
 
@@ -22,52 +22,305 @@ export class FetchSmartphonesComponent implements OnInit {
       this.dataLoading.emit(false);
       this.productitems = [
         {
-          name: 'Mens-Tshirts',
+          name: 'Samsung Galaxy A8 Star',
           image:
-            'https://rukminim1.flixcart.com/image/332/398/jp780i80/t-shirt/u/8/t/s-tnvhdfulabstract1-tripr-original-imafbdarnwhfh7uu.jpeg?q=50',
-          price: 400
+            'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmjs8jfctvy.jpeg?q=70',
+          price: 400,
+          description:'Galaxy A8 Star features an ergonomic, near bezel-less design that minimizes distraction so you can comfortably keep watching over what’s on screen. Its 6.3inch Full HD+ Super AMOLED display provides immersive viewing experience. Double the advantage. Galaxy A8 Star features a sleek design and symmetrical side styling that grips well in the hand. And with its sleek, elegant design users can look good when used on the move with life’s daily adventures. Shoot sharp and bright day and night. Galaxy A8 Star comes with 16MP and 24MP camera sensors, allowing user to minimize noise reduction and take clear selfies even in the dark environments. Do the following when the device heats up: Disconnect the charger from the device and close any running apps. Wait for the device to cool down and then begin charging the device again. If the lower part of the device overheats, it could be because the connected USB cable is damaged. Replace the damaged USB cable with a new Samsung-approved one. When using a wireless charger, do not place foreign materials, such as metal objects, magnets, and magnetic stripe cards, between the device and the wireless charger.',
+          specs:[
+            {Camera:'24+16 MP Dual rear camera | 24 MP front camera'},
+            {Display:'16.0 centimetres (6.3-inch) FHD+ Super AMOLED with 1080x2220 pixels'},
+            {Memory_Storage_AND_SIM:'6GB RAM | 64GB storage expandable up to 400GB | Dual SIM with dual-standby (4G+4G)'},
+            {Operating_System_and_Processor:'Android v8.0 operating system with 2.2GHz SDM660 Snapdragon Qualcomm octa core processor'},
+            {Battery:'3700 mAH lithium ion battery'},
+            {Warranty:'1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase'},
+            {Included_in_box:'Charger, Earphone'}
+          ],
+          general:{
+            simtype:'Dual Sim',
+            dualsim: 'yes',
+            simsize:'Nano',
+            Network:'4G',
+            fingerptintsensor:'yes'
+          },
+          performance:{
+            chipset:'Qualcomm Snapdragon 660',
+            cpu:'2.2 GHz',
+            gpu:'Adreno 512',
+            ram:'6 GB'
+          },
+          design:{
+            weight:'166g',
+            thickness:'7.7mm',
+            height:'155.3mm',
+            colors:'black,white',
+            build:'glass'
+          },
+          display:{
+            type:'Super Amoled',
+            apectratio:'19:5:9',
+            notch:'no',
+            screentobodyratio:'89%',
+            screensize:'6.4inch'
+          },
+          storage:{
+            internal:'64 GB',
+            otgsupport:'yes',
+            expandableupto:'512GB'
+          },
+          battery:{
+            removable:'no',
+            quickcharging:'yes',
+            capacity:'3700 mAh'
+          },
+          camera:{
+            features:'face Detection, Geo tagging, Panorama, Touch-to-focus',
+            front:'24 MP',
+            rear:'24MP + 16MP',
+            flash:'yes',
+            videorecording:'4K @30fps UHD'
+          }
         },
         {
-          name: 'Mens-Tshirts',
+          name: 'Samsung Galaxy A8 Star',
           image:
-            'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50',
-          price: 600
+            'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmjs8jfctvy.jpeg?q=70',
+          price: 400,
+          description:'Galaxy A8 Star features an ergonomic, near bezel-less design that minimizes distraction so you can comfortably keep watching over what’s on screen. Its 6.3inch Full HD+ Super AMOLED display provides immersive viewing experience. Double the advantage. Galaxy A8 Star features a sleek design and symmetrical side styling that grips well in the hand. And with its sleek, elegant design users can look good when used on the move with life’s daily adventures. Shoot sharp and bright day and night. Galaxy A8 Star comes with 16MP and 24MP camera sensors, allowing user to minimize noise reduction and take clear selfies even in the dark environments. Do the following when the device heats up: Disconnect the charger from the device and close any running apps. Wait for the device to cool down and then begin charging the device again. If the lower part of the device overheats, it could be because the connected USB cable is damaged. Replace the damaged USB cable with a new Samsung-approved one. When using a wireless charger, do not place foreign materials, such as metal objects, magnets, and magnetic stripe cards, between the device and the wireless charger.',
+          specs:[
+            {Camera:'24+16 MP Dual rear camera | 24 MP front camera'},
+            {Display:'16.0 centimetres (6.3-inch) FHD+ Super AMOLED with 1080x2220 pixels'},
+            {Memory_Storage_AND_SIM:'6GB RAM | 64GB storage expandable up to 400GB | Dual SIM with dual-standby (4G+4G)'},
+            {Operating_System_and_Processor:'Android v8.0 operating system with 2.2GHz SDM660 Snapdragon Qualcomm octa core processor'},
+            {Battery:'3700 mAH lithium ion battery'},
+            {Warranty:'1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase'},
+            {Included_in_box:'Charger, Earphone'}
+          ],
+          general:{
+            simtype:'Dual Sim',
+            dualsim: 'yes',
+            simsize:'Nano',
+            Network:'4G',
+            fingerptintsensor:'yes'
+          },
+          performance:{
+            chipset:'Qualcomm Snapdragon 660',
+            cpu:'2.2 GHz',
+            gpu:'Adreno 512',
+            ram:'6 GB'
+          },
+          design:{
+            weight:'166g',
+            thickness:'7.7mm',
+            height:'155.3mm',
+            colors:'black,white',
+            build:'glass'
+          },
+          display:{
+            type:'Super Amoled',
+            apectratio:'19:5:9',
+            notch:'no',
+            screentobodyratio:'89%',
+            screensize:'6.4inch'
+          },
+          storage:{
+            internal:'64 GB',
+            otgsupport:'yes',
+            expandableupto:'512GB'
+          },
+          battery:{
+            removable:'no',
+            quickcharging:'yes',
+            capacity:'3700 mAh'
+          },
+          camera:{
+            features:'face Detection, Geo tagging, Panorama, Touch-to-focus',
+            front:'24 MP',
+            rear:'24MP + 16MP',
+            flash:'yes',
+            videorecording:'4K @30fps UHD'
+          }
         },
         {
-          name: 'Mens-Tshirts',
-          image: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg',
-          price: 700
+          name: 'Samsung Galaxy A8 Star',
+          image:
+            'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmjs8jfctvy.jpeg?q=70',
+          price: 400,
+          description:'Galaxy A8 Star features an ergonomic, near bezel-less design that minimizes distraction so you can comfortably keep watching over what’s on screen. Its 6.3inch Full HD+ Super AMOLED display provides immersive viewing experience. Double the advantage. Galaxy A8 Star features a sleek design and symmetrical side styling that grips well in the hand. And with its sleek, elegant design users can look good when used on the move with life’s daily adventures. Shoot sharp and bright day and night. Galaxy A8 Star comes with 16MP and 24MP camera sensors, allowing user to minimize noise reduction and take clear selfies even in the dark environments. Do the following when the device heats up: Disconnect the charger from the device and close any running apps. Wait for the device to cool down and then begin charging the device again. If the lower part of the device overheats, it could be because the connected USB cable is damaged. Replace the damaged USB cable with a new Samsung-approved one. When using a wireless charger, do not place foreign materials, such as metal objects, magnets, and magnetic stripe cards, between the device and the wireless charger.',
+          specs:[
+            {Camera:'24+16 MP Dual rear camera | 24 MP front camera'},
+            {Display:'16.0 centimetres (6.3-inch) FHD+ Super AMOLED with 1080x2220 pixels'},
+            {Memory_Storage_AND_SIM:'6GB RAM | 64GB storage expandable up to 400GB | Dual SIM with dual-standby (4G+4G)'},
+            {Operating_System_and_Processor:'Android v8.0 operating system with 2.2GHz SDM660 Snapdragon Qualcomm octa core processor'},
+            {Battery:'3700 mAH lithium ion battery'},
+            {Warranty:'1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase'},
+            {Included_in_box:'Charger, Earphone'}
+          ],
+          general:{
+            simtype:'Dual Sim',
+            dualsim: 'yes',
+            simsize:'Nano',
+            Network:'4G',
+            fingerptintsensor:'yes'
+          },
+          performance:{
+            chipset:'Qualcomm Snapdragon 660',
+            cpu:'2.2 GHz',
+            gpu:'Adreno 512',
+            ram:'6 GB'
+          },
+          design:{
+            weight:'166g',
+            thickness:'7.7mm',
+            height:'155.3mm',
+            colors:'black,white',
+            build:'glass'
+          },
+          display:{
+            type:'Super Amoled',
+            apectratio:'19:5:9',
+            notch:'no',
+            screentobodyratio:'89%',
+            screensize:'6.4inch'
+          },
+          storage:{
+            internal:'64 GB',
+            otgsupport:'yes',
+            expandableupto:'512GB'
+          },
+          battery:{
+            removable:'no',
+            quickcharging:'yes',
+            capacity:'3700 mAh'
+          },
+          camera:{
+            features:'face Detection, Geo tagging, Panorama, Touch-to-focus',
+            front:'24 MP',
+            rear:'24MP + 16MP',
+            flash:'yes',
+            videorecording:'4K @30fps UHD'
+          }
         },
         {
-          name: 'Mens-Tshirts',
+          name: 'Samsung Galaxy A8 Star',
           image:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C',
-          price: 800
+            'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmjs8jfctvy.jpeg?q=70',
+          price: 400,
+          description:'Galaxy A8 Star features an ergonomic, near bezel-less design that minimizes distraction so you can comfortably keep watching over what’s on screen. Its 6.3inch Full HD+ Super AMOLED display provides immersive viewing experience. Double the advantage. Galaxy A8 Star features a sleek design and symmetrical side styling that grips well in the hand. And with its sleek, elegant design users can look good when used on the move with life’s daily adventures. Shoot sharp and bright day and night. Galaxy A8 Star comes with 16MP and 24MP camera sensors, allowing user to minimize noise reduction and take clear selfies even in the dark environments. Do the following when the device heats up: Disconnect the charger from the device and close any running apps. Wait for the device to cool down and then begin charging the device again. If the lower part of the device overheats, it could be because the connected USB cable is damaged. Replace the damaged USB cable with a new Samsung-approved one. When using a wireless charger, do not place foreign materials, such as metal objects, magnets, and magnetic stripe cards, between the device and the wireless charger.',
+          specs:[
+            {Camera:'24+16 MP Dual rear camera | 24 MP front camera'},
+            {Display:'16.0 centimetres (6.3-inch) FHD+ Super AMOLED with 1080x2220 pixels'},
+            {Memory_Storage_AND_SIM:'6GB RAM | 64GB storage expandable up to 400GB | Dual SIM with dual-standby (4G+4G)'},
+            {Operating_System_and_Processor:'Android v8.0 operating system with 2.2GHz SDM660 Snapdragon Qualcomm octa core processor'},
+            {Battery:'3700 mAH lithium ion battery'},
+            {Warranty:'1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase'},
+            {Included_in_box:'Charger, Earphone'}
+          ],
+          general:{
+            simtype:'Dual Sim',
+            dualsim: 'yes',
+            simsize:'Nano',
+            Network:'4G',
+            fingerptintsensor:'yes'
+          },
+          performance:{
+            chipset:'Qualcomm Snapdragon 660',
+            cpu:'2.2 GHz',
+            gpu:'Adreno 512',
+            ram:'6 GB'
+          },
+          design:{
+            weight:'166g',
+            thickness:'7.7mm',
+            height:'155.3mm',
+            colors:'black,white',
+            build:'glass'
+          },
+          display:{
+            type:'Super Amoled',
+            apectratio:'19:5:9',
+            notch:'no',
+            screentobodyratio:'89%',
+            screensize:'6.4inch'
+          },
+          storage:{
+            internal:'64 GB',
+            otgsupport:'yes',
+            expandableupto:'512GB'
+          },
+          battery:{
+            removable:'no',
+            quickcharging:'yes',
+            capacity:'3700 mAh'
+          },
+          camera:{
+            features:'face Detection, Geo tagging, Panorama, Touch-to-focus',
+            front:'24 MP',
+            rear:'24MP + 16MP',
+            flash:'yes',
+            videorecording:'4K @30fps UHD'
+          }
         },
         {
-          name: 'Mens-Tshirts',
+          name: 'Samsung Galaxy A8 Star',
           image:
-            'https://n4.sdlcdn.com/imgs/c/b/k/Tinted-Grey-Henley-T-Shirt-SDL844815789-1-6cd00.jpg',
-          price: 1000
+            'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmjs8jfctvy.jpeg?q=70',
+          price: 400,
+          description:'Galaxy A8 Star features an ergonomic, near bezel-less design that minimizes distraction so you can comfortably keep watching over what’s on screen. Its 6.3inch Full HD+ Super AMOLED display provides immersive viewing experience. Double the advantage. Galaxy A8 Star features a sleek design and symmetrical side styling that grips well in the hand. And with its sleek, elegant design users can look good when used on the move with life’s daily adventures. Shoot sharp and bright day and night. Galaxy A8 Star comes with 16MP and 24MP camera sensors, allowing user to minimize noise reduction and take clear selfies even in the dark environments. Do the following when the device heats up: Disconnect the charger from the device and close any running apps. Wait for the device to cool down and then begin charging the device again. If the lower part of the device overheats, it could be because the connected USB cable is damaged. Replace the damaged USB cable with a new Samsung-approved one. When using a wireless charger, do not place foreign materials, such as metal objects, magnets, and magnetic stripe cards, between the device and the wireless charger.',
+          specs:[
+            {Camera:'24+16 MP Dual rear camera | 24 MP front camera'},
+            {Display:'16.0 centimetres (6.3-inch) FHD+ Super AMOLED with 1080x2220 pixels'},
+            {Memory_Storage_AND_SIM:'6GB RAM | 64GB storage expandable up to 400GB | Dual SIM with dual-standby (4G+4G)'},
+            {Operating_System_and_Processor:'Android v8.0 operating system with 2.2GHz SDM660 Snapdragon Qualcomm octa core processor'},
+            {Battery:'3700 mAH lithium ion battery'},
+            {Warranty:'1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase'},
+            {Included_in_box:'Charger, Earphone'}
+          ],
+          general:{
+            simtype:'Dual Sim',
+            dualsim: 'yes',
+            simsize:'Nano',
+            Network:'4G',
+            fingerptintsensor:'yes'
+          },
+          performance:{
+            chipset:'Qualcomm Snapdragon 660',
+            cpu:'2.2 GHz',
+            gpu:'Adreno 512',
+            ram:'6 GB'
+          },
+          design:{
+            weight:'166g',
+            thickness:'7.7mm',
+            height:'155.3mm',
+            colors:'black,white',
+            build:'glass'
+          },
+          display:{
+            type:'Super Amoled',
+            apectratio:'19:5:9',
+            notch:'no',
+            screentobodyratio:'89%',
+            screensize:'6.4inch'
+          },
+          storage:{
+            internal:'64 GB',
+            otgsupport:'yes',
+            expandableupto:'512GB'
+          },
+          battery:{
+            removable:'no',
+            quickcharging:'yes',
+            capacity:'3700 mAh'
+          },
+          camera:{
+            features:'face Detection, Geo tagging, Panorama, Touch-to-focus',
+            front:'24 MP',
+            rear:'24MP + 16MP',
+            flash:'yes',
+            videorecording:'4K @30fps UHD'
+          }
         },
-        {
-          name: 'Mens-Tshirts',
-          image:
-            'https://n1.sdlcdn.com/imgs/b/2/j/Leana-Grey-Henley-T-Shirt-SDL041507058-1-e82bd.jpg',
-          price: 600
-        },
-        {
-          name: 'Mens-Tshirts',
-          image:
-            'https://www.onlinebazar.com/image/cache/catalog/Product%20Images/T-Shirt/Mens-Solid-Mandarin-Collar-Full-Sleeve-T-Shirt-1000x1000.jpg',
-          price: 500
-        },
-        {
-          name: 'Mens-Tshirts',
-          image:
-            'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
-          price: 1200
-        }
       ];
     }, 1000);
   }

@@ -4,7 +4,7 @@ import { DetailviewComponent } from '@shared/detailview/detailview.component';
 
 const routes: Routes = [
   {
-    path: '#',
+    path: '',
     component: DetailviewComponent
   }
 ];
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ProductManagementRoutingModule {}
+export class SharedRoutingModule {}

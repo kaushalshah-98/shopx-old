@@ -1,0 +1,12 @@
+.filter-input {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 43px 0px 0px;
+  .filter-btn {
+    height: 48px;
+    position: relative;
+    min-width: 40px;
+    top: 4px;
+    border-radius: 4px !important;
+  }
+}

@@ -1,0 +1,18 @@
+<div class="description-container">
+  <h2>Name : {{product[0].name}}</h2>
+  <h3>CurrentPrice : {{product[0].price}}</h3>
+  <div>
+    <h3>Product details</h3>
+    <ul>
+      <ng-container *ngFor="let item of product[0].details | keyvalue">
+        <li><b>{{item.key}}</b> : {{item.value}}</li>
+      </ng-container>
+    </ul>
+  </div>
+  <div>
+    <h3>Description</h3>
+    <p>
+      {{product[0].description}}
+    </p>
+  </div>
+</div>

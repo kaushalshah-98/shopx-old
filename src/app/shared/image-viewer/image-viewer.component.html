@@ -1,0 +1,23 @@
+<div class="profile-container" fxLayout="row" fxLayoutAlign="start">
+  <div fxFlex="60%">
+    <mat-card class="example-card">
+      <!-- <mat-card-header>
+        <mat-card-title>{{"user.form.profile_pic" | translate}}</mat-card-title>
+      </mat-card-header> -->
+      <div class="profile-image">
+        <img [src]="displayimage" />
+      </div>
+    </mat-card>
+  </div>
+
+  <div fxFlex="40%" class="side-image">
+    <ng-container *ngFor="let image of product">
+      <mat-card class="small-card" (click)="changeimage(image.imageurl)">
+        <div class="small-image">
+          <img src="{{image.imageurl}}" />
+        </div>
+      </mat-card>
+      <br />
+    </ng-container>
+  </div>
+</div>

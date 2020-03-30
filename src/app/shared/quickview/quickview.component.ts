@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quickview',
@@ -13,69 +14,29 @@ export class QuickviewComponent implements OnInit {
   myThumbnail3: string;
   myThumbnail4: string;
   myThumbnail5: string;
-  reviewtext: FormControl = new FormControl('');
-  reviews = [];
-  totalreviewcount: number = 0;
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
+  productdata: any;
 
   constructor(
     public dialogRef: MatDialogRef<QuickviewComponent>,
-    @Inject(MAT_DIALOG_DATA) public data
+    @Inject(MAT_DIALOG_DATA) public data,
+    private router: Router
   ) {
-    this.myThumbnail1 = data.image;
-    this.myThumbnail2 = data.image1;
-    this.myThumbnail3 = data.image2;
-    this.myThumbnail4 = data.image3;
-    this.myThumbnail5 = data.image4;
+    this.productdata= data;
+    console.log(this.productdata);
+
+    this.myThumbnail1 = data.image[0].imageurl;
+    this.myThumbnail2 = data.image[1].imageurl;
+    this.myThumbnail3 = data.image[2].imageurl;
   }
 
   ngOnInit() {
-    this.reset();
-    this.dataLoading.emit(true);
-    setTimeout(() => {
-      this.dataLoading.emit(false);
-      this.reviews = [
-        { username: 'kaushal', review: 'It is a good product' },
-        { username: 'kaushal', review: 'It is a good product' },
-        { username: 'kaushal', review: 'It is a good product' },
-        { username: 'DEFAULT', review: 'It is a good product' },
-        { username: 'DEFAULT', review: 'It is a good product' },
-        { username: 'kaushal', review: 'It is a good product' },
-        { username: 'DEFAULT', review: 'It is a good product' }
-      ];
-      this.totalreviewcount = this.reviews.length;
-    }, 3000);
   }
   onNoClick(): void {
     this.dialogRef.close();
   }
-  reset() {
-    this.reviewtext.reset();
-    this.totalreviewcount = this.reviews.length;
-  }
-  addreview() {
-    this.dataLoading.emit(true);
-    setTimeout(() => {
-      this.dataLoading.emit(false);
-      let item = { username: 'DEFAULT', review: this.reviewtext.value };
-      this.reviews.unshift(item);
-      this.reset();
-    }, 3000);
-  }
-  isUserReview(username) {
-    if (username === 'DEFAULT') {
-      return true;
-    }
-    return false;
-  }
-  deletereview(review) {
-    this.dataLoading.emit(true);
-    setTimeout(() => {
-      this.dataLoading.emit(false);
-      this.reviews = this.reviews.filter(
-        (item) => !(item.review === review.review && item.username === review.username)
-      );
-      this.reset();
-    }, 3000);
+  detailview(){
+    this.dialogRef.close();
+    this.router.navigateByUrl('/detailview', { state: this.productdata });
   }
 }

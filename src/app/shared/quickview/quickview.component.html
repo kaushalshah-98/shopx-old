@@ -4,13 +4,14 @@
       <div class="preview col-md-6">
         <div class="preview-pic tab-content">
           <div class="tab-pane active" id="pic-1">
-            <ngx-image-zoom
+            <img [src]="myThumbnail1" />
+            <!-- <ngx-image-zoom
               [thumbImage]="myThumbnail1"
               [magnification]="1.5"
               [enableScrollZoom]="true"
               [lensWidth]="100"
               [lensHeight]="100"
-            ></ngx-image-zoom>
+            ></ngx-image-zoom> -->
           </div>
           <div class="tab-pane" id="pic-2">
             <ngx-image-zoom
@@ -55,81 +56,40 @@
         </div>
         <ul class="preview-thumbnail nav nav-tabs">
           <li class="active">
-            <a data-target="#pic-1" data-toggle="tab"><img src="{{ data.image }}"/></a>
+            <a data-target="#pic-1" data-toggle="tab"><img src="{{ myThumbnail1 }}"/></a>
           </li>
           <li>
-            <a data-target="#pic-2" data-toggle="tab"><img src="{{ data.image1 }}"/></a>
+            <a data-target="#pic-2" data-toggle="tab"><img src="{{ myThumbnail2 }}"/></a>
           </li>
           <li>
-            <a data-target="#pic-3" data-toggle="tab"><img src="{{ data.image2 }}"/></a>
-          </li>
-          <li>
-            <a data-target="#pic-4" data-toggle="tab"><img src="{{ data.image3 }}"/></a>
-          </li>
-          <li>
-            <a data-target="#pic-5" data-toggle="tab"><img src="{{ data.image4 }}"/></a>
+            <a data-target="#pic-3" data-toggle="tab"><img src="{{ myThumbnail3 }}"/></a>
           </li>
         </ul>
       </div>
       <div class="details col-md-6">
-        <mat-tab-group class="info-container">
-          <mat-tab label="Description">
-            <br />
-            <h3 class="product-title">{{ data.name }}</h3>
-            <p class="product-description">
-              Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem!
-              Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.
-            </p>
-            <h2 class="price">current price: <span>₹{{ data.price }}</span></h2>
-            <div class="action">
-              <button mat-raised-button color="primary" (click)="AddToCart(data)">
-                Add To Cart
-              </button>
-              &nbsp;
-              <button mat-raised-button color="warn">
-                <mat-icon>favorite</mat-icon>
-              </button>
-              &nbsp;
-              <button mat-raised-button (click)="onNoClick()">
-                BACK
-              </button>
-            </div>
-          </mat-tab>
-          <mat-tab label="Review">
-            <mat-list>
-              <div mat-subheader>{{totalreviewcount}} User Reviews</div>
-              <mat-form-field appearance="outline">
-                <mat-label>Write a Review</mat-label>
-                <app-spinner [loading]="dataLoading"></app-spinner>
-                <input
-                  matInput
-                  [formControl]="reviewtext"
-                  (keyup.enter)="addreview()"
-                  (keyup.escape)="reset()"
-                />
-                <button mat-icon-button matSuffix (click)="addreview()">
-                  <mat-icon>add_circle</mat-icon>
-                </button>
-              </mat-form-field>
-              <ng-container *ngFor="let review of reviews">
-                <mat-list-item>
-                  <mat-icon mat-list-icon>star</mat-icon>
-                  <div mat-line>{{review.username}}</div>
-                  <div mat-line>{{review.review}}</div>
-                  <button
-                    *ngIf="isUserReview(review.username)"
-                    mat-icon-button
-                    matSuffix
-                    (click)="deletereview(review)"
-                  >
-                    <mat-icon>delete</mat-icon>
-                  </button>
-                  <mat-divider></mat-divider>
-                </mat-list-item>
-              </ng-container>
-            </mat-list>
-          </mat-tab>
-        </mat-tab-group>
+        <h3 class="product-title">{{ data.name }}</h3>
+        <p class="product-description">
+          {{data.description}}
+        </p>
+        <br />
+        <h2 class="price">current price: <span>₹{{ data.price }}</span></h2>
+        <div class="action">
+          <button mat-raised-button color="primary" (click)="AddToCart(data)">
+            Add To Cart
+          </button>
+          &nbsp;
+          <button mat-raised-button color="warn">
+            <mat-icon>favorite</mat-icon>
+          </button>
+          &nbsp;
+          <button mat-raised-button (click)="detailview()">
+            Detail view
+          </button>
+          &nbsp;
+          <button mat-raised-button color="accent" (click)="onNoClick()">
+            BACK
+          </button>
+        </div>
       </div>
     </div>
   </mat-card>

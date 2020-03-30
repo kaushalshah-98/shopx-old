@@ -1,0 +1,14 @@
+<app-navbar [isHidden]="true"></app-navbar>
+<app-jumbotron [Heading]="'user.main_heading.your_account'"></app-jumbotron>
+<mat-tab-group>
+  <mat-tab label="{{'user.form_heading.profile' | translate}}">
+    <app-image-viewer [product]="product.image"></app-image-viewer>
+  </mat-tab>
+  <mat-tab label="{{'user.form_heading.edit_profile' | translate}}">
+    <app-description-viewer [product]="product"></app-description-viewer>
+  </mat-tab>
+  <mat-tab label="{{'user.form_heading.to_buy_list' | translate}}">
+    <div class="profile-container"></div>
+    <app-reviews-viewer></app-reviews-viewer>
+  </mat-tab>
+</mat-tab-group>
