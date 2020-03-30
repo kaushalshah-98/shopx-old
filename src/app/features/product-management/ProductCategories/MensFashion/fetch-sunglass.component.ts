@@ -12,7 +12,7 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
   styles: []
 })
 export class FetchSunglassComponent implements OnInit {
-  productitems:any;
+  productitems: any;
 
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   constructor() {}
@@ -79,7 +79,6 @@ export class FetchSunglassComponent implements OnInit {
           },
           description:
             'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.'
-
         },
         {
           name: 'Mens-Tshirts',
@@ -108,7 +107,6 @@ export class FetchSunglassComponent implements OnInit {
           },
           description:
             'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.'
-
         },
         {
           name: 'Mens-Tshirts',
@@ -138,7 +136,6 @@ export class FetchSunglassComponent implements OnInit {
           },
           description:
             'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.'
-
         },
         {
           name: 'Mens-Tshirts',
@@ -168,7 +165,6 @@ export class FetchSunglassComponent implements OnInit {
           },
           description:
             'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.'
-
         },
         {
           name: 'Mens-Tshirts',
@@ -198,7 +194,6 @@ export class FetchSunglassComponent implements OnInit {
           },
           description:
             'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.'
-
         },
         {
           name: 'Mens-Tshirts',
@@ -228,7 +223,6 @@ export class FetchSunglassComponent implements OnInit {
           },
           description:
             'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.'
-
         },
         {
           name: 'Mens-Tshirts',
@@ -258,7 +252,6 @@ export class FetchSunglassComponent implements OnInit {
           },
           description:
             'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.'
-
         }
       ];
     }, 1000);

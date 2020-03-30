@@ -29,8 +29,7 @@ export class QuickviewComponent implements OnInit {
     this.myThumbnail3 = data.image[2].imageurl;
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   onNoClick(): void {
     this.dialogRef.close();
   }
