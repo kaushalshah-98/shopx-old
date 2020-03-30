@@ -5,7 +5,21 @@
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
   &nbsp;&nbsp;
-  <button color="accent" mat-flat-button class="filter-btn">
+  <button [matMenuTriggerFor]="filtermenu" color="primary" mat-flat-button class="filter-btn">
     <mat-icon>filter_list</mat-icon>
   </button>
+  <mat-menu #filtermenu="matMenu" xPosition="before">
+    <button mat-menu-item (click)="onFilter('name')">
+      <mat-icon> sort </mat-icon>
+      <span>Sort By Name </span>
+    </button>
+    <button mat-menu-item (click)="onFilter('low')">
+      <mat-icon> arrow_downward </mat-icon>
+      <span>Low To High</span>
+    </button>
+    <button mat-menu-item (click)="onFilter('high')">
+      <mat-icon> arrow_upward </mat-icon>
+      <span>High To Low</span>
+    </button>
+  </mat-menu>
 </div>

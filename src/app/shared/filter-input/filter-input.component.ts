@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filter-input',
@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter-input.component.scss']
 })
 export class FilterInputComponent implements OnInit {
-  constructor() {}
+  @Output() filter: EventEmitter<string> = new EventEmitter();
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+  onFilter(option) {
+    this.filter.emit(option)
+  }
 }

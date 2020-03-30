@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-fetch-headphones',
@@ -6,9 +6,13 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
     <div class="list-product-style">
       <app-jumbotron [Heading]="'menu_item.headphones'"></app-jumbotron>
       <div class="product-list-page">
-        <app-filter-input></app-filter-input>
+        <app-filter-input
+        (keyup)="onInputChanged($event.target.value)"
+        (filter)="onFilter($event)"
+        >
+        </app-filter-input>
         <app-spinner [loading]="dataLoading"></app-spinner>
-        <app-list-products [productitems]="productitems"></app-list-products>
+        <app-list-products [productitems]="products"></app-list-products>
       </div>
     </div>
   `,
@@ -16,9 +20,10 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 })
 export class FetchHeadphonesComponent implements OnInit {
   productitems: any;
-
+  @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
-  constructor() {}
+  products: any;
+  constructor() { }
 
   ngOnInit() {
     document.getElementById('mainsearch').style.visibility = 'hidden';
@@ -85,7 +90,7 @@ export class FetchHeadphonesComponent implements OnInit {
             'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.'
         },
         {
-          name: 'Mens-Tshirts',
+          name: 'mens',
           image: [
             {
               imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
@@ -113,7 +118,7 @@ export class FetchHeadphonesComponent implements OnInit {
             'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.'
         },
         {
-          name: 'Mens-Tshirts',
+          name: 'hello',
           image: [
             {
               imageurl:
@@ -142,7 +147,7 @@ export class FetchHeadphonesComponent implements OnInit {
             'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.'
         },
         {
-          name: 'Mens-Tshirts',
+          name: 'hi',
           image: [
             {
               imageurl:
@@ -171,7 +176,7 @@ export class FetchHeadphonesComponent implements OnInit {
             'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.'
         },
         {
-          name: 'Mens-Tshirts',
+          name: 'how',
           image: [
             {
               imageurl:
@@ -200,7 +205,7 @@ export class FetchHeadphonesComponent implements OnInit {
             'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.'
         },
         {
-          name: 'Mens-Tshirts',
+          name: 'happy',
           image: [
             {
               imageurl:
@@ -258,6 +263,23 @@ export class FetchHeadphonesComponent implements OnInit {
             'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.'
         }
       ];
+      this.products = this.productitems;
     }, 1000);
+  }
+  onFilter(event: any) {
+    if (event === 'low') {
+      this.products.sort((a, b) => (a.price - b.price));
+    }
+    else if (event === 'high') {
+      this.products.sort((a, b) => (b.price - a.price));
+    }
+    else {
+      this.products.sort((a, b) => a.name.localeCompare(b.name))
+    }
+  }
+  onInputChanged(input: string) {
+    this.products = this.productitems.filter(items => {
+      return items.name.toLowerCase().includes(input.toLowerCase());
+    });
   }
 }
