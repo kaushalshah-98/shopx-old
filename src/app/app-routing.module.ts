@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { DetailviewComponent } from './features/product-management/detailview/detailview.component';
 
 const routes: Routes = [
   {
@@ -9,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'detailview',
-    loadChildren: () => import('./shared/shared.module').then((m) => m.SharedModule)
+    component: DetailviewComponent
   },
   {
     path: 'admin',
@@ -25,6 +26,11 @@ const routes: Routes = [
   },
   {
     path: 'register',
+    loadChildren: () =>
+      import('./core/auth-management/auth-management.module').then((m) => m.AuthManagementModule)
+  },
+  {
+    path: 'contactus',
     loadChildren: () =>
       import('./core/auth-management/auth-management.module').then((m) => m.AuthManagementModule)
   },
@@ -62,4 +68,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

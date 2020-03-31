@@ -14,6 +14,7 @@ import {
   MissingTranslationHandlerParams
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ProductManagementModule } from './features/product-management/product-management.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -35,6 +36,7 @@ export class MissingTranslationHelper implements MissingTranslationHandler {
     BrowserModule,
     // core
     CoreModule,
+    ProductManagementModule,
 
     // app
     AppRoutingModule,

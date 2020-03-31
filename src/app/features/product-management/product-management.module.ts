@@ -20,8 +20,10 @@ import { FetchLadiesShoesComponent } from './ProductCategories/WomensFashion/fet
 import { FetchLadiesNightwearComponent } from './ProductCategories/WomensFashion/fetch-ladies-nightwear.component';
 import { MatProgressSpinnerModule } from '@angular/material';
 import { SharedModule } from '@shared/shared.module';
+import { DetailviewComponent } from './detailview/detailview.component';
 
 const components = [
+  DetailviewComponent,
   FetchTvComponent,
   FetchLaptopComponent,
   FetchHeadphonesComponent,
@@ -39,6 +41,7 @@ const components = [
 ];
 @NgModule({
   declarations: [
+    DetailviewComponent,
     FetchTvComponent,
     FetchLaptopComponent,
     FetchHeadphonesComponent,

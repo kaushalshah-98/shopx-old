@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DetailviewComponent } from '@shared/detailview/detailview.component';
+import { DetailviewComponent } from './detailview/detailview.component';
 
 const routes: Routes = [
   {

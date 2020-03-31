@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DetailviewComponent } from '@shared/detailview/detailview.component';
+// import { DetailviewComponent } from '@shared/detailview/detailview.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: DetailviewComponent
-  }
+  // {
+  //   path: '',
+  //   component: DetailviewComponent
+  // }
 ];
 
 @NgModule({

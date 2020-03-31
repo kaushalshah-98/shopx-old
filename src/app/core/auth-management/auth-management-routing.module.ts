@@ -2,9 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from 'src/app/features/user-management/register/register.component';
+import { ContactComponent } from 'src/app/features/user-management/contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  {
+    path: '$',
+    component: ContactComponent
+  },
   {
     path: '#',
     component: RegisterComponent
@@ -15,4 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AuthManagementRoutingModule {}
+export class AuthManagementRoutingModule { }

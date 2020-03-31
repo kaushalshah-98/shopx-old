@@ -10,6 +10,7 @@ import { WishListComponent } from './wish-list/wish-list.component';
 import { ViewOrdersComponent } from './view-orders/view-orders.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BuyListComponent } from './profile/buy-list/buy-list.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,11 @@ import { BuyListComponent } from './profile/buy-list/buy-list.component';
     WishListComponent,
     ViewOrdersComponent,
     ProfileComponent,
-    BuyListComponent
+    BuyListComponent,
+    ContactComponent
   ],
   imports: [CommonModule, UserManagementRoutingModule, SharedModule],
-  exports: [ProfileComponent]
+  exports: [ProfileComponent,ContactComponent,RegisterComponent]
 })
 export class UserManagementModule {
   constructor() {

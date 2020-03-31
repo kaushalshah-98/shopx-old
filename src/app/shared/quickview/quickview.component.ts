@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { state } from '@angular/animations';
 
 @Component({
   selector: 'app-quickview',
@@ -29,7 +29,7 @@ export class QuickviewComponent implements OnInit {
     this.myThumbnail3 = data.image[2].imageurl;
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
   onNoClick(): void {
     this.dialogRef.close();
   }

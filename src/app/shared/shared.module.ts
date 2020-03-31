@@ -23,7 +23,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { BigInputActionComponent } from './big-input/big-input-action/big-input-action.component';
 import { BigInputComponent } from './big-input/big-input/big-input.component';
 import { FilterInputComponent } from './filter-input/filter-input.component';
-import { DetailviewComponent } from './detailview/detailview.component';
+// import { DetailviewComponent } from './detailview/detailview.component';
 import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 import { ReviewsViewerComponent } from './reviews-viewer/reviews-viewer.component';
 import { SharedRoutingModule } from './shared-routing.module';
@@ -34,7 +34,7 @@ import { DescriptionViewerComponent } from './description-viewer/description-vie
     DescriptionViewerComponent,
     ReviewsViewerComponent,
     ImageViewerComponent,
-    DetailviewComponent,
+    // DetailviewComponent,
     FilterInputComponent,
     LeftPanelContainer,
     MenuitemsComponent,
@@ -66,7 +66,7 @@ import { DescriptionViewerComponent } from './description-viewer/description-vie
     DescriptionViewerComponent,
     ReviewsViewerComponent,
     ImageViewerComponent,
-    DetailviewComponent,
+    // DetailviewComponent,
     FilterInputComponent,
     LeftPanelContainer,
     FooterComponent,

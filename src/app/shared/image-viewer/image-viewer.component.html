@@ -5,7 +5,15 @@
         <mat-card-title>{{"user.form.profile_pic" | translate}}</mat-card-title>
       </mat-card-header> -->
       <div class="profile-image">
-        <img [src]="displayimage" />
+        <!-- <img [src]="displayimage" /> -->
+        <ngx-image-zoom
+          [thumbImage]="displayimage"
+          [magnification]="1"
+          [enableScrollZoom]="true"
+          [enableLens]="true"
+          [lensWidth]="100"
+          [lensHeight]="100"
+        ></ngx-image-zoom>
       </div>
     </mat-card>
   </div>
