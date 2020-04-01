@@ -15,7 +15,10 @@ export class PageContentComponent implements OnInit {
   items_slider2: sliderProduct[];
   show: boolean;
   heading = 'HOMEPAGE';
-  constructor() {}
+  productcarouselitems1: any;
+  productcarouselitems2: any;
+  productcarouselitems3: any;
+  constructor() { }
 
   ngOnInit() {
     this.dataLoading.emit(true);
@@ -28,7 +31,7 @@ export class PageContentComponent implements OnInit {
           name: "Men's casual shoes | Under ₹599",
           image:
             'https://images-eu.ssl-images-amazon.com/images/G/31/Symbol/2020/GatewayNK/PC/sh1x._SY304_CB426335760_.jpg',
-          url: '/mens_ेपदाे'
+          url: '/mens_shoes'
         },
         {
           name: 'Top Brands in TVs | Up to 50% off ',
@@ -43,7 +46,84 @@ export class PageContentComponent implements OnInit {
           url: '/mobile_accessories'
         }
       ];
-
+      this.productcarouselitems1 = [
+        {
+          name: 'Apple Ipad',
+          image:
+            'https://www.tutorialrepublic.com/examples/images/products/ipad.jpg',
+          price: 550
+        },
+        {
+          name: 'Sony Headphone',
+          image:
+            'https://www.tutorialrepublic.com/examples/images/products/headphone.jpg',
+          price: 550
+        },
+        {
+          name: 'Macbook Air',
+          image:
+            'https://www.tutorialrepublic.com/examples/images/products/macbook-air.jpg',
+          price: 550
+        },
+        {
+          name: 'Sony Play Station',
+          image:
+            'https://www.tutorialrepublic.com/examples/images/products/play-station.jpg',
+          price: 550
+        }
+      ]
+      this.productcarouselitems2 = [
+        {
+          name: 'Nikon DSLR',
+          image:
+            'https://www.tutorialrepublic.com/examples/images/products/nikon.jpg',
+          price: 550
+        },
+        {
+          name: 'Apple Ipad',
+          image:
+            'https://www.tutorialrepublic.com/examples/images/products/ipad.jpg',
+          price: 550
+        },
+        {
+          name: 'Samsung Galaxy S8',
+          image:
+            'https://www.tutorialrepublic.com/examples/images/products/galaxy.jpg',
+          price: 550
+        },
+        {
+          name: 'Bose Speaker',
+          image:
+            'https://www.tutorialrepublic.com/examples/images/products/speaker.jpg',
+          price: 550
+        }
+      ]
+      this.productcarouselitems3 = [
+        {
+          name: 'Google Pixel',
+          image:
+            'https://www.tutorialrepublic.com/examples/images/products/pixel.jpg',
+          price: 550
+        },
+        {
+          name: 'Apple Ipad',
+          image:
+            'https://www.tutorialrepublic.com/examples/images/products/ipad.jpg',
+          price: 550
+        },
+        {
+          name: 'Apple Watch',
+          image:
+            'https://www.tutorialrepublic.com/examples/images/products/watch.jpg',
+          price: 550
+        },
+        {
+          name: 'Apple Ipad',
+          image:
+            'https://www.tutorialrepublic.com/examples/images/products/ipad.jpg',
+          price: 550
+        }
+      ]
       // items for category-card component
       this.items_category1 = [
         {

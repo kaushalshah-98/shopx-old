@@ -11,6 +11,10 @@
     "format:check": "prettier --write --congig ./.prettierrc --list-different \"src/{app,environments,styles}/**/*{.ts,.html,.scss,.json}\"",
     "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/SHOPX/stats-es2015.json"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaushalshah98/shopx.git"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.14",
