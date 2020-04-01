@@ -1,1 +1,77 @@
-<p>recipt works!</p>
+<div class="recipt-template" id="recipt" #recipt>
+  <mat-card class="recipt-card">
+    <mat-card-header>
+      <mat-card-title>Recipt</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <br /><br />
+      <div class="thanks-text">
+        <h2>Thanks for your order!</h2>
+      </div>
+      <br />
+      <div class="thanks-text">
+        <b><h3>December 7,2019</h3></b>
+      </div>
+      <div class="table-wrapper">
+        <mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="image">
+            <mat-header-cell *matHeaderCellDef>
+              {{"user.product.image" | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <img class="product-image" src="{{ element.image }}" />
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>
+              {{"user.product.name" | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="quantity">
+            <mat-header-cell *matHeaderCellDef>
+              {{"user.product.quantity" | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.quantity }}
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef>
+              {{"user.product.price" | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.price }} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+      </div>
+      <br /><br />
+      <div fxLayout="row" class="billing" fxLayoutAlign="start">
+        <div fxFlex="50%" class="billing-section">
+          <h3>Billed To</h3>
+          <p>India</p>
+          <p>Gujarat</p>
+          <p>Chanod Colony Vapi</p>
+        </div>
+        <div fxFlex="50%" class="billing-section">
+          <h3>Total Amount :- 8000</h3>
+        </div>
+      </div>
+    </mat-card-content>
+    <br />
+  </mat-card>
+</div>
+<mat-toolbar color="primary" class="checkout-button">
+  <button mat-raised-button (click)="downloadImage()">
+    Download Recipt As Image
+  </button>
+  &nbsp;&nbsp;
+  <button mat-raised-button (click)="downloadPdf()">
+    Download Recipt As Pdf
+  </button>
+</mat-toolbar>
