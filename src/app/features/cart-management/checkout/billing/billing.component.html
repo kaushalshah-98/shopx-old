@@ -11,9 +11,14 @@
               <mat-form-field appearance="outline">
                 <mat-label>{{"user.form.name" | translate}} </mat-label>
                 <input autocomplete="off" required matInput formControlName="nameFormControl" />
-                <mat-error *ngIf="hasError('nameFormControl','minlength')">
+                <mat-error
+                  *ngIf="hasError('nameFormControl','minlength') && !(hasError('nameFormControl','pattern'))"
+                >
                   {{"user.form.name" | translate}}
                   {{"user.form_validations.must_be_at_least_3_characters_long" | translate}}
+                </mat-error>
+                <mat-error *ngIf="hasError('nameFormControl','pattern')">
+                  Invalid input
                 </mat-error>
                 <mat-error *ngIf="hasError('nameFormControl','required')">
                   {{"user.form.name" | translate}} {{"user.form_validations.is_required" |
@@ -25,9 +30,14 @@
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label>{{"user.form.lastname" | translate}}</mat-label>
                 <input autocomplete="off" required matInput formControlName="LastnameFormControl" />
-                <mat-error *ngIf="hasError('LastnameFormControl','required')">
+                <mat-error
+                  *ngIf="hasError('LastnameFormControl','minlength') && !(hasError('LastnameFormControl','pattern'))"
+                >
                   {{"user.form.lastname" | translate}} {{"user.form_validations.is_required" |
                   translate}}
+                </mat-error>
+                <mat-error *ngIf="hasError('LastnameFormControl','pattern')">
+                  Invalid input
                 </mat-error>
               </mat-form-field>
             </td>
@@ -107,9 +117,14 @@
                   #pinCode
                   placeholder="Ex. 94105"
                 />
-                <mat-error *ngIf="hasError('PincodeFormControl','maxlength')">
+                <mat-error
+                  *ngIf="hasError('PincodeFormControl','maxlength') && !(hasError('PincodeFormControl','pattern'))"
+                >
                   {{"user.form.pincode" | translate}} {{"user.form_validations.must_be_of_6_digits"
                   | translate}}
+                </mat-error>
+                <mat-error *ngIf="hasError('PincodeFormControl','pattern')">
+                  Invalid input
                 </mat-error>
                 <mat-error *ngIf="hasError('PincodeFormControl','required')">
                   {{"user.form.pincode" | translate}} {{"user.form_validations.is_required" |

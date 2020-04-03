@@ -1,5 +1,5 @@
 .contact-template {
-  padding: 50px 150px 0px 150px;
+  padding: 50px 200px 0px 200px;
   .input-card {
     // min-width: 300px;
     // width: 1000px;
@@ -16,46 +16,31 @@
         margin: 0;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        background-color: #33b5e5;
-        height: 100px;
+        // background-color: #33b5e5;
+        background-color: #3f51b5;
+        height: 60px;
         justify-content: center;
         .mat-card-title {
           color: white;
           position: relative;
           height: 60px;
           font-size: 25px;
-          top: 35px;
+          top: 15px;
         }
       }
       .mat-card-actions {
         text-align: center;
-        font-size: 10px;
         .signin-btn {
-          border: 3px solid #28a745;
-          color: #28a745;
-          &:hover {
-            color: white;
-            background-color: #28a745;
-          }
-        }
-        .facebook-btn {
-          color: #3f51b5c4;
-          border: 3px solid #3f51b5c4;
+          border: 3px solid #3f51b5;
+          color: #3f51b5;
+          cursor: pointer;
           &:hover {
             color: white;
             background-color: #3f51b5;
           }
         }
-        .google-btn {
-          color: #f44336d9;
-          border: 3px solid #f44336d9;
-          &:hover {
-            color: white;
-            background-color: #f44336;
-          }
-        }
         .mat-raised-button {
-          width: 72%;
+          width: 40%;
           height: 45px;
           margin-bottom: 20px;
           border-radius: 20px;
@@ -76,19 +61,10 @@
         td {
           padding-right: 25px;
         }
-        .selection {
-          font-size: 17px;
-        }
       }
       .input-full-width {
         margin-bottom: 10px;
         width: 100%;
-        .mat-input-element {
-          margin-top: 1em;
-        }
-        .mat-form-field-label {
-          font-size: 17px;
-        }
       }
     }
   }

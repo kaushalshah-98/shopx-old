@@ -1,6 +1,6 @@
 <app-navbar [isHidden]="true"></app-navbar>
 <div class="contact-template">
-  <mat-card class="input-card">
+  <mat-card class="input-card mat-elevation-z8">
     <mat-card-header>
       <mat-card-title>Contact Us</mat-card-title>
     </mat-card-header>
@@ -33,7 +33,7 @@
               </mat-error>
             </mat-form-field>
           </td>
-          <td class="selection">
+          <td>
             <mat-form-field class="input-full-width" appearance="outline">
               <mat-label>Subject</mat-label>
               <mat-select formControlName="subjectFormControl">
@@ -77,3 +77,4 @@
     </mat-card-actions>
   </mat-card>
 </div>
+<app-footer></app-footer>

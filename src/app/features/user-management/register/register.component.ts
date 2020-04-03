@@ -10,11 +10,11 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   registerform: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.registerform = this.formBuilder.group({
-      usernameFormControl: ['', [Validators.required, Validators.minLength(3)]],
+      usernameFormControl: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z ]*$')]],
       passwordFormControl: ['', [Validators.required, Validators.minLength(4)]],
       emailFormControl: ['', [Validators.required, Validators.email]],
       photoFormControl: ['', [Validators.required]]

@@ -109,61 +109,78 @@
     </div>
   </div> -->
 <div class="table-wrapper">
-  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="image">
-      <mat-header-cell *matHeaderCellDef> {{"user.product.image" | translate}} </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{"user.product.image" | translate}}
+      </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <img class="product-image" src="{{ element.image }}" />
+        <img class="product-image" src="{{ element.image[0].imageurl }}" />
       </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> {{"user.product.name" | translate}} </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{"user.product.name" | translate}}
+      </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="quantity">
-      <mat-header-cell *matHeaderCellDef> {{"user.product.quantity" | translate}} </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{"user.product.quantity" | translate}}
+      </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <div class="input-quantity">
-          <form>
-            <mat-form-field class="search-field" appearance="outline">
-              <input
-                autocomplete="off"
-                (keypress)="eventHandler($event)"
-                (keyup)="eventHandler($event)"
-                matInput
-                #qty
-                [formControl]="quantityformcontrol"
-                type="number"
-                min="1"
-                max="{{ element.productqty }}"
-                value="{{ element.quantity }}"
-              />
-            </mat-form-field>
-          </form>
+          <mat-form-field class="search-field" appearance="outline">
+            <input
+              autocomplete="off"
+              (keypress)="eventHandler($event)"
+              matInput
+              #qty
+              type="number"
+              min="1"
+              max="{{ element.productqty }}"
+              value="{{ element.quantity }}"
+            />
+          </mat-form-field>
         </div>
       </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="price">
-      <mat-header-cell *matHeaderCellDef> {{"user.product.price" | translate}} </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{"user.product.price" | translate}}
+      </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{ element.price }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="action">
-      <mat-header-cell *matHeaderCellDef>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         {{"user.product.action" | translate}}
       </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <button
           mat-raised-button
-          color="primary"
+          color="accent"
           matTooltip="{{'tooltip.update' | translate}}"
-          matTooltipPosition="right"
+          matTooltipPosition="left"
+          [matTooltipShowDelay]="500"
           (click)="updateCart(quantityformcontrol.value, cartitem)"
         >
           <mat-icon>refresh</mat-icon>
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button
+          mat-raised-button
+          color="primary"
+          matTooltip="quickview"
+          matTooltipPosition="right"
+          [matTooltipShowDelay]="500"
+          (click)="quickview(element)"
+        >
+          <mat-icon>remove_red_eye</mat-icon>
         </button>
       </mat-cell>
     </ng-container>
@@ -172,10 +189,11 @@
       <mat-header-cell *matHeaderCellDef>
         <button
           mat-raised-button
+          class="empty-btn"
           color="accent"
           matTooltip="{{'tooltip.empty_cart' | translate}}"
           matTooltipPosition="above"
-          [matTooltipShowDelay]="1000"
+          [matTooltipShowDelay]="500"
           (click)="emptycart()"
         >
           {{"user.product.empty_the_cart" | translate}}
@@ -185,8 +203,10 @@
         <button
           mat-raised-button
           color="warn"
+          class="delete-btn"
           matTooltip="{{'tooltip.delete_item' | translate}}"
           matTooltipPosition="right"
+          [matTooltipShowDelay]="500"
           (click)="removeFromCart(element)"
         >
           <mat-icon>delete</mat-icon>
@@ -198,6 +218,8 @@
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>
 </div>
+<!-- <br /> -->
+
 <mat-card class="total-card">
   {{"user.cart.total_price" | translate}} : Rs 8000
 </mat-card>

@@ -13,18 +13,18 @@ export class EditProfileComponent implements OnInit {
   @Input() selectedIndex: number = 0;
   @Output() selectedIndexx = new EventEmitter<boolean>();
   userdata: any;
-
+  hide: boolean = true;
   editform: FormGroup;
 
   constructor(
     private dialog: ConfirmDialogService,
     private userservice: UserManagementService,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
   ngOnInit() {
     this.userdata = this.userservice.getUserData();
     this.editform = this.formBuilder.group({
-      usernameFormControl: ['', [Validators.required, Validators.minLength(3)]],
+      usernameFormControl: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z ]*$')]],
       passwordFormControl: ['', [Validators.required, Validators.minLength(4)]],
       emailFormControl: ['', [Validators.required, Validators.email]],
       photoFormControl: ['', [Validators.required]]
@@ -35,7 +35,7 @@ export class EditProfileComponent implements OnInit {
   }
   cancel() {
     if (this.editform.touched) {
-      this.dialog.showConfirmDialog('Are You Sure Want to Cancel ?').subscribe((result) => {
+      this.dialog.showConfirmDialog('confirm.are_you_sure_want_to_cancel').subscribe((result) => {
         if (result === 'yes') {
           this.editform.reset();
           this.selectedIndexx.emit(false);

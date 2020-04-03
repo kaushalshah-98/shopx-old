@@ -12,36 +12,108 @@ export class ViewOrdersComponent implements OnInit {
   i: number = 0;
   orderitems: any;
   displayedColumns: string[] = ['number', 'image', 'name', 'price', 'quantity', 'action'];
-  constructor(private view: QuickViewService, private dialog: ConfirmDialogService) {}
+  constructor(private view: QuickViewService, private dialog: ConfirmDialogService) { }
 
   ngOnInit() {
+    this.initializeOrders();
+  }
+  initializeOrders() {
     this.orderitems = [
       {
         name: 'Order-1',
         date: '23-May-2020',
         products: [
           {
-            name: 'tshirt',
-            price: 40000,
-            quantity: 6,
-            image:
-              'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
+            name: 'denim-tshirt',
+            price: 20000,
+            quantity: 3,
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
             productqty: 50
           },
           {
             name: 'tshirt',
             price: 40000,
             quantity: 6,
-            image:
-              'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
             productqty: 50
           },
           {
-            name: 'tshirt',
-            price: 40000,
+            name: 'grey-tshirt',
+            price: 200,
             quantity: 6,
-            image:
-              'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
             productqty: 50
           }
         ]
@@ -51,11 +123,96 @@ export class ViewOrdersComponent implements OnInit {
         date: '23-May-2020',
         products: [
           {
+            name: 'denim-tshirt',
+            price: 20000,
+            quantity: 3,
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
+            productqty: 50
+          },
+          {
             name: 'tshirt',
             price: 40000,
             quantity: 6,
-            image:
-              'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
+            productqty: 50
+          },
+          {
+            name: 'grey-tshirt',
+            price: 200,
+            quantity: 6,
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
             productqty: 50
           }
         ]
@@ -65,19 +222,294 @@ export class ViewOrdersComponent implements OnInit {
         date: '23-May-2020',
         products: [
           {
-            name: 'tshirt',
-            price: 40000,
-            quantity: 6,
-            image:
-              'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
+            name: 'denim-tshirt',
+            price: 20000,
+            quantity: 3,
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
             productqty: 50
           },
           {
             name: 'tshirt',
             price: 40000,
             quantity: 6,
-            image:
-              'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
+            productqty: 50
+          },
+          {
+            name: 'grey-tshirt',
+            price: 200,
+            quantity: 6,
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
+            productqty: 50
+          }
+        ]
+      },
+      {
+        name: 'Order-4',
+        date: '23-May-2020',
+        products: [
+          {
+            name: 'denim-tshirt',
+            price: 20000,
+            quantity: 3,
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
+            productqty: 50
+          },
+          {
+            name: 'tshirt',
+            price: 40000,
+            quantity: 6,
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
+            productqty: 50
+          },
+          {
+            name: 'grey-tshirt',
+            price: 200,
+            quantity: 6,
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
+            productqty: 50
+          }
+        ]
+      },
+      {
+        name: 'Order-5',
+        date: '23-May-2020',
+        products: [
+          {
+            name: 'denim-tshirt',
+            price: 20000,
+            quantity: 3,
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
+            productqty: 50
+          },
+          {
+            name: 'tshirt',
+            price: 40000,
+            quantity: 6,
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
+            productqty: 50
+          },
+          {
+            name: 'grey-tshirt',
+            price: 200,
+            quantity: 6,
+            details: {
+              Comfort: 'Fashionably cotton',
+              Fitting: 'Fitting type is slim fit',
+              Ocassion: 'Casual',
+              Quality:
+                'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+              'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+              Sizes: 'SL,M,L,XL,XXL,XXL',
+              'Made in ': 'India'
+            },
+            description:
+              'Van Heusen’s sub brand Van Heusen Sport is a sport inspired casual wear that’s a perfect amalgamation of modernity and the iconic 60s Ivy League look. Somewhere between smart and casual, the line is made up of shirts, fine-knits, laundered chinos and jackets that channel a nonchalant look. Styled with sporting details, this collection is perfect for your off duty days. For a casual day out you can buy a Van Heusen T-shirt and pair it up with washed chinos and loafers for an effortlessly preppy look.',
+            image: [
+              {
+                imageurl:
+                  'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              },
+              {
+                imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              },
+              {
+                imageurl:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
+              }
+            ],
             productqty: 50
           }
         ]

@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="footer">
+<mat-toolbar color="primary" class="footer" [ngStyle]="{position: position}">
   <mat-toolbar-row>
     <span>© 2020</span>
     <span class="signature">
@@ -6,6 +6,6 @@
       <mat-icon>favorite</mat-icon>
       &nbsp;&nbsp;<span>{{"footer.by" | translate}} Kaushal Shah</span>
     </span>
-    <span>1.0.0</span>
+    <span class="version">1.0.0</span>
   </mat-toolbar-row>
 </mat-toolbar>

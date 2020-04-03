@@ -208,6 +208,9 @@
                         {{"user.form.cardholder_name" | translate}}
                         {{"user.form_validations.is_required" | translate}}
                       </mat-error>
+                      <mat-error *ngIf="hasError('nameFormControl','pattern')">
+                        Invalid input
+                      </mat-error>
                     </mat-form-field>
                   </td>
                 </tr>
@@ -227,9 +230,14 @@
                       <button mat-icon-button matSuffix>
                         <mat-icon>credit_card</mat-icon>
                       </button>
-                      <mat-error *ngIf="hasError('cardnumberFormControl','minlength')">
+                      <mat-error
+                        *ngIf="hasError('cardnumberFormControl','minlength') && !(hasError('cardnumberFormControl','pattern'))"
+                      >
                         {{"user.form.card_number" | translate}}
                         {{"user.form_validations.must_be_of_12_digits" | translate}}
+                      </mat-error>
+                      <mat-error *ngIf="hasError('cardnumberFormControl','pattern')">
+                        Invalid input
                       </mat-error>
                       <mat-error *ngIf="hasError('cardnumberFormControl','required')">
                         {{"user.form.card_number" | translate}}
@@ -259,6 +267,9 @@
                       <button mat-icon-button matSuffix>
                         <mat-icon>calendar_today</mat-icon>
                       </button>
+                      <mat-error *ngIf="hasError('expiryFormControl','pattern')">
+                        Invalid input
+                      </mat-error>
                       <mat-error *ngIf="hasError('expiryFormControl','required')">
                         {{"user.form.expiry_date" | translate}}
                         {{"user.form_validations.is_required" | translate}}
@@ -284,13 +295,20 @@
                         <mat-icon>contact_support</mat-icon>
                       </button>
                       <mat-hint align="end">{{ CvvCode.value.length }} / 3 </mat-hint>
-                      <mat-error *ngIf="hasError('cvvFormControl','maxlength')">
+                      <mat-error
+                        *ngIf="hasError('cvvFormControl','maxlength') && !(hasError('cvvFormControl','pattern'))"
+                      >
                         {{"user.form.cvv" | translate}}
                         {{"user.form_validations.must_be_of_3_digits" | translate}}
                       </mat-error>
-                      <mat-error *ngIf="hasError('cvvFormControl','minlength')">
+                      <mat-error
+                        *ngIf="hasError('cvvFormControl','minlength') && !(hasError('cvvFormControl','pattern'))"
+                      >
                         {{"user.form.cvv" | translate}}
                         {{"user.form_validations.must_be_of_3_digits" | translate}}
+                      </mat-error>
+                      <mat-error *ngIf="hasError('cvvFormControl','pattern')">
+                        Invalid input
                       </mat-error>
                       <mat-error *ngIf="hasError('cvvFormControl','required')">
                         {{"user.form.cvv" | translate}} {{"user.form_validations.is_required" |

@@ -17,32 +17,6 @@ body {
   padding: 0;
 }
 
-.four-part {
-  flex: 0 0 25%;
-  width: 25%;
-}
-.three-part {
-  flex: 0 0 33.3%;
-  width: 33.3%;
-}
-.two-part {
-  flex: 0 0 50%;
-  width: 50%;
-}
-.one-part {
-  flex: 0 0 100%;
-  width: 100%;
-  min-width: 576px;
-}
-.one-part,
-.two-part,
-.three-part,
-.four-part {
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-}
 .c-wrapper {
   padding-top: $site-header-height;
 }
@@ -56,11 +30,7 @@ body {
   width: 100%;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.14), 0 0 5px rgba(0, 0, 0, 0.35);
 }
-.product-page {
-  height: 100%;
-  padding-bottom: 5px;
-  min-height: 667px;
-}
+
 .c-site-left-panel,
 .c-site-right-panel,
 .c-site-middle-content {

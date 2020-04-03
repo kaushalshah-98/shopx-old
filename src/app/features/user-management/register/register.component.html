@@ -5,14 +5,19 @@
     </mat-card-header>
     <form class="input-form" [formGroup]="registerform">
       <mat-form-field class="input-full-width">
-        <mat-label>{{"user.form.username" | translate}}</mat-label>
+        <mat-label>{{"user.form.name" | translate}}</mat-label>
         <input autocomplete="off" matInput formControlName="usernameFormControl" />
-        <mat-error *ngIf="hasError('usernameFormControl','minlength')">
-          {{"user.form.username" | translate}}
-          {{"user.form_validations.must_be_at_least_3_characters_long" | translate}}.
+        <mat-error
+          *ngIf="hasError('usernameFormControl','minlength') && !(hasError('usernameFormControl','pattern'))"
+        >
+          {{"user.form.name" | translate}}
+          {{"user.form_validations.must_be_at_least_3_characters_long" | translate}}
+        </mat-error>
+        <mat-error *ngIf="hasError('usernameFormControl','pattern')">
+          Invalid input
         </mat-error>
         <mat-error *ngIf="hasError('usernameFormControl','required')">
-          {{"user.form.username" | translate}} {{"user.form_validations.is_required" | translate}}
+          {{"user.form.name" | translate}} {{"user.form_validations.is_required" | translate}}
         </mat-error>
       </mat-form-field>
       <mat-form-field class="input-full-width">

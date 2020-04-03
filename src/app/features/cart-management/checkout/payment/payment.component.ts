@@ -58,11 +58,11 @@ export class PaymentComponent implements OnInit {
   flip: string = 'inactive';
   paymentform: FormGroup;
 
-  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder) {}
+  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.paymentform = this.formBuilder.group({
-      nameFormControl: ['', [Validators.required]],
+      nameFormControl: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
       cvvFormControl: [
         '',
         [
@@ -76,7 +76,12 @@ export class PaymentComponent implements OnInit {
         '',
         [Validators.required, Validators.minLength(12), Validators.pattern('[0-9]*')]
       ],
-      expiryFormControl: ['', [Validators.required]]
+      expiryFormControl: ['', [
+        Validators.required,
+        Validators.maxLength(5),
+        Validators.minLength(5),
+        Validators.pattern('[0-9 /]*')
+      ]]
     });
   }
   public hasError(controlName: string, errorName: string) {
