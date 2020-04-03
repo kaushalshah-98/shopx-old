@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SweetmessageService } from '@services/sweetalert/sweetmessage.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-view-cartitems',
@@ -13,10 +14,14 @@ export class ViewCartitemsComponent implements OnInit {
   dataSource;
   totalprice;
   shipping;
-  constructor(private sweetalert: SweetmessageService, private dialog: ConfirmDialogService) {}
-  addToWishlit() {}
-  updateCart(qty, cartitem) {}
+  quantityformcontrol: FormControl;
+  constructor(private sweetalert: SweetmessageService, private dialog: ConfirmDialogService) { }
+  addToWishlit() { }
+  updateCart(qty, cartitem) {
+    console.log(qty);
+   }
   removeFromCart(cartitem) {
+    console.log(cartitem);
     this.dialog
       .showConfirmDialog('confirm.are_you_sure_want_to_remove_this_item')
       .subscribe((result) => {
@@ -24,6 +29,9 @@ export class ViewCartitemsComponent implements OnInit {
           console.log('removed');
         }
       });
+  }
+  eventHandler(event) {
+    event.preventDefault();
   }
   emptycart() {
     this.dialog
@@ -35,6 +43,11 @@ export class ViewCartitemsComponent implements OnInit {
       });
   }
   ngOnInit() {
+    this.quantityformcontrol = new FormControl('',[
+      Validators.required,
+      Validators.min(1),
+      Validators.pattern("[0-9]+")
+    ])
     this.cartitems = [
       {
         name: 'tshirt',
@@ -42,7 +55,7 @@ export class ViewCartitemsComponent implements OnInit {
         quantity: 6,
         image:
           'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
-        productqty: 50
+        productqty: 10
       },
       {
         name: 'tshirt',
@@ -50,7 +63,7 @@ export class ViewCartitemsComponent implements OnInit {
         quantity: 6,
         image:
           'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
-        productqty: 50
+        productqty: 10
       },
       {
         name: 'tshirt',
@@ -58,7 +71,7 @@ export class ViewCartitemsComponent implements OnInit {
         quantity: 6,
         image:
           'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg',
-        productqty: 50
+        productqty: 10
       }
     ];
     this.dataSource = this.cartitems;

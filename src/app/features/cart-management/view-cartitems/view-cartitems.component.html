@@ -126,15 +126,22 @@
       <mat-header-cell *matHeaderCellDef> {{"user.product.quantity" | translate}} </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <div class="input-quantity">
-          <mat-form-field class="search-field" appearance="outline">
-            <input
-              autocomplete="off"
-              matInput
-              type="number"
-              value="{{ element.quantity }}"
-              max="10"
-            />
-          </mat-form-field>
+          <form>
+            <mat-form-field class="search-field" appearance="outline">
+              <input
+                autocomplete="off"
+                (keypress)="eventHandler($event)"
+                (keyup)="eventHandler($event)"
+                matInput
+                #qty
+                [formControl]="quantityformcontrol"
+                type="number"
+                min="1"
+                max="{{ element.productqty }}"
+                value="{{ element.quantity }}"
+              />
+            </mat-form-field>
+          </form>
         </div>
       </mat-cell>
     </ng-container>
@@ -154,7 +161,7 @@
           color="primary"
           matTooltip="{{'tooltip.update' | translate}}"
           matTooltipPosition="right"
-          (click)="updateCart(qty.value, cartitem)"
+          (click)="updateCart(quantityformcontrol.value, cartitem)"
         >
           <mat-icon>refresh</mat-icon>
         </button>
@@ -180,7 +187,7 @@
           color="warn"
           matTooltip="{{'tooltip.delete_item' | translate}}"
           matTooltipPosition="right"
-          (click)="removeFromCart(cartitem)"
+          (click)="removeFromCart(element)"
         >
           <mat-icon>delete</mat-icon>
         </button>
@@ -191,11 +198,9 @@
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>
 </div>
-<br />
 <mat-card class="total-card">
   {{"user.cart.total_price" | translate}} : Rs 8000
 </mat-card>
-<br /><br />
 <!-- <div class="table-bottom">
   <button mat-raised-button style="width: 40%;" [routerLink]="['/home']" color="primary">
     {{"user.cart.continue_shopping" | translate}}
