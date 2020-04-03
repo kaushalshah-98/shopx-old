@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-user-order.component.scss']
 })
 export class ViewUserOrderComponent implements OnInit {
-  constructor() { }
+  constructor() {}
   displayedColumns: string[] = ['number', 'image', 'name', 'price', 'quantity'];
   i = 0;
   user = [];
@@ -45,7 +45,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -76,7 +77,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -107,7 +109,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -144,7 +147,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -175,7 +179,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -206,7 +211,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -243,7 +249,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -274,7 +281,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -305,7 +313,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -342,7 +351,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -373,7 +383,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -404,7 +415,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -441,7 +453,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -472,7 +485,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -503,7 +517,8 @@ export class ViewUserOrderComponent implements OnInit {
                       'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
                   },
                   {
-                    imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+                    imageurl:
+                      'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
                   },
                   {
                     imageurl:
@@ -526,7 +541,8 @@ export class ViewUserOrderComponent implements OnInit {
         name: 'kaushal'
       }
     ];
-  } reset() {
+  }
+  reset() {
     this.i = 0;
   }
   increment() {

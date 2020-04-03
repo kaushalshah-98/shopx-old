@@ -15,7 +15,11 @@ export class ViewCartitemsComponent implements OnInit {
   dataSource;
   totalprice;
   shipping;
-  constructor(private sweetalert: SweetmessageService, private dialog: ConfirmDialogService, private view: QuickViewService) { }
+  constructor(
+    private sweetalert: SweetmessageService,
+    private dialog: ConfirmDialogService,
+    private view: QuickViewService
+  ) {}
 
   ngOnInit() {
     this.initializeCart();
@@ -27,7 +31,7 @@ export class ViewCartitemsComponent implements OnInit {
   quickview(item) {
     this.view.showQuickview(item);
   }
-  addToWishlit() { }
+  addToWishlit() {}
   updateCart(qty, cartitem) {
     console.log(qty);
   }
@@ -148,5 +152,5 @@ const cartitems = [
       }
     ],
     productqty: 50
-  },
+  }
 ];

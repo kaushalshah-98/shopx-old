@@ -9,9 +9,7 @@ export class ProductCarousel2Component implements OnInit {
   @Input() item1: any;
   @Input() item2: any;
   @Input() item3: any;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

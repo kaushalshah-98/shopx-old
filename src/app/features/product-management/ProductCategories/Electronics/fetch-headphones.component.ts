@@ -6,10 +6,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
     <div class="list-product-style">
       <app-jumbotron [Heading]="'menu_item.headphones'"></app-jumbotron>
       <div class="product-list-page">
-        <app-filter-input
-        (keyup)="onInputChanged($event.target.value)"
-        (filter)="onFilter($event)"
-        >
+        <app-filter-input (keyup)="onInputChanged($event.target.value)" (filter)="onFilter($event)">
         </app-filter-input>
         <app-spinner [loading]="dataLoading"></app-spinner>
         <app-list-products [productitems]="products"></app-list-products>
@@ -23,7 +20,7 @@ export class FetchHeadphonesComponent implements OnInit {
   @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: any;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     document.getElementById('mainsearch').style.visibility = 'hidden';
@@ -268,17 +265,15 @@ export class FetchHeadphonesComponent implements OnInit {
   }
   onFilter(event: any) {
     if (event === 'low') {
-      this.products.sort((a, b) => (a.price - b.price));
-    }
-    else if (event === 'high') {
-      this.products.sort((a, b) => (b.price - a.price));
-    }
-    else {
-      this.products.sort((a, b) => a.name.localeCompare(b.name))
+      this.products.sort((a, b) => a.price - b.price);
+    } else if (event === 'high') {
+      this.products.sort((a, b) => b.price - a.price);
+    } else {
+      this.products.sort((a, b) => a.name.localeCompare(b.name));
     }
   }
   onInputChanged(input: string) {
-    this.products = this.productitems.filter(items => {
+    this.products = this.productitems.filter((items) => {
       return items.name.toLowerCase().includes(input.toLowerCase());
     });
   }

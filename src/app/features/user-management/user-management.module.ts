@@ -24,7 +24,7 @@ import { ContactComponent } from './contact/contact.component';
     ContactComponent
   ],
   imports: [CommonModule, UserManagementRoutingModule, SharedModule],
-  exports: [ProfileComponent,ContactComponent,RegisterComponent]
+  exports: [ProfileComponent, ContactComponent, RegisterComponent]
 })
 export class UserManagementModule {
   constructor() {

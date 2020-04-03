@@ -92,4 +92,4 @@ import { ProductCarousel2Component } from './product-carousel2/product-carousel2
     TranslateModule
   ]
 })
-export class SharedModule { }
+export class SharedModule {}

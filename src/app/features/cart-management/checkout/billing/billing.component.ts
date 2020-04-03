@@ -34,11 +34,14 @@ export class BillingComponent implements OnInit {
 
   billingform: FormGroup;
 
-  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder) { }
+  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.billingform = this.formBuilder.group({
-      nameFormControl: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z ]*$')]],
+      nameFormControl: [
+        '',
+        [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z ]*$')]
+      ],
       emailFormControl: ['', [Validators.required, Validators.email]],
       PincodeFormControl: [
         '',

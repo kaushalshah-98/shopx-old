@@ -7,10 +7,10 @@ import html2canvas from 'html2canvas';
   styleUrls: ['./recipt.component.scss']
 })
 export class ReciptComponent implements OnInit {
-
   cartitems = [];
   displayedColumns: string[] = ['image', 'name', 'quantity', 'price'];
-  dataSource; constructor() { }
+  dataSource;
+  constructor() {}
 
   ngOnInit() {
     this.cartitems = [
@@ -60,9 +60,10 @@ export class ReciptComponent implements OnInit {
   downloadPdf() {
     let data = document.getElementById('recipt');
     html2canvas(data, {
-      scrollY: -window.scrollY, backgroundColor: '#ffffff'
-    }).then(canvas => {
-      const contentDataURL = canvas.toDataURL('image/png')
+      scrollY: -window.scrollY,
+      backgroundColor: '#ffffff'
+    }).then((canvas) => {
+      const contentDataURL = canvas.toDataURL('image/png');
       let pdf = new jspdf('l', 'mm', 'a4'); //Generates PDF in landscape mode
       // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
       pdf.addImage(contentDataURL, 'PNG', 20, 10, 250, 200);
@@ -71,16 +72,14 @@ export class ReciptComponent implements OnInit {
   }
   downloadImage() {
     let data = document.getElementById('recipt');
-    html2canvas(data,
-      {
-        scrollY: -window.scrollY,
-        backgroundColor: '#ffffff',
-      }
-    ).then(canvas => {
-      let link = document.createElement("a");
+    html2canvas(data, {
+      scrollY: -window.scrollY,
+      backgroundColor: '#ffffff'
+    }).then((canvas) => {
+      let link = document.createElement('a');
       document.body.appendChild(link);
-      link.download = "recipt.png";
-      link.href = canvas.toDataURL("image/png");
+      link.download = 'recipt.png';
+      link.href = canvas.toDataURL('image/png');
       link.target = '_blank';
       link.click();
     });

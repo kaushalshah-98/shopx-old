@@ -11,7 +11,13 @@ import { PaymentComponent } from './checkout/payment/payment.component';
 import { ReciptComponent } from './checkout/recipt/recipt.component';
 
 @NgModule({
-  declarations: [ViewCartitemsComponent, CheckoutComponent, BillingComponent, PaymentComponent, ReciptComponent],
+  declarations: [
+    ViewCartitemsComponent,
+    CheckoutComponent,
+    BillingComponent,
+    PaymentComponent,
+    ReciptComponent
+  ],
   imports: [CommonModule, CartManagementRoutingModule, MatSidenavModule, SharedModule]
 })
 export class CartManagementModule {

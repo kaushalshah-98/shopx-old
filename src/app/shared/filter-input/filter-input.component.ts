@@ -7,10 +7,10 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class FilterInputComponent implements OnInit {
   @Output() filter: EventEmitter<string> = new EventEmitter();
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() { }
+  ngOnInit() {}
   onFilter(option) {
-    this.filter.emit(option)
+    this.filter.emit(option);
   }
 }

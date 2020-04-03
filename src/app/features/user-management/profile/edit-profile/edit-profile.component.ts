@@ -20,11 +20,14 @@ export class EditProfileComponent implements OnInit {
     private dialog: ConfirmDialogService,
     private userservice: UserManagementService,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
   ngOnInit() {
     this.userdata = this.userservice.getUserData();
     this.editform = this.formBuilder.group({
-      usernameFormControl: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z ]*$')]],
+      usernameFormControl: [
+        '',
+        [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z ]*$')]
+      ],
       passwordFormControl: ['', [Validators.required, Validators.minLength(4)]],
       emailFormControl: ['', [Validators.required, Validators.email]],
       photoFormControl: ['', [Validators.required]]

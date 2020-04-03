@@ -11,11 +11,11 @@ export class ContactComponent implements OnInit {
     { name: 'complaint' },
     { name: 'feature request' },
     { name: 'bug report' },
-    { name: 'feedback' },
+    { name: 'feedback' }
   ];
   contactform: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.contactform = this.formBuilder.group({
