@@ -1,4 +1,4 @@
-<app-jumbotron [Heading]="'admin.main_heading.updateproduct'"></app-jumbotron>
+<app-jumbotron [Heading]="'admin.main_heading.update_product'"></app-jumbotron>
 <div class="billing-container">
   <mat-card class="edit-profile-card">
     <mat-card-content>
@@ -6,7 +6,7 @@
         <table class="table-full-width" cellspacing="0">
           <tr>
             <td>
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="legacy">
                 <mat-label>{{"admin.productform.category" | translate}}</mat-label>
                 <mat-select
                   required
@@ -24,7 +24,7 @@
               </mat-form-field>
             </td>
             <td>
-              <mat-form-field appearance="outline" class="example-full-width">
+              <mat-form-field appearance="legacy" class="example-full-width">
                 <mat-label>{{"admin.productform.innercategory" | translate}}</mat-label>
                 <mat-select
                   required
@@ -49,7 +49,7 @@
         <table class="table-full-width" cellspacing="0">
           <tr>
             <td>
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="legacy">
                 <mat-label>{{"admin.productform.product_name" | translate}}</mat-label>
                 <input
                   autocomplete="off"
@@ -70,7 +70,7 @@
         <table class="table-full-width" cellspacing="0">
           <tr>
             <td>
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="legacy">
                 <mat-label>{{"admin.productform.quantity" | translate}}</mat-label>
                 <input
                   autocomplete="off"
@@ -92,7 +92,7 @@
               </mat-form-field>
             </td>
             <td>
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="legacy">
                 <mat-label>{{"admin.productform.price" | translate}}</mat-label>
                 <input
                   autocomplete="off"
@@ -119,7 +119,7 @@
         <table class="table-full-width" cellspacing="0">
           <tr>
             <td>
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="legacy">
                 <mat-label>{{"admin.productform.product_description" | translate}}</mat-label>
                 <textarea
                   matInput
@@ -143,7 +143,7 @@
         <table class="table-full-width" cellspacing="0">
           <tr>
             <td>
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="legacy">
                 <mat-label>{{"admin.productform.image_url" | translate}}</mat-label>
                 <input
                   autocomplete="off"
@@ -159,7 +159,7 @@
               </mat-form-field>
             </td>
             <td>
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="legacy">
                 <mat-label>{{"admin.productform.image_url_2" | translate}}</mat-label>
                 <input
                   autocomplete="off"
@@ -170,7 +170,7 @@
               </mat-form-field>
             </td>
             <td>
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="legacy">
                 <mat-label>{{"admin.productform.image_url_3" | translate}}</mat-label>
                 <input
                   [(ngModel)]="productdata.image2"
