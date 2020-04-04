@@ -74,13 +74,12 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  display: flex;
   justify-content: flex-end;
+  right: 0;
   height: 56px;
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.08), 0 -2px 8px rgba(0, 0, 0, 0.12);
   background-color: map-get($map: $global-color, $key: white);
   padding: 11px 15px;
-
   button {
     margin: 0 2px;
   }

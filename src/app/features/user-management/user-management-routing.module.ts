@@ -5,6 +5,7 @@ import { WishListComponent } from './wish-list/wish-list.component';
 import { ViewOrdersComponent } from './view-orders/view-orders.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthorsCarouselComponent } from '@shared/authors-carousel/authors-carousel.component';
+import { ContactComponent } from 'src/app/features/user-management/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,11 @@ const routes: Routes = [
   {
     path: '^',
     component: AuthorsCarouselComponent
-  }
+  },
+  {
+    path: '$',
+    component: ContactComponent
+  },
 ];
 
 @NgModule({
