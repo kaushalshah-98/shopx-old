@@ -45,6 +45,8 @@
       </button>
     </mat-card-actions>
     <div class="input-text">
+      <a class="forgot-text" [routerLink]="['/forgot_passoword/&']"> forgot password? </a>
+      <br />
       {{"user.form.not_a_member" | translate}}
       <a [routerLink]="['/register/#']">
         {{"user.form.register" | translate}}

@@ -4,6 +4,8 @@ import { AuthGaurdService } from '../../core/auth-management/auth-gaurd/auth-gau
 import { WishListComponent } from './wish-list/wish-list.component';
 import { ViewOrdersComponent } from './view-orders/view-orders.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthorsCarouselComponent } from '@shared/authors-carousel/authors-carousel.component';
+
 const routes: Routes = [
   {
     path: 'profile',
@@ -16,6 +18,10 @@ const routes: Routes = [
   {
     path: 'my_orders',
     component: ViewOrdersComponent
+  },
+  {
+    path: '^',
+    component: AuthorsCarouselComponent
   }
 ];
 
@@ -23,4 +29,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class UserManagementRoutingModule {}
+export class UserManagementRoutingModule { }

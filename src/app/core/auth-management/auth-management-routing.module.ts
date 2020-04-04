@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from 'src/app/features/user-management/register/register.component';
 import { ContactComponent } from 'src/app/features/user-management/contact/contact.component';
+import { ForgotPasswordComponent } from 'src/app/features/user-management/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: '#',
     component: RegisterComponent
+  },
+  {
+    path: '&',
+    component: ForgotPasswordComponent
   }
 ];
 
@@ -20,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AuthManagementRoutingModule {}
+export class AuthManagementRoutingModule { }

@@ -27,9 +27,12 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private role: RoleService,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit() {
+    this.initializeForm();
+  }
+  initializeForm() {
     this.loginform = this.formBuilder.group({
       usernameFormControl: ['', [Validators.required, Validators.minLength(3)]],
       passwordFormControl: ['', [Validators.required, Validators.minLength(4)]]

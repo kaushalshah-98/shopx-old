@@ -15,24 +15,25 @@ export class ContactComponent implements OnInit {
   ];
   contactform: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.contactform = this.formBuilder.group({
-      usernameFormControl: ['', [Validators.required]],
+      // usernameFormControl: ['', [Validators.required]],
       messageFormControl: ['', [Validators.required]],
-      emailFormControl: ['', [Validators.required, Validators.email]],
+      // emailFormControl: ['', [Validators.required, Validators.email]],
       subjectFormControl: ['', [Validators.required]]
     });
   }
   contact() {
     let data = {
-      name: this.contactform.controls.usernameFormControl.value,
+      // name: this.contactform.controls.usernameFormControl.value,
       message: this.contactform.controls.messageFormControl.value,
-      email: this.contactform.controls.emailFormControl.value,
+      // email: this.contactform.controls.emailFormControl.value,
       subject: this.contactform.controls.subjectFormControl.value
     };
     console.log(data);
+    this.contactform.reset();
   }
   public hasError(controlName: string, errorName: string) {
     return this.contactform.controls[controlName].hasError(errorName);

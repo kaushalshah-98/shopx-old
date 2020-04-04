@@ -31,6 +31,9 @@
       </button>
       &nbsp;&nbsp;
       <mat-menu #menu="matMenu" xPosition="after">
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>{{ getLoginStatus() | translate }}
+        </button>
         <button [hidden]="isAdmin" mat-menu-item [routerLink]="['/usersettings/profile']">
           <mat-icon>account_circle</mat-icon>{{'nav_bar.menu.your_account' | translate}}
         </button>
@@ -40,15 +43,16 @@
         <button [hidden]="isAdmin" mat-menu-item [routerLink]="['/usersettings/wishlist']">
           <mat-icon>favorite</mat-icon>{{'nav_bar.menu.your_wishlist' | translate}}
         </button>
-        <button mat-menu-item (click)="logout()">
-          <mat-icon>exit_to_app</mat-icon>{{ getLoginStatus() | translate }}
-        </button>
         <button mat-menu-item (click)="contact()"><mat-icon>help</mat-icon>Contact us</button>
         <button mat-menu-item>
           <mat-icon>nights_stay</mat-icon>{{'nav_bar.menu.night_mode' |
           translate}}&nbsp;&nbsp;&nbsp;&nbsp;
           <mat-slide-toggle [(ngModel)]="value" (change)="changetheme(value)" color="primary">
           </mat-slide-toggle>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item [routerLink]="['/creators/^']">
+          <mat-icon>supervisor_account</mat-icon>About The Creators
         </button>
       </mat-menu>
       <button

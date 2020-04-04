@@ -16,10 +16,15 @@
   width: 100%;
   min-width: 576px;
 }
+.eight-part {
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+}
 .one-part,
 .two-part,
 .three-part,
-.four-part {
+.four-part,
+.eight-part {
   position: relative;
   min-height: 1px;
   padding-right: 15px;

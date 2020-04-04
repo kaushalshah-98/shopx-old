@@ -11,6 +11,7 @@ import { ViewOrdersComponent } from './view-orders/view-orders.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BuyListComponent } from './profile/buy-list/buy-list.component';
 import { ContactComponent } from './contact/contact.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ContactComponent } from './contact/contact.component';
     ViewOrdersComponent,
     ProfileComponent,
     BuyListComponent,
-    ContactComponent
+    ContactComponent,
+    ForgotPasswordComponent
   ],
   imports: [CommonModule, UserManagementRoutingModule, SharedModule],
   exports: [ProfileComponent, ContactComponent, RegisterComponent]

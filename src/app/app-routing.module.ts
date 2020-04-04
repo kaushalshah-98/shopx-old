@@ -30,9 +30,16 @@ const routes: Routes = [
       import('./core/auth-management/auth-management.module').then((m) => m.AuthManagementModule)
   },
   {
-    path: 'contactus',
+    path: 'forgot_passoword',
     loadChildren: () =>
       import('./core/auth-management/auth-management.module').then((m) => m.AuthManagementModule)
+  },
+  {
+    path: 'contactus',
+    loadChildren: () =>
+      import('./features/user-management/user-management.module').then(
+        (m) => m.UserManagementModule
+      )
   },
   {
     path: 'cart',
@@ -55,6 +62,13 @@ const routes: Routes = [
         (m) => m.UserManagementModule
       )
   },
+  {
+    path: 'creators',
+    loadChildren: () =>
+      import('./features/user-management/user-management.module').then(
+        (m) => m.UserManagementModule
+      )
+  },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -68,4 +82,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
