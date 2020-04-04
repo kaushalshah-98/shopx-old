@@ -2,33 +2,29 @@
 <div class="outer-wrap">
   <mat-card class="display-products-card">
     <mat-card-content>
-      <div>
-        <div style="padding-right: 30px;">
-          <button
-            mat-icon-button
-            class="pull-right"
-            matTooltip="{{'tooltip.add_item' | translate}}"
-            matTooltipPosition="left"
-          >
-            <mat-icon>add_circle</mat-icon>
-          </button>
-        </div>
+      <div class="side-icon">
+        <button
+          mat-icon-button
+          class="pull-right"
+          matTooltip="{{'tooltip.add_item' | translate}}"
+          matTooltipPosition="left"
+        >
+          <mat-icon>add_circle</mat-icon>
+        </button>
       </div>
       <div class="u-margin-top-15">
-        <div>
-          <mat-form-field class="search-block" floatLabel="never">
-            <input
-              autocomplete="off"
-              matInput
-              autocomplete="off"
-              (keyup)="applyFilter($event)"
-              placeholder="{{'admin.table.search' | translate}}"
-            />
-            <mat-icon matSuffix style="font-size: 18px;">search</mat-icon>
-          </mat-form-field>
-        </div>
+        <mat-form-field class="search-block" floatLabel="never">
+          <input
+            autocomplete="off"
+            matInput
+            autocomplete="off"
+            (keyup)="applyFilter($event)"
+            placeholder="{{'admin.table.search' | translate}}"
+          />
+          <mat-icon matSuffix style="font-size: 18px;">search</mat-icon>
+        </mat-form-field>
         <mat-divider></mat-divider>
-        <div>
+        <ng-container>
           <app-spinner [loading]="dataLoading"></app-spinner>
           <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
             <ng-container matColumnDef="image">
@@ -36,7 +32,7 @@
                 {{"admin.table.image" | translate}}
               </th>
               <td mat-cell *matCellDef="let element">
-                <img style="width: 40px;height: 40px;" src="{{ element.image }}" />
+                <img class="small-size-image" src="{{ element.image }}" />
               </td>
             </ng-container>
             <ng-container matColumnDef="name">
@@ -120,9 +116,7 @@
                   "
                 >
                   <div class="example-element-diagram">
-                    <div class="example-element-position">
-                      <img style="width: 100px;height: 100px;" src="{{ element.image }}" />
-                    </div>
+                    <img class="large-image" src="{{ element.image }}" />
                     <!-- <div class="example-element-symbol">{{ element.name }}</div>
                     <div class="example-element-name">{{ element.price }}</div>
                     <div class="example-element-weight">
@@ -154,7 +148,7 @@
           </table>
 
           <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-        </div>
+        </ng-container>
       </div>
     </mat-card-content>
   </mat-card>

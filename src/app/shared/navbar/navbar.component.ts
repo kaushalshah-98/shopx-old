@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
   username: string;
   elem;
   value;
-  isFullscreen: boolean;
+  fullscreen: boolean = false;
   currentLanguage: string;
   constructor(
     private router: Router,
@@ -81,11 +81,11 @@ export class NavbarComponent implements OnInit {
     }
   }
   getText() {
-    return this.isFullscreen ? 'fullscreen_exit' : 'fullscreen';
+    return this.fullscreen ? 'fullscreen_exit' : 'fullscreen';
   }
   configureFullscreen() {
-    this.isFullscreen = !this.isFullscreen;
-    if (!this.isFullscreen) {
+    this.fullscreen = !this.fullscreen;
+    if (!this.fullscreen) {
       if (this.document.exitFullscreen) {
         this.document.exitFullscreen();
       } else if (this.document.mozCancelFullScreen) {
