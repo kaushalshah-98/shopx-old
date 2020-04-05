@@ -1,7 +1,7 @@
 <!-- <div class="card-list">
       <div class="roww">
         <div class="col-lg-6">
-  <mat-card class="example-card">
+  <mat-card class="profile-image-card">
             <mat-card-header>
               <mat-card-title>
                 <div class="action-wrap">
@@ -18,9 +18,20 @@
           </mat-card>
   </div>
   <div class="col-lg-6"> -->
-<div class="profile-container" fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
+<app-spinner
+  *ngIf="dimmed"
+  style="position: absolute;z-index: 999;left: 50%; top: 35%;"
+  [loading]="dataLoading"
+></app-spinner>
+<div
+  class="profile-container"
+  [ngClass]="{dimmed: dimmed}"
+  fxLayout="row"
+  fxLayoutAlign="start"
+  fxLayoutGap="20px"
+>
   <div fxFlex="30%">
-    <mat-card class="example-card">
+    <mat-card class="profile-image-card">
       <mat-card-header>
         <mat-card-title>{{"user.form.profile_pic" | translate}}</mat-card-title>
       </mat-card-header>
@@ -28,11 +39,19 @@
         <img
           mat-card-image
           [src]="
-            userdata != undefined
-              ? userdata.photoUrl
+            selectedimage != undefined
+              ? selectedimage
               : '../../../../assets/images/icon-login-profile.svg'
           "
           alt="Photo of a Shiba Inu"
+          (click)="imageinput.click()"
+        />
+        <input
+          accept="image/*"
+          type="file"
+          (change)="onImageSelected($event)"
+          #imageinput
+          style="display: none;"
         />
       </div>
     </mat-card>

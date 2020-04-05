@@ -1,8 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { UserManagementService } from '@services/user-service/user-management.service';
-import { MatTabChangeEvent } from '@angular/material';
 
 @Component({
   selector: 'app-edit-profile',
@@ -12,17 +11,31 @@ import { MatTabChangeEvent } from '@angular/material';
 export class EditProfileComponent implements OnInit {
   @Input() selectedIndex: number = 0;
   @Output() selectedIndexx = new EventEmitter<boolean>();
+  dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   userdata: any;
   hide: boolean = true;
   editform: FormGroup;
+  selectedimage: string;
+  dimmed: boolean = false;
 
   constructor(
     private dialog: ConfirmDialogService,
     private userservice: UserManagementService,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
   ngOnInit() {
+    this.initializeform();
     this.userdata = this.userservice.getUserData();
+  }
+  onImageSelected(event) {
+    const file: File = event.target.files[0];
+    const Reader = new FileReader();
+    Reader.onload = (event: any) => {
+      this.selectedimage = event.target.result;
+    }
+    Reader.readAsDataURL(file)
+  }
+  initializeform() {
     this.editform = this.formBuilder.group({
       usernameFormControl: [
         '',
@@ -49,12 +62,17 @@ export class EditProfileComponent implements OnInit {
     }
   }
   save() {
-    let userdata = {
-      name: this.editform.controls.usernameFormControl.value,
-      password: this.editform.controls.passwordFormControl.value,
-      email: this.editform.controls.emailFormControl.value,
-      photo: this.editform.controls.photoFormControl.value
-    };
-    console.log(userdata);
+    this.dimmed = true;
+    setTimeout(() => {
+      this.dataLoading.emit(false);
+      this.dimmed = false;
+      let userdata = {
+        name: this.editform.controls.usernameFormControl.value,
+        password: this.editform.controls.passwordFormControl.value,
+        email: this.editform.controls.emailFormControl.value,
+        photo: this.selectedimage
+      };
+      console.log(userdata);
+    }, 2000);
   }
 }
