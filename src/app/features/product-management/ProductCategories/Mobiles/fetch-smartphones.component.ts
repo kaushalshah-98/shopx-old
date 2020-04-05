@@ -3,15 +3,15 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'app-fetch-smartphones',
   template: `
-  <div class="list-product-style">
-    <app-jumbotron [Heading]="'menu_item.smartphones'"></app-jumbotron>
-    <div class="product-list-page">
+    <div class="list-product-style">
+      <app-jumbotron [Heading]="'menu_item.smartphones'"></app-jumbotron>
+      <div class="product-list-page">
         <app-filter-input (keyup)="onInputChanged($event.target.value)" (filter)="onFilter($event)">
         </app-filter-input>
-      <app-spinner [loading]="dataLoading"></app-spinner>
+        <app-spinner [loading]="dataLoading"></app-spinner>
         <app-list-products [productitems]="products"></app-list-products>
+      </div>
     </div>
-  </div>
   `,
   styles: []
 })
@@ -20,7 +20,7 @@ export class FetchSmartphonesComponent implements OnInit {
   @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: any;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.dataLoading.emit(true);

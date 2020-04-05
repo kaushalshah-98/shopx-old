@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private role: RoleService,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.initializeForm();
@@ -44,12 +44,12 @@ export class LoginComponent implements OnInit {
   login() {
     let userdata = {
       username: btoa(this.loginform.controls.usernameFormControl.value),
-      password: btoa(this.loginform.controls.passwordFormControl.value),
-    }
+      password: btoa(this.loginform.controls.passwordFormControl.value)
+    };
     let decuserdata = {
       username: atob(userdata.username),
       password: atob(userdata.password)
-    }
+    };
     console.log(userdata);
     console.log(decuserdata);
     this.dataLoading.emit(true);

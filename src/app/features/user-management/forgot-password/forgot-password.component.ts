@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ForgotPasswordComponent implements OnInit {
   forgotpasswordform: FormGroup;
-  constructor(private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.initializeForm();
@@ -26,8 +26,8 @@ export class ForgotPasswordComponent implements OnInit {
   send() {
     let userdata = {
       name: this.forgotpasswordform.controls.usernameFormControl.value,
-      email: this.forgotpasswordform.controls.emailFormControl.value,
-    }
+      email: this.forgotpasswordform.controls.emailFormControl.value
+    };
     console.log(userdata);
     this.router.navigate(['login']);
   }

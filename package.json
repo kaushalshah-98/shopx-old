@@ -1,15 +1,26 @@
 {
   "name": "shopx",
   "version": "0.0.0",
+  "description": "Online Shopping Website",
+  "homepage": "https://globalportal.uk/",
+  "author": {
+    "name": "Kaushal Shah",
+    "email": "kaushalshah589@gmail.com",
+    "url": "https://in.linkedin.com/company/pmc_1"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "lint:ci": "npm run format:check",
+    "lint:fix": "ng lint global-portal --fix",
+    "lint:styles": "stylelint ./src/**/*.scss",
     "e2e": "ng e2e",
     "format:check": "prettier --write --congig ./.prettierrc --list-different \"src/{app,environments,styles}/**/*{.ts,.html,.scss,.json}\"",
-    "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/SHOPX/stats-es2015.json"
+    "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/SHOPX/stats-es2015.json",
+    "analyze:ci": "webpack-bundle-analyzer dist/SHOPX/stats-es2015.json --mode static --report dist/analysis.html --no-open"
   },
   "repository": {
     "type": "git",
