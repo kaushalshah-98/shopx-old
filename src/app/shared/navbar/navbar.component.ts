@@ -22,6 +22,11 @@ export class NavbarComponent implements OnInit {
   value;
   fullscreen: boolean = false;
   currentLanguage: string;
+  menu = [
+    { name: "nav_bar.menu.your_account", icon: "account_circle", url: "/usersettings/profile" },
+    { name: "nav_bar.menu.your_order", icon: "assignment", url: "/usersettings/my_orders" },
+    { name: "nav_bar.menu.your_wishlist", icon: "favorite", url: "/usersettings/wishlist" }
+  ];
   constructor(
     private router: Router,
     private userservice: UserManagementService,
@@ -42,6 +47,19 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.elem = document.documentElement;
     this.userdetails = this.userservice.getUserData();
+    this.getmenu();
+  }
+  getmenu() {
+    if (!this.isAdmin) {
+      console.log('yes');
+      this.menu = [
+        { name: "nav_bar.menu.your_account", icon: "account_circle", url: "/usersettings/profile" },
+        { name: "nav_bar.menu.your_order", icon: "assignment", url: "/usersettings/my_orders" },
+        { name: "nav_bar.menu.your_wishlist", icon: "favorite", url: "/usersettings/wishlist" }
+      ]
+      console.log(this.menu);
+
+    }
   }
   goToCart() {
     this.router.navigate(['cart']);
@@ -107,7 +125,7 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
-  changetheme(value) {}
+  changetheme(value) { }
   contact() {
     this.router.navigateByUrl('/contactus/$');
   }

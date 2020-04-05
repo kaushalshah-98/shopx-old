@@ -40,7 +40,9 @@
         <button [hidden]="isAdmin" mat-menu-item [routerLink]="['/usersettings/wishlist']">
           <mat-icon>favorite</mat-icon>{{'nav_bar.menu.your_wishlist' | translate}}
         </button>
-        <mat-divider></mat-divider>
+        <ng-container>
+          <mat-divider [hidden]="isAdmin"></mat-divider>
+        </ng-container>
         <button mat-menu-item (click)="contact()"><mat-icon>help</mat-icon>Contact us</button>
         <button mat-menu-item [routerLink]="['/creators/^']">
           <mat-icon>supervisor_account</mat-icon>About The Creators
