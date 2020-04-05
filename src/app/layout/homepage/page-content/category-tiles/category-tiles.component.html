@@ -1,6 +1,6 @@
-<div id="wrap" fxLayout="row" fxLayoutAlign="start">
+<div class="wrap" fxLayout="row" fxLayoutAlign="start">
   <div fxFlex="33.3%" class="product-list" *ngFor="let item of categoryitems">
-    <mat-card class="review-card review-card--option-1 text-center">
+    <mat-card class="review-card text-center">
       <img class="review-card-img" src="{{ item.image }}" />
       <div class="review-author">
         <span class="display-text" [routerLink]="item.url">

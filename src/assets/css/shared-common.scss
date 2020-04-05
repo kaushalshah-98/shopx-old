@@ -42,7 +42,7 @@
     padding: 150px 150px 0px 150px;
   }
 }
-//--------------------------- Scroll Button f------------------------------
+//--------------------------- Scroll Button ------------------------------
 .c-go-to-top {
   position: fixed !important;
   cursor: pointer !important;
@@ -50,4 +50,11 @@
   .mat-icon {
     margin: -15px !important;
   }
+}
+
+//--------------------------- For Centre Anything ------------------------------
+.centre-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
