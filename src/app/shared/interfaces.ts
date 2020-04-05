@@ -4,15 +4,40 @@ export interface IMenu {
   url?: string;
   childs?: IMenu[];
 }
-export interface Product {
+export interface ProductItem {
   name: string;
-  image: string;
-  url: string;
+  description: string;
+  quantity: number;
+  category: string;
+  price: number;
+  details: object;
+  innercategory: string
+  image: ProductImage[];
 }
-export interface sliderProduct {
+export interface CartItem {
+  name: string;
+  description: string;
+  quantity: number;
+  productqty: number;
+  category: string;
+  price: number;
+  details: object;
+  innercategory: string
+  image: ProductImage[];
+}
+export interface ProductImage {
+  imageurl: string;
+}
+export interface Author {
   name: string;
   image: string;
   description: string;
+  profession: string
+}
+export interface ProductReview {
+  username: string;
+  name: string;
+  review: string;
 }
 export interface Item {
   name: string;
@@ -20,4 +45,10 @@ export interface Item {
   price: number;
   image: string;
   quantity: number;
+}
+export interface User {
+  name: string;
+  email: string;
+  profilepic: number;
+  password: number;
 }

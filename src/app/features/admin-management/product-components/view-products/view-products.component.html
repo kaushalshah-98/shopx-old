@@ -32,7 +32,7 @@
                 {{"admin.table.image" | translate}}
               </th>
               <td mat-cell *matCellDef="let element">
-                <img class="small-size-image" src="{{ element.image }}" />
+                <img class="small-size-image" src="{{ element.image[0].imageurl }}" />
               </td>
             </ng-container>
             <ng-container matColumnDef="name">
@@ -116,7 +116,7 @@
                   "
                 >
                   <div class="example-element-diagram">
-                    <img class="large-image" src="{{ element.image }}" />
+                    <img class="large-image" src="{{ element.image[0].imageurl }}" />
                     <!-- <div class="example-element-symbol">{{ element.name }}</div>
                     <div class="example-element-name">{{ element.price }}</div>
                     <div class="example-element-weight">

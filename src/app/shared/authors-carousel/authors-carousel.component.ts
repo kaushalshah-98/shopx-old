@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Author } from '@shared/interfaces'
 
 @Component({
   selector: 'app-authors-carousel',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./authors-carousel.component.scss']
 })
 export class AuthorsCarouselComponent implements OnInit {
-  constructor() {}
-  authors = [];
+  constructor() { }
+  authors: Author[];
   ngOnInit() {
     this.authors = [
       {

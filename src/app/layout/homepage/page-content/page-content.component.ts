@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { Product, sliderProduct } from '@shared/interfaces';
+import { ProductItem } from '@shared/interfaces';
 
 @Component({
   selector: 'app-page-content',
@@ -8,11 +8,11 @@ import { Product, sliderProduct } from '@shared/interfaces';
 })
 export class PageContentComponent implements OnInit {
   dataLoading: EventEmitter<boolean> = new EventEmitter(true);
-  categoryitems: Product[];
-  items_category1: Product[];
-  items_category2: Product[];
-  items_slider1: sliderProduct[];
-  items_slider2: sliderProduct[];
+  categoryitems: any[];
+  items_category1: any[];
+  items_category2: any[];
+  items_slider1: any[];
+  items_slider2: any[];
   show: boolean;
   heading = 'HOMEPAGE';
   productcarouselitems1: any;
