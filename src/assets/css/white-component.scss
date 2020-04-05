@@ -21,6 +21,7 @@
 // -----------------------Table Used in --------------------------------------------
 //   1.Cart
 //   2.Wishlist
+//   3.Recipt
 
 .table-wrapper {
   display: flex;
@@ -30,8 +31,6 @@
   .mat-table {
     width: 100%;
     padding: 0px 80px 0px 80px;
-    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
-      0 3px 14px 2px rgba(0, 0, 0, 0.12);
     .product-image {
       width: 50px;
       height: 50px;
@@ -84,12 +83,9 @@
   align-items: center;
   height: 100vh;
   .input-card {
-    // min-width: 300px;
+    min-width: 300px;
     width: 420px;
     min-height: 560px;
-    &.mat-card:not([class*='mat-elevation-z']) {
-      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12);
-    }
     &.mat-card {
       padding: 0;
       border-radius: 10px;
@@ -118,6 +114,18 @@
           &:hover {
             color: white;
             background-color: #28a745;
+          }
+        }
+        .blue-btn {
+          // border: 3px solid #3f51b5;
+          border: 3px solid #33b5e5;
+          // color: #3f51b5;
+          color: #33b5e5;
+          cursor: pointer;
+          &:hover {
+            color: white;
+            // background-color: #3f51b5;
+            background-color: #33b5e5;
           }
         }
         .facebook-btn {
@@ -362,13 +370,6 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          .display-text {
-            font-size: 20px;
-            &:hover {
-              // color: #fb730f !important;
-              cursor: pointer;
-            }
-          }
         }
         .showcase-img {
           padding-top: 18px;
@@ -398,7 +399,6 @@
 //   1.Admin Addproduct
 //   2.Admin Updateproduct
 
-
 .billing-container {
   padding: 50px 100px 50px 100px;
   // min-height: 570px;
@@ -412,7 +412,7 @@
       -moz-box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
       box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
         0 3px 14px 2px rgba(0, 0, 0, 0.12);
-        transition-duration: 500ms;
+      transition-duration: 500ms;
     }
     .table-full-width {
       width: 100%;
