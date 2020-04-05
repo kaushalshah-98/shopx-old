@@ -22,7 +22,7 @@ export class EditProfileComponent implements OnInit {
     private dialog: ConfirmDialogService,
     private userservice: UserManagementService,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
   ngOnInit() {
     this.initializeform();
     this.userdata = this.userservice.getUserData();
@@ -32,8 +32,8 @@ export class EditProfileComponent implements OnInit {
     const Reader = new FileReader();
     Reader.onload = (event: any) => {
       this.selectedimage = event.target.result;
-    }
-    Reader.readAsDataURL(file)
+    };
+    Reader.readAsDataURL(file);
   }
   initializeform() {
     this.editform = this.formBuilder.group({
