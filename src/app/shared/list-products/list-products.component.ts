@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ImagePopupService } from '@shared/image-popup/image-popup.service';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 
@@ -9,19 +9,24 @@ import { QuickViewService } from '@shared/quickview/quickview.service';
 })
 export class ListProductsComponent implements OnInit {
   @Input() productitems;
+  @Input() compare: boolean = false;
   totalprice;
   shipping;
-  constructor(private imagepopup: ImagePopupService, private view: QuickViewService) {}
+  @Output() selectedMobile: EventEmitter<any> = new EventEmitter<any>();
+  constructor(private imagepopup: ImagePopupService, private view: QuickViewService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   openBottomSheet(item) {
     this.imagepopup.openBottomSheet(item);
   }
   quickview(item) {
     this.view.showQuickview(item);
   }
-  addToWishlit(item) {}
-  updateCart() {}
-  removeFromCart() {}
-  emptycart() {}
+  addtocompare(item) {
+    this.selectedMobile.emit(item);
+  }
+  addToWishlit(item) { }
+  updateCart() { }
+  removeFromCart() { }
+  emptycart() { }
 }

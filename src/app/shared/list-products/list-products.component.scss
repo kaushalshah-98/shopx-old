@@ -58,6 +58,17 @@
             cursor: pointer;
           }
         }
+        .mat-icon-button {
+          border-radius: 50% !important;
+        }
+        .compare-icon {
+          position: absolute;
+          left: 10px;
+          top: 10px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
         .mat-card-actions {
           display: flex;
           justify-content: center;

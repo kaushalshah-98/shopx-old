@@ -1,14 +1,34 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
 @Component({
   selector: 'app-fetch-smartphones',
   template: `
+  <div class="chips">
+    <mat-chip-list>
+    <button
+    mat-raised-button
+    color="warn"
+    (click)="compareitems()"
+    >
+    compare</button>
+    &nbsp;
+      <mat-chip *ngFor="let mobile of mobiles" (removed)="remove(mobile)">
+          {{mobile.name}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  </div>
     <div class="list-product-style">
       <app-jumbotron [Heading]="heading"></app-jumbotron>
       <app-filter-input (keyup)="onInputChanged($event.target.value)" (filter)="onFilter($event)">
       </app-filter-input>
       <app-spinner [loading]="dataLoading"></app-spinner>
       <div [ngClass]="{ dimmed: dimmed }">
-        <app-list-products [productitems]="products"></app-list-products>
+        <app-list-products
+        (selectedMobile)="onMobileSelect($event)"
+        [compare]="true"
+        [productitems]="products">
+        </app-list-products>
       </div>
     </div>
   `,
@@ -20,10 +40,12 @@ export class FetchSmartphonesComponent implements OnInit {
   @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: any[];
+  mobiles = []
   dimmed: boolean = false;
-  constructor() {}
+  constructor(private compare: ComparisonServiceService) { }
 
   ngOnInit() {
+    this.mobiles = this.compare.comparelist;
     this.dataLoading.emit(true);
     setTimeout(() => {
       this.dataLoading.emit(false);
@@ -487,6 +509,25 @@ export class FetchSmartphonesComponent implements OnInit {
       ];
       this.products = this.productitems;
     }, 1000);
+  }
+  compareitems() {
+    if (this.mobiles.length < 1) {
+      console.log('empty');
+    }
+  }
+  onMobileSelect(event: any) {
+    if (this.mobiles.includes(event)) {
+      console.log('it is there already');
+    } else if (this.mobiles.length > 2) {
+      console.log('only 3 allowed');
+    } else {
+      this.compare.comparelist.push(event);
+      this.mobiles = this.compare.comparelist;
+    }
+  }
+  remove(mobile): void {
+    this.compare.comparelist = this.compare.comparelist.filter(item => !(item.name === mobile.name))
+    this.mobiles = this.compare.comparelist;
   }
   onFilter(event: any) {
     if (event === 'low') {
