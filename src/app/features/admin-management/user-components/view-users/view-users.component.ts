@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, EventEmitter } from '@angular/core';
 import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
+import { User } from '@shared/interfaces';
 
 @Component({
   selector: 'app-view-users',
@@ -14,7 +15,7 @@ export class ViewUsersComponent implements OnInit {
   pageSizeOptions: number[] = [10, 20, 50, 100];
   columnsToDisplay = ['status', 'profilepic', 'name', 'email', 'action'];
   expandedElement: PeriodicElement | null;
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.dataLoading.emit(true);
@@ -33,7 +34,6 @@ export class ViewUsersComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
-
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -41,11 +41,12 @@ export interface PeriodicElement {
   symbol: string;
   description: string;
 }
-const users = [
+const users: User[] = [
   {
     name: 'kaushal',
     email: 'hello@gmail.com',
     status: true,
+    password: '',
     profilepic:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   },
@@ -53,6 +54,7 @@ const users = [
     name: 'vaibhav',
     email: 'hello@gmail.com',
     status: false,
+    password: '',
     profilepic:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   },
@@ -60,6 +62,7 @@ const users = [
     name: 'yash',
     email: 'hello@gmail.com',
     status: true,
+    password: '',
     profilepic:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   },
@@ -67,6 +70,7 @@ const users = [
     name: 'ram',
     email: 'hello@gmail.com',
     status: false,
+    password: '',
     profilepic:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   },
@@ -74,6 +78,7 @@ const users = [
     name: 'manthan',
     email: 'hello@gmail.com',
     status: true,
+    password: '',
     profilepic:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   },
@@ -81,6 +86,7 @@ const users = [
     name: 'vishal',
     email: 'hello@gmail.com',
     status: true,
+    password: '',
     profilepic:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   },
@@ -88,6 +94,7 @@ const users = [
     name: 'sahil',
     email: 'hello@gmail.com',
     status: false,
+    password: '',
     profilepic:
       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
   }

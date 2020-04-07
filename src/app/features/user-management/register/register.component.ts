@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { User } from '@shared/interfaces';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   registerform: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.registerform = this.formBuilder.group({
@@ -28,7 +29,8 @@ export class RegisterComponent implements OnInit {
       name: this.registerform.controls.usernameFormControl.value,
       password: this.registerform.controls.passwordFormControl.value,
       email: this.registerform.controls.emailFormControl.value,
-      photo: this.registerform.controls.photoFormControl.value
+      profilepic: this.registerform.controls.photoFormControl.value,
+      status: true
     };
     console.log(userdata);
   }

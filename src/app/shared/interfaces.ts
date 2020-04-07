@@ -49,6 +49,7 @@ export interface Item {
 export interface User {
   name: string;
   email: string;
-  profilepic: number;
-  password: number;
+  status: boolean;
+  profilepic: string;
+  password: string;
 }
