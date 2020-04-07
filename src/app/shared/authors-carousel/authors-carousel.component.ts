@@ -7,16 +7,9 @@ import { Author } from '@shared/interfaces';
   styleUrls: ['./authors-carousel.component.scss']
 })
 export class AuthorsCarouselComponent implements OnInit {
-  fruits = [
-    { name: 'Lemon' },
-    { name: 'Lime' },
-    { name: 'Apple' },
-  ];
-  fruitss = [];
   constructor() { }
   authors: Author[];
   ngOnInit() {
-    this.fruitss = this.fruits
     this.authors = [
       {
         name: 'Manthan',
@@ -40,8 +33,5 @@ export class AuthorsCarouselComponent implements OnInit {
         profession: 'Web developer'
       }
     ];
-  }
-  remove(fruit): void {
-    this.fruitss = this.fruits.filter(fru => !(fru.name === fruit.name))
   }
 }

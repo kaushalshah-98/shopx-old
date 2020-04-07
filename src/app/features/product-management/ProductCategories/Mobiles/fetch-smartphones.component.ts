@@ -4,21 +4,18 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-fetch-smartphones',
   template: `
-  <div class="chips">
-    <mat-chip-list>
-    <button
-    mat-raised-button
-    color="warn"
-    (click)="compareitems()"
-    >
-    compare</button>
-    &nbsp;
-      <mat-chip *ngFor="let mobile of mobiles" (removed)="remove(mobile)">
-          {{mobile.name}}
+    <div class="chips">
+      <mat-chip-list>
+        <button mat-raised-button color="warn" (click)="compareitems()">
+          compare
+        </button>
+        &nbsp;
+        <mat-chip *ngFor="let mobile of mobiles" (removed)="remove(mobile)">
+          {{ mobile.name }}
           <mat-icon matChipRemove>cancel</mat-icon>
-      </mat-chip>
-    </mat-chip-list>
-  </div>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
     <div class="list-product-style">
       <app-jumbotron [Heading]="heading"></app-jumbotron>
       <app-filter-input (keyup)="onInputChanged($event.target.value)" (filter)="onFilter($event)">
@@ -26,9 +23,10 @@ import { Router } from '@angular/router';
       <app-spinner [loading]="dataLoading"></app-spinner>
       <div [ngClass]="{ dimmed: dimmed }">
         <app-list-products
-        (selectedMobile)="onMobileSelect($event)"
-        [compare]="true"
-        [productitems]="products">
+          (selectedMobile)="onMobileSelect($event)"
+          [compare]="true"
+          [productitems]="products"
+        >
         </app-list-products>
       </div>
     </div>
@@ -41,9 +39,9 @@ export class FetchSmartphonesComponent implements OnInit {
   @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: any[];
-  mobiles = []
+  mobiles = [];
   dimmed: boolean = false;
-  constructor(private compare: ComparisonServiceService, private router: Router) { }
+  constructor(private compare: ComparisonServiceService, private router: Router) {}
 
   ngOnInit() {
     this.mobiles = this.compare.comparelist;
@@ -515,7 +513,7 @@ export class FetchSmartphonesComponent implements OnInit {
     if (this.mobiles.length < 1) {
       console.log('empty');
     } else {
-      this.router.navigateByUrl('/compare')
+      this.router.navigateByUrl('/compare');
     }
   }
   onMobileSelect(event: any) {
@@ -529,7 +527,9 @@ export class FetchSmartphonesComponent implements OnInit {
     }
   }
   remove(mobile): void {
-    this.compare.comparelist = this.compare.comparelist.filter(item => !(item.name === mobile.name))
+    this.compare.comparelist = this.compare.comparelist.filter(
+      (item) => !(item.name === mobile.name)
+    );
     this.mobiles = this.compare.comparelist;
   }
   onFilter(event: any) {

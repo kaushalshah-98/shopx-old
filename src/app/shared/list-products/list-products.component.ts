@@ -13,9 +13,9 @@ export class ListProductsComponent implements OnInit {
   totalprice;
   shipping;
   @Output() selectedMobile: EventEmitter<any> = new EventEmitter<any>();
-  constructor(private imagepopup: ImagePopupService, private view: QuickViewService) { }
+  constructor(private imagepopup: ImagePopupService, private view: QuickViewService) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
   openBottomSheet(item) {
     this.imagepopup.openBottomSheet(item);
   }
@@ -25,8 +25,8 @@ export class ListProductsComponent implements OnInit {
   addtocompare(item) {
     this.selectedMobile.emit(item);
   }
-  addToWishlit(item) { }
-  updateCart() { }
-  removeFromCart() { }
-  emptycart() { }
+  addToWishlit(item) {}
+  updateCart() {}
+  removeFromCart() {}
+  emptycart() {}
 }

@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
   registerform: FormGroup;
   selectedimage: string;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.initializeform();

@@ -7,8 +7,8 @@ import { ComparisonServiceService } from '@services/comparsion-service/compariso
   styleUrls: ['./productcompare.component.scss']
 })
 export class ProductcompareComponent implements OnInit {
-  list = []
-  constructor(private compare: ComparisonServiceService) { }
+  list = [];
+  constructor(private compare: ComparisonServiceService) {}
 
   ngOnInit() {
     this.list = [
@@ -240,8 +240,7 @@ export class ProductcompareComponent implements OnInit {
           videorecording: '4K @30fps UHD'
         }
       }
-    ]
+    ];
     console.log(this.list);
   }
-
 }

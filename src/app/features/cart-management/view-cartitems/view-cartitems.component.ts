@@ -25,10 +25,10 @@ export class ViewCartitemsComponent implements OnInit {
     private sweetalert: SweetmessageService,
     private dialog: ConfirmDialogService,
     private view: QuickViewService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.quantityformcontrol = new FormControl('', Validators.required)
+    this.quantityformcontrol = new FormControl('', Validators.required);
     this.initializeCart();
   }
   initializeCart() {
@@ -38,7 +38,7 @@ export class ViewCartitemsComponent implements OnInit {
   quickview(item) {
     this.view.showQuickview(item);
   }
-  addToWishlit() { }
+  addToWishlit() {}
   updateCart(qty, cartitem) {
     this.dimmed = true;
     setTimeout(() => {
@@ -179,5 +179,5 @@ const cartitems: CartItem[] = [
           'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
       }
     ]
-  },
+  }
 ];
