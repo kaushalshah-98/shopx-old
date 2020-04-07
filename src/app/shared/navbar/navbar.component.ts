@@ -55,7 +55,7 @@ export class NavbarComponent implements OnInit {
     }
     this.optionmenu = [
       { name: 'nav_bar.menu.your_account', icon: 'account_circle', url: '/usersettings/profile' }
-    ]
+    ];
   }
   route(url) {
     this.router.navigateByUrl(url);
@@ -124,7 +124,7 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
-  changetheme(value) { }
+  changetheme(value) {}
   contact() {
     this.router.navigateByUrl('/contactus/$');
   }

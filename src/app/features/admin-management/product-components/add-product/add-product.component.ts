@@ -9,7 +9,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AddProductComponent implements OnInit {
   isDisabled: boolean = true;
-  constructor(private dialog: ConfirmDialogService, private formBuilder: FormBuilder) { }
+  constructor(private dialog: ConfirmDialogService, private formBuilder: FormBuilder) {}
   category = [
     { name: 'Electronics' },
     { name: 'Mobile' },
@@ -21,7 +21,6 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit() {
     this.initializeform();
-
   }
   initializeform() {
     this.addproductform = this.formBuilder.group({

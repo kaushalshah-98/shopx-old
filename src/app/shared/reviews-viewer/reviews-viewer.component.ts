@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ProductReview } from '@shared/interfaces'
+import { ProductReview } from '@shared/interfaces';
 @Component({
   selector: 'app-reviews-viewer',
   templateUrl: './reviews-viewer.component.html',
@@ -12,7 +12,7 @@ export class ReviewsViewerComponent implements OnInit {
   reviewtext: FormControl = new FormControl('');
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.dataLoading.emit(false);

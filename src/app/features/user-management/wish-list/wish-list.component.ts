@@ -14,7 +14,7 @@ export class WishListComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   displayedColumns: string[] = ['image', 'name', 'price', 'action', 'delete'];
   dataSource;
-  constructor(private dialog: ConfirmDialogService, private view: QuickViewService) { }
+  constructor(private dialog: ConfirmDialogService, private view: QuickViewService) {}
 
   ngOnInit() {
     this.initializeWishList();
@@ -35,7 +35,7 @@ export class WishListComponent implements OnInit {
         }
       });
   }
-  addTocart(qty, item) { }
+  addTocart(qty, item) {}
   emptywishList() {
     this.dialog
       .showConfirmDialog('confirm.are_you_sure_want_to_clear_your_list')
@@ -142,5 +142,5 @@ const wishlistitems: ProductItem[] = [
           'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
       }
     ]
-  },
+  }
 ];

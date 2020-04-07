@@ -15,7 +15,7 @@ export class ViewUsersComponent implements OnInit {
   pageSizeOptions: number[] = [10, 20, 50, 100];
   columnsToDisplay = ['status', 'profilepic', 'name', 'email', 'action'];
   expandedElement: PeriodicElement | null;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.dataLoading.emit(true);

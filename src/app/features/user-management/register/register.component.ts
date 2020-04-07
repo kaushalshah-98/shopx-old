@@ -11,7 +11,7 @@ import { User } from '@shared/interfaces';
 export class RegisterComponent implements OnInit {
   registerform: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.registerform = this.formBuilder.group({

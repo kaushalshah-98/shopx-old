@@ -11,7 +11,7 @@ export interface ProductItem {
   category: string;
   price: number;
   details: object;
-  innercategory: string
+  innercategory: string;
   image: ProductImage[];
 }
 export interface CartItem {
@@ -22,7 +22,7 @@ export interface CartItem {
   category: string;
   price: number;
   details: object;
-  innercategory: string
+  innercategory: string;
   image: ProductImage[];
 }
 export interface ProductImage {
@@ -32,7 +32,7 @@ export interface Author {
   name: string;
   image: string;
   description: string;
-  profession: string
+  profession: string;
 }
 export interface ProductReview {
   username: string;

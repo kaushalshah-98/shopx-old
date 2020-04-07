@@ -11,7 +11,7 @@ export class ReciptComponent implements OnInit {
   cartitems: CartItem[];
   displayedColumns: string[] = ['image', 'name', 'quantity', 'price'];
   dataSource;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.cartitems = [
@@ -113,7 +113,7 @@ export class ReciptComponent implements OnInit {
               'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREpnah8xL_N1PAVkQKLYZrjcpaV47fV_K6aD9sL_YfsaW1YE6C'
           }
         ]
-      },
+      }
     ];
     this.dataSource = this.cartitems;
   }
