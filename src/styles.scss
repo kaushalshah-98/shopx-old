@@ -6,8 +6,9 @@
 @import 'assets/css/variable';
 
 .list-product-style {
-  overflow: hidden !important;
-  min-height: 900px;
+  // overflow: hidden !important;
+  // min-height: 900px;
+  min-height: 830px;
 }
 .mat-button-focus-overlay {
   background-color: transparent !important;
@@ -24,4 +25,3 @@ button:focus {
 .mat-horizontal-content-container {
   padding: 0 !important;
 }
-

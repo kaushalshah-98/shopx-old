@@ -27,7 +27,7 @@
   class="profile-container"
   [ngClass]="{dimmed: dimmed}"
   fxLayout="row"
-  fxLayoutAlign="start"
+  fxLayoutAlign="start center"
   fxLayoutGap="20px"
 >
   <div fxFlex="30%">
@@ -89,7 +89,7 @@
               {{"user.form.email" | translate}} {{"user.form_validations.is_required" | translate}}
             </mat-error>
           </mat-form-field>
-          <mat-form-field appearance="outline">
+          <!-- <mat-form-field appearance="outline">
             <mat-label>{{"user.form.profile_pic" | translate}}</mat-label>
             <input autocomplete="off" matInput formControlName="photoFormControl" />
             <button mat-icon-button matTooltip="view image" matTooltipPosition="left" matSuffix>
@@ -99,7 +99,7 @@
               {{"user.form.profile_pic" | translate}} {{"user.form_validations.is_required" |
               translate}}
             </mat-error>
-          </mat-form-field>
+          </mat-form-field> -->
           <mat-form-field appearance="outline">
             <mat-label>{{"user.form.password" | translate}}</mat-label>
             <input

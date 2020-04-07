@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-profile.component.scss']
 })
 export class ViewProfileComponent implements OnInit {
-  constructor() {}
-  ngOnInit() {}
+  hide: boolean = true;
+  constructor() { }
+  ngOnInit() { }
 }

@@ -4,11 +4,11 @@ import { ProductItem } from '@shared/interfaces';
   selector: 'app-fetch-tablets',
   template: `
     <div class="list-product-style">
-      <app-jumbotron [Heading]="'menu_item.tablets'"></app-jumbotron>
-      <div class="product-list-page">
-        <app-filter-input (keyup)="onInputChanged($event.target.value)" (filter)="onFilter($event)">
-        </app-filter-input>
-        <app-spinner [loading]="dataLoading"></app-spinner>
+    <app-jumbotron [Heading]="heading"></app-jumbotron>
+      <app-filter-input (keyup)="onInputChanged($event.target.value)" (filter)="onFilter($event)">
+      </app-filter-input>
+      <app-spinner [loading]="dataLoading"></app-spinner>
+      <div [ngClass]="{dimmed: dimmed}">
         <app-list-products [productitems]="products"></app-list-products>
       </div>
     </div>
@@ -17,9 +17,11 @@ import { ProductItem } from '@shared/interfaces';
 })
 export class FetchTabletsComponent implements OnInit {
   productitems: ProductItem[];
+  heading: string = 'menu_item.tablets';
   @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
-  products: any;
+  products: ProductItem[];
+dimmed: boolean = false;
   constructor() {}
 
   ngOnInit() {
@@ -330,8 +332,14 @@ export class FetchTabletsComponent implements OnInit {
     }
   }
   onInputChanged(input: string) {
-    this.products = this.productitems.filter((items) => {
-      return items.name.toLowerCase().includes(input.toLowerCase());
-    });
+    this.dimmed = true;
+    this.dataLoading.emit(true);
+    setTimeout(() => {
+      this.dataLoading.emit(false);
+      this.dimmed = false;
+      this.products = this.productitems.filter((items) => {
+        return items.name.toLowerCase().includes(input.toLowerCase());
+      });
+    }, 2000);
   }
 }

@@ -2,12 +2,12 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'app-fetch-smartphones',
   template: `
-    <div class="list-product-style">
-      <app-jumbotron [Heading]="'menu_item.smartphones'"></app-jumbotron>
-      <div class="product-list-page">
-        <app-filter-input (keyup)="onInputChanged($event.target.value)" (filter)="onFilter($event)">
-        </app-filter-input>
-        <app-spinner [loading]="dataLoading"></app-spinner>
+     <div class="list-product-style">
+    <app-jumbotron [Heading]="heading"></app-jumbotron>
+      <app-filter-input (keyup)="onInputChanged($event.target.value)" (filter)="onFilter($event)">
+      </app-filter-input>
+      <app-spinner [loading]="dataLoading"></app-spinner>
+      <div [ngClass]="{dimmed: dimmed}">
         <app-list-products [productitems]="products"></app-list-products>
       </div>
     </div>
@@ -16,10 +16,12 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class FetchSmartphonesComponent implements OnInit {
   productitems: any[];
+  heading: string = 'menu_item.smartphones'
   @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
-  products: any;
-  constructor() {}
+  products: any[];
+  dimmed: boolean = false;
+  constructor() { }
 
   ngOnInit() {
     this.dataLoading.emit(true);
@@ -496,8 +498,14 @@ export class FetchSmartphonesComponent implements OnInit {
     }
   }
   onInputChanged(input: string) {
-    this.products = this.productitems.filter((items) => {
-      return items.name.toLowerCase().includes(input.toLowerCase());
-    });
+    this.dimmed = true;
+    this.dataLoading.emit(true);
+    setTimeout(() => {
+      this.dataLoading.emit(false);
+      this.dimmed = false;
+      this.products = this.productitems.filter((items) => {
+        return items.name.toLowerCase().includes(input.toLowerCase());
+      });
+    }, 2000);
   }
 }
