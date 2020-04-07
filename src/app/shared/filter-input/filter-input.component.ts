@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-
+import { ProductItem } from '@shared/interfaces';
 @Component({
   selector: 'app-filter-input',
   templateUrl: './filter-input.component.html',

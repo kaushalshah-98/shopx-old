@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-
 @Component({
   selector: 'app-fetch-smartphones',
   template: `
@@ -16,7 +15,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styles: []
 })
 export class FetchSmartphonesComponent implements OnInit {
-  productitems: any;
+  productitems: any[];
   @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: any;
