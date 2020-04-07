@@ -10,10 +10,14 @@ import { User } from '@shared/interfaces';
 })
 export class RegisterComponent implements OnInit {
   registerform: FormGroup;
+  selectedimage: string;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.initializeform();
+  }
+  initializeform() {
     this.registerform = this.formBuilder.group({
       usernameFormControl: [
         '',
@@ -29,10 +33,18 @@ export class RegisterComponent implements OnInit {
       name: this.registerform.controls.usernameFormControl.value,
       password: this.registerform.controls.passwordFormControl.value,
       email: this.registerform.controls.emailFormControl.value,
-      profilepic: this.registerform.controls.photoFormControl.value,
+      profilepic: this.selectedimage,
       status: true
     };
     console.log(userdata);
+  }
+  onImageSelected(event) {
+    const file: File = event.target.files[0];
+    const Reader = new FileReader();
+    Reader.onload = (event: any) => {
+      this.selectedimage = event.target.result;
+    };
+    Reader.readAsDataURL(file);
   }
   public hasError(controlName: string, errorName: string) {
     return this.registerform.controls[controlName].hasError(errorName);
