@@ -31,20 +31,14 @@
       </button>
       &nbsp;&nbsp;
       <mat-menu #menu="matMenu" xPosition="after">
-        <button [hidden]="isAdmin" mat-menu-item [routerLink]="['/usersettings/profile']">
-          <mat-icon>account_circle</mat-icon>{{'nav_bar.menu.your_account' | translate}}
-        </button>
-        <button [hidden]="isAdmin" mat-menu-item [routerLink]="['/usersettings/my_orders']">
-          <mat-icon>assignment</mat-icon>{{'nav_bar.menu.your_order' | translate}}
-        </button>
-        <button [hidden]="isAdmin" mat-menu-item [routerLink]="['/usersettings/wishlist']">
-          <mat-icon>favorite</mat-icon>{{'nav_bar.menu.your_wishlist' | translate}}
-        </button>
-        <ng-container>
-          <mat-divider [hidden]="isAdmin"></mat-divider>
+        <ng-container *ngFor="let item of optionmenu">
+          <button mat-menu-item (click)="route(item.url)">
+            <mat-icon>{{item.icon}}</mat-icon>{{item.name | translate}}
+          </button>
         </ng-container>
+        <mat-divider></mat-divider>
         <button mat-menu-item (click)="contact()"><mat-icon>help</mat-icon>Contact us</button>
-        <button mat-menu-item [routerLink]="['/creators/^']">
+        <button mat-menu-item (click)="route('/creators/^')">
           <mat-icon>supervisor_account</mat-icon>About The Creators
         </button>
         <button mat-menu-item>

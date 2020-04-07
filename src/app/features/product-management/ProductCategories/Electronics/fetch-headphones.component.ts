@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Product } from '@shared/interfaces';
+import { ProductItem } from '@shared/interfaces';
 
 @Component({
   selector: 'app-fetch-headphones',
@@ -17,7 +17,7 @@ import { Product } from '@shared/interfaces';
   styles: []
 })
 export class FetchHeadphonesComponent implements OnInit {
-  productitems: Product[];
+  productitems: ProductItem[];
   @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: any;

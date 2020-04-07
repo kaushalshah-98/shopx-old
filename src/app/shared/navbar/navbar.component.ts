@@ -22,11 +22,7 @@ export class NavbarComponent implements OnInit {
   value;
   fullscreen: boolean = false;
   currentLanguage: string;
-  menu = [
-    { name: "nav_bar.menu.your_account", icon: "account_circle", url: "/usersettings/profile" },
-    { name: "nav_bar.menu.your_order", icon: "assignment", url: "/usersettings/my_orders" },
-    { name: "nav_bar.menu.your_wishlist", icon: "favorite", url: "/usersettings/wishlist" }
-  ];
+  optionmenu: any;
   constructor(
     private router: Router,
     private userservice: UserManagementService,
@@ -51,15 +47,18 @@ export class NavbarComponent implements OnInit {
   }
   getmenu() {
     if (!this.isAdmin) {
-      console.log('yes');
-      this.menu = [
-        { name: "nav_bar.menu.your_account", icon: "account_circle", url: "/usersettings/profile" },
-        { name: "nav_bar.menu.your_order", icon: "assignment", url: "/usersettings/my_orders" },
-        { name: "nav_bar.menu.your_wishlist", icon: "favorite", url: "/usersettings/wishlist" }
-      ]
-      console.log(this.menu);
-
+      this.optionmenu = [
+        { name: 'nav_bar.menu.your_account', icon: 'account_circle', url: '/usersettings/profile' },
+        { name: 'nav_bar.menu.your_order', icon: 'assignment', url: '/usersettings/my_orders' },
+        { name: 'nav_bar.menu.your_wishlist', icon: 'favorite', url: '/usersettings/wishlist' }
+      ];
     }
+    this.optionmenu = [
+      { name: 'nav_bar.menu.your_account', icon: 'account_circle', url: '/usersettings/profile' }
+    ]
+  }
+  route(url) {
+    this.router.navigateByUrl(url);
   }
   goToCart() {
     this.router.navigate(['cart']);

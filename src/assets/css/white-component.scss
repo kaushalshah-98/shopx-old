@@ -186,6 +186,7 @@
 
 .order-container {
   padding: 50px 50px 32px 50px;
+  min-height: 540px;
   .mat-expansion-panel {
     border-radius: 10px !important;
     &:hover {
@@ -250,8 +251,8 @@
 //   2.Admin view products
 
 .outer-wrap {
-  padding: 40px 80px 53px 80px;
-  min-height: 415px;
+  padding: 55px 80px 0px 80px;
+  min-height: 540px;
   .display-products-card {
     border-radius: 10px;
     // box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
@@ -401,7 +402,7 @@
 
 .billing-container {
   padding: 50px 100px 50px 100px;
-  // min-height: 570px;
+  min-height: 570px;
   .edit-profile-card {
     min-height: 265px;
     width: 100%;
