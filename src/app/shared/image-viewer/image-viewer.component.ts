@@ -6,16 +6,26 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./image-viewer.component.scss']
 })
 export class ImageViewerComponent implements OnInit {
-  displayimage: string;
+  one: boolean = true;
+  two: boolean = false;
+  three: boolean = false;
   @Input() product;
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {
-    console.log(this.product);
-
-    this.displayimage = this.product[0].imageurl;
+  ngOnInit() { }
+  getnumber(index: number) {
+    if (index < 1) return this.one
+    else if (index === 1) return this.two
+    else return this.three
   }
-  changeimage(imageurl) {
-    this.displayimage = imageurl;
+  changeimage(index: number) {
+    if (index < 1) this.changevalue(true, false, false)
+    else if (index === 1) this.changevalue(false, true, false)
+    else this.changevalue(false, false, true)
+  }
+  changevalue(one: boolean, two: boolean, three: boolean) {
+    this.one = one;
+    this.two = two;
+    this.three = three;
   }
 }
