@@ -21,8 +21,10 @@ import { FetchLadiesNightwearComponent } from './ProductCategories/WomensFashion
 import { MatProgressSpinnerModule } from '@angular/material';
 import { SharedModule } from '@shared/shared.module';
 import { DetailviewComponent } from './detailview/detailview.component';
+import { ProductcompareComponent } from './productcompare/productcompare.component';
 
 const components = [
+  ProductcompareComponent,
   DetailviewComponent,
   FetchTvComponent,
   FetchLaptopComponent,
@@ -56,7 +58,8 @@ const components = [
     FetchDressComponent,
     FetchWatchComponent,
     FetchLadiesShoesComponent,
-    FetchLadiesNightwearComponent
+    FetchLadiesNightwearComponent,
+    ProductcompareComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,37 @@
+<app-navbar [isHidden]="true"></app-navbar>
+<app-jumbotron [Heading]="'user.main_heading.your_account'"></app-jumbotron>
+<div class="space-medium">
+  <div class="containerr">
+    <div class="roww">
+      <ng-container *ngFor="let item of list">
+        <div class="three-part">
+          <mat-card class="showcase-block">
+            <div fxLayout="row" fxLayoutAlign="start center">
+              <div fxFlex="40%">
+                <div>
+                  <img class="small-mobile-image" [src]="item.image[0].imageurl" />
+                </div>
+              </div>
+              <div fxFlex="60%">
+                <div class="display-text">
+                  {{item.name}}
+                </div>
+                <br />
+                <div class="compare-actions">
+                  <button color="accent" mat-raised-button>Add To Cart</button>
+                  &nbsp;&nbsp;
+                  <button color="warn" class="cancel" mat-raised-button>
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<br /><br />
+
+<app-footer [position]="sticky"></app-footer>

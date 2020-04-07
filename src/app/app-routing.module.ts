@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { DetailviewComponent } from './features/product-management/detailview/detailview.component';
+import { ProductcompareComponent } from './features/product-management/productcompare/productcompare.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'detailview',
     component: DetailviewComponent
+  },
+  {
+    path: 'compare',
+    component: ProductcompareComponent
   },
   {
     path: 'admin',
@@ -82,4 +87,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-fetch-smartphones',
   template: `
@@ -42,7 +43,7 @@ export class FetchSmartphonesComponent implements OnInit {
   products: any[];
   mobiles = []
   dimmed: boolean = false;
-  constructor(private compare: ComparisonServiceService) { }
+  constructor(private compare: ComparisonServiceService, private router: Router) { }
 
   ngOnInit() {
     this.mobiles = this.compare.comparelist;
@@ -513,6 +514,8 @@ export class FetchSmartphonesComponent implements OnInit {
   compareitems() {
     if (this.mobiles.length < 1) {
       console.log('empty');
+    } else {
+      this.router.navigateByUrl('/compare')
     }
   }
   onMobileSelect(event: any) {

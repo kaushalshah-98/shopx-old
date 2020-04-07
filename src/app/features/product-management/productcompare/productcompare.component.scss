@@ -1,0 +1,32 @@
+.space-medium {
+  padding: 50px 65px 0px 65px;
+  min-height: 540px;
+  .three-part {
+    padding-right: 30px;
+    padding-left: 30px;
+    .showcase-block {
+      &:hover {
+        transform: translateY(-2px);
+        transition-delay: 50ms;
+      }
+      .compare-actions {
+        .mat-raised-button {
+          line-height: 30px !important;
+        }
+        .cancel {
+          &.mat-raised-button {
+            min-width: 40px !important;
+            width: 40px !important;
+            .mat-icon {
+              position: relative;
+              left: -7px;
+            }
+          }
+        }
+      }
+    }
+    .small-mobile-image {
+      width: 50px;
+    }
+  }
+}
