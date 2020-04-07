@@ -3,12 +3,12 @@ import { ProductItem } from '@shared/interfaces';
 @Component({
   selector: 'app-fetch-sunglass',
   template: `
-     <div class="list-product-style">
-    <app-jumbotron [Heading]="heading"></app-jumbotron>
+    <div class="list-product-style">
+      <app-jumbotron [Heading]="heading"></app-jumbotron>
       <app-filter-input (keyup)="onInputChanged($event.target.value)" (filter)="onFilter($event)">
       </app-filter-input>
       <app-spinner [loading]="dataLoading"></app-spinner>
-      <div [ngClass]="{dimmed: dimmed}">
+      <div [ngClass]="{ dimmed: dimmed }">
         <app-list-products [productitems]="products"></app-list-products>
       </div>
     </div>
@@ -21,7 +21,7 @@ export class FetchSunglassComponent implements OnInit {
   @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: ProductItem[];
-dimmed: boolean = false;
+  dimmed: boolean = false;
   constructor() {}
 
   ngOnInit() {

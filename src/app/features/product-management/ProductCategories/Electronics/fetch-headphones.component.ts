@@ -5,11 +5,11 @@ import { ProductItem } from '@shared/interfaces';
   selector: 'app-fetch-headphones',
   template: `
     <div class="list-product-style">
-    <app-jumbotron [Heading]="heading"></app-jumbotron>
+      <app-jumbotron [Heading]="heading"></app-jumbotron>
       <app-filter-input (keyup)="onInputChanged($event.target.value)" (filter)="onFilter($event)">
       </app-filter-input>
       <app-spinner [loading]="dataLoading"></app-spinner>
-      <div [ngClass]="{dimmed: dimmed}">
+      <div [ngClass]="{ dimmed: dimmed }">
         <app-list-products [productitems]="products"></app-list-products>
       </div>
     </div>
@@ -23,7 +23,7 @@ export class FetchHeadphonesComponent implements OnInit {
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: ProductItem[];
   dimmed: boolean = false;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     document.getElementById('mainsearch').style.visibility = 'hidden';
@@ -70,11 +70,11 @@ export class FetchHeadphonesComponent implements OnInit {
           quantity: 40,
           image: [
             {
-              imageurl:
-                'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
             },
             {
-              imageurl: 'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+              imageurl:
+                'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
             },
             {
               imageurl:

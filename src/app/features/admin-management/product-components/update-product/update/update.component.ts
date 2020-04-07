@@ -16,7 +16,7 @@ export class UpdateComponent implements OnInit {
     private dialog: ConfirmDialogService,
     private activateRouter: ActivatedRoute,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
   category = [
     { name: 'Electronics' },
     { name: 'Mobile' },
@@ -43,7 +43,7 @@ export class UpdateComponent implements OnInit {
   updateproductform: FormGroup;
 
   ngOnInit() {
-    this.initializeform()
+    this.initializeform();
     this.state$ = this.activateRouter.paramMap
       .pipe(map(() => window.history.state))
       .subscribe((res) => (this.productdata = res));

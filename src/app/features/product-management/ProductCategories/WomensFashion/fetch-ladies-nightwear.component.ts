@@ -3,12 +3,12 @@ import { ProductItem } from '@shared/interfaces';
 @Component({
   selector: 'app-fetch-ladies-nightwear',
   template: `
-     <div class="list-product-style">
-    <app-jumbotron [Heading]="heading"></app-jumbotron>
+    <div class="list-product-style">
+      <app-jumbotron [Heading]="heading"></app-jumbotron>
       <app-filter-input (keyup)="onInputChanged($event.target.value)" (filter)="onFilter($event)">
       </app-filter-input>
       <app-spinner [loading]="dataLoading"></app-spinner>
-      <div [ngClass]="{dimmed: dimmed}">
+      <div [ngClass]="{ dimmed: dimmed }">
         <app-list-products [productitems]="products"></app-list-products>
       </div>
     </div>
@@ -22,7 +22,7 @@ export class FetchLadiesNightwearComponent implements OnInit {
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: ProductItem[];
   dimmed: boolean = false;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     document.getElementById('mainsearch').style.visibility = 'hidden';

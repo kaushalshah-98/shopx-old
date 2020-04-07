@@ -125,7 +125,7 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
-  changetheme(value) { }
+  changetheme(value) {}
   contact() {
     this.router.navigateByUrl('/contactus/$');
   }
