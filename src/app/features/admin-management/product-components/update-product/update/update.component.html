@@ -148,7 +148,7 @@
                 <input
                   autocomplete="off"
                   required
-                  [(ngModel)]="productdata.image"
+                  [(ngModel)]="productdata.image[0].imageurl"
                   matInput
                   formControlName="productImage1FormControl"
                 />
@@ -163,7 +163,7 @@
                 <mat-label>{{"admin.productform.image_url_2" | translate}}</mat-label>
                 <input
                   autocomplete="off"
-                  [(ngModel)]="productdata.image1"
+                  [(ngModel)]="productdata.image[1].imageurl"
                   matInput
                   formControlName="productImage2FormControl"
                 />
@@ -173,7 +173,7 @@
               <mat-form-field appearance="legacy">
                 <mat-label>{{"admin.productform.image_url_3" | translate}}</mat-label>
                 <input
-                  [(ngModel)]="productdata.image2"
+                  [(ngModel)]="productdata.image[2].imageurl"
                   autocomplete="off"
                   matInput
                   formControlName="productImage3FormControl"
@@ -187,7 +187,7 @@
   </mat-card>
 </div>
 <mat-toolbar color="primary" class="c-bottom-action-bar u-text-right">
-  <button id="btnSave" mat-flat-button (click)="AddProduct()">
+  <button id="btnSave" mat-flat-button (click)="UpdateProduct()">
     {{"admin.productform.save" | translate}}
   </button>
   &nbsp;&nbsp;

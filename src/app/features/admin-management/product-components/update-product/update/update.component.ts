@@ -16,7 +16,7 @@ export class UpdateComponent implements OnInit {
     private dialog: ConfirmDialogService,
     private activateRouter: ActivatedRoute,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
   category = [
     { name: 'Electronics' },
     { name: 'Mobile' },
@@ -43,10 +43,12 @@ export class UpdateComponent implements OnInit {
   updateproductform: FormGroup;
 
   ngOnInit() {
+    this.initializeform()
     this.state$ = this.activateRouter.paramMap
       .pipe(map(() => window.history.state))
       .subscribe((res) => (this.productdata = res));
-
+  }
+  initializeform() {
     this.updateproductform = this.formBuilder.group({
       selectedcategory: ['', [Validators.required]],
       selectedinnerCategory: ['', [Validators.required]],
@@ -78,7 +80,6 @@ export class UpdateComponent implements OnInit {
     }
   }
   onCategorySelect(event) {
-    console.log('hi');
     this.updateproductform.controls.selectedinnerCategory.reset();
     switch (event.value) {
       case 'Electronics':
@@ -110,7 +111,7 @@ export class UpdateComponent implements OnInit {
         break;
     }
   }
-  AddProduct() {
+  UpdateProduct() {
     let productdata = {
       name: this.updateproductform.controls.productNameFormControl.value,
       description: this.updateproductform.controls.productDescriptionFormControl.value,

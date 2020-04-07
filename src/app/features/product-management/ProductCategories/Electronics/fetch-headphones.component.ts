@@ -71,10 +71,10 @@ export class FetchHeadphonesComponent implements OnInit {
           image: [
             {
               imageurl:
-                'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
+                'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
             },
             {
-              imageurl: 'https://images-na.ssl-images-amazon.com/images/I/81YIy8FpWhL._UY606_.jpg'
+              imageurl: 'https://rukminim1.flixcart.com/image/332/398/jtn9bww0/t-shirt/5/f/c/s-hm-1001-maroon-black-helmont-original-imafdfvvz65ab7vm.jpeg?q=50'
             },
             {
               imageurl:

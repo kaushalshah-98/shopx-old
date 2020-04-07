@@ -19,7 +19,7 @@
               {{"user.product.image" | translate}}
             </mat-header-cell>
             <mat-cell *matCellDef="let element">
-              <img class="product-image" src="{{ element.image }}" />
+              <img class="product-image" src="{{ element.image[0].imageurl }}" />
             </mat-cell>
           </ng-container>
 
