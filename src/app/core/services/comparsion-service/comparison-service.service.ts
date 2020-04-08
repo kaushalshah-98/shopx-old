@@ -5,5 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class ComparisonServiceService {
   comparelist = [];
-  constructor() {}
+  general = [];
+  performance = [];
+  design = [];
+  display = [];
+  storage = [];
+  battery = [];
+  camera = [];
+  features = []
+  constructor() { }
 }

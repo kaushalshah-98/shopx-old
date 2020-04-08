@@ -1,13 +1,23 @@
 .space-medium {
   padding: 50px 65px 0px 65px;
-  min-height: 540px;
+  min-height: unset;
   .three-part {
     padding-right: 30px;
     padding-left: 30px;
     .showcase-block {
+      background-color: #fff;
+      box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.2);
+      margin-bottom: 0px;
+      padding: 25px 0px 25px 0px;
       &:hover {
-        transform: translateY(-2px);
+        background-color: unset;
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+          0 3px 14px 2px rgba(0, 0, 0, 0.12);
+        transform: none;
         transition-delay: 50ms;
+      }
+      .display-text {
+        font-size: 17px;
       }
       .compare-actions {
         .mat-raised-button {
@@ -28,5 +38,11 @@
     .small-mobile-image {
       width: 50px;
     }
+  }
+}
+.order-container {
+  padding: 50px 50px 0px 50px;
+  .mat-expansion-panel-header-title{
+    font-size: 18px;
   }
 }

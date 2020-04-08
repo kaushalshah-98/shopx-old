@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
 
 @Component({
@@ -8,239 +8,83 @@ import { ComparisonServiceService } from '@services/comparsion-service/compariso
 })
 export class ProductcompareComponent implements OnInit {
   list = [];
-  constructor(private compare: ComparisonServiceService) {}
+  general: any[];
+  performance: any[];
+  design: any[];
+  display: any[];
+  storage: any[];
+  battery: any[];
+  camera: any[];
+  feature: any[];
+  dataLoading: EventEmitter<boolean> = new EventEmitter(false);
+  dimmed: boolean = false;
+  columnsToDisplay1 = ['name', 'simtype', 'dualsim', 'simsize', 'Network', 'fingerptintsensor'];
+  columnsToDisplay2 = ['name', 'type', 'apectratio', 'notch', 'screentobodyratio', 'screensize'];
+  columnsToDisplay3 = ['name', 'weight', 'thickness', 'height', 'colors', 'build'];
+  columnsToDisplay4 = ['name', 'removable', 'quickcharging', 'capacity'];
+  columnsToDisplay5 = ['name', 'chipset', 'cpu', 'gpu', 'ram'];
+  columnsToDisplay6 = ['name', 'internal', 'otgsupport', 'expandableupto'];
+  columnsToDisplay7 = ['name', 'features', 'front', 'rear', 'flash', 'videorecording']
 
+  constructor(private compare: ComparisonServiceService) { }
   ngOnInit() {
-    this.list = [
-      {
-        name: 'A8 Star',
-        image: [
-          {
-            imageurl:
-              'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmjs8jfctvy.jpeg?q=70'
-          },
-          {
-            imageurl:
-              'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmjcryf8xtw.jpeg?q=70'
-          },
-          {
-            imageurl:
-              'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmmwcnqszhs.jpeg?q=70'
-          }
-        ],
-        price: 40000,
-        description:
-          'Galaxy A8 Star features an ergonomic, near bezel-less design that minimizes distraction so you can comfortably keep watching over what’s on screen. Its 6.3inch Full HD+ Super AMOLED display provides immersive viewing experience. Double the advantage. Galaxy A8 Star features a sleek design and symmetrical side styling that grips well in the hand. And with its sleek, elegant design users can look good when used on the move with life’s daily adventures. Shoot sharp and bright day and night. Galaxy A8 Star comes with 16MP and 24MP camera sensors, allowing user to minimize noise reduction and take clear selfies even in the dark environments. Do the following when the device heats up: Disconnect the charger from the device and close any running apps. Wait for the device to cool down and then begin charging the device again. If the lower part of the device overheats, it could be because the connected USB cable is damaged. Replace the damaged USB cable with a new Samsung-approved one. When using a wireless charger, do not place foreign materials, such as metal objects, magnets, and magnetic stripe cards, between the device and the wireless charger.',
-        details: {
-          Camera: '24+16 MP Dual rear camera | 24 MP front camera',
-          Display: '16.0 centimetres (6.3-inch) FHD+ Super AMOLED with 1080x2220 pixels',
-          'Memory Storage AND SIM':
-            '6GB RAM | 64GB storage expandable up to 400GB | Dual SIM with dual-standby (4G+4G)',
-          'Operating System and Processor':
-            'Android v8.0 operating system with 2.2GHz SDM660 Snapdragon Qualcomm octa core processor',
-          Battery: '3700 mAH lithium ion battery',
-          Warranty:
-            '1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase',
-          'Included in box': 'Charger, Earphone'
-        },
-        general: {
-          simtype: 'Dual Sim',
-          dualsim: 'yes',
-          simsize: 'Nano',
-          Network: '4G',
-          fingerptintsensor: 'yes'
-        },
-        performance: {
-          chipset: 'Qualcomm Snapdragon 660',
-          cpu: '2.2 GHz',
-          gpu: 'Adreno 512',
-          ram: '6 GB'
-        },
-        design: {
-          weight: '166g',
-          thickness: '7.7mm',
-          height: '155.3mm',
-          colors: 'black,white',
-          build: 'glass'
-        },
-        display: {
-          type: 'Super Amoled',
-          apectratio: '19:5:9',
-          notch: 'no',
-          screentobodyratio: '89%',
-          screensize: '6.4inch'
-        },
-        storage: {
-          internal: '64 GB',
-          otgsupport: 'yes',
-          expandableupto: '512GB'
-        },
-        battery: {
-          removable: 'no',
-          quickcharging: 'yes',
-          capacity: '3700 mAh'
-        },
-        camera: {
-          features: 'face Detection, Geo tagging, Panorama, Touch-to-focus',
-          front: '24 MP',
-          rear: '24MP + 16MP',
-          flash: 'yes',
-          videorecording: '4K @30fps UHD'
-        }
-      },
-      {
-        name: 'Samsung A8 Star',
-        image: [
-          {
-            imageurl:
-              'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmjs8jfctvy.jpeg?q=70'
-          },
-          {
-            imageurl:
-              'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmjcryf8xtw.jpeg?q=70'
-          },
-          {
-            imageurl:
-              'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmmwcnqszhs.jpeg?q=70'
-          }
-        ],
-        price: 22000,
-        description:
-          'Galaxy A8 Star features an ergonomic, near bezel-less design that minimizes distraction so you can comfortably keep watching over what’s on screen. Its 6.3inch Full HD+ Super AMOLED display provides immersive viewing experience. Double the advantage. Galaxy A8 Star features a sleek design and symmetrical side styling that grips well in the hand. And with its sleek, elegant design users can look good when used on the move with life’s daily adventures. Shoot sharp and bright day and night. Galaxy A8 Star comes with 16MP and 24MP camera sensors, allowing user to minimize noise reduction and take clear selfies even in the dark environments. Do the following when the device heats up: Disconnect the charger from the device and close any running apps. Wait for the device to cool down and then begin charging the device again. If the lower part of the device overheats, it could be because the connected USB cable is damaged. Replace the damaged USB cable with a new Samsung-approved one. When using a wireless charger, do not place foreign materials, such as metal objects, magnets, and magnetic stripe cards, between the device and the wireless charger.',
-        details: {
-          Camera: '24+16 MP Dual rear camera | 24 MP front camera',
-          Display: '16.0 centimetres (6.3-inch) FHD+ Super AMOLED with 1080x2220 pixels',
-          'Memory Storage AND SIM':
-            '6GB RAM | 64GB storage expandable up to 400GB | Dual SIM with dual-standby (4G+4G)',
-          'Operating System and Processor':
-            'Android v8.0 operating system with 2.2GHz SDM660 Snapdragon Qualcomm octa core processor',
-          Battery: '3700 mAH lithium ion battery',
-          Warranty:
-            '1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase',
-          'Included in box': 'Charger, Earphone'
-        },
-        general: {
-          simtype: 'Dual Sim',
-          dualsim: 'yes',
-          simsize: 'Nano',
-          Network: '4G',
-          fingerptintsensor: 'yes'
-        },
-        performance: {
-          chipset: 'Qualcomm Snapdragon 660',
-          cpu: '2.2 GHz',
-          gpu: 'Adreno 512',
-          ram: '6 GB'
-        },
-        design: {
-          weight: '166g',
-          thickness: '7.7mm',
-          height: '155.3mm',
-          colors: 'black,white',
-          build: 'glass'
-        },
-        display: {
-          type: 'Super Amoled',
-          apectratio: '19:5:9',
-          notch: 'no',
-          screentobodyratio: '89%',
-          screensize: '6.4inch'
-        },
-        storage: {
-          internal: '64 GB',
-          otgsupport: 'yes',
-          expandableupto: '512GB'
-        },
-        battery: {
-          removable: 'no',
-          quickcharging: 'yes',
-          capacity: '3700 mAh'
-        },
-        camera: {
-          features: 'face Detection, Geo tagging, Panorama, Touch-to-focus',
-          front: '24 MP',
-          rear: '24MP + 16MP',
-          flash: 'yes',
-          videorecording: '4K @30fps UHD'
-        }
-      },
-      {
-        name: 'Samsung A8 Star',
-        image: [
-          {
-            imageurl:
-              'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmjs8jfctvy.jpeg?q=70'
-          },
-          {
-            imageurl:
-              'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmjcryf8xtw.jpeg?q=70'
-          },
-          {
-            imageurl:
-              'https://rukminim1.flixcart.com/image/416/416/jlv70y80/mobile/v/2/v/samsung-galaxy-a8-star-sm-g885fzwgins-original-imaf8wmmwcnqszhs.jpeg?q=70'
-          }
-        ],
-        price: 22000,
-        description:
-          'Galaxy A8 Star features an ergonomic, near bezel-less design that minimizes distraction so you can comfortably keep watching over what’s on screen. Its 6.3inch Full HD+ Super AMOLED display provides immersive viewing experience. Double the advantage. Galaxy A8 Star features a sleek design and symmetrical side styling that grips well in the hand. And with its sleek, elegant design users can look good when used on the move with life’s daily adventures. Shoot sharp and bright day and night. Galaxy A8 Star comes with 16MP and 24MP camera sensors, allowing user to minimize noise reduction and take clear selfies even in the dark environments. Do the following when the device heats up: Disconnect the charger from the device and close any running apps. Wait for the device to cool down and then begin charging the device again. If the lower part of the device overheats, it could be because the connected USB cable is damaged. Replace the damaged USB cable with a new Samsung-approved one. When using a wireless charger, do not place foreign materials, such as metal objects, magnets, and magnetic stripe cards, between the device and the wireless charger.',
-        details: {
-          Camera: '24+16 MP Dual rear camera | 24 MP front camera',
-          Display: '16.0 centimetres (6.3-inch) FHD+ Super AMOLED with 1080x2220 pixels',
-          'Memory Storage AND SIM':
-            '6GB RAM | 64GB storage expandable up to 400GB | Dual SIM with dual-standby (4G+4G)',
-          'Operating System and Processor':
-            'Android v8.0 operating system with 2.2GHz SDM660 Snapdragon Qualcomm octa core processor',
-          Battery: '3700 mAH lithium ion battery',
-          Warranty:
-            '1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase',
-          'Included in box': 'Charger, Earphone'
-        },
-        general: {
-          simtype: 'Dual Sim',
-          dualsim: 'yes',
-          simsize: 'Nano',
-          Network: '4G',
-          fingerptintsensor: 'yes'
-        },
-        performance: {
-          chipset: 'Qualcomm Snapdragon 660',
-          cpu: '2.2 GHz',
-          gpu: 'Adreno 512',
-          ram: '6 GB'
-        },
-        design: {
-          weight: '166g',
-          thickness: '7.7mm',
-          height: '155.3mm',
-          colors: 'black,white',
-          build: 'glass'
-        },
-        display: {
-          type: 'Super Amoled',
-          apectratio: '19:5:9',
-          notch: 'no',
-          screentobodyratio: '89%',
-          screensize: '6.4inch'
-        },
-        storage: {
-          internal: '64 GB',
-          otgsupport: 'yes',
-          expandableupto: '512GB'
-        },
-        battery: {
-          removable: 'no',
-          quickcharging: 'yes',
-          capacity: '3700 mAh'
-        },
-        camera: {
-          features: 'face Detection, Geo tagging, Panorama, Touch-to-focus',
-          front: '24 MP',
-          rear: '24MP + 16MP',
-          flash: 'yes',
-          videorecording: '4K @30fps UHD'
-        }
-      }
-    ];
-    console.log(this.list);
+    this.list = this.compare.comparelist;
+    this.general = this.compare.general;
+    this.display = this.compare.display;
+    this.battery = this.compare.battery;
+    this.storage = this.compare.storage;
+    this.performance = this.compare.performance;
+    this.design = this.compare.design;
+    this.camera = this.compare.camera;
   }
+  remove(item) {
+    if (this.list.length < 3) {
+      console.log('could not delete');
+    } else {
+      this.dimmed = true;
+      this.dataLoading.emit(true);
+      setTimeout(() => {
+        this.dataLoading.emit(false);
+        this.dimmed = false;
+        this.compare.comparelist = this.compare.comparelist.filter(mobile => !(mobile.name === item.name));
+        this.list = this.compare.comparelist;
+        this.compare.display = this.compare.display.filter(product => !(product.name === item.name))
+        this.display = this.compare.display;
+        this.compare.battery = this.compare.battery.filter(product => !(product.name === item.name))
+        this.battery = this.compare.battery;
+        this.compare.storage = this.compare.storage.filter(product => !(product.name === item.name))
+        this.storage = this.compare.storage;
+        this.compare.design = this.compare.design.filter(product => !(product.name === item.name))
+        this.design = this.compare.design;
+        this.compare.performance = this.compare.performance.filter(product => !(product.name === item.name))
+        this.performance = this.compare.performance;
+        this.compare.general = this.compare.general.filter(product => !(product.name === item.name))
+        this.general = this.compare.general;
+        this.compare.camera = this.compare.camera.filter(product => !(product.name === item.name))
+        this.camera = this.compare.camera;
+      }, 2000);
+    }
+  }
+  // setcolums(index) {
+  //   switch (index) {
+  //     case 0: this.columnsToDisplay = ['name', 'simtype', 'dualsim', 'simsize', 'Network', 'fingerptintsensor'];
+  //     case 1: this.columnsToDisplay = ['name', 'type', 'apectratio', 'notch', 'screentobodyratio', 'screensize'];
+  //     case 2: this.columnsToDisplay = ['name', 'weight', 'thickness', 'height', 'colors', 'build'];
+  //     case 3: this.columnsToDisplay = ['name', 'removable', 'quickcharging', 'capacity'];
+  //     case 4: this.columnsToDisplay = ['name', 'chipset', 'cpu', 'gpu', 'ram'];
+  //     case 5: this.columnsToDisplay = ['name', 'internal', 'otgsupport', 'expandableupto'];
+  //     case 6: this.columnsToDisplay = ['name', 'features', 'front', 'rear', 'flash', 'videorecording']
+  //   }
+  // }
+  // getName(index) {
+  //   switch (index) {
+  //     case 0: return 'General'
+  //     case 1: return 'Display'
+  //     case 2: return 'Design'
+  //     case 3: return 'Battery'
+  //     case 4: return 'Performance'
+  //     case 5: return 'Storage'
+  //     case 6: return 'Camera'
+  //   }
+  // }
 }

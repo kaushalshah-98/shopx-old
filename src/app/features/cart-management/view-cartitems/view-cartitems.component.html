@@ -114,7 +114,12 @@
   [loading]="dataLoading"
 ></app-spinner>
 <div class="table-wrapper" [ngClass]="{dimmed: dimmed}">
-  <mat-table [dataSource]="dataSource" matSort class="box-elevation-z8">
+  <mat-table
+    [ngStyle]="{height: height+'px'}"
+    [dataSource]="dataSource"
+    matSort
+    class="box-elevation-z8"
+  >
     <ng-container matColumnDef="image">
       <mat-header-cell *matHeaderCellDef mat-sort-header>
         {{"user.product.image" | translate}}
@@ -220,15 +225,15 @@
       </mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-header-row *matHeaderRowDef="displayedColumns ;sticky: true"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>
   <br />
 </div>
 <mat-card class="total-card">
-  {{"user.cart.total_price" | translate}} : Rs 8000
+  {{"user.cart.total_price" | translate}} : {{getTotalCost() | currency}}
 </mat-card>
-<br /><br /><br /><br /><br />
+<br /><br /><br />
 <mat-toolbar color="primary" class="c-bottom-action-bar u-text-right table-bottom">
   <button mat-raised-button style="width: 20%;" [routerLink]="['/home']">
     {{"user.cart.continue_shopping" | translate}}

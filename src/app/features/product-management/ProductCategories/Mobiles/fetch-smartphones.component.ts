@@ -41,7 +41,7 @@ export class FetchSmartphonesComponent implements OnInit {
   products: any[];
   mobiles = [];
   dimmed: boolean = false;
-  constructor(private compare: ComparisonServiceService, private router: Router) {}
+  constructor(private compare: ComparisonServiceService, private router: Router) { }
 
   ngOnInit() {
     this.mobiles = this.compare.comparelist;
@@ -512,6 +512,8 @@ export class FetchSmartphonesComponent implements OnInit {
   compareitems() {
     if (this.mobiles.length < 1) {
       console.log('empty');
+    } else if (this.mobiles.length < 2) {
+      console.log('atleast two');
     } else {
       this.router.navigateByUrl('/compare');
     }
@@ -523,7 +525,32 @@ export class FetchSmartphonesComponent implements OnInit {
       console.log('only 3 allowed');
     } else {
       this.compare.comparelist.push(event);
+      event.general.name = event.name;
+      event.display.name = event.name;
+      event.battery.name = event.name;
+      event.storage.name = event.name;
+      event.performance.name = event.name;
+      event.design.name = event.name;
+      event.camera.name = event.name;
+
+      this.compare.general.push(event.general);
+      this.compare.display.push(event.display);
+      this.compare.battery.push(event.battery);
+      this.compare.storage.push(event.storage);
+      this.compare.performance.push(event.performance);
+      this.compare.design.push(event.design);
+      this.compare.camera.push(event.camera);
       this.mobiles = this.compare.comparelist;
+      this.compare.features = [];
+      this.compare.features.push(
+        this.compare.general,
+        this.compare.display,
+        this.compare.design,
+        this.compare.battery,
+        this.compare.performance,
+        this.compare.storage,
+        this.compare.camera
+      )
     }
   }
   remove(mobile): void {
