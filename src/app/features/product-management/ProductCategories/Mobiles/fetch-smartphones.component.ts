@@ -41,7 +41,7 @@ export class FetchSmartphonesComponent implements OnInit {
   products: any[];
   mobiles = [];
   dimmed: boolean = false;
-  constructor(private compare: ComparisonServiceService, private router: Router) { }
+  constructor(private compare: ComparisonServiceService, private router: Router) {}
 
   ngOnInit() {
     this.mobiles = this.compare.comparelist;
@@ -550,7 +550,7 @@ export class FetchSmartphonesComponent implements OnInit {
         this.compare.performance,
         this.compare.storage,
         this.compare.camera
-      )
+      );
     }
   }
   remove(mobile): void {

@@ -16,10 +16,10 @@ export class BuyListComponent implements OnInit {
   inputvalue: string = '';
   list = [];
   buylist = [];
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.paddingtop.subscribe(event => {
+    this.paddingtop.subscribe((event) => {
       this.padding = event;
     });
     this.list = [

@@ -12,6 +12,6 @@ export class ComparisonServiceService {
   storage = [];
   battery = [];
   camera = [];
-  features = []
-  constructor() { }
+  features = [];
+  constructor() {}
 }

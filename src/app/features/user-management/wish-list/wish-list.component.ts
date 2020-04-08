@@ -15,7 +15,7 @@ export class WishListComponent implements OnInit {
   displayedColumns: string[] = ['image', 'name', 'price', 'action', 'delete'];
   dataSource;
   height: number = 320;
-  constructor(private dialog: ConfirmDialogService, private view: QuickViewService) { }
+  constructor(private dialog: ConfirmDialogService, private view: QuickViewService) {}
 
   ngOnInit() {
     this.initializeWishList();
@@ -36,7 +36,7 @@ export class WishListComponent implements OnInit {
         }
       });
   }
-  addTocart(qty, item) { }
+  addTocart(qty, item) {}
   emptywishList() {
     this.dialog
       .showConfirmDialog('confirm.are_you_sure_want_to_clear_your_list')

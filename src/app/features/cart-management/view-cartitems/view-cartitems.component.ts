@@ -26,7 +26,7 @@ export class ViewCartitemsComponent implements OnInit {
     private sweetalert: SweetmessageService,
     private dialog: ConfirmDialogService,
     private view: QuickViewService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.quantityformcontrol = new FormControl('', Validators.required);
@@ -37,12 +37,12 @@ export class ViewCartitemsComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
   getTotalCost() {
-    return cartitems.map(t => t.price).reduce((acc, value) => acc + value, 0);
+    return cartitems.map((t) => t.price).reduce((acc, value) => acc + value, 0);
   }
   quickview(item) {
     this.view.showQuickview(item);
   }
-  addToWishlit() { }
+  addToWishlit() {}
   updateCart(qty, cartitem) {
     this.dimmed = true;
     setTimeout(() => {

@@ -1,4 +1,12 @@
-import { Component, OnInit, ViewEncapsulation, Input, Inject, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation,
+  Input,
+  Inject,
+  EventEmitter,
+  Output
+} from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { UserManagementService } from '@services/user-service/user-management.service';
@@ -131,7 +139,7 @@ export class NavbarComponent implements OnInit {
     }
   }
   changetheme(status) {
-    this.IsNightmode.emit(status)
+    this.IsNightmode.emit(status);
   }
   contact() {
     this.router.navigateByUrl('/contactus/$');

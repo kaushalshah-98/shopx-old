@@ -12,9 +12,9 @@ export class ProfileComponent implements OnInit {
   paddingtopp: Subject<number> = new Subject();
   paddingtoppp: Subject<number> = new Subject();
   selectedIndex: number;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {
     this.selectedIndex = tabChangeEvent.index;
@@ -29,10 +29,10 @@ export class ProfileComponent implements OnInit {
   }
   fullscreenstatus(event) {
     if (event) {
-      this.paddingtoppp.next(65)
-      this.paddingtopp.next(100)
+      this.paddingtoppp.next(65);
+      this.paddingtopp.next(100);
     } else {
-      this.paddingtoppp.next(0)
+      this.paddingtoppp.next(0);
       this.paddingtopp.next(0);
     }
   }

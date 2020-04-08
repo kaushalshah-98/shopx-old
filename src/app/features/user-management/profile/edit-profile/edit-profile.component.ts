@@ -25,11 +25,11 @@ export class EditProfileComponent implements OnInit {
     private dialog: ConfirmDialogService,
     private userservice: UserManagementService,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
   ngOnInit() {
     this.initializeform();
     this.userdata = this.userservice.getUserData();
-    this.paddingtop.subscribe(event => {
+    this.paddingtop.subscribe((event) => {
       this.padding = event;
     });
   }

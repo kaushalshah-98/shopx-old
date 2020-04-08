@@ -24,9 +24,9 @@ export class ProductcompareComponent implements OnInit {
   columnsToDisplay4 = ['name', 'removable', 'quickcharging', 'capacity'];
   columnsToDisplay5 = ['name', 'chipset', 'cpu', 'gpu', 'ram'];
   columnsToDisplay6 = ['name', 'internal', 'otgsupport', 'expandableupto'];
-  columnsToDisplay7 = ['name', 'features', 'front', 'rear', 'flash', 'videorecording']
+  columnsToDisplay7 = ['name', 'features', 'front', 'rear', 'flash', 'videorecording'];
 
-  constructor(private compare: ComparisonServiceService) { }
+  constructor(private compare: ComparisonServiceService) {}
   ngOnInit() {
     this.list = this.compare.comparelist;
     this.general = this.compare.general;
@@ -46,21 +46,37 @@ export class ProductcompareComponent implements OnInit {
       setTimeout(() => {
         this.dataLoading.emit(false);
         this.dimmed = false;
-        this.compare.comparelist = this.compare.comparelist.filter(mobile => !(mobile.name === item.name));
+        this.compare.comparelist = this.compare.comparelist.filter(
+          (mobile) => !(mobile.name === item.name)
+        );
         this.list = this.compare.comparelist;
-        this.compare.display = this.compare.display.filter(product => !(product.name === item.name))
+        this.compare.display = this.compare.display.filter(
+          (product) => !(product.name === item.name)
+        );
         this.display = this.compare.display;
-        this.compare.battery = this.compare.battery.filter(product => !(product.name === item.name))
+        this.compare.battery = this.compare.battery.filter(
+          (product) => !(product.name === item.name)
+        );
         this.battery = this.compare.battery;
-        this.compare.storage = this.compare.storage.filter(product => !(product.name === item.name))
+        this.compare.storage = this.compare.storage.filter(
+          (product) => !(product.name === item.name)
+        );
         this.storage = this.compare.storage;
-        this.compare.design = this.compare.design.filter(product => !(product.name === item.name))
+        this.compare.design = this.compare.design.filter(
+          (product) => !(product.name === item.name)
+        );
         this.design = this.compare.design;
-        this.compare.performance = this.compare.performance.filter(product => !(product.name === item.name))
+        this.compare.performance = this.compare.performance.filter(
+          (product) => !(product.name === item.name)
+        );
         this.performance = this.compare.performance;
-        this.compare.general = this.compare.general.filter(product => !(product.name === item.name))
+        this.compare.general = this.compare.general.filter(
+          (product) => !(product.name === item.name)
+        );
         this.general = this.compare.general;
-        this.compare.camera = this.compare.camera.filter(product => !(product.name === item.name))
+        this.compare.camera = this.compare.camera.filter(
+          (product) => !(product.name === item.name)
+        );
         this.camera = this.compare.camera;
       }, 2000);
     }

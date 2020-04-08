@@ -7,7 +7,7 @@ import { Author } from '@shared/interfaces';
   styleUrls: ['./authors-carousel.component.scss']
 })
 export class AuthorsCarouselComponent implements OnInit {
-  constructor() { }
+  constructor() {}
   authors: Author[];
   ngOnInit() {
     this.authors = [

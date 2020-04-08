@@ -9,7 +9,7 @@ import { IMenu } from '@shared/interfaces';
 export class HomepageComponent implements OnInit {
   // go to top
   menuItems: IMenu[];
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.menuItems = [
