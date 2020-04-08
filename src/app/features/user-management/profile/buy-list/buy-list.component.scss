@@ -1,17 +1,20 @@
 .big-input-container {
-  min-height: 491px;
+  min-height: 356px;
   .big-delete-input {
-    padding: 30px 300px 0px 300px;
+    padding: 20px 300px 0px 300px;
     .btn {
       margin-right: 10px;
     }
   }
   .buy-card-container {
-    padding: 10px 150px 0px 150px;
+    padding: 7px 150px 0px 150px;
     .filter-btn {
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      .mat-icon-button {
+        border-radius: 50% !important;
+      }
     }
     .roww {
       display: flex;

@@ -1,5 +1,9 @@
-<div class="profile-container" fxLayout="row" fxLayoutAlign="start center">
-  <div fxFlex="40%">
+<div
+  class="profile-container"
+  [ngStyle]="{'padding-top': padding +'px'}"
+  fxLayout="row"
+  fxLayoutAlign="start center"
+>  <div fxFlex="40%">
     <mat-card class="profile-image-card">
       <mat-card-header>
         <mat-card-title>{{"user.form.profile_pic" | translate}}</mat-card-title>

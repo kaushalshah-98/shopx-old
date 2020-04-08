@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-view-profile',
@@ -7,6 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewProfileComponent implements OnInit {
   hide: boolean = true;
-  constructor() {}
-  ngOnInit() {}
+  @Input() paddingtop: Subject<number>;
+  padding: number;
+
+  constructor() { }
+  ngOnInit() {
+    this.paddingtop.subscribe(event => {
+      this.padding = event;
+    });
+  }
 }

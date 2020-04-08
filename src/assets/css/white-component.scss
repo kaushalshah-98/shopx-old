@@ -29,6 +29,7 @@
   justify-content: center;
   padding: 40px 70px 36px 70px;
   .mat-table {
+    overflow: auto;
     width: 100%;
     padding: 0px 80px 0px 80px;
     .product-image {
@@ -438,7 +439,7 @@
 .profile-container {
   width: 100%;
   min-height: 450px;
-  padding: 35px 85px 0px 85px;
+  padding: 0px 85px 0px 85px;
   .profile-card {
     height: 100%;
     width: 100%;

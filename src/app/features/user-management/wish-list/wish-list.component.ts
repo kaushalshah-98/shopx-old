@@ -14,7 +14,8 @@ export class WishListComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   displayedColumns: string[] = ['image', 'name', 'price', 'action', 'delete'];
   dataSource;
-  constructor(private dialog: ConfirmDialogService, private view: QuickViewService) {}
+  height: number = 320;
+  constructor(private dialog: ConfirmDialogService, private view: QuickViewService) { }
 
   ngOnInit() {
     this.initializeWishList();
@@ -35,7 +36,7 @@ export class WishListComponent implements OnInit {
         }
       });
   }
-  addTocart(qty, item) {}
+  addTocart(qty, item) { }
   emptywishList() {
     this.dialog
       .showConfirmDialog('confirm.are_you_sure_want_to_clear_your_list')
@@ -44,6 +45,14 @@ export class WishListComponent implements OnInit {
           console.log('emptied');
         }
       });
+  }
+  changetheme(event) {
+    console.log(event);
+  }
+  fullscreenstatus(event) {
+    console.log(event);
+    if (event) this.height = 465;
+    else this.height = 320;
   }
 }
 const wishlistitems: ProductItem[] = [

@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-buy-list',
@@ -6,6 +7,8 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
   styleUrls: ['./buy-list.component.scss']
 })
 export class BuyListComponent implements OnInit {
+  @Input() paddingtop: Subject<number>;
+  padding: number;
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   isDisabled: boolean = true;
   isSelected: boolean = true;
@@ -13,9 +16,12 @@ export class BuyListComponent implements OnInit {
   inputvalue: string = '';
   list = [];
   buylist = [];
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
+    this.paddingtop.subscribe(event => {
+      this.padding = event;
+    });
     this.list = [
       { name: 'shirts', done: false },
       { name: 'pants', done: true },

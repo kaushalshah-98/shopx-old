@@ -1,4 +1,4 @@
-<div class="big-input-container">
+<div class="big-input-container" [ngStyle]="{'padding-top': padding +'px'}">
   <div class="big-delete-input">
     <app-big-input
       [placeholder]="'user.form_heading.i_am_going_to_buy_a'"
@@ -46,6 +46,7 @@
         >
           <mat-icon>filter_list</mat-icon>
         </button>
+        &nbsp;
         <mat-chip-list>
           <mat-chip [disabled]="true">
             {{"user.form_heading.displaying_item" | translate :{'totalitems':buylist.length} }}
@@ -89,4 +90,4 @@
     </div>
   </ng-container>
 </div>
-<app-footer [position]="sticky"></app-footer>
+<app-footer></app-footer>

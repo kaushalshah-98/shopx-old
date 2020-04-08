@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input, Inject } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, Inject, EventEmitter, Output } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { UserManagementService } from '@services/user-service/user-management.service';
@@ -17,9 +17,12 @@ export class NavbarComponent implements OnInit {
   @Input() siteLeftPanel: MatSidenav;
   @Input() isHidden: boolean = false;
   @Input() isAdmin: boolean = false;
+  @Output() IsNightmode = new EventEmitter<boolean>();
+  @Output() IsFullscreen = new EventEmitter<boolean>();
+
   username: string;
   elem;
-  value;
+  value: boolean;
   fullscreen: boolean = false;
   currentLanguage: string;
   optionmenu: any;
@@ -104,6 +107,7 @@ export class NavbarComponent implements OnInit {
   configureFullscreen() {
     this.fullscreen = !this.fullscreen;
     if (!this.fullscreen) {
+      this.IsFullscreen.emit(false);
       if (this.document.exitFullscreen) {
         this.document.exitFullscreen();
       } else if (this.document.mozCancelFullScreen) {
@@ -114,6 +118,7 @@ export class NavbarComponent implements OnInit {
         this.document.msExitFullscreen();
       }
     } else {
+      this.IsFullscreen.emit(true);
       if (this.elem.requestFullscreen) {
         this.elem.requestFullscreen();
       } else if (this.elem.mozRequestFullScreen) {
@@ -125,7 +130,9 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
-  changetheme(value) {}
+  changetheme(status) {
+    this.IsNightmode.emit(status)
+  }
   contact() {
     this.router.navigateByUrl('/contactus/$');
   }

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { UserManagementService } from '@services/user-service/user-management.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-edit-profile',
@@ -10,6 +11,8 @@ import { UserManagementService } from '@services/user-service/user-management.se
 })
 export class EditProfileComponent implements OnInit {
   @Input() selectedIndex: number = 0;
+  @Input() paddingtop: Subject<number>;
+  padding: number;
   @Output() selectedIndexx = new EventEmitter<boolean>();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   userdata: any;
@@ -22,10 +25,13 @@ export class EditProfileComponent implements OnInit {
     private dialog: ConfirmDialogService,
     private userservice: UserManagementService,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
   ngOnInit() {
     this.initializeform();
     this.userdata = this.userservice.getUserData();
+    this.paddingtop.subscribe(event => {
+      this.padding = event;
+    });
   }
   onImageSelected(event) {
     const file: File = event.target.files[0];

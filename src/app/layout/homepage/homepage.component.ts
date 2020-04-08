@@ -9,7 +9,7 @@ import { IMenu } from '@shared/interfaces';
 export class HomepageComponent implements OnInit {
   // go to top
   menuItems: IMenu[];
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.menuItems = [
@@ -139,5 +139,11 @@ export class HomepageComponent implements OnInit {
       //   ]
       // }
     ];
+  }
+  changetheme(event) {
+    console.log(event);
+  }
+  fullscreenstatus(event) {
+    console.log(event);
   }
 }

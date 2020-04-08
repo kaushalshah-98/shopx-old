@@ -1,7 +1,16 @@
-<app-navbar [isHidden]="true"></app-navbar>
+<app-navbar
+  (IsNightmode)="changetheme($event)"
+  (IsFullscreen)="fullscreenstatus($event)"
+  [isHidden]="true"
+></app-navbar>
 <app-jumbotron [Heading]="'user.main_heading.your_wish_list'"></app-jumbotron>
 <div class="table-wrapper">
-  <mat-table [dataSource]="dataSource" matSort class="box-elevation-z8">
+  <mat-table
+    [ngStyle]="{'max-height': height+'px'}"
+    [dataSource]="dataSource"
+    matSort
+    class="box-elevation-z8"
+  >
     <ng-container matColumnDef="image">
       <mat-header-cell *matHeaderCellDef mat-sort-header>
         {{"user.product.image" | translate}}
