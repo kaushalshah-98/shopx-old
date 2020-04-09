@@ -74,6 +74,10 @@
   animation-name: opacity;
   -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
+  &:hover {
+    transition: 500ms;
+    transform: scale(1.02);
+  }
 }
 .tab-content > .active {
   align-items: center;

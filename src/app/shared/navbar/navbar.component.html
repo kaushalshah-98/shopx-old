@@ -1,4 +1,4 @@
-<mat-toolbar class="nav-bar" color="primary">
+<mat-toolbar class="nav-bar">
   <mat-toolbar-row>
     <button
       id="btnLeftPanel"
@@ -24,7 +24,7 @@
       </mat-form-field>
     </div>
     <span class="example-spacer"></span>
-    <div>
+    <div class="navbar-buttons">
       <button mat-raised-button [matMenuTriggerFor]="menu">
         {{'nav_bar.hello'| translate}}, {{ getUserName() }}
         <mat-icon>arrow_drop_down </mat-icon>
