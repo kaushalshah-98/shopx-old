@@ -18,7 +18,7 @@ export class UpdateComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private formBuilder: FormBuilder,
     private property: PropertyAccessService
-  ) { }
+  ) {}
   category = [
     { name: 'Electronics' },
     { name: 'Mobile' },
@@ -46,7 +46,7 @@ export class UpdateComponent implements OnInit {
   themestatus: boolean;
 
   ngOnInit() {
-    this.property.nightmode.subscribe(res => this.themestatus = res);
+    this.property.nightmode.subscribe((res) => (this.themestatus = res));
     this.initializeform();
     this.state$ = this.activateRouter.paramMap
       .pipe(map(() => window.history.state))

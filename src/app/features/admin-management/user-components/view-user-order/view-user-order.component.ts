@@ -11,10 +11,10 @@ export class ViewUserOrderComponent implements OnInit {
   i = 0;
   user = [];
   themestatus: boolean;
-  constructor(private property: PropertyAccessService) { }
+  constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {
-    this.property.nightmode.subscribe(res => this.themestatus = res);
+    this.property.nightmode.subscribe((res) => (this.themestatus = res));
     this.initializeOrders();
   }
   initializeOrders() {

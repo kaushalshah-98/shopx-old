@@ -26,10 +26,10 @@ export class ViewProductsComponent implements OnInit {
   columnsToDisplay = ['image', 'name', 'quantity', 'price', 'action'];
   expandedElement: any;
   themestatus: boolean;
-  constructor(private property: PropertyAccessService, private router: Router) { }
+  constructor(private property: PropertyAccessService, private router: Router) {}
 
   ngOnInit() {
-    this.property.nightmode.subscribe(res => this.themestatus = res);
+    this.property.nightmode.subscribe((res) => (this.themestatus = res));
     this.dataLoading.emit(true);
     setTimeout(() => {
       this.dataLoading.emit(false);

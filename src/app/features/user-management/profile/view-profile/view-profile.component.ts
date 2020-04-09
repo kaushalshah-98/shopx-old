@@ -11,6 +11,6 @@ export class ViewProfileComponent implements OnInit {
   @Input() paddingtop: BehaviorSubject<number>;
   padding: number;
 
-  constructor() { }
+  constructor() {}
   ngOnInit() {}
 }

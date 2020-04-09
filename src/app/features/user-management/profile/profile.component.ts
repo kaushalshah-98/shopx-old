@@ -9,9 +9,9 @@ import { Subject, BehaviorSubject } from 'rxjs';
 export class ProfileComponent implements OnInit {
   paddingtop: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   selectedIndex: number;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {
     this.selectedIndex = tabChangeEvent.index;

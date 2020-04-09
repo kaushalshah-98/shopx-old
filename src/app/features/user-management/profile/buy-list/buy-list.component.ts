@@ -16,7 +16,7 @@ export class BuyListComponent implements OnInit {
   inputvalue: string = '';
   list = [];
   buylist = [];
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.list = [

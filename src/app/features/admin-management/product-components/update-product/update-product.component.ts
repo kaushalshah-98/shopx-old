@@ -12,10 +12,10 @@ export class UpdateProductComponent implements OnInit {
   isDisabled: boolean = true;
   heightt: number;
   themestatus: boolean;
-  constructor(private property: PropertyAccessService) { }
+  constructor(private property: PropertyAccessService) {}
   ngOnInit() {
-    this.property.height.subscribe(res => this.heightt = res);
-    this.property.nightmode.subscribe(res => this.themestatus = res);
+    this.property.height.subscribe((res) => (this.heightt = res));
+    this.property.nightmode.subscribe((res) => (this.themestatus = res));
   }
   onProductDelete() {
     console.log(this.productid);

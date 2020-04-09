@@ -15,9 +15,9 @@ export class CheckoutComponent implements OnInit {
   paddingtop: BehaviorSubject<number> = new BehaviorSubject(20);
   @ViewChild('stepper', { static: false }) stepper: MatStepper;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() { }
+  ngOnInit() {}
   setstep1status(event) {
     this.step1 = event;
     console.log(this.step1);

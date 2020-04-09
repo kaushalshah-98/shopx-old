@@ -17,10 +17,10 @@ export class ViewUsersComponent implements OnInit {
   columnsToDisplay = ['status', 'profilepic', 'name', 'email', 'action'];
   expandedElement: PeriodicElement | null;
   themestatus: boolean;
-  constructor(private property: PropertyAccessService) { }
+  constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {
-    this.property.nightmode.subscribe(res => this.themestatus = res);
+    this.property.nightmode.subscribe((res) => (this.themestatus = res));
     this.dataLoading.emit(true);
     setTimeout(() => {
       this.dataLoading.emit(false);

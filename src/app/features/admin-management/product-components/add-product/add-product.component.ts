@@ -10,7 +10,11 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 })
 export class AddProductComponent implements OnInit {
   isDisabled: boolean = true;
-  constructor(private dialog: ConfirmDialogService, private formBuilder: FormBuilder, private property: PropertyAccessService) { }
+  constructor(
+    private dialog: ConfirmDialogService,
+    private formBuilder: FormBuilder,
+    private property: PropertyAccessService
+  ) {}
   category = [
     { name: 'Electronics' },
     { name: 'Mobile' },
@@ -22,7 +26,7 @@ export class AddProductComponent implements OnInit {
   themestatus: boolean;
 
   ngOnInit() {
-    this.property.nightmode.subscribe(res => this.themestatus = res);
+    this.property.nightmode.subscribe((res) => (this.themestatus = res));
     this.initializeform();
   }
   initializeform() {
