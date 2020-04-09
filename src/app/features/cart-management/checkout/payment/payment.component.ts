@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-payment',
@@ -58,15 +58,12 @@ export class PaymentComponent implements OnInit {
   @Output() step2status = new EventEmitter<boolean>();
   flip: string = 'inactive';
   paymentform: FormGroup;
-  @Input() paddingtop: Subject<number>;
+  @Input() paddingtop: BehaviorSubject<number>;
   padding: number;
   constructor(private myStepper: MatStepper, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.initializeform();
-    this.paddingtop.subscribe((event) => {
-      this.padding = event;
-    });
   }
   initializeform() {
     this.paymentform = this.formBuilder.group({

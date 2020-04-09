@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-billing',
@@ -32,16 +32,13 @@ export class BillingComponent implements OnInit {
     { name: 'India' }
   ];
   @Output() step1status = new EventEmitter<boolean>();
-  @Input() paddingtop: Subject<number>;
+  @Input() paddingtop: BehaviorSubject<number>;
   padding: number;
   billingform: FormGroup;
 
   constructor(private myStepper: MatStepper, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.paddingtop.subscribe((event) => {
-      this.padding = event;
-    });
     this.initializeform();
   }
   initializeform() {

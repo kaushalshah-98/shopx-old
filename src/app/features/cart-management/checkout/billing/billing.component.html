@@ -1,4 +1,4 @@
-<div class="billing-container" [ngStyle]="{'padding-top': padding +'px'}">
+<div class="billing-container" [ngStyle]="{'padding-top': (paddingtop | async) +'px'}">
   <mat-card class="edit-profile-card">
     <mat-card-title>
       {{"user.form_heading.enter_billing_details" | translate}}

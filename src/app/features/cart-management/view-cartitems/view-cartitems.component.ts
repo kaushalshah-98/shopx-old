@@ -86,7 +86,6 @@ export class ViewCartitemsComponent implements OnInit {
     console.log(event);
   }
   fullscreenstatus(event) {
-    console.log(event);
     if (event) this.height = 412;
     else this.height = 267;
   }

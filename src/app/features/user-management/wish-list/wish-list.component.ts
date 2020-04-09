@@ -50,7 +50,6 @@ export class WishListComponent implements OnInit {
     console.log(event);
   }
   fullscreenstatus(event) {
-    console.log(event);
     if (event) this.height = 465;
     else this.height = 320;
   }
