@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-checkout',
@@ -11,11 +12,12 @@ export class CheckoutComponent implements OnInit {
   heading = 'CHECKOUT-FORM';
   step1: boolean = false;
   step2: boolean = false;
+  paddingtopp: Subject<number> = new Subject();
   @ViewChild('stepper', { static: false }) stepper: MatStepper;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   setstep1status(event) {
     this.step1 = event;
     console.log(this.step1);
@@ -26,5 +28,15 @@ export class CheckoutComponent implements OnInit {
   }
   setstep2status(event) {
     this.step2 = event;
+  }
+  changetheme(event) {
+    console.log(event);
+  }
+  fullscreenstatus(event) {
+    if (event) {
+      this.paddingtopp.next(80);
+    } else {
+      this.paddingtopp.next(20);
+    }
   }
 }

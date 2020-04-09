@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-view-user-order',
@@ -6,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-user-order.component.scss']
 })
 export class ViewUserOrderComponent implements OnInit {
-  constructor() {}
   displayedColumns: string[] = ['number', 'image', 'name', 'price', 'quantity'];
   i = 0;
   user = [];
+  themestatus: boolean;
+  constructor(private property: PropertyAccessService) { }
+
   ngOnInit() {
+    this.property.nightmode.subscribe(res => this.themestatus = res);
     this.initializeOrders();
   }
   initializeOrders() {

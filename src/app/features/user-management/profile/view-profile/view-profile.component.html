@@ -1,6 +1,6 @@
 <div
   class="profile-container"
-  [ngStyle]="{'padding-top': padding +'px'}"
+  [ngStyle]="{'padding-top': (paddingtop | async)  +'px'}"
   fxLayout="row"
   fxLayoutAlign="start center"
 >

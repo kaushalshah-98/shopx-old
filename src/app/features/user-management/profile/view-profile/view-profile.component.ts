@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-view-profile',
@@ -8,13 +8,9 @@ import { Subject } from 'rxjs';
 })
 export class ViewProfileComponent implements OnInit {
   hide: boolean = true;
-  @Input() paddingtop: Subject<number>;
+  @Input() paddingtop: BehaviorSubject<number>;
   padding: number;
 
-  constructor() {}
-  ngOnInit() {
-    this.paddingtop.subscribe((event) => {
-      this.padding = event;
-    });
-  }
+  constructor() { }
+  ngOnInit() {}
 }

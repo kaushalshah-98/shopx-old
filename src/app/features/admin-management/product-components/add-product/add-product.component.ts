@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-add-product',
@@ -9,7 +10,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AddProductComponent implements OnInit {
   isDisabled: boolean = true;
-  constructor(private dialog: ConfirmDialogService, private formBuilder: FormBuilder) {}
+  constructor(private dialog: ConfirmDialogService, private formBuilder: FormBuilder, private property: PropertyAccessService) { }
   category = [
     { name: 'Electronics' },
     { name: 'Mobile' },
@@ -18,8 +19,10 @@ export class AddProductComponent implements OnInit {
   ];
   InnerCategory = [];
   addproductform: FormGroup;
+  themestatus: boolean;
 
   ngOnInit() {
+    this.property.nightmode.subscribe(res => this.themestatus = res);
     this.initializeform();
   }
   initializeform() {

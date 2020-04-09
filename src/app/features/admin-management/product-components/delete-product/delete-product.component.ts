@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Subject } from 'rxjs';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-delete-product',
@@ -8,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class DeleteProductComponent implements OnInit {
   productid: string;
   isDisabled: boolean = true;
-  constructor() {}
-
-  ngOnInit() {}
+  heightt: number;
+  themestatus: boolean;
+  constructor(private property: PropertyAccessService) { }
+  ngOnInit() {
+    this.property.height.subscribe(res => this.heightt = res);
+    this.property.nightmode.subscribe(res => this.themestatus = res);
+  }
   onProductDelete() {
     console.log(this.productid);
   }

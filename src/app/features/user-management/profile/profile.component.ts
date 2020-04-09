@@ -1,20 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material';
-import { ViewProfileComponent } from './view-profile/view-profile.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  paddingtopp: Subject<number> = new Subject();
-  paddingtoppp: Subject<number> = new Subject();
+  paddingtop: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   selectedIndex: number;
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {
     this.selectedIndex = tabChangeEvent.index;
@@ -28,12 +25,7 @@ export class ProfileComponent implements OnInit {
     console.log(event);
   }
   fullscreenstatus(event) {
-    if (event) {
-      this.paddingtoppp.next(65);
-      this.paddingtopp.next(100);
-    } else {
-      this.paddingtoppp.next(0);
-      this.paddingtopp.next(0);
-    }
+    if (event) this.paddingtop.next(100);
+    else this.paddingtop.next(0);
   }
 }

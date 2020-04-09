@@ -1,4 +1,9 @@
-<div class="payment-container" fxLayout="row" fxLayoutAlign="start center">
+<div
+  class="payment-container"
+  [ngStyle]="{'padding-top': padding +'px'}"
+  fxLayout="row"
+  fxLayoutAlign="start center"
+>
   <div fxFlex="40%">
     <div class="container preload">
       <div class="creditcard" (click)="toggle()" [@flipState]="flip">

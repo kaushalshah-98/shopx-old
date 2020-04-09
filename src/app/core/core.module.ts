@@ -23,6 +23,7 @@ import { LocalStorageService } from './services/local-storage/local-storage.serv
 import { HttpErrorInterceptor } from './services/http-interceptors/http-error.interceptor';
 import { NotificationService } from './services/notification/notification.service';
 import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   // return new TranslateHttpLoader(
@@ -65,7 +66,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     { provide: ErrorHandler, useClass: AppErrorHandler },
     LocalStorageService,
     NotificationService,
-    ComparisonServiceService
+    ComparisonServiceService,
+    PropertyAccessService
   ],
   exports: [
     // angular

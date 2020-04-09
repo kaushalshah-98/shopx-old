@@ -3,6 +3,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
 import { ProductItem } from '@shared/interfaces';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-view-products',
@@ -24,9 +25,11 @@ export class ViewProductsComponent implements OnInit {
   pageSizeOptions: number[] = [10, 20, 50, 100];
   columnsToDisplay = ['image', 'name', 'quantity', 'price', 'action'];
   expandedElement: any;
-  constructor(private router: Router) {}
+  themestatus: boolean;
+  constructor(private property: PropertyAccessService, private router: Router) { }
 
   ngOnInit() {
+    this.property.nightmode.subscribe(res => this.themestatus = res);
     this.dataLoading.emit(true);
     setTimeout(() => {
       this.dataLoading.emit(false);

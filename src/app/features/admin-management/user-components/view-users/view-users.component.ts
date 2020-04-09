@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, EventEmitter } from '@angular/core';
 import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 import { User } from '@shared/interfaces';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-view-users',
@@ -15,9 +16,11 @@ export class ViewUsersComponent implements OnInit {
   pageSizeOptions: number[] = [10, 20, 50, 100];
   columnsToDisplay = ['status', 'profilepic', 'name', 'email', 'action'];
   expandedElement: PeriodicElement | null;
-  constructor() {}
+  themestatus: boolean;
+  constructor(private property: PropertyAccessService) { }
 
   ngOnInit() {
+    this.property.nightmode.subscribe(res => this.themestatus = res);
     this.dataLoading.emit(true);
     setTimeout(() => {
       this.dataLoading.emit(false);

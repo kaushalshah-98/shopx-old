@@ -3,6 +3,7 @@ import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.serv
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-update',
@@ -15,8 +16,9 @@ export class UpdateComponent implements OnInit {
   constructor(
     private dialog: ConfirmDialogService,
     private activateRouter: ActivatedRoute,
-    private formBuilder: FormBuilder
-  ) {}
+    private formBuilder: FormBuilder,
+    private property: PropertyAccessService
+  ) { }
   category = [
     { name: 'Electronics' },
     { name: 'Mobile' },
@@ -41,8 +43,10 @@ export class UpdateComponent implements OnInit {
     { name: 'Nightwear' }
   ];
   updateproductform: FormGroup;
+  themestatus: boolean;
 
   ngOnInit() {
+    this.property.nightmode.subscribe(res => this.themestatus = res);
     this.initializeform();
     this.state$ = this.activateRouter.paramMap
       .pipe(map(() => window.history.state))

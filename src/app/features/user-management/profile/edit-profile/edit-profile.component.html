@@ -27,7 +27,7 @@
   class="profile-container"
   [ngClass]="{dimmed: dimmed}"
   fxLayout="row"
-  [ngStyle]="{'padding-top': padding +'px'}"
+  [ngStyle]="{'padding-top': (paddingtop | async)  +'px'}"
   fxLayoutAlign="start center"
   fxLayoutGap="20px"
 >

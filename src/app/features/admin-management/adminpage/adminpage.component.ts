@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IMenu } from '@shared/interfaces';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-adminpage',
@@ -9,7 +10,7 @@ import { IMenu } from '@shared/interfaces';
 export class AdminpageComponent implements OnInit {
   menuItems: IMenu[];
 
-  constructor() {}
+  constructor(private property: PropertyAccessService) { }
 
   ngOnInit() {
     this.menuItems = [
@@ -66,5 +67,12 @@ export class AdminpageComponent implements OnInit {
         ]
       }
     ];
+  }
+  changetheme(event) {
+    this.property.nightmode.next(event)
+  }
+  fullscreenstatus(event) {
+    if (event) this.property.height.next(540);
+    else this.property.height.next(405);
   }
 }
