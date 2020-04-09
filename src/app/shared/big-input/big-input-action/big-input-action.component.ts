@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-big-input-action',
@@ -20,7 +21,7 @@ export class BigInputActionComponent {
   action = new EventEmitter<void>();
 
   hasFocus = false;
-
+  constructor(private property: PropertyAccessService) { }
   onClick() {
     this.action.emit();
   }

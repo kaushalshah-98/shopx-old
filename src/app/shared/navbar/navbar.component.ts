@@ -14,6 +14,7 @@ import { DOCUMENT } from '@angular/common';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from '@services/notification/notification.service';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-navbar',
@@ -40,7 +41,8 @@ export class NavbarComponent implements OnInit {
     private dialog: ConfirmDialogService,
     private translate: TranslateService,
     private notification: NotificationService,
-    @Inject(DOCUMENT) private document: any
+    @Inject(DOCUMENT) private document: any,
+    private property: PropertyAccessService
   ) {
     translate.addLangs(['en', 'fr', 'de', 'sk', 'hi', 'es', 'he']);
     translate.setDefaultLang('en');
@@ -139,6 +141,7 @@ export class NavbarComponent implements OnInit {
     }
   }
   changetheme(status) {
+    this.property.nightmode.next(status);
     this.IsNightmode.emit(status);
   }
   contact() {

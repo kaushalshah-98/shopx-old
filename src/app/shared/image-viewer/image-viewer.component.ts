@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-image-viewer',
@@ -10,7 +11,7 @@ export class ImageViewerComponent implements OnInit {
   two: boolean = false;
   three: boolean = false;
   @Input() product;
-  constructor() {}
+  constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {}
   getnumber(index: number) {

@@ -46,9 +46,7 @@ export class WishListComponent implements OnInit {
         }
       });
   }
-  changetheme(event) {
-    console.log(event);
-  }
+
   fullscreenstatus(event) {
     if (event) this.height = 465;
     else this.height = 320;

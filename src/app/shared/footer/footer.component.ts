@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
   @Input() position: string = 'fixed';
-  constructor() {}
+  constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {}
 }

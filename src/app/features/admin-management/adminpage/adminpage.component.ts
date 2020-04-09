@@ -68,9 +68,6 @@ export class AdminpageComponent implements OnInit {
       }
     ];
   }
-  changetheme(event) {
-    this.property.nightmode.next(event);
-  }
   fullscreenstatus(event) {
     if (event) this.property.height.next(540);
     else this.property.height.next(405);

@@ -21,9 +21,7 @@ export class ProfileComponent implements OnInit {
       this.selectedIndex = this.selectedIndex - 1;
     }
   }
-  changetheme(event) {
-    console.log(event);
-  }
+
   fullscreenstatus(event) {
     if (event) this.paddingtop.next(100);
     else this.paddingtop.next(0);

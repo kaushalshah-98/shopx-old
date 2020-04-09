@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-product-carousel2',
@@ -9,7 +10,7 @@ export class ProductCarousel2Component implements OnInit {
   @Input() item1: any;
   @Input() item2: any;
   @Input() item3: any;
-  constructor() {}
+  constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {}
 }

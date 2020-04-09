@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { state } from '@angular/animations';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-quickview',
@@ -18,6 +19,7 @@ export class QuickviewComponent implements OnInit {
   productdata: any;
 
   constructor(
+    private property: PropertyAccessService,
     public dialogRef: MatDialogRef<QuickviewComponent>,
     @Inject(MAT_DIALOG_DATA) public data,
     private router: Router

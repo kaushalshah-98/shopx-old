@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-jumbotron',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class JumbotronComponent implements OnInit {
   @Input() Heading: string;
-  constructor() {}
+  constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {}
 }

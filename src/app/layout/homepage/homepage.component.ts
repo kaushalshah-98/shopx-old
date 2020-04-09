@@ -140,9 +140,7 @@ export class HomepageComponent implements OnInit {
       // }
     ];
   }
-  changetheme(event) {
-    console.log(event);
-  }
+
   fullscreenstatus(event) {
     console.log(event);
   }

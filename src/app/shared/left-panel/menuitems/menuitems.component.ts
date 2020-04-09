@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, HostBinding, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMenu } from '@shared/interfaces';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-menuitems',
@@ -17,7 +18,7 @@ export class MenuitemsComponent implements OnInit {
 
   @HostBinding('attr.aria-expanded') ariaExpanded = this.expanded;
   step = 0;
-  constructor(public router: Router) {}
+  constructor(public router: Router,private property: PropertyAccessService) {}
 
   setStep(index: number) {
     this.step = index;

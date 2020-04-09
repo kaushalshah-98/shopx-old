@@ -29,9 +29,7 @@ export class CheckoutComponent implements OnInit {
   setstep2status(event) {
     this.step2 = event;
   }
-  changetheme(event) {
-    console.log(event);
-  }
+
   fullscreenstatus(event) {
     if (event) this.paddingtop.next(80);
     else this.paddingtop.next(20);

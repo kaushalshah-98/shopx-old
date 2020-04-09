@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ProductItem } from '@shared/interfaces';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 @Component({
   selector: 'app-filter-input',
   templateUrl: './filter-input.component.html',
@@ -7,7 +8,7 @@ import { ProductItem } from '@shared/interfaces';
 })
 export class FilterInputComponent implements OnInit {
   @Output() filter: EventEmitter<string> = new EventEmitter();
-  constructor() {}
+  constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {}
   onFilter(option) {

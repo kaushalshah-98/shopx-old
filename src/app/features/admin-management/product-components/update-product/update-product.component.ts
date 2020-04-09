@@ -13,10 +13,7 @@ export class UpdateProductComponent implements OnInit {
   heightt: number;
   themestatus: boolean;
   constructor(private property: PropertyAccessService) {}
-  ngOnInit() {
-    this.property.height.subscribe((res) => (this.heightt = res));
-    this.property.nightmode.subscribe((res) => (this.themestatus = res));
-  }
+  ngOnInit() {}
   onProductDelete() {
     console.log(this.productid);
   }

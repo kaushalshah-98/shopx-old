@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-big-input',
@@ -14,4 +15,5 @@ export class BigInputComponent {
   @Input() radius = 10;
 
   hasFocus = false;
+  constructor(private property: PropertyAccessService) { }
 }

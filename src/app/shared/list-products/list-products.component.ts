@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ImagePopupService } from '@shared/image-popup/image-popup.service';
 import { QuickViewService } from '@shared/quickview/quickview.service';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-list-products',
@@ -13,7 +14,7 @@ export class ListProductsComponent implements OnInit {
   totalprice;
   shipping;
   @Output() selectedMobile: EventEmitter<any> = new EventEmitter<any>();
-  constructor(private imagepopup: ImagePopupService, private view: QuickViewService) {}
+  constructor(private imagepopup: ImagePopupService, private view: QuickViewService,private property: PropertyAccessService) {}
 
   ngOnInit() {}
   openBottomSheet(item) {
