@@ -1,18 +1,10 @@
-// .overlay {
-//   width: 100%;
-//   height: 100%;
-//   position: absolute;
-//   z-index: 1002;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   position: absolute;
-//   min-height: 600px;
-//   top: 70%;
-//   left: 80%;
-// }
+@import '../../../assets/css/var.scss';
 .spinner {
   position: absolute;
   top: 35%;
   left: 47%;
+}
+:host ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $darkblue;
 }

@@ -102,32 +102,6 @@
             margin: 0;
             padding: 0;
             list-style: none;
-
-            // li {
-            // &:hover {
-            //   background-color: map-get($map: $global-color, $key: neutral-1);
-
-            //   a {
-            //     color: map-get($map: $global-theme-variable, $key: global_color_primary);
-            //   }
-            // }
-
-            // a {
-            //   display: flex;
-            //   flex-direction: row;
-            //   align-items: center;
-            //   padding: 0 24px 0 64px;
-            //   min-height: 45px;
-            //   text-decoration: none;
-            //   color: var(map-get($map: $global-theme-variable, $key: global_neutral_darkest));
-            //   font-weight: 300;
-
-            //   &.active {
-            //     background-color: var(map-get($map: $global-theme-variable, $key: global_color_primary));
-            //     color: map-get($map: $global-color, $key: white);
-            //   }
-            // }
-            // }
           }
         }
       }

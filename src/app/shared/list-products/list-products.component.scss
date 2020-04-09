@@ -1,3 +1,5 @@
+@import '../../../assets/css/var.scss';
+
 .containerr {
   width: 100%;
   padding: 0px 15px 0px 15px;
@@ -79,6 +81,14 @@
             display: flex;
             justify-content: center;
             line-height: 30px !important;
+            &.add-to-cart-btn {
+              background-color: $darkblue;
+              color: $white;
+            }
+            &.quick-view-btn {
+              background-color: $red;
+              color: $white;
+            }
           }
         }
         .product-img {

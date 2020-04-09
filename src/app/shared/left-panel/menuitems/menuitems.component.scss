@@ -1,4 +1,4 @@
-@import '../../../../assets/css/variable.scss';
+@import '../../../../assets/css/var.scss';
 .nav-menu-list {
   margin-top: -5px !important;
   .menu-name {
@@ -11,7 +11,7 @@
     &.activeMenu {
       background-color: #673ab7 !important;
       box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 2, 87, 0.4);
-      color: map-get($map: $global-color, $key: white) !important;
+      color: $white !important;
     }
 
     .mat-expansion-panel-header-title {

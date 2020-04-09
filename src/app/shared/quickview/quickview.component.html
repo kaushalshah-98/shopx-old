@@ -56,19 +56,19 @@
         <br />
         <h2 class="price">current price: <span>₹{{ data.price }}</span></h2>
         <div class="action">
-          <button mat-raised-button color="primary" (click)="AddToCart(data)">
+          <button class="add-to-cart-btn" mat-raised-button (click)="AddToCart(data)">
             Add To Cart
           </button>
           &nbsp;
-          <button mat-raised-button color="warn">
+          <button class="fav-btn" mat-raised-button>
             <mat-icon>favorite</mat-icon>
           </button>
           &nbsp;
-          <button mat-raised-button (click)="detailview()">
+          <button class="detail-btn" mat-raised-button (click)="detailview()">
             Detail view
           </button>
           &nbsp;
-          <button mat-raised-button color="accent" (click)="onNoClick()">
+          <button class="back-btn" mat-raised-button (click)="onNoClick()">
             BACK
           </button>
         </div>

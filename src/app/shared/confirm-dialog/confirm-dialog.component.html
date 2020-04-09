@@ -2,11 +2,11 @@
   <h2>{{"confirm.confirm" | translate}}</h2>
   <p id="pMessage">{{ data.message | translate }}</p>
 </div>
-<div id="divDialogAction" mat-dialog-actions>
-  <button id="btnYes" mat-flat-button color="primary" mat-dialog-close="yes" cdkFocusInitial>
+<div class="whiteDialogAction" mat-dialog-actions>
+  <button id="btnYes" mat-flat-button mat-dialog-close="yes" cdkFocusInitial>
     {{"confirm.yes" | translate}}
   </button>
-  <button id="btnNo" mat-flat-button color="warn" mat-dialog-close="no">
+  <button id="btnNo" mat-flat-button mat-dialog-close="no">
     {{"confirm.no" | translate}}
   </button>
 </div>

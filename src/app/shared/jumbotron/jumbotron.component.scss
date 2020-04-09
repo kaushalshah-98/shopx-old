@@ -1,5 +1,9 @@
+@import '../../../assets/css/var.scss';
+
 .jumbotronn {
   height: 70px !important;
+  background-color: $darkblue;
+  color: $white;
   display: block;
   background-size: 240px;
   background-image: url('../../../assets/images/page-header-pattern.png');
