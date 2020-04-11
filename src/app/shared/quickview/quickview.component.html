@@ -54,10 +54,13 @@
           {{data.description}}
         </p>
         <br />
-        <h2 class="price">current price: <span>₹{{ data.price }}</span></h2>
+        <h2 class="price">
+          {{'shared.description_viewer.cuurent_price' | translate }} :
+          <span>₹{{ data.price }}</span>
+        </h2>
         <div class="action">
           <button class="add-to-cart-btn" mat-raised-button (click)="AddToCart(data)">
-            Add To Cart
+            {{'user.product.add_to_cart' | translate }}
           </button>
           &nbsp;
           <button class="fav-btn" mat-raised-button>
@@ -65,11 +68,11 @@
           </button>
           &nbsp;
           <button class="detail-btn" mat-raised-button (click)="detailview()">
-            Detail view
+            {{'user.product.detail_view' | translate }}
           </button>
           &nbsp;
           <button class="back-btn" mat-raised-button (click)="onNoClick()">
-            BACK
+            {{'user.product.back' | translate }}
           </button>
         </div>
       </div>

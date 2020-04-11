@@ -1,7 +1,10 @@
 <div class="containerr">
   <div class="roww">
     <div class="one-part">
-      <h2>Featured <b>Products</b></h2>
+      <h2>
+        {{'shared.product_carousel.featured' | translate}}
+        <b>{{'shared.product_carousel.products' | translate}}</b>
+      </h2>
       <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
         <!-- Carousel indicators -->
         <ol class="carousel-indicators">
@@ -24,7 +27,7 @@
                       <h4>{{item.name}}</h4>
 
                       <p class="item-price"><b>{{item.price}}</b></p>
-                      <a class="btn btn-primary">Add to Cart</a>
+                      <a class="btn btn-primary">{{'user.product.add_to_cart' | translate }}</a>
                     </div>
                   </mat-card>
                 </div>
@@ -44,7 +47,7 @@
                       <h4>{{item.name}}</h4>
 
                       <p class="item-price"><b>{{item.price}}</b></p>
-                      <a class="btn btn-primary">Add to Cart</a>
+                      <a class="btn btn-primary">{{'user.product.add_to_cart' | translate }}</a>
                     </div>
                   </mat-card>
                 </div>
@@ -64,7 +67,7 @@
                       <h4>{{item.name}}</h4>
 
                       <p class="item-price"><b>{{item.price}}</b></p>
-                      <a class="btn btn-primary">Add to Cart</a>
+                      <a class="btn btn-primary">{{'user.product.add_to_cart' | translate }}</a>
                     </div>
                   </mat-card>
                 </div>

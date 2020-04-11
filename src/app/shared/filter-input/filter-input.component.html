@@ -1,7 +1,7 @@
 <div class="filter-input">
   <mat-form-field appearance="outline">
-    <mat-label>search</mat-label>
-    <input matInput placeholder="Placeholder" />
+    <mat-label>{{'shared.filter.search' | translate}}</mat-label>
+    <input matInput placeholder="{{'shared.filter.type' | translate}}" />
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
   &nbsp;&nbsp;
@@ -11,15 +11,15 @@
   <mat-menu #filtermenu="matMenu" xPosition="before">
     <button mat-menu-item (click)="onFilter('name')">
       <mat-icon> sort </mat-icon>
-      <span>Sort By Name </span>
+      <span>{{'shared.filter.sort_by_name' | translate}} </span>
     </button>
     <button mat-menu-item (click)="onFilter('low')">
       <mat-icon> arrow_downward </mat-icon>
-      <span>Low To High</span>
+      <span>{{'shared.filter.low_to_high' | translate}}</span>
     </button>
     <button mat-menu-item (click)="onFilter('high')">
       <mat-icon> arrow_upward </mat-icon>
-      <span>High To Low</span>
+      <span>{{'shared.filter.high_to_low' | translate}}</span>
     </button>
   </mat-menu>
 </div>

@@ -1,7 +1,7 @@
 <app-navbar [isHidden]="true"></app-navbar>
 <div class="author-container">
   <div class="eight-part">
-    <h2>Creators</h2>
+    <h2>{{'shared.authors.creators' | translate}}</h2>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Carousel indicators -->
       <ol class="carousel-indicators">
@@ -17,19 +17,19 @@
             <img src="../../../assets/images/icon-login-profile.svg" alt="" />
           </div>
           <p class="testimonial">
-            The responsibilities of an Author include writing original stories for novels, plays,
-            television scripts, and movies. Authors also write journals, develop story elements, and
-            rewrite and revise pieces written by other writers
+            {{'shared.authors.kaushal_description' | translate}}
           </p>
-          <p class="overview"><b>Kaushal Shah</b>, Full Stack</p>
+          <p class="overview">
+            <b>Kaushal Shah</b>, {{'shared.authors.kaushal_profession' | translate}}
+          </p>
         </div>
         <ng-container *ngFor="let author of authors">
           <div class="item carousel-item">
             <div class="img-box"><img src="{{author.image}}" alt="" /></div>
             <p class="testimonial">
-              {{author.description}}
+              {{author.description | translate}}
             </p>
-            <p class="overview"><b>{{author.name}}</b>, {{author.profession}}</p>
+            <p class="overview"><b>{{author.name}}</b>, {{author.profession |translate}}</p>
           </div>
         </ng-container>
       </div>

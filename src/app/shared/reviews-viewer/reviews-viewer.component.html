@@ -1,9 +1,11 @@
 <div class="review-container">
   <mat-card class="box-elevation-z8">
     <mat-list>
-      <div mat-subheader>{{totalreviewcount}} User Reviews</div>
+      <div mat-subheader>
+        {{totalreviewcount}} {{'shared.reviews_viewer.user_review' | translate}}
+      </div>
       <mat-form-field appearance="outline">
-        <mat-label>Write a Review</mat-label>
+        <mat-label> {{'shared.reviews_viewer.write_a_review' | translate}}</mat-label>
         <!-- <app-spinner [loading]="dataLoading"></app-spinner> -->
         <input
           matInput

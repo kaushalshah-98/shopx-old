@@ -16,22 +16,22 @@ export class AuthorsCarouselComponent implements OnInit {
         name: 'Manthan',
         image: '../../../assets/images/icon-login-profile.svg',
         description:
-          'The responsibilities of an Author include writing original stories for novels, plays, television scripts, and movies. Authors also write journals, develop story elements, and rewrite and revise pieces written by other writers',
-        profession: 'Web developer'
+          'shared.authors.manthan_description',
+        profession: 'shared.authors.manthan_profession'
       },
       {
         name: 'Vishal',
         image: '../../../assets/images/icon-login-profile.svg',
         description:
-          'The responsibilities of an Author include writing original stories for novels, plays, television scripts, and movies. Authors also write journals, develop story elements, and rewrite and revise pieces written by other writers',
-        profession: 'Web developer'
+          'shared.authors.vishal_description',
+        profession: 'shared.authors.vishal_profession'
       },
       {
         name: 'Ramkrishna',
         image: '../../../assets/images/icon-login-profile.svg',
         description:
-          'The responsibilities of an Author include writing original stories for novels, plays, television scripts, and movies. Authors also write journals, develop story elements, and rewrite and revise pieces written by other writers',
-        profession: 'Web developer'
+          'shared.authors.ramkrishna_description',
+        profession: 'shared.authors.ramkrishna_profession'
       }
     ];
   }

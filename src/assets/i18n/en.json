@@ -16,7 +16,8 @@
       "night_mode": "Night Mode",
       "your_account": "Your Account",
       "your_order": "Your Orders",
-      "your_wishlist": "Your Wishlist"
+      "your_wishlist": "Your Wishlist",
+      "about_the_creators": "About The Creators"
     }
   },
   "footer": {
@@ -31,8 +32,8 @@
     "empty_cart": "Empty the Cart",
     "add_to_cart": "Add To Cart",
     "clear_list": "Clear List",
-    "dispatch":"dispatch",
-    "cancel":"Cancel",
+    "dispatch": "dispatch",
+    "cancel": "Cancel",
 
     "block": "Block",
     "view": "View",
@@ -47,13 +48,46 @@
     "are_you_sure_want_to_empty_your_cart": "Are You Sure Want to Empty Your Cart ?",
     "are_you_sure_want_to_clear_your_list": "Are You Sure Want to Clear Your List ?",
     "are_you_sure_want_to_logout": "Are You Sure Want to Logout ?",
-    "are_you_sure_want_to_cancel":"Are You Sure Want to Cancel ?",
+    "are_you_sure_want_to_cancel": "Are You Sure Want to Cancel ?",
     "are_you_sure": "Are You Sure ?",
     "confirm": "Confirm",
     "yes": "Yes",
     "no": "No"
   },
-
+  "shared": {
+    "authors": {
+      "creators": "Creators",
+      "kaushal_description": "The responsibilities of an Author include writing original stories for novels, plays,television scripts, and movies. Authors also write journals, develop story elements, andrewrite and revise pieces written by other writers",
+      "manthan_description": "The responsibilities of an Author include writing original stories for novels, plays,television scripts, and movies. Authors also write journals, develop story elements, andrewrite and revise pieces written by other writers",
+      "vishal_description": "The responsibilities of an Author include writing original stories for novels, plays,television scripts, and movies. Authors also write journals, develop story elements, andrewrite and revise pieces written by other writers",
+      "ramkrishna_description": "The responsibilities of an Author include writing original stories for novels, plays,television scripts, and movies. Authors also write journals, develop story elements, andrewrite and revise pieces written by other writers",
+      "manthan_profession": "web developer",
+      "kaushal_profession": "Full Stack",
+      "vishal_profession": "Navra Praani",
+      "ramkrishna_profession": "Adsu Praani"
+    },
+    "description_viewer": {
+      "name": "Name",
+      "cuurent_price": "Current Price",
+      "product_details": "Product details",
+      "description": "Description"
+    },
+    "filter": {
+      "search": "Search",
+      "sort_by_name": "Sort By Name",
+      "low_to_high": "Low To High",
+      "high_to_low": "High To Low",
+      "type": "Type .."
+    },
+    "product_carousel": {
+      "featured": "Featured",
+      "products": "Products"
+    },
+    "reviews_viewer": {
+      "user_review": "User Reviews",
+      "write_a_review": "Write a Review"
+    }
+  },
   "admin": {
     "productform": {
       "category": "Category",
@@ -182,6 +216,9 @@
       "profile": "Profile",
       "edit_profile": "Edit Profile",
       "to_buy_list": "To Buy List",
+      "images": "Images",
+      "description": " Description",
+      "reviews": "Reviews",
       "fill_out_your_billing_address": "Fill out your Billing Address",
       "fill_out_your_address": "Fill out your address",
       "sucess": "Success",
@@ -196,7 +233,9 @@
     "product": {
       "add_to_cart": "Add To Cart",
       "quick_view": "Quick View",
+      "compare":"Compare",
       "back": "back",
+      "detail_view": "Detail view",
       "current_price": "Current Price",
       "description": "description",
       "review": "Review",
@@ -224,7 +263,9 @@
       "your_account": "your account",
       "your_orders": "your orders",
       "your_wish_list": "your wish-list",
-      "checkout_form": "checkout-form"
+      "checkout_form": "checkout-form",
+      "detail_view": "Detail view",
+      "product_comparison":"Product Comparsion"
     }
   }
 }

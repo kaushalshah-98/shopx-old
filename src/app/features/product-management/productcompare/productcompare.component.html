@@ -1,5 +1,5 @@
 <app-navbar [isHidden]="true"></app-navbar>
-<app-jumbotron [Heading]="'user.main_heading.your_account'"></app-jumbotron>
+<app-jumbotron [Heading]="'user.main_heading.product_comparison'"></app-jumbotron>
 <app-spinner
   *ngIf="dimmed"
   style="position: absolute;left: 50%;top: 50%;"
@@ -24,7 +24,9 @@
                   </div>
                   <br />
                   <div class="compare-actions">
-                    <button color="accent" mat-raised-button>Add To Cart</button>
+                    <button color="accent" mat-raised-button>
+                      {{'user.product.add_to_cart' |translate}}
+                    </button>
                     &nbsp;&nbsp;
                     <button color="warn" class="cancel" (click)="remove(item)" mat-raised-button>
                       <mat-icon>close</mat-icon>
