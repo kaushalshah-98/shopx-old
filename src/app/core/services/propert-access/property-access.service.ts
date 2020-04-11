@@ -8,5 +8,5 @@ export class PropertyAccessService {
   public height = new BehaviorSubject<number>(405);
   public nightmode = new BehaviorSubject<boolean>(null);
   public fullscreen: boolean;
-  constructor() { }
+  constructor() {}
 }

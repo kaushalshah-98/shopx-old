@@ -18,7 +18,7 @@ export class MenuitemsComponent implements OnInit {
 
   @HostBinding('attr.aria-expanded') ariaExpanded = this.expanded;
   step = 0;
-  constructor(public router: Router,private property: PropertyAccessService) {}
+  constructor(public router: Router, private property: PropertyAccessService) {}
 
   setStep(index: number) {
     this.step = index;

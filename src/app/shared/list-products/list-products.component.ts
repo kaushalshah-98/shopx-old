@@ -14,7 +14,11 @@ export class ListProductsComponent implements OnInit {
   totalprice;
   shipping;
   @Output() selectedMobile: EventEmitter<any> = new EventEmitter<any>();
-  constructor(private imagepopup: ImagePopupService, private view: QuickViewService,private property: PropertyAccessService) {}
+  constructor(
+    private imagepopup: ImagePopupService,
+    private view: QuickViewService,
+    private property: PropertyAccessService
+  ) {}
 
   ngOnInit() {}
   openBottomSheet(item) {

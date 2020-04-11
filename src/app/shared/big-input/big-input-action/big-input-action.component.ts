@@ -21,7 +21,7 @@ export class BigInputActionComponent {
   action = new EventEmitter<void>();
 
   hasFocus = false;
-  constructor(private property: PropertyAccessService) { }
+  constructor(private property: PropertyAccessService) {}
   onClick() {
     this.action.emit();
   }

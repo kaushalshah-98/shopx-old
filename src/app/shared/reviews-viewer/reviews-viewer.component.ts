@@ -13,7 +13,7 @@ export class ReviewsViewerComponent implements OnInit {
   reviewtext: FormControl = new FormControl('');
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   dimmed: boolean = false;
-  constructor(private property: PropertyAccessService) { }
+  constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {
     this.dataLoading.emit(false);

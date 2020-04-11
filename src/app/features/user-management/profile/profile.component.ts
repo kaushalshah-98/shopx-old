@@ -10,10 +10,11 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 export class ProfileComponent implements OnInit {
   paddingtop: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   selectedIndex: number;
-  constructor(private property: PropertyAccessService) { }
+  constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {
-this.fullscreenstatus(this.property.fullscreen);  }
+    this.fullscreenstatus(this.property.fullscreen);
+  }
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {
     this.selectedIndex = tabChangeEvent.index;
   }

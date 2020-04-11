@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
     <div class="chips">
       <mat-chip-list>
         <button mat-raised-button color="warn" (click)="compareitems()">
-          {{'user.product.compare' | translate}}
+          {{ 'user.product.compare' | translate }}
         </button>
         &nbsp;
         <mat-chip *ngFor="let mobile of mobiles" (removed)="remove(mobile)">
@@ -41,7 +41,7 @@ export class FetchSmartphonesComponent implements OnInit {
   products: any[];
   mobiles = [];
   dimmed: boolean = false;
-  constructor(private compare: ComparisonServiceService, private router: Router) { }
+  constructor(private compare: ComparisonServiceService, private router: Router) {}
 
   ngOnInit() {
     this.mobiles = this.compare.comparelist;

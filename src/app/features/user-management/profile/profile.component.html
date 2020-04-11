@@ -1,7 +1,4 @@
-<app-navbar
-  (IsFullscreen)="fullscreenstatus($event)"
-  [isHidden]="true"
-></app-navbar>
+<app-navbar (IsFullscreen)="fullscreenstatus($event)" [isHidden]="true"></app-navbar>
 <app-jumbotron [Heading]="'user.main_heading.your_account'"></app-jumbotron>
 <mat-tab-group [selectedIndex]="selectedIndex" (selectedTabChange)="tabChanged($event)">
   <mat-tab label="{{'user.form_heading.profile' | translate}}">

@@ -11,5 +11,9 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 export class LeftPanelContainer {
   @Input() menuItems: IMenu[];
   userdata: any;
-  constructor(private userservice: UserManagementService, private role: RoleService, private property: PropertyAccessService) { }
+  constructor(
+    private userservice: UserManagementService,
+    private role: RoleService,
+    private property: PropertyAccessService
+  ) {}
 }

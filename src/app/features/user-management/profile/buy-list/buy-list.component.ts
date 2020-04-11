@@ -17,7 +17,7 @@ export class BuyListComponent implements OnInit {
   list = [];
   buylist = [];
   dimmed: boolean;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.list = [
@@ -61,7 +61,6 @@ export class BuyListComponent implements OnInit {
       this.buylist.push(item);
       this.onClear();
     }, 1000);
-
   }
   onClear() {
     this.inputvalue = '';
@@ -81,7 +80,6 @@ export class BuyListComponent implements OnInit {
       this.buylist = this.list;
       this.isSelected = true;
     }, 1000);
-
   }
   onFilter(filter) {
     switch (filter) {

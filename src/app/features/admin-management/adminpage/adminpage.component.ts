@@ -10,7 +10,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 export class AdminpageComponent implements OnInit {
   menuItems: IMenu[];
 
-  constructor(private property: PropertyAccessService) { }
+  constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {
     this.fullscreenstatus(this.property.fullscreen);

@@ -1,7 +1,4 @@
-<app-navbar
-  (IsFullscreen)="fullscreenstatus($event)"
-  [isHidden]="true"
-></app-navbar>
+<app-navbar (IsFullscreen)="fullscreenstatus($event)" [isHidden]="true"></app-navbar>
 <app-jumbotron [Heading]="'user.main_heading.checkout_form'"></app-jumbotron>
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
   <mat-step>

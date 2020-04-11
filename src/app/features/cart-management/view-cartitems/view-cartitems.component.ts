@@ -28,7 +28,7 @@ export class ViewCartitemsComponent implements OnInit {
     private dialog: ConfirmDialogService,
     private view: QuickViewService,
     private property: PropertyAccessService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.fullscreenstatus(this.property.fullscreen);
@@ -45,10 +45,10 @@ export class ViewCartitemsComponent implements OnInit {
   quickview(item) {
     this.view.showQuickview(item);
   }
-  addToWishlit() { }
+  addToWishlit() {}
   updateCart(qty, cartitem) {
     this.dimmed = true;
-    this.dataLoading.emit(true)
+    this.dataLoading.emit(true);
     setTimeout(() => {
       this.dataLoading.emit(false);
       this.dimmed = false;
@@ -62,7 +62,7 @@ export class ViewCartitemsComponent implements OnInit {
       .subscribe((result) => {
         if (result === 'yes') {
           this.dimmed = true;
-          this.dataLoading.emit(true)
+          this.dataLoading.emit(true);
           setTimeout(() => {
             this.dataLoading.emit(false);
             this.dimmed = false;

@@ -17,10 +17,11 @@ export class ContactComponent implements OnInit {
   contactform: FormGroup;
   padding: number = 40;
 
-  constructor(private formBuilder: FormBuilder, private property: PropertyAccessService) { }
+  constructor(private formBuilder: FormBuilder, private property: PropertyAccessService) {}
 
   ngOnInit() {
-this.fullscreenstatus(this.property.fullscreen);    this.initializeform();
+    this.fullscreenstatus(this.property.fullscreen);
+    this.initializeform();
   }
   initializeform() {
     this.contactform = this.formBuilder.group({
@@ -44,7 +45,7 @@ this.fullscreenstatus(this.property.fullscreen);    this.initializeform();
     return this.contactform.controls[controlName].hasError(errorName);
   }
   fullscreenstatus(event) {
-    if (event)  this.padding = 100
+    if (event) this.padding = 100;
     else this.padding = 40;
   }
 }
