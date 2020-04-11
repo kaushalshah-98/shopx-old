@@ -1,4 +1,5 @@
 @import './../../../assets/css/variable';
+@import './../../../assets/css/var';
 
 .c-site-left-panel-inner {
   padding-top: 95px;
@@ -102,6 +103,52 @@
             margin: 0;
             padding: 0;
             list-style: none;
+          }
+        }
+      }
+    }
+  }
+}
+.dark-c-site-left-panel-inner {
+  .c-site-left-panel-profile {
+    .c-site-left-panel-profile-photo {
+      border: 1px solid map-get($global-color, neutral-lightest);
+    }
+
+    .c-site-left-panel-profile-text {
+      a {
+        color: map-get($map: $global-color, $key: neutral-light);
+        &:hover {
+          color: map-get($map: $global-color, $key: blueberry);
+        }
+      }
+    }
+  }
+
+  .c-site-left-panel-menu {
+    ::ng-deep .c-site-left-panel-menu-filter {
+      margin: 0 20px;
+      @include search-filter;
+    }
+    .mat-accordion .mat-expansion-panel:not([class*='mat-elevation-z']) {
+      box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.06), 1px 1px 6px rgba(255, 255, 255, 0.09) !important;
+    }
+    .mat-accordion {
+      .mat-expansion-panel {
+        border-radius: map-get($map: $border-radius, $key: r0);
+        mat-expansion-panel-header {
+          background-color: $darkgray;
+          .mat-expansion-panel-header-title {
+            mat-icon {
+              color: wheat !important;
+            }
+          }
+          &.mat-expanded {
+            background-color: $darkgray;
+          }
+
+          .mat-expansion-indicator::after {
+            color: $white !important;
           }
         }
       }

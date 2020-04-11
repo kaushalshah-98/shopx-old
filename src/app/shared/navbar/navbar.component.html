@@ -1,4 +1,7 @@
-<mat-toolbar class="nav-bar" color="primary">
+<mat-toolbar
+  class="nav-bar"
+  [ngClass]="{'nav-bar': true , 'black-nav-bar' :( property.nightmode | async)}"
+>
   <mat-toolbar-row>
     <button
       id="btnLeftPanel"

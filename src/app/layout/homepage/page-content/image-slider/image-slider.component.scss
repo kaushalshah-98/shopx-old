@@ -1,3 +1,4 @@
+@import '../../../../../assets/css/var.scss';
 .carousel-item {
   height: 300px;
   background: #ccc;
@@ -28,5 +29,10 @@
       width: 100%;
       height: 100%;
     }
+  }
+}
+.dark-card-container {
+  .img-card {
+    background-color: $darkgray;
   }
 }

@@ -115,6 +115,7 @@
           border: 3px solid #28a745;
           color: #28a745;
           &:hover {
+            cursor: pointer;
             color: white;
             background-color: #28a745;
           }
@@ -124,8 +125,8 @@
           border: 3px solid #33b5e5;
           // color: #3f51b5;
           color: #33b5e5;
-          cursor: pointer;
           &:hover {
+            cursor: pointer;
             color: white;
             // background-color: #3f51b5;
             background-color: #33b5e5;
@@ -135,6 +136,7 @@
           color: #3f51b5c4;
           border: 3px solid #3f51b5c4;
           &:hover {
+            cursor: pointer;
             color: white;
             background-color: #3f51b5;
           }
@@ -143,6 +145,7 @@
           color: #f44336d9;
           border: 3px solid #f44336d9;
           &:hover {
+            cursor: pointer;
             color: white;
             background-color: #f44336;
           }

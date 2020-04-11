@@ -1,4 +1,7 @@
-<mat-toolbar class="footer" [ngStyle]="{position: position}">
+<mat-toolbar
+  [ngClass]="{'footer': true , 'dark-footer' :( property.nightmode | async)}"
+  [ngStyle]="{position: position}"
+>
   <mat-toolbar-row>
     <span>© 2020</span>
     <span class="signature">

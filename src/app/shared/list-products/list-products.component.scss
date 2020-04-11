@@ -120,3 +120,42 @@
     }
   }
 }
+
+.dark-containerr {
+  .product-card {
+    border: 1px solid;
+    box-shadow: 0px 4px 14px 0px rgba(255, 255, 255, 0.1);
+    color: $white;
+    background-color: $darkgray;
+    &:hover {
+      border: 2px solid;
+      box-shadow: 0 5px 5px -3px rgba(255, 255, 255, 0.3), 0 8px 10px 1px rgba(255, 255, 255, 0.34),
+        0 3px 14px 2px rgba(255, 255, 255, 0.32);
+    }
+    .wishlist-icon {
+      .mat-icon {
+        color: $raspberry !important;
+      }
+    }
+    .mat-icon-button {
+      color: $white;
+    }
+    .compare-icon {
+      .mat-icon {
+        color: $raspberry !important;
+      }
+    }
+    .mat-card-actions {
+      .mat-raised-button {
+        &.add-to-cart-btn {
+          background-color: $blue !important;
+          color: $white;
+        }
+        &.quick-view-btn {
+          background-color: $darkpink !important;
+          // color: $black !important;
+        }
+      }
+    }
+  }
+}

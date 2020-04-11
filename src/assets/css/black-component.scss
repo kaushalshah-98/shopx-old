@@ -1,0 +1,117 @@
+@import './var.scss';
+
+.dark-space-medium {
+  .showcase-block {
+    background-color: $cardgray !important;
+    &:hover {
+      // border: 1px solid $white;
+      background-color: $darkgray !important;
+      // box-shadow: 0 5px 5px -3px rgba(255, 255, 255, 0.2), 0 8px 10px 1px rgba(255, 255, 255, 0.14),
+      //   0 3px 14px 2px rgba(255, 255, 255, 0.12) !important;
+    }
+    .display-text {
+      color: $white !important;
+      &:hover {
+        color: wheat !important;
+      }
+    }
+  }
+}
+.dark-input-template {
+  background-color: $darkergray;
+  .input-card {
+    color: $white;
+    background-color: $cardgray;
+    &.mat-card {
+      .mat-card-header {
+        // background-color: rgb(54, 54, 54);
+        background-color: $blueberry;
+        .mat-card-title {
+          color: $white;
+        }
+      }
+      .mat-raised-button {
+        width: 72%;
+        height: 45px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        font-size: 18px;
+      }
+      .signin-btn {
+        border: 3px solid #28a745;
+        color: #28a745;
+        &:hover {
+          color: white;
+          background-color: #28a745;
+        }
+      }
+      .blue-btn {
+        border: 2px solid $white;
+        color: $white;
+        &:hover {
+          color: white;
+          background-color: $blueberry;
+        }
+      }
+      .facebook-btn {
+        color: #3f51b5c4;
+        border: 3px solid #3f51b5c4;
+        &:hover {
+          color: white;
+          background-color: #3f51b5;
+        }
+      }
+      .google-btn {
+        color: #f44336d9;
+        border: 3px solid #f44336d9;
+        &:hover {
+          color: white;
+          background-color: #f44336;
+        }
+      }
+
+      .input-text {
+        .forgot-text {
+          color: cadetblue;
+        }
+      }
+    }
+    .input-form {
+      .mat-select-value {
+        color: rgba(255, 255, 255, 0.87) !important;
+      }
+      .mat-form-field.mat-focussed.mat-form-field-ripple {
+        background-color: $darkpurple !important;
+      }
+      .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+        color: rgba(255, 255, 255, 0.87) !important;
+      }
+      .mat-form-field-appearance-outline .mat-form-field-outline {
+        color: rgba(255, 255, 255, 0.52) !important;
+      }
+      .mat-form-field.mat-focussed.mat-form-field-ripple {
+        background-color: $darkpurple !important;
+      }
+      .mat-input-element::placeholder {
+        color: rgba(255, 255, 255, 0.7) !important;
+      }
+      .input-full-width {
+        margin-bottom: 10px;
+        width: 100%;
+        .mat-input-element {
+          margin-top: 1em;
+          caret-color: $darkpurple !important;
+        }
+        .mat-form-field-label {
+          color: rgba(255, 255, 255, 0.7) !important;
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+.dark-white-scroll-btn {
+  background-color: $blueberry !important;
+  color: $white !important;
+  // box-shadow: 0 0 22px $white !important;
+}

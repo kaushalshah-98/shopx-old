@@ -1,4 +1,4 @@
-<div class="containerr">
+<div [ngClass]="{'containerr':true, 'dark-containerr' :( property.nightmode | async)}">
   <div class="roww">
     <div class="one-part">
       <h2>
@@ -27,7 +27,7 @@
                       <h4>{{item.name}}</h4>
 
                       <p class="item-price"><b>{{item.price}}</b></p>
-                      <a class="btn btn-primary">{{'user.product.add_to_cart' | translate }}</a>
+                      <button class="btn" mat-raised-button>{{'user.product.add_to_cart' | translate }}</button>
                     </div>
                   </mat-card>
                 </div>
@@ -47,7 +47,7 @@
                       <h4>{{item.name}}</h4>
 
                       <p class="item-price"><b>{{item.price}}</b></p>
-                      <a class="btn btn-primary">{{'user.product.add_to_cart' | translate }}</a>
+                      <button class="btn" mat-raised-button>{{'user.product.add_to_cart' | translate }}</button>
                     </div>
                   </mat-card>
                 </div>
@@ -67,7 +67,7 @@
                       <h4>{{item.name}}</h4>
 
                       <p class="item-price"><b>{{item.price}}</b></p>
-                      <a class="btn btn-primary">{{'user.product.add_to_cart' | translate }}</a>
+                      <button class="btn" mat-raised-button>{{'user.product.add_to_cart' | translate }}</button>
                     </div>
                   </mat-card>
                 </div>

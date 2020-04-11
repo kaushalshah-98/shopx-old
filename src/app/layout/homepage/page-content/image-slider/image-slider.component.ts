@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-image-slider',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ImageSliderComponent implements OnInit {
   @Input() items_slider1;
   @Input() items_slider2;
-  constructor() {}
+  constructor(private property: PropertyAccessService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

@@ -1,4 +1,4 @@
-<div class="containerr">
+<div [ngClass]="{'containerr': true , 'dark-containerr' :( property.nightmode | async)}">
   <div class="product-list">
     <div class="roww">
       <div class="three six" *ngFor="let item of productitems index as i">

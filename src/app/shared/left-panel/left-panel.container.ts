@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { UserManagementService } from '@services/user-service/user-management.service';
 import { RoleService } from '@services/role-service/role.service';
 import { IMenu } from '@shared/interfaces';
@@ -6,7 +6,8 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 @Component({
   selector: 'app-left-panel-container',
   templateUrl: './left-panel.container.html',
-  styleUrls: ['./left-panel.container.scss']
+  styleUrls: ['./left-panel.container.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LeftPanelContainer {
   @Input() menuItems: IMenu[];
@@ -15,5 +16,5 @@ export class LeftPanelContainer {
     private userservice: UserManagementService,
     private role: RoleService,
     private property: PropertyAccessService
-  ) {}
+  ) { }
 }

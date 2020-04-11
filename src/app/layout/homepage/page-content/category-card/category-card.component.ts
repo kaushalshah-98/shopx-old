@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-category-card',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CategoryCardComponent implements OnInit {
   @Input() items_category1;
   @Input() items_category2;
-  constructor() {}
+  constructor(private property: PropertyAccessService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

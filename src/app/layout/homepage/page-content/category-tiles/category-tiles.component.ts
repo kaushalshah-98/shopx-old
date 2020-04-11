@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-category-tiles',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CategoryTilesComponent implements OnInit {
   @Input() categoryitems;
-  constructor() {}
+  constructor(private property: PropertyAccessService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

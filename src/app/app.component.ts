@@ -1,18 +1,18 @@
 import { Component, ViewEncapsulation, HostListener } from '@angular/core';
 import defaultLanguage from '../assets/i18n/en.json';
 import { TranslateService } from '@ngx-translate/core';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
   title = 'SHOPX';
   isShow: boolean;
   topPosToStartShowing = 20;
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, private property: PropertyAccessService) {
     translate.setTranslation('en', defaultLanguage);
     translate.setDefaultLang('en');
   }

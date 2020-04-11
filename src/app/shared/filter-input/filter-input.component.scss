@@ -25,3 +25,37 @@
     }
   }
 }
+.dark-filter-input {
+  color: $white !important;
+  .filter-btn {
+    background-color: $darkblue;
+    color: $white;
+    .mat-icon {
+      color: $white !important;
+    }
+  }
+  .mat-select-value {
+    color: rgba(255, 255, 255, 0.87) !important;
+  }
+  .mat-form-field.mat-focussed.mat-form-field-ripple {
+    background-color: $darkpurple !important;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: rgba(255, 255, 255, 0.87) !important;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgba(255, 255, 255, 0.52) !important;
+  }
+  .mat-form-field.mat-focussed.mat-form-field-ripple {
+    background-color: $darkpurple !important;
+  }
+  .mat-input-element {
+    caret-color: $darkpurple !important;
+  }
+  .mat-form-field-label {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  .mat-input-element::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+}

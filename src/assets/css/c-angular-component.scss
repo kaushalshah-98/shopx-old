@@ -127,9 +127,9 @@
       margin-bottom: 15px !important;
     }
 
-    &:not([class*='mat-elevation-z']) {
-      @include angular-shadow-1;
-    }
+    // &:not([class*='mat-elevation-z']) {
+    //   @include angular-shadow-1;
+    // }
 
     .mat-expansion-panel-header {
       padding: 0 24px 0 15px;

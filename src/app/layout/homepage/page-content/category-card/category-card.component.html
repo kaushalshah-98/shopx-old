@@ -1,4 +1,4 @@
-<div class="space-medium">
+<div [ngClass]="{'space-medium':true, 'dark-space-medium' :( property.nightmode | async)}">
   <div class="containerr">
     <div class="roww">
       <div class="two-part" *ngFor="let item of items_category1">

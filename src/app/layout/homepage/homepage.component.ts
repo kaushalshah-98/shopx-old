@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { IMenu } from '@shared/interfaces';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss']
+  styleUrls: ['./homepage.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HomepageComponent implements OnInit {
   // go to top
   menuItems: IMenu[];
-  constructor() {}
+  constructor(private property: PropertyAccessService) { }
 
   ngOnInit() {
     this.menuItems = [

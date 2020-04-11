@@ -1,4 +1,7 @@
-<div class="c-site-left-panel-inner" id="divLeftPanelInner">
+<div
+  [ngClass]="{'c-site-left-panel-inner': true , 'dark-c-site-left-panel-inner' :( property.nightmode | async)}"
+  id="divLeftPanelInner"
+>
   <div class="c-site-left-panel-profile" id="divLeftPanelProfile">
     <div class="c-site-left-panel-profile-photo" id="divPhoto">
       <img

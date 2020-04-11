@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-content',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-  constructor() {}
+  constructor(private property: PropertyAccessService) { }
 
   ngOnInit() {}
 }

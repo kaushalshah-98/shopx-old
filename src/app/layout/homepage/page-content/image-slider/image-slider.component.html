@@ -1,4 +1,4 @@
-<div class="card-container">
+<div [ngClass]="{'card-container':true, 'dark-card-container' :( property.nightmode | async)}">
   <mat-card class="img-card">
     <img
       class="card-image"

@@ -1,5 +1,5 @@
 <mat-expansion-panel
-  class="nav-menu-list"
+  [ngClass]="{'nav-menu-list': !( property.nightmode | async) , 'dark-nav-menu-list' :( property.nightmode | async)}"
   [disabled]="!item.childs"
   [expanded]="step === depth"
   (opened)="setStep(depth)"

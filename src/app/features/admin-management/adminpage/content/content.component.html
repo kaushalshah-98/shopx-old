@@ -1,5 +1,5 @@
 <app-jumbotron [Heading]="'admin.main_heading.admin_management'"></app-jumbotron>
-<div class="space-medium">
+<div [ngClass]="{'space-medium':true, 'dark-space-medium' :( property.nightmode | async)}">
   <div class="containerr">
     <div class="roww">
       <div class="one-part">

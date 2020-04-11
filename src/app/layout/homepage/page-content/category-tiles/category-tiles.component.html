@@ -1,4 +1,8 @@
-<div class="wrap" fxLayout="row" fxLayoutAlign="start">
+<div
+  [ngClass]="{'wrap':true, 'dark-wrap' :( property.nightmode | async)}"
+  fxLayout="row"
+  fxLayoutAlign="start"
+>
   <div fxFlex="33.3%" class="product-list" *ngFor="let item of categoryitems">
     <mat-card class="review-card text-center">
       <img class="review-card-img" src="{{ item.image }}" />
