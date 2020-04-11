@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-contact',
@@ -14,10 +15,14 @@ export class ContactComponent implements OnInit {
     { name: 'feedback' }
   ];
   contactform: FormGroup;
+  padding: number = 40;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private property: PropertyAccessService) { }
 
   ngOnInit() {
+this.fullscreenstatus(this.property.fullscreen);    this.initializeform();
+  }
+  initializeform() {
     this.contactform = this.formBuilder.group({
       // usernameFormControl: ['', [Validators.required]],
       messageFormControl: ['', [Validators.required]],
@@ -37,5 +42,9 @@ export class ContactComponent implements OnInit {
   }
   public hasError(controlName: string, errorName: string) {
     return this.contactform.controls[controlName].hasError(errorName);
+  }
+  fullscreenstatus(event) {
+    if (event)  this.padding = 100
+    else this.padding = 40;
   }
 }

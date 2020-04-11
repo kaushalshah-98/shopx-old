@@ -32,7 +32,6 @@ export class NavbarComponent implements OnInit {
   username: string;
   elem;
   value: boolean;
-  fullscreen: boolean = false;
   currentLanguage: string;
   optionmenu: any;
   constructor(
@@ -112,11 +111,11 @@ export class NavbarComponent implements OnInit {
     }
   }
   getText() {
-    return this.fullscreen ? 'fullscreen_exit' : 'fullscreen';
+    return this.property.fullscreen ? 'fullscreen_exit' : 'fullscreen';
   }
   configureFullscreen() {
-    this.fullscreen = !this.fullscreen;
-    if (!this.fullscreen) {
+    this.property.fullscreen = !this.property.fullscreen;
+    if (!this.property.fullscreen) {
       this.IsFullscreen.emit(false);
       if (this.document.exitFullscreen) {
         this.document.exitFullscreen();

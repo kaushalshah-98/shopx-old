@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material';
 import { Subject, BehaviorSubject } from 'rxjs';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -9,10 +10,10 @@ import { Subject, BehaviorSubject } from 'rxjs';
 export class ProfileComponent implements OnInit {
   paddingtop: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   selectedIndex: number;
-  constructor() {}
+  constructor(private property: PropertyAccessService) { }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+this.fullscreenstatus(this.property.fullscreen);  }
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {
     this.selectedIndex = tabChangeEvent.index;
   }

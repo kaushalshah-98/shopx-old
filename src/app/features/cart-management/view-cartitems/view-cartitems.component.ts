@@ -5,6 +5,7 @@ import { MatSort, MatTableDataSource } from '@angular/material';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 import { CartItem } from '@shared/interfaces';
 import { FormControl, Validators } from '@angular/forms';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-view-cartitems',
@@ -25,11 +26,12 @@ export class ViewCartitemsComponent implements OnInit {
   constructor(
     private sweetalert: SweetmessageService,
     private dialog: ConfirmDialogService,
-    private view: QuickViewService
-  ) {}
+    private view: QuickViewService,
+    private property: PropertyAccessService
+  ) { }
 
   ngOnInit() {
-    this.quantityformcontrol = new FormControl('', Validators.required);
+this.fullscreenstatus(this.property.fullscreen);    this.quantityformcontrol = new FormControl('', Validators.required);
     this.initializeCart();
   }
   initializeCart() {
@@ -42,7 +44,7 @@ export class ViewCartitemsComponent implements OnInit {
   quickview(item) {
     this.view.showQuickview(item);
   }
-  addToWishlit() {}
+  addToWishlit() { }
   updateCart(qty, cartitem) {
     this.dimmed = true;
     setTimeout(() => {

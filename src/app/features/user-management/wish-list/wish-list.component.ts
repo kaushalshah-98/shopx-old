@@ -3,6 +3,7 @@ import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.serv
 import { MatSort, MatTableDataSource } from '@angular/material';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 import { ProductItem } from '@shared/interfaces';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-wish-list',
@@ -15,9 +16,10 @@ export class WishListComponent implements OnInit {
   displayedColumns: string[] = ['image', 'name', 'price', 'action', 'delete'];
   dataSource;
   height: number = 320;
-  constructor(private dialog: ConfirmDialogService, private view: QuickViewService) {}
+  constructor(private dialog: ConfirmDialogService, private view: QuickViewService, private property: PropertyAccessService) { }
 
   ngOnInit() {
+    this.fullscreenstatus(this.property.fullscreen);
     this.initializeWishList();
   }
   initializeWishList() {
@@ -36,7 +38,7 @@ export class WishListComponent implements OnInit {
         }
       });
   }
-  addTocart(qty, item) {}
+  addTocart(qty, item) { }
   emptywishList() {
     this.dialog
       .showConfirmDialog('confirm.are_you_sure_want_to_clear_your_list')

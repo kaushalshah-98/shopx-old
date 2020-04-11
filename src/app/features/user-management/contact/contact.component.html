@@ -1,5 +1,5 @@
-<app-navbar [isHidden]="true"></app-navbar>
-<div class="input-template">
+<app-navbar (IsFullscreen)="fullscreenstatus($event)" [isHidden]="true"></app-navbar>
+<div class="input-template" [ngStyle]="{'padding-top': padding + 'px'}">
   <mat-card class="input-card box-elevation-z8">
     <mat-card-header>
       <mat-card-title>Contact Us</mat-card-title>
