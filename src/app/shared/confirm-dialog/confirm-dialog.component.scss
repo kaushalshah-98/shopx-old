@@ -3,11 +3,11 @@
 .whiteDialogAction {
   float: right;
 
-  #btnYes {
+  .btnYes {
     color: $white;
     background-color: $darkblue;
   }
-  #btnNo {
+  .btnNo {
     color: $white;
     background-color: $red;
   }
