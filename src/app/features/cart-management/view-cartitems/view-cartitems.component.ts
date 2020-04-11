@@ -31,7 +31,8 @@ export class ViewCartitemsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-this.fullscreenstatus(this.property.fullscreen);    this.quantityformcontrol = new FormControl('', Validators.required);
+    this.fullscreenstatus(this.property.fullscreen);
+    this.quantityformcontrol = new FormControl('', Validators.required);
     this.initializeCart();
   }
   initializeCart() {
@@ -47,6 +48,7 @@ this.fullscreenstatus(this.property.fullscreen);    this.quantityformcontrol = n
   addToWishlit() { }
   updateCart(qty, cartitem) {
     this.dimmed = true;
+    this.dataLoading.emit(true)
     setTimeout(() => {
       this.dataLoading.emit(false);
       this.dimmed = false;
@@ -60,6 +62,7 @@ this.fullscreenstatus(this.property.fullscreen);    this.quantityformcontrol = n
       .subscribe((result) => {
         if (result === 'yes') {
           this.dimmed = true;
+          this.dataLoading.emit(true)
           setTimeout(() => {
             this.dataLoading.emit(false);
             this.dimmed = false;

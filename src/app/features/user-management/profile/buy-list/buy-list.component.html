@@ -1,3 +1,5 @@
+<app-spinner [loading]="dataLoading" class="spinner"></app-spinner>
+
 <div
   class="big-input-container"
   [ngStyle]="{'padding-top': ((paddingtop | async) >0 ?((paddingtop | async)-35) :0)  +'px'}"
@@ -37,7 +39,6 @@
       </div>
     </app-big-input>
   </div>
-  <app-spinner [loading]="dataLoading"></app-spinner>
   <ng-container *ngIf="list && show">
     <div class="buy-card-container">
       <div class="filter-btn">
@@ -71,7 +72,7 @@
         </mat-menu>
       </div>
       <br />
-      <div class="roww">
+      <div class="roww" [ngClass]="{dimmed: dimmed}">
         <div class="two-part" *ngFor="let item of buylist">
           <mat-card class="todo">
             <mat-checkbox

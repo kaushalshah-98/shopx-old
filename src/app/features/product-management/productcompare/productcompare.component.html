@@ -1,10 +1,7 @@
 <app-navbar [isHidden]="true"></app-navbar>
 <app-jumbotron [Heading]="'user.main_heading.product_comparison'"></app-jumbotron>
-<app-spinner
-  *ngIf="dimmed"
-  style="position: absolute;left: 50%;top: 50%;"
-  [loading]="dataLoading"
-></app-spinner>
+<app-spinner [loading]="dataLoading" *ngIf="dimmed" class="spinner"></app-spinner>
+
 <div [ngClass]="{ dimmed: dimmed }">
   <div class="space-medium">
     <div class="containerr">

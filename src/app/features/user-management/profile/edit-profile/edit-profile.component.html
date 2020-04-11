@@ -18,11 +18,8 @@
           </mat-card>
   </div>
   <div class="col-lg-6"> -->
-<app-spinner
-  *ngIf="dimmed"
-  style="position: absolute;z-index: 999;left: 50%; top: 35%;"
-  [loading]="dataLoading"
-></app-spinner>
+<app-spinner [loading]="dataLoading" class="spinner"></app-spinner>
+
 <div
   class="profile-container"
   [ngClass]="{dimmed: dimmed}"

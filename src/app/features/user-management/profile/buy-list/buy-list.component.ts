@@ -16,7 +16,8 @@ export class BuyListComponent implements OnInit {
   inputvalue: string = '';
   list = [];
   buylist = [];
-  constructor() {}
+  dimmed: boolean;
+  constructor() { }
 
   ngOnInit() {
     this.list = [
@@ -51,9 +52,16 @@ export class BuyListComponent implements OnInit {
     }
   }
   onAddToBuyList() {
-    let item = { name: this.inputvalue, done: false };
-    this.buylist.push(item);
-    this.onClear();
+    this.dimmed = true;
+    this.dataLoading.emit(true);
+    setTimeout(() => {
+      this.dimmed = false;
+      this.dataLoading.emit(false);
+      let item = { name: this.inputvalue, done: false };
+      this.buylist.push(item);
+      this.onClear();
+    }, 1000);
+
   }
   onClear() {
     this.inputvalue = '';
@@ -64,9 +72,16 @@ export class BuyListComponent implements OnInit {
     this.check();
   }
   onRemoveItem() {
-    this.list = this.list.filter((item) => !item.done === true);
-    this.buylist = this.list;
-    this.isSelected = true;
+    this.dimmed = true;
+    this.dataLoading.emit(true);
+    setTimeout(() => {
+      this.dimmed = false;
+      this.dataLoading.emit(false);
+      this.list = this.list.filter((item) => !item.done === true);
+      this.buylist = this.list;
+      this.isSelected = true;
+    }, 1000);
+
   }
   onFilter(filter) {
     switch (filter) {

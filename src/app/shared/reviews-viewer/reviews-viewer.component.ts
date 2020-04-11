@@ -12,8 +12,8 @@ export class ReviewsViewerComponent implements OnInit {
   reviews: ProductReview[];
   reviewtext: FormControl = new FormControl('');
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
-
-  constructor(private property: PropertyAccessService) {}
+  dimmed: boolean = false;
+  constructor(private property: PropertyAccessService) { }
 
   ngOnInit() {
     this.dataLoading.emit(false);
@@ -29,8 +29,10 @@ export class ReviewsViewerComponent implements OnInit {
     this.totalreviewcount = this.reviews.length;
   }
   addreview() {
+    this.dimmed = true;
     this.dataLoading.emit(true);
     setTimeout(() => {
+      this.dimmed = false;
       this.dataLoading.emit(false);
       let item = { username: 'DEFAULT', name: 'DEFAULT', review: this.reviewtext.value };
       this.reviews.unshift(item);
@@ -48,8 +50,10 @@ export class ReviewsViewerComponent implements OnInit {
     return false;
   }
   deletereview(review) {
+    this.dimmed = true;
     this.dataLoading.emit(true);
     setTimeout(() => {
+      this.dimmed = false;
       this.dataLoading.emit(false);
       this.reviews = this.reviews.filter(
         (item) => !(item.review === review.review && item.username === review.username)

@@ -1,4 +1,5 @@
 <app-jumbotron [Heading]="'admin.main_heading.all_products'"></app-jumbotron>
+<app-spinner [loading]="dataLoading" class="spinner"></app-spinner>
 <div class="outer-wrap">
   <mat-card class="display-products-card">
     <mat-card-content>
@@ -25,7 +26,6 @@
         </mat-form-field>
         <mat-divider></mat-divider>
         <ng-container>
-          <app-spinner [loading]="dataLoading"></app-spinner>
           <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
             <ng-container matColumnDef="image">
               <th mat-header-cell mat-sort-header *matHeaderCellDef>

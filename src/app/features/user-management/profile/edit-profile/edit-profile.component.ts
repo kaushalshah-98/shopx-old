@@ -25,7 +25,7 @@ export class EditProfileComponent implements OnInit {
     private dialog: ConfirmDialogService,
     private userservice: UserManagementService,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
   ngOnInit() {
     this.initializeform();
     this.userdata = this.userservice.getUserData();
@@ -66,6 +66,7 @@ export class EditProfileComponent implements OnInit {
   }
   save() {
     this.dimmed = true;
+    this.dataLoading.emit(true)
     setTimeout(() => {
       this.dataLoading.emit(false);
       this.dimmed = false;
