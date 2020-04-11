@@ -8,7 +8,8 @@
               <div class="wishlist-icon">
                 <button
                   mat-icon-button
-                  matTooltip="add to wishlist"
+                  matTooltip="{{'tooltip.add_to_wishlist' | translate}}"
+                  [matTooltipShowDelay]="300"
                   matTooltipPosition="above"
                   (click)="addToWishlit(item)"
                 >
@@ -18,8 +19,9 @@
               <div class="compare-icon">
                 <ng-container *ngIf="compare">
                   <button
-                    matTooltip="add to compare"
+                    matTooltip="{{'tooltip.add_to_compare' | translate}}"
                     matTooltipPosition="above"
+                    [matTooltipShowDelay]="300"
                     mat-icon-button
                     color="warn"
                     (click)="addtocompare(item)"

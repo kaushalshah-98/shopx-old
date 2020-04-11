@@ -1,7 +1,4 @@
-<app-navbar
-  (IsFullscreen)="fullscreenstatus($event)"
-  [isHidden]="true"
-></app-navbar>
+<app-navbar (IsFullscreen)="fullscreenstatus($event)" [isHidden]="true"></app-navbar>
 <app-jumbotron [Heading]="'user.main_heading.your_wish_list'"></app-jumbotron>
 <div class="table-wrapper">
   <mat-table
@@ -53,7 +50,7 @@
         <button
           mat-raised-button
           color="primary"
-          matTooltip="quickview"
+          matTooltip="{{'tooltip.quick_view' | translate}}"
           matTooltipPosition="right"
           [matTooltipShowDelay]="500"
           (click)="quickview(element)"

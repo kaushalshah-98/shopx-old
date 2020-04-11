@@ -29,11 +29,16 @@
     "delete_item": "Delete a Item",
     "update": "Update",
     "delete": "Delete",
+    "quick_view": "Quick View",
     "empty_cart": "Empty the Cart",
     "add_to_cart": "Add To Cart",
+    "add_to_wishlist": "Add To Wishlist",
+    "add_to_compare": "Add To Compare List",
     "clear_list": "Clear List",
     "dispatch": "dispatch",
     "cancel": "Cancel",
+    "show":"Show",
+    "hide":"Hide",
 
     "block": "Block",
     "view": "View",
@@ -233,7 +238,7 @@
     "product": {
       "add_to_cart": "Add To Cart",
       "quick_view": "Quick View",
-      "compare":"Compare",
+      "compare": "Compare",
       "back": "back",
       "detail_view": "Detail view",
       "current_price": "Current Price",
@@ -265,7 +270,7 @@
       "your_wish_list": "your wish-list",
       "checkout_form": "checkout-form",
       "detail_view": "Detail view",
-      "product_comparison":"Product Comparsion"
+      "product_comparison": "Product Comparsion"
     }
   }
 }
