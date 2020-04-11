@@ -11,7 +11,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 export class HomepageComponent implements OnInit {
   // go to top
   menuItems: IMenu[];
-  constructor(private property: PropertyAccessService) { }
+  constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {
     this.menuItems = [

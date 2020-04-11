@@ -9,7 +9,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 export class CategoryCardComponent implements OnInit {
   @Input() items_category1;
   @Input() items_category2;
-  constructor(private property: PropertyAccessService) { }
+  constructor(private property: PropertyAccessService) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 }

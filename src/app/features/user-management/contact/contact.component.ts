@@ -5,7 +5,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
+  styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
   subject = [
@@ -17,7 +17,7 @@ export class ContactComponent implements OnInit {
   contactform: FormGroup;
   padding: number = 40;
 
-  constructor(private formBuilder: FormBuilder, private property: PropertyAccessService) { }
+  constructor(private formBuilder: FormBuilder, private property: PropertyAccessService) {}
 
   ngOnInit() {
     this.fullscreenstatus(this.property.fullscreen);

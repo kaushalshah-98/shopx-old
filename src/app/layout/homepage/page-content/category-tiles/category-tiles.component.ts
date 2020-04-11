@@ -8,7 +8,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 })
 export class CategoryTilesComponent implements OnInit {
   @Input() categoryitems;
-  constructor(private property: PropertyAccessService) { }
+  constructor(private property: PropertyAccessService) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 }
