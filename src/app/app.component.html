@@ -1,4 +1,6 @@
-<router-outlet></router-outlet>
+<body [ngClass]="{'dark-body': ( property.nightmode | async)}">
+  <router-outlet></router-outlet>
+</body>
 <button
   mat-fab
   *ngIf="isShow"

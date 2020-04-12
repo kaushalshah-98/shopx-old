@@ -1,0 +1,28 @@
+.mat-menu-panel {
+  background-color: $darkgray !important;
+  color: $white !important;
+  .mat-menu-item-highlighted:not([disabled]),
+  .mat-menu-item.cdk-keyboard-focused:not([disabled]),
+  .mat-menu-item.cdk-program-focused:not([disabled]),
+  .mat-menu-item:hover:not([disabled]) {
+    background: $grey !important;
+  }
+  .mat-menu-item {
+    color: $white !important;
+  }
+  .mat-menu-item .mat-icon-no-color, //aa important che main line
+  .mat-menu-item-submenu-trigger::after {
+    color: $white;
+  }
+}
+.mat-select-panel {
+  background-color: $darkgray !important;
+  color: $white !important;
+  .mat-option.mat-active {
+    background: $grey !important;
+    color: $purple !important;
+  }
+  .mat-option-text {
+    color: $white;
+  }
+}

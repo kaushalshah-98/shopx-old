@@ -1,5 +1,7 @@
 <app-navbar [isHidden]="true"></app-navbar>
-<div class="author-container">
+<div
+  [ngClass]="{'author-container': true , 'dark-author-container' :( property.nightmode | async)}"
+>
   <div class="eight-part">
     <h2>{{'shared.authors.creators' | translate}}</h2>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">

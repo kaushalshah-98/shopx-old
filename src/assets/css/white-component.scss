@@ -108,7 +108,14 @@
           top: 35px;
         }
       }
-      .mat-card-actions {
+      .mat-actions {
+        .mat-raised-button {
+          width: 72%;
+          height: 45px;
+          margin-bottom: 20px;
+          border-radius: 20px;
+          font-size: 18px;
+        }
         text-align: center;
         font-size: 10px;
         .signin-btn {
@@ -131,6 +138,12 @@
             // background-color: #3f51b5;
             background-color: #33b5e5;
           }
+          &:disabled {
+            &:hover {
+              color: $skyblue;
+              background-color: $darkcardgray;
+            }
+          }
         }
         .facebook-btn {
           color: #3f51b5c4;
@@ -150,14 +163,8 @@
             background-color: #f44336;
           }
         }
-        .mat-raised-button {
-          width: 72%;
-          height: 45px;
-          margin-bottom: 20px;
-          border-radius: 20px;
-          font-size: 18px;
-        }
       }
+
       .input-text {
         margin-top: -25px;
         text-align: center;

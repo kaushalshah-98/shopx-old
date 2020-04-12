@@ -7,7 +7,7 @@ import { ProductItem } from '@shared/interfaces';
       <app-jumbotron [Heading]="heading"></app-jumbotron>
       <app-filter-input (keyup)="onInputChanged($event.target.value)" (filter)="onFilter($event)">
       </app-filter-input>
-      <app-spinner [loading]="dataLoading"></app-spinner>
+      <app-spinner [loading]="dataLoading" class="centre-product-spinner"></app-spinner>
       <div [ngClass]="{ dimmed: dimmed }">
         <app-list-products [productitems]="products"></app-list-products>
       </div>
