@@ -126,3 +126,88 @@
   color: $white !important;
   // box-shadow: 0 0 22px $white !important;
 }
+.dark-chips {
+  .mat-chip.mat-standard-chip {
+    background-color: $lightergray;
+    color: $white;
+  }
+  .mat-chip.mat-standard-chip .mat-chip-remove {
+    color: $white;
+    opacity: 2;
+  }
+}
+.dark-table-wrapper {
+  .mat-sort-header-arrow {
+    color: $white;
+  }
+  .mat-table {
+    background-color: $darkgray;
+    .mat-header-cell {
+      color: $lightestgray;
+    }
+    .mat-cell,
+    .mat-footer-cell {
+      color: $lightwhite;
+    }
+  }
+  .mat-raised-button {
+    &.delete-btn {
+      background-color: $raspberry !important;
+    }
+    &.empty-btn {
+      background-color: $darkgreen !important;
+      color: $white;
+    }
+    &.view-btn {
+      color: $white;
+      background-color: $blue !important;
+    }
+    &.add-btn {
+      background-color: $green !important;
+    }
+  }
+  mat-header-row,
+  mat-row {
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+  }
+  mat-row {
+    &:hover {
+      background: $grey !important;
+    }
+  }
+  .input-quantity {
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: rgba(216, 213, 213, 0.64);
+    }
+    // .mat-select-value {
+    //   color: rgba(255, 255, 255, 0.87) !important;
+    // }
+    // .mat-form-field.mat-focussed.mat-form-field-ripple {
+    //   background-color: $darkpurple !important;
+    // }
+    // .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    //   color: rgba(255, 255, 255, 0.87) !important;
+    // }
+    // .mat-form-field-appearance-outline .mat-form-field-outline {
+    //   color: rgba(255, 255, 255, 0.52) !important;
+    // }
+    // .mat-form-field.mat-focused.mat-form-field-ripple {
+    //   background-color: $yellow !important;
+    // }
+    // .mat-form-field.mat-focused.mat-input-element {
+    //   caret-color: $white !important;
+    // }
+    // .mat-input-element {
+    //   caret-color: $white !important;
+    // }
+    // .mat-form-field-label {
+    //   color: rgba(255, 255, 255, 0.7) !important;
+    // }
+    // .mat-input-element::placeholder {
+    //   color: rgba(255, 255, 255, 0.7) !important;
+    // }
+  }
+}
+.dark-bottom-action-bar {
+  background-color: $darkpurple !important;
+}

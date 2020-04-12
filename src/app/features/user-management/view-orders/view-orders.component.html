@@ -71,8 +71,11 @@
 </div>
 <br /><br />
 
-<mat-toolbar color="primary" class="c-bottom-action-bar order-button-wrap">
-  <button mat-raised-button [routerLink]="['/home']" color="accent" class="order-button">
+<mat-toolbar
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
+  class="order-button-wrap"
+>
+  <button mat-raised-button [routerLink]="['/home']" class="first-btn" class="order-button">
     {{"user.cart.continue_shopping" | translate}}
   </button>
 </mat-toolbar>

@@ -46,7 +46,16 @@
         margin-left: 50px;
       }
       &.empty-btn {
+        background-color: $darkgreen;
+        color: $white;
         margin-left: 25px;
+      }
+      &.view-btn {
+        color: $white;
+        background-color: $blueberry;
+      }
+      &.add-btn {
+        background-color: $yellow;
       }
     }
     mat-row {

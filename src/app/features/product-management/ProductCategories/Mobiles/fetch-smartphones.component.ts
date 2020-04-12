@@ -1,15 +1,16 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
 import { Router } from '@angular/router';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 @Component({
   selector: 'app-fetch-smartphones',
   template: `
-    <div class="chips">
+    <div [ngClass]="{'chips': true , 'dark-chips' :( property.nightmode | async)}">
       <mat-chip-list>
         <button mat-raised-button color="warn" (click)="compareitems()">
           {{ 'user.product.compare' | translate }}
         </button>
-        &nbsp;
+        &nbsp;&nbsp;&nbsp;
         <mat-chip *ngFor="let mobile of mobiles" (removed)="remove(mobile)">
           {{ mobile.name }}
           <mat-icon matChipRemove>cancel</mat-icon>
@@ -41,7 +42,7 @@ export class FetchSmartphonesComponent implements OnInit {
   products: any[];
   mobiles = [];
   dimmed: boolean = false;
-  constructor(private compare: ComparisonServiceService, private router: Router) {}
+  constructor(private compare: ComparisonServiceService, private router: Router, private property: PropertyAccessService) { }
 
   ngOnInit() {
     this.mobiles = this.compare.comparelist;

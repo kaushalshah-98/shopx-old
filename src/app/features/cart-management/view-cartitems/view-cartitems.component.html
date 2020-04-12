@@ -110,7 +110,9 @@
   </div> -->
 <app-spinner [loading]="dataLoading" *ngIf="dimmed" class="centre-spinner"></app-spinner>
 
-<div class="table-wrapper" [ngClass]="{dimmed: dimmed}">
+<div
+  [ngClass]="{'table-wrapper':true, 'dark-table-wrapper' :( property.nightmode | async) ,dimmed: dimmed}"
+>
   <mat-table
     [ngStyle]="{'max-height': height+'px'}"
     [dataSource]="dataSource"
@@ -231,12 +233,15 @@
   {{"user.cart.total_price" | translate}} : {{getTotalCost() | currency}}
 </mat-card>
 <br /><br /><br />
-<mat-toolbar color="primary" class="c-bottom-action-bar u-text-right table-bottom">
-  <button mat-raised-button style="width: 20%;" [routerLink]="['/home']">
+<mat-toolbar
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
+  class="u-text-right table-bottom"
+>
+  <button class="first-btn" mat-raised-button style="width: 20%;" [routerLink]="['/home']">
     {{"user.cart.continue_shopping" | translate}}
   </button>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button mat-raised-button style="width: 20%;" [routerLink]="['/checkout/#']" color="warn">
+  <button class="second-btn" mat-raised-button style="width: 20%;" [routerLink]="['/checkout/#']">
     {{"user.cart.checkout" | translate}}
   </button>
 </mat-toolbar>

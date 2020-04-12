@@ -1,4 +1,6 @@
-<div class="description-container">
+<div
+  [ngClass]="{'description-container':true, 'dark-description-container' :( property.nightmode | async)}"
+>
   <mat-card class="box-elevation-z8">
     <h2>{{'shared.description_viewer.name' | translate}} : {{product.name}}</h2>
     <h3>{{'shared.description_viewer.cuurent_price' | translate}} : {{product.price}}</h3>

@@ -160,12 +160,14 @@
     </mat-card-content>
   </mat-card>
 </div>
-<mat-toolbar color="primary" class="c-bottom-action-bar">
-  <button id="btnSave" mat-flat-button (click)="AddProduct()">
+<mat-toolbar
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
+>
+  <button class="first-btn" id="btnSave" mat-flat-button (click)="AddProduct()">
     {{"admin.productform.save" | translate}}
   </button>
   &nbsp;&nbsp;
-  <button id="btnCancel" mat-flat-button (click)="cancel()" color="warn">
+  <button class="second-btn" id="btnCancel" mat-flat-button (click)="cancel()">
     {{"admin.productform.cancel" | translate}}
   </button>
 </mat-toolbar>

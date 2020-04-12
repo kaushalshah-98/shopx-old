@@ -134,12 +134,13 @@
       </div>
     </div> -->
 </div>
-<mat-toolbar color="primary" class="c-bottom-action-bar">
-  <button id="btnSave" mat-flat-button (click)="save()">
+<mat-toolbar   [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
+>
+  <button class="first-btn" id="btnSave" mat-flat-button (click)="save()">
     {{"user.form.save" | translate}}
   </button>
   &nbsp;&nbsp;
-  <button id="btnCancel" mat-flat-button (click)="cancel()" color="warn">
+  <button class="second-btn" id="btnCancel" mat-flat-button (click)="cancel()">
     {{"user.form.cancel" | translate}}
   </button>
 </mat-toolbar>

@@ -1,11 +1,12 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ProductReview } from '@shared/interfaces';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 @Component({
   selector: 'app-reviews-viewer',
   templateUrl: './reviews-viewer.component.html',
-  styleUrls: ['./reviews-viewer.component.scss']
+  styleUrls: ['./reviews-viewer.component.scss'],
+  encapsulation : ViewEncapsulation.None
 })
 export class ReviewsViewerComponent implements OnInit {
   totalreviewcount: number = 0;

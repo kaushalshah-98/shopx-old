@@ -1,6 +1,6 @@
 <app-navbar (IsFullscreen)="fullscreenstatus($event)" [isHidden]="true"></app-navbar>
 <app-jumbotron [Heading]="'user.main_heading.your_wish_list'"></app-jumbotron>
-<div class="table-wrapper">
+<div [ngClass]="{'table-wrapper':true, 'dark-table-wrapper' :( property.nightmode | async)}">
   <mat-table
     [ngStyle]="{'max-height': height+'px'}"
     [dataSource]="dataSource"
@@ -38,7 +38,7 @@
       <mat-cell *matCellDef="let element">
         <button
           mat-raised-button
-          color="accent"
+          class="add-btn"
           matTooltip="{{'tooltip.add_to_cart' | translate}}"
           matTooltipPosition="left"
           [matTooltipShowDelay]="500"
@@ -49,7 +49,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button
           mat-raised-button
-          color="primary"
+          class="view-btn"
           matTooltip="{{'tooltip.quick_view' | translate}}"
           matTooltipPosition="right"
           [matTooltipShowDelay]="500"
@@ -94,21 +94,15 @@
   </mat-table>
 </div>
 <br /><br /><br /><br />
-<!-- <div class="table-bottom">
-  <button mat-raised-button style="width: 40%;" [routerLink]="['/home']" color="primary">
+<mat-toolbar
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
+  class="u-text-right table-bottom"
+>
+  <button class="first-btn" mat-raised-button style="width: 20%;" [routerLink]="['/home']">
     {{"user.cart.continue_shopping" | translate}}
   </button>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button mat-raised-button style="width: 40%;" [routerLink]="['/cart']" color="warn">
-    {{"user.cart.go_to_cart" | translate}}
-  </button>
-</div> -->
-<mat-toolbar color="primary" class="c-bottom-action-bar u-text-right table-bottom">
-  <button mat-raised-button style="width: 20%;" [routerLink]="['/home']">
-    {{"user.cart.continue_shopping" | translate}}
-  </button>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button mat-raised-button style="width: 20%;" [routerLink]="['/cart']" color="warn">
+  <button class="second-btn" mat-raised-button style="width: 20%;" [routerLink]="['/cart']">
     {{"user.cart.go_to_cart" | translate}}
   </button>
 </mat-toolbar>

@@ -18,7 +18,7 @@
     <img
       [routerLink]="['/home']"
       style="height:22px"
-      src="../../../assets/images/shopx-logo-white.png"
+      src=" {{( property.nightmode | async)?'../../../assets/images/shopx.png' :'../../../assets/images/shopx-logo-white.png'}}"
     />
     <div class="search-bar" id="mainsearch" [hidden]="isHidden || isAdmin">
       <mat-form-field appearance="outline">

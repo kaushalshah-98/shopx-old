@@ -133,16 +133,13 @@
         0 3px 14px 2px rgba(255, 255, 255, 0.32);
     }
     .wishlist-icon {
-      .mat-icon {
+      .mat-icon-button {
         color: $raspberry !important;
       }
     }
-    .mat-icon-button {
-      color: $white;
-    }
     .compare-icon {
-      .mat-icon {
-        color: $raspberry !important;
+      .mat-icon-button {
+        color: $green !important;
       }
     }
     .mat-card-actions {

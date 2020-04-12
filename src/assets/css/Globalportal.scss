@@ -64,26 +64,32 @@ body {
 
 // bottom action bar
 .c-with-left-panel {
-  .c-bottom-action-bar {
+  .bottom-action-bar {
     padding-left: $side-panel-width + 15px;
   }
 }
 
-.c-bottom-action-bar {
-  z-index: 2;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  justify-content: flex-end;
-  right: 0;
-  height: 56px;
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.08), 0 -2px 8px rgba(0, 0, 0, 0.12);
-  background-color: map-get($map: $global-color, $key: white);
-  padding: 11px 15px;
-  button {
-    margin: 0 2px;
-  }
-}
+// ..bottom-action-bar {
+//   z-index: 2;
+//   position: fixed;
+//   bottom: 0;
+//   width: 100%;
+//   justify-content: flex-end;
+//   right: 0;
+//   height: 56px;
+//   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.08), 0 -2px 8px rgba(0, 0, 0, 0.12);
+//   background-color: $darkpurple;
+//   padding: 11px 15px;
+//   button {
+//     margin: 0 2px;
+//   }
+//   .first-btn {
+//     background-color: $darkpink;
+//   }
+//   .second-btn {
+//     background-color: $red;
+//   }
+// }
 
 // Legends
 
