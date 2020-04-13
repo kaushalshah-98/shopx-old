@@ -19,8 +19,7 @@ export class BuyListComponent implements OnInit {
   list = [];
   buylist = [];
   dimmed: boolean;
-  constructor(private property: PropertyAccessService
-  ) { }
+  constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {
     this.list = [

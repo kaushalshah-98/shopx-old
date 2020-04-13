@@ -315,8 +315,16 @@
     {{"user.form.confirm_and_continue" | translate}}
   </button>
 </div> -->
-<mat-toolbar   [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}" class="u-text-right centre-button">
-  <button mat-raised-button class="second-btn" [disabled]="paymentform.invalid" (click)="goForward()">
+<mat-toolbar
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
+  class="u-text-right centre-button"
+>
+  <button
+    mat-raised-button
+    class="second-btn"
+    [disabled]="paymentform.invalid"
+    (click)="goForward()"
+  >
     {{"user.form.confirm_and_continue" | translate}}
   </button>
 </mat-toolbar>

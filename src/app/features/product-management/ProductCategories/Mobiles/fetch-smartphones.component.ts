@@ -5,7 +5,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 @Component({
   selector: 'app-fetch-smartphones',
   template: `
-    <div [ngClass]="{'chips': true , 'dark-chips' :( property.nightmode | async)}">
+    <div [ngClass]="{ chips: true, 'dark-chips': property.nightmode | async }">
       <mat-chip-list>
         <button mat-raised-button color="warn" (click)="compareitems()">
           {{ 'user.product.compare' | translate }}
@@ -42,7 +42,11 @@ export class FetchSmartphonesComponent implements OnInit {
   products: any[];
   mobiles = [];
   dimmed: boolean = false;
-  constructor(private compare: ComparisonServiceService, private router: Router, private property: PropertyAccessService) { }
+  constructor(
+    private compare: ComparisonServiceService,
+    private router: Router,
+    private property: PropertyAccessService
+  ) {}
 
   ngOnInit() {
     this.mobiles = this.compare.comparelist;

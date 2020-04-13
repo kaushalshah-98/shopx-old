@@ -6,7 +6,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
   selector: 'app-reviews-viewer',
   templateUrl: './reviews-viewer.component.html',
   styleUrls: ['./reviews-viewer.component.scss'],
-  encapsulation : ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class ReviewsViewerComponent implements OnInit {
   totalreviewcount: number = 0;

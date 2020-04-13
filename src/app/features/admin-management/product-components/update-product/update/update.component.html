@@ -186,7 +186,9 @@
     </mat-card-content>
   </mat-card>
 </div>
-<mat-toolbar   [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}">
+<mat-toolbar
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
+>
   <button class="first-btn" id="btnSave" mat-flat-button (click)="UpdateProduct()">
     {{"admin.productform.save" | translate}}
   </button>

@@ -12,7 +12,7 @@ export class DetailviewComponent implements OnInit {
   state$: any;
   productdata: any;
 
-  constructor(private activateRouter: ActivatedRoute, private property: PropertyAccessService) { }
+  constructor(private activateRouter: ActivatedRoute, private property: PropertyAccessService) {}
 
   ngOnInit() {
     this.state$ = this.activateRouter.paramMap

@@ -13,7 +13,11 @@ export class ViewOrdersComponent implements OnInit {
   i: number = 0;
   orderitems: any;
   displayedColumns: string[] = ['number', 'image', 'name', 'price', 'quantity', 'action'];
-  constructor(private view: QuickViewService, private dialog: ConfirmDialogService, private property: PropertyAccessService) { }
+  constructor(
+    private view: QuickViewService,
+    private dialog: ConfirmDialogService,
+    private property: PropertyAccessService
+  ) {}
 
   ngOnInit() {
     this.initializeOrders();
