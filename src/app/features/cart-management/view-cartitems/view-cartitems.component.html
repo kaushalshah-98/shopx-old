@@ -229,7 +229,9 @@
   </mat-table>
   <br />
 </div>
-<mat-card class="total-card">
+<mat-card
+  [ngClass]="{'total-card':true, 'dark-total-card' :( property.nightmode | async) ,dimmed: dimmed}"
+>
   {{"user.cart.total_price" | translate}} : {{getTotalCost() | currency}}
 </mat-card>
 <br /><br /><br />

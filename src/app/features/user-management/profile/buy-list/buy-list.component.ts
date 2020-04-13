@@ -1,10 +1,12 @@
-import { Component, OnInit, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, ViewEncapsulation } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-buy-list',
   templateUrl: './buy-list.component.html',
-  styleUrls: ['./buy-list.component.scss']
+  styleUrls: ['./buy-list.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BuyListComponent implements OnInit {
   @Input() paddingtop: BehaviorSubject<number>;
@@ -17,7 +19,8 @@ export class BuyListComponent implements OnInit {
   list = [];
   buylist = [];
   dimmed: boolean;
-  constructor() {}
+  constructor(private property: PropertyAccessService
+  ) { }
 
   ngOnInit() {
     this.list = [

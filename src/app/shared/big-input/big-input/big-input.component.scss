@@ -1,3 +1,4 @@
+@import '../../../../assets/css/var.scss';
 .big-input {
   width: 100%;
   transition: all 0.5s;
@@ -18,5 +19,12 @@
     border: 0;
     font-size: 25px;
     min-width: 100px;
+  }
+}
+.dark-big-input {
+  background-color: $cardgray;
+  input {
+    color: $white;
+    background-color: $cardgray;
   }
 }

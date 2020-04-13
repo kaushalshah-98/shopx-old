@@ -3,6 +3,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { UserManagementService } from '@services/user-service/user-management.service';
 import { BehaviorSubject } from 'rxjs';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -24,7 +25,8 @@ export class EditProfileComponent implements OnInit {
   constructor(
     private dialog: ConfirmDialogService,
     private userservice: UserManagementService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private property: PropertyAccessService
   ) {}
   ngOnInit() {
     this.initializeform();

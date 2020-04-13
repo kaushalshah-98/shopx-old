@@ -118,7 +118,11 @@
     background-color: $darkpink;
   }
   .second-btn {
-    color: $white;
-    background-color: $red;
+    color: $white !important;
+    background-color: $red !important;
+  }
+  .third-btn {
+    color: $black;
+    background-color: $yellow;
   }
 }

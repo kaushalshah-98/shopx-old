@@ -1,7 +1,7 @@
 <app-spinner [loading]="dataLoading" class="centree-spinner"></app-spinner>
 
 <div
-  class="big-input-container"
+  [ngClass]="{'big-input-container':true,'dark-big-input-container' :( property.nightmode | async)}"
   [ngStyle]="{'padding-top': ((paddingtop | async) >0 ?((paddingtop | async)-35) :0)  +'px'}"
 >
   <div class="big-delete-input">
@@ -16,8 +16,8 @@
     >
       <div class="btn">
         <button
+          class="add-btn"
           mat-raised-button
-          color="accent"
           matTooltip="{{'tooltip.add_item' | translate}}"
           matTooltipPosition="above"
           (click)="onAddToBuyList()"
@@ -28,7 +28,7 @@
         &nbsp;&nbsp;
         <button
           mat-raised-button
-          color="warn"
+          class="remove-btn"
           matTooltip="{{'tooltip.delete_item' | translate}}"
           matTooltipPosition="above"
           (click)="onRemoveItem()"
@@ -76,8 +76,8 @@
         <div class="two-part" *ngFor="let item of buylist">
           <mat-card class="todo">
             <mat-checkbox
-              color="primary"
               class="todo-done"
+              color="{{( property.nightmode | async)? '':'primary'}}"
               [checked]="item.done"
               (change)="onToggleTodo(item)"
             ></mat-checkbox>

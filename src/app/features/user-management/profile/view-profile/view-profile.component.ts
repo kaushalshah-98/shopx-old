@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-view-profile',
@@ -11,6 +12,6 @@ export class ViewProfileComponent implements OnInit {
   @Input() paddingtop: BehaviorSubject<number>;
   padding: number;
 
-  constructor() {}
+  constructor(private property: PropertyAccessService) {}
   ngOnInit() {}
 }

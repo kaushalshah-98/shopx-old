@@ -1,3 +1,4 @@
+@import '../../../../assets/css/var.scss';
 button {
   padding: 0;
   min-width: 80px;
@@ -10,4 +11,7 @@ button {
     left: -2px;
     top: -2px;
   }
+}
+.dark-big-btn {
+  background-color: $raspberry;
 }

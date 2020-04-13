@@ -35,23 +35,41 @@
       &nbsp;&nbsp;
       <mat-menu #menu="matMenu" xPosition="after">
         <ng-container *ngFor="let item of optionmenu">
-          <button mat-menu-item (click)="route(item.url)">
+          <button
+            [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+            mat-menu-item
+            (click)="route(item.url)"
+          >
             <mat-icon>{{item.icon}}</mat-icon>{{item.name | translate}}
           </button>
         </ng-container>
-        <mat-divider></mat-divider>
-        <button mat-menu-item (click)="contact()"><mat-icon>help</mat-icon>Contact us</button>
-        <button mat-menu-item (click)="route('/creators/^')">
+        <mat-divider [ngClass]="{'divider':( property.nightmode | async)}"></mat-divider>
+        <button
+          mat-menu-item
+          [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+          (click)="contact()"
+        >
+          <mat-icon>help</mat-icon>Contact us
+        </button>
+        <button
+          mat-menu-item
+          [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+          (click)="route('/creators/^')"
+        >
           <mat-icon>supervisor_account</mat-icon>About The Creators
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item [ngClass]="{'dark-menuu-item':( property.nightmode | async)}">
           <mat-icon>nights_stay</mat-icon>{{'nav_bar.menu.night_mode' |
           translate}}&nbsp;&nbsp;&nbsp;&nbsp;
           <mat-slide-toggle [(ngModel)]="value" (change)="changetheme(value)" color="primary">
           </mat-slide-toggle>
         </button>
-        <mat-divider></mat-divider>
-        <button mat-menu-item (click)="logout()">
+        <mat-divider [ngClass]="{'divider':( property.nightmode | async)}"></mat-divider>
+        <button
+          mat-menu-item
+          [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+          (click)="logout()"
+        >
           <mat-icon>exit_to_app</mat-icon>{{ getLoginStatus() | translate }}
         </button>
       </mat-menu>
@@ -80,7 +98,11 @@
       </button>
       <mat-menu #languagemenu="matMenu" xPosition="after">
         <ng-container *ngFor="let lang of translate.getLangs()">
-          <button mat-menu-item (click)="onLanguageSelect(lang)">
+          <button
+            [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+            mat-menu-item
+            (click)="onLanguageSelect(lang)"
+          >
             {{"language."+lang | lowercase | translate }}
           </button>
         </ng-container>

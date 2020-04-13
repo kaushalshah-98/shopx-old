@@ -77,19 +77,5 @@
       background-color: $darkergray;
     }
   }
-}
-:host ::ng-deep .mat-menu-panel {
-  background-color: $darkgray !important;
-  color: $white !important;
-  .mat-menu-item {
-    background: transparent !important;
-    color: $white !important;
-    :hover {
-      background: rgba(255, 255, 255, 0.04);
-    }
-  }
-  .mat-menu-item .mat-icon-no-color, //aa important che main line
-  .mat-menu-item-submenu-trigger::after {
-    color: white;
-  }
+
 }

@@ -40,7 +40,11 @@
             <mat-form-field class="input-full-width" appearance="outline">
               <mat-label>Subject</mat-label>
               <mat-select formControlName="subjectFormControl">
-                <mat-option *ngFor="let subject of subject" [value]="subject.name">
+                <mat-option
+                  [ngClass]="{'dark-option': ( property.nightmode | async)}"
+                  *ngFor="let subject of subject"
+                  [value]="subject.name"
+                >
                   {{subject.name}}
                 </mat-option>
               </mat-select>

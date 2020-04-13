@@ -237,6 +237,13 @@
       }
     }
     .mat-table {
+      .view-btn {
+        color: $blue;
+      }
+      .cancel-btn {
+        background-color: $red;
+        color: $white;
+      }
       width: 100%;
       th.mat-header-cell:last-of-type {
         padding-right: 0px;

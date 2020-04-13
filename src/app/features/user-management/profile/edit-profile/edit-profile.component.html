@@ -21,8 +21,7 @@
 <app-spinner [loading]="dataLoading" class="spinner"></app-spinner>
 
 <div
-  class="profile-container"
-  [ngClass]="{dimmed: dimmed}"
+  [ngClass]="{'profile-container':true,'dark-profile-container' :( property.nightmode | async),dimmed: dimmed}"
   fxLayout="row"
   [ngStyle]="{'padding-top': (paddingtop | async)  +'px'}"
   fxLayoutAlign="start center"
@@ -62,7 +61,7 @@
           <mat-form-field appearance="outline">
             <mat-label>{{"user.form.username" | translate}}</mat-label>
             <input autocomplete="off" matInput formControlName="usernameFormControl" />
-            <mat-icon matSuffix>person</mat-icon>
+            <mat-icon class="person-icon" matSuffix>person</mat-icon>
             <mat-error
               *ngIf="hasError('usernameFormControl','minlength') && !(hasError('usernameFormControl','pattern'))"
             >
@@ -79,7 +78,7 @@
           <mat-form-field appearance="outline">
             <mat-label>{{"user.form.email" | translate}}</mat-label>
             <input autocomplete="off" matInput formControlName="emailFormControl" />
-            <mat-icon matSuffix>email</mat-icon>
+            <mat-icon class="email-icon" matSuffix>email</mat-icon>
             <mat-error *ngIf="hasError('emailFormControl','email')">
               {{"user.form_validations.please_enter_a_valid_email_address" | translate}}
             </mat-error>
@@ -107,6 +106,7 @@
               [type]="hide ? 'password' : 'text'"
             />
             <button
+              class="password-btn"
               mat-icon-button
               matTooltip="{{hide ? ('tooltip.show' | translate) : ('tooltip.hide'  |translate) }}"
               matTooltipPosition="left"
@@ -134,7 +134,8 @@
       </div>
     </div> -->
 </div>
-<mat-toolbar   [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
+<mat-toolbar
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
 >
   <button class="first-btn" id="btnSave" mat-flat-button (click)="save()">
     {{"user.form.save" | translate}}

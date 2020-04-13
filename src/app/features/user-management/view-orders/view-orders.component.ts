@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-view-orders',
@@ -12,7 +13,7 @@ export class ViewOrdersComponent implements OnInit {
   i: number = 0;
   orderitems: any;
   displayedColumns: string[] = ['number', 'image', 'name', 'price', 'quantity', 'action'];
-  constructor(private view: QuickViewService, private dialog: ConfirmDialogService) {}
+  constructor(private view: QuickViewService, private dialog: ConfirmDialogService, private property: PropertyAccessService) { }
 
   ngOnInit() {
     this.initializeOrders();
