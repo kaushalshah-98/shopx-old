@@ -25,6 +25,10 @@ export class ProfileComponent implements OnInit {
   }
 
   fullscreenstatus(event) {
-    if (event) { this.paddingtop.next(100); } else { this.paddingtop.next(0); }
+    if (event) {
+      this.paddingtop.next(100);
+    } else {
+      this.paddingtop.next(0);
+    }
   }
 }

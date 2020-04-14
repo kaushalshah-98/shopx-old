@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class AuthGaurdService {
-  constructor(private router: Router, private role: RoleService) { }
+  constructor(private router: Router, private role: RoleService) {}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (this.role.getRole() === 'admin') {
       return true;

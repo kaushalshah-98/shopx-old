@@ -54,7 +54,11 @@ export class WishListComponent implements OnInit {
   }
 
   fullscreenstatus(event) {
-    if (event) { this.height = 465; } else { this.height = 320; }
+    if (event) {
+      this.height = 465;
+    } else {
+      this.height = 320;
+    }
   }
 }
 const wishlistitems: ProductItem[] = [

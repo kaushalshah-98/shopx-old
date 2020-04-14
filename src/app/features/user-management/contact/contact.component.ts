@@ -45,6 +45,10 @@ export class ContactComponent implements OnInit {
     return this.contactform.controls[controlName].hasError(errorName);
   }
   fullscreenstatus(event) {
-    if (event) { this.padding = 100; } else { this.padding = 40; }
+    if (event) {
+      this.padding = 100;
+    } else {
+      this.padding = 40;
+    }
   }
 }

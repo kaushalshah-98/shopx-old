@@ -27,7 +27,7 @@ export class EditProfileComponent implements OnInit {
     private userservice: UserManagementService,
     private formBuilder: FormBuilder,
     private property: PropertyAccessService
-  ) { }
+  ) {}
   ngOnInit() {
     this.initializeform();
     this.userdata = this.userservice.getUserData();

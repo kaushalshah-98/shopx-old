@@ -80,7 +80,9 @@ export class NavbarComponent implements OnInit {
     if (this.isAdmin) {
       return 'ADMIN';
     } else {
-      if (this.userdetails === null) { return 'Sign In'; }
+      if (this.userdetails === null) {
+        return 'Sign In';
+      }
       this.username = this.userdetails.name;
       return this.username;
     }
@@ -94,7 +96,9 @@ export class NavbarComponent implements OnInit {
     if (this.isAdmin) {
       return 'nav_bar.menu.logout';
     } else {
-      if (this.userdetails === null) { return 'nav_bar.menu.login'; }
+      if (this.userdetails === null) {
+        return 'nav_bar.menu.login';
+      }
       return 'nav_bar.menu.logout';
     }
   }
