@@ -37,7 +37,11 @@ export class BillingComponent implements OnInit {
   padding: number;
   billingform: FormGroup;
 
-  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder,private property: PropertyAccessService) {}
+  constructor(
+    private myStepper: MatStepper,
+    private formBuilder: FormBuilder,
+    private property: PropertyAccessService
+  ) {}
 
   ngOnInit() {
     this.initializeform();

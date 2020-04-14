@@ -62,7 +62,11 @@ export class PaymentComponent implements OnInit {
   @Input() paddingtop: BehaviorSubject<number>;
   padding: number;
 
-  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder,private property: PropertyAccessService) {}
+  constructor(
+    private myStepper: MatStepper,
+    private formBuilder: FormBuilder,
+    private property: PropertyAccessService
+  ) {}
 
   ngOnInit() {
     this.initializeform();

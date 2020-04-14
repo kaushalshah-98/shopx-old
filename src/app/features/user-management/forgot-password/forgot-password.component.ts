@@ -10,7 +10,11 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 })
 export class ForgotPasswordComponent implements OnInit {
   forgotpasswordform: FormGroup;
-  constructor(private router: Router, private formBuilder: FormBuilder,private property: PropertyAccessService) {}
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private property: PropertyAccessService
+  ) {}
 
   ngOnInit() {
     this.initializeForm();

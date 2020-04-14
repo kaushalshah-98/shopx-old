@@ -12,7 +12,7 @@ export class ReciptComponent implements OnInit {
   cartitems: CartItem[];
   displayedColumns: string[] = ['image', 'name', 'quantity', 'price'];
   dataSource;
-  constructor(private property: PropertyAccessService) { }
+  constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {
     this.cartitems = [

@@ -8,9 +8,9 @@ import { ProductItem } from '@shared/interfaces';
 })
 export class FilterInputComponent implements OnInit {
   @Output() filter: EventEmitter<string> = new EventEmitter();
-  constructor(private property: PropertyAccessService) { }
+  constructor(private property: PropertyAccessService) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
   onFilter(option) {
     this.filter.emit(option);
   }
