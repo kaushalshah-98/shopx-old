@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material';
-import { BehaviorSubject } from 'rxjs';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-checkout',

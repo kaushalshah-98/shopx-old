@@ -2,8 +2,8 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
-import { BehaviorSubject } from 'rxjs';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-payment',

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { RoleService } from '@services/role-service/role.service';
 import {
   AuthService,
@@ -9,7 +10,6 @@ import {
   SocialUser
 } from 'ng4-social-login';
 import { UserManagementService } from 'src/app/core/services/user-service/user-management.service';
-import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-login',
