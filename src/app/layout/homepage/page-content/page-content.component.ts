@@ -28,7 +28,7 @@ export class PageContentComponent implements OnInit {
       // items for category component
       this.categoryitems = [
         {
-          name: "Men's casual shoes | Under ₹599",
+          name: '"Men\'s casual shoes | Under ₹599"',
           image:
             'https://images-eu.ssl-images-amazon.com/images/G/31/Symbol/2020/GatewayNK/PC/sh1x._SY304_CB426335760_.jpg',
           url: '/mens_shoes'
