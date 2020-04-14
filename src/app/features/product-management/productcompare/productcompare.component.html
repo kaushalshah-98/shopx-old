@@ -3,7 +3,7 @@
 <app-spinner [loading]="dataLoading" *ngIf="dimmed" class="centre-spinner"></app-spinner>
 
 <div [ngClass]="{ dimmed: dimmed }">
-  <div class="space-medium">
+  <div [ngClass]="{'space-medium':true, 'dark-space-medium' :( property.nightmode | async)}">
     <div class="containerr">
       <div class="roww">
         <ng-container *ngFor="let item of list">
@@ -21,11 +21,16 @@
                   </div>
                   <br />
                   <div class="compare-actions">
-                    <button color="accent" mat-raised-button>
+                    <button class="add-btn" color="accent" mat-raised-button>
                       {{'user.product.add_to_cart' |translate}}
                     </button>
                     &nbsp;&nbsp;
-                    <button color="warn" class="cancel" (click)="remove(item)" mat-raised-button>
+                    <button
+                      class="cancel-btn"
+                      color="warn"
+                      (click)="remove(item)"
+                      mat-raised-button
+                    >
                       <mat-icon>close</mat-icon>
                     </button>
                   </div>
@@ -38,7 +43,7 @@
     </div>
   </div>
 
-  <div class="order-container">
+  <div [ngClass]="{'order-container':true,'dark-order-container': ( property.nightmode | async)}">
     <mat-accordion>
       <ng-container>
         <mat-expansion-panel>

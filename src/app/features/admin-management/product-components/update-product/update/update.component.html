@@ -1,8 +1,11 @@
 <app-jumbotron [Heading]="'admin.main_heading.update_product'"></app-jumbotron>
-<div class="billing-container">
+<div [ngClass]="{'billing-container':true,'dark-billing-container': ( property.nightmode | async)}">
   <mat-card class="edit-profile-card">
     <mat-card-content>
-      <form [formGroup]="updateproductform">
+      <form
+        [ngClass]="{'dark-form': ( property.nightmode | async)}"
+        [formGroup]="updateproductform"
+      >
         <table class="table-full-width" cellspacing="0">
           <tr>
             <td>
@@ -14,7 +17,11 @@
                   [(ngModel)]="productdata.category"
                   (selectionChange)="onCategorySelect($event)"
                 >
-                  <mat-option *ngFor="let category of category" [value]="category.name">
+                  <mat-option
+                    [ngClass]="{'dark-option': ( property.nightmode | async)}"
+                    *ngFor="let category of category"
+                    [value]="category.name"
+                  >
                     {{ category.name }}
                   </mat-option>
                 </mat-select>
@@ -32,6 +39,7 @@
                   formControlName="selectedinnerCategory"
                 >
                   <mat-option
+                    [ngClass]="{'dark-option': ( property.nightmode | async)}"
                     *ngFor="let innerCategory of InnerCategory"
                     [value]="innerCategory.name"
                   >
@@ -189,11 +197,11 @@
 <mat-toolbar
   [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
 >
-  <button class="first-btn" id="btnSave" mat-flat-button (click)="UpdateProduct()">
+  <button class="pink-btn" id="btnSave" mat-flat-button (click)="UpdateProduct()">
     {{"admin.productform.save" | translate}}
   </button>
   &nbsp;&nbsp;
-  <button class="second-btn" id="btnCancel" mat-flat-button (click)="cancel()">
+  <button class="red-btn" id="btnCancel" mat-flat-button (click)="cancel()">
     {{"admin.productform.cancel" | translate}}
   </button>
 </mat-toolbar>

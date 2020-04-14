@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-productcompare',
@@ -26,7 +27,7 @@ export class ProductcompareComponent implements OnInit {
   columnsToDisplay6 = ['name', 'internal', 'otgsupport', 'expandableupto'];
   columnsToDisplay7 = ['name', 'features', 'front', 'rear', 'flash', 'videorecording'];
 
-  constructor(private compare: ComparisonServiceService) {}
+  constructor(private compare: ComparisonServiceService, private property: PropertyAccessService) { }
   ngOnInit() {
     this.list = this.compare.comparelist;
     this.general = this.compare.general;

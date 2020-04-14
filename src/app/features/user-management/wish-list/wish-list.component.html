@@ -64,7 +64,6 @@
       <mat-header-cell *matHeaderCellDef>
         <button
           mat-raised-button
-          color="accent"
           class="empty-btn"
           matTooltip="{{'tooltip.clear_list' | translate}}"
           matTooltipPosition="above"
@@ -77,7 +76,6 @@
       <mat-cell *matCellDef="let element">
         <button
           mat-raised-button
-          color="warn"
           class="delete-btn"
           matTooltip="{{'tooltip.delete_item' | translate}}"
           matTooltipPosition="right"
@@ -95,14 +93,13 @@
 </div>
 <br /><br /><br /><br />
 <mat-toolbar
-  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
-  class="u-text-right table-bottom"
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async), 'u-text-right':true,'table-bottom':true}"
 >
-  <button class="first-btn" mat-raised-button style="width: 20%;" [routerLink]="['/home']">
+  <button class="pink-btn" mat-raised-button style="width: 20%;" [routerLink]="['/home']">
     {{"user.cart.continue_shopping" | translate}}
   </button>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button class="second-btn" mat-raised-button style="width: 20%;" [routerLink]="['/cart']">
+  <button class="red-btn" mat-raised-button style="width: 20%;" [routerLink]="['/cart']">
     {{"user.cart.go_to_cart" | translate}}
   </button>
 </mat-toolbar>

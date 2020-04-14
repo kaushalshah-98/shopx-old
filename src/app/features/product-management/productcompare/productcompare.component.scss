@@ -1,3 +1,4 @@
+@import '../../../../assets/css/var.scss';
 .space-medium {
   padding: 50px 65px 0px 65px;
   min-height: unset;
@@ -23,7 +24,9 @@
         .mat-raised-button {
           line-height: 30px !important;
         }
-        .cancel {
+        .cancel-btn {
+          background-color: $red;
+          color: $white;
           &.mat-raised-button {
             min-width: 40px !important;
             width: 40px !important;
@@ -33,11 +36,23 @@
             }
           }
         }
+        .add-btn {
+          background-color: $yellow;
+          color: $black;
+        }
       }
     }
     .small-mobile-image {
       width: 50px;
     }
+  }
+}
+.dark-space-medium {
+  .cancel-btn {
+    background-color: $raspberry !important;
+  }
+  .add-btn {
+    background-color: $green !important;
   }
 }
 .order-container {

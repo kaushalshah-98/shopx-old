@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ForgotPasswordComponent implements OnInit {
   forgotpasswordform: FormGroup;
-  constructor(private router: Router, private formBuilder: FormBuilder) {}
+  constructor(private router: Router, private formBuilder: FormBuilder,private property: PropertyAccessService) {}
 
   ngOnInit() {
     this.initializeForm();

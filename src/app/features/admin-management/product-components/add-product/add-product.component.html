@@ -1,8 +1,8 @@
 <app-jumbotron [Heading]="'admin.main_heading.add_product'"></app-jumbotron>
-<div class="billing-container">
+<div [ngClass]="{'billing-container':true,'dark-billing-container': ( property.nightmode | async)}">
   <mat-card class="edit-profile-card">
     <mat-card-content>
-      <form [formGroup]="addproductform">
+      <form [ngClass]="{'dark-form': ( property.nightmode | async)}" [formGroup]="addproductform">
         <table class="table-full-width" cellspacing="0">
           <tr>
             <td>
@@ -163,11 +163,11 @@
 <mat-toolbar
   [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
 >
-  <button class="first-btn" id="btnSave" mat-flat-button (click)="AddProduct()">
+  <button class="pink-btn" id="btnSave" mat-flat-button (click)="AddProduct()">
     {{"admin.productform.save" | translate}}
   </button>
   &nbsp;&nbsp;
-  <button class="second-btn" id="btnCancel" mat-flat-button (click)="cancel()">
+  <button class="red-btn" id="btnCancel" mat-flat-button (click)="cancel()">
     {{"admin.productform.cancel" | translate}}
   </button>
 </mat-toolbar>

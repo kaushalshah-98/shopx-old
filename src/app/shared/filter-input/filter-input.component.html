@@ -1,9 +1,11 @@
 <div [ngClass]="{'filter-input':true, 'dark-filter-input' :( property.nightmode | async)}">
-  <mat-form-field appearance="outline">
-    <mat-label>{{'shared.filter.search' | translate}}</mat-label>
-    <input matInput placeholder="{{'shared.filter.type' | translate}}" />
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>
+  <div [ngClass]="{'dark-form': ( property.nightmode | async)}">
+    <mat-form-field appearance="outline">
+      <mat-label>{{'shared.filter.search' | translate}}</mat-label>
+      <input matInput placeholder="{{'shared.filter.type' | translate}}" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
   &nbsp;&nbsp;
   <button
     matTooltip="{{'tooltip.filter' | translate}}"

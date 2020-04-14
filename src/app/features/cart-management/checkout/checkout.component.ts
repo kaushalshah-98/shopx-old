@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material';
 import { BehaviorSubject } from 'rxjs';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-checkout',
@@ -15,9 +16,9 @@ export class CheckoutComponent implements OnInit {
   paddingtop: BehaviorSubject<number> = new BehaviorSubject(20);
   @ViewChild('stepper', { static: false }) stepper: MatStepper;
 
-  constructor() {}
+  constructor(private property: PropertyAccessService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   setstep1status(event) {
     this.step1 = event;
     console.log(this.step1);

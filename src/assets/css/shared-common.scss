@@ -60,7 +60,7 @@
 .centre-button {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center !important;
 }
 
 //--------------------------- Big Texts On Cards ------------------------------
@@ -94,8 +94,8 @@
 }
 .centre-product-spinner {
   position: absolute !important;
-  top: 35%;
-  left: 48.5%;
+  top: 35% !important;
+  left: 48.5% !important;
 }
 //--------------------------- Bottom Action button ------------------------------
 
@@ -113,16 +113,20 @@
   button {
     margin: 0 2px;
   }
-  .first-btn {
+  .pink-btn {
     color: $white;
     background-color: $darkpink;
   }
-  .second-btn {
+  .red-btn {
     color: $white !important;
     background-color: $red !important;
   }
-  .third-btn {
+  .yellow-btn {
     color: $black;
     background-color: $yellow;
+  }
+  .green-btn {
+    color: $black;
+    background-color: $green;
   }
 }

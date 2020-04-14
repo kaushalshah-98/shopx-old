@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { BehaviorSubject } from 'rxjs';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-billing',
@@ -36,7 +37,7 @@ export class BillingComponent implements OnInit {
   padding: number;
   billingform: FormGroup;
 
-  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder) {}
+  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder,private property: PropertyAccessService) {}
 
   ngOnInit() {
     this.initializeform();

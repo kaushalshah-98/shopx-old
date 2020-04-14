@@ -1,6 +1,6 @@
 <app-jumbotron [Heading]="'admin.main_heading.all_users'"></app-jumbotron>
 <app-spinner [loading]="dataLoading" class="centree-spinner"></app-spinner>
-<div class="outer-wrap">
+<div [ngClass]="{'outer-wrap': true , 'dark-outer-wrap' :( property.nightmode | async)}">
   <mat-card class="display-products-card">
     <mat-card-content>
       <!-- <div>
@@ -16,7 +16,7 @@
           </button>
         </div>
       </div> -->
-      <div class="u-margin-top-15">
+      <div [ngClass]="{'dark-form': ( property.nightmode | async),'u-margin-top-15' :true}">
         <mat-form-field class="search-block" floatLabel="never">
           <input
             autocomplete="off"
@@ -28,7 +28,7 @@
           <mat-icon matSuffix style="font-size: 18px;">search</mat-icon>
         </mat-form-field>
         <mat-divider></mat-divider>
-        <ng-container>
+        <div [ngClass]="{'dark-table-wrapper' :( property.nightmode | async) ,dimmed: dimmed}">
           <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
             <ng-container matColumnDef="status">
               <th mat-header-cell mat-sort-header *matHeaderCellDef></th>
@@ -92,7 +92,7 @@
           </table>
 
           <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-        </ng-container>
+        </div>
       </div>
     </mat-card-content>
   </mat-card>

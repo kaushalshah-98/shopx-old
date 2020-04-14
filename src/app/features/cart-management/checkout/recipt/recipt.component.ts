@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartItem } from '@shared/interfaces';
 import html2canvas from 'html2canvas';
 import * as jspdf from 'jspdf';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 @Component({
   selector: 'app-recipt',
   templateUrl: './recipt.component.html',
@@ -11,7 +12,7 @@ export class ReciptComponent implements OnInit {
   cartitems: CartItem[];
   displayedColumns: string[] = ['image', 'name', 'quantity', 'price'];
   dataSource;
-  constructor() {}
+  constructor(private property: PropertyAccessService) { }
 
   ngOnInit() {
     this.cartitems = [

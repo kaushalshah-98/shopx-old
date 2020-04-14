@@ -27,3 +27,13 @@
     }
   }
 }
+.dark-table-wrapper {
+  .mat-table {
+    box-shadow: none !important;
+    .mat-row {
+      &:hover {
+        background-color: transparent !important;
+      }
+    }
+  }
+}

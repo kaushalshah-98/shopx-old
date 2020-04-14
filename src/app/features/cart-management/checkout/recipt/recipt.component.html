@@ -1,4 +1,8 @@
-<div class="input-template" id="recipt" #recipt>
+<div
+  [ngClass]="{'input-template':true, 'dark-input-template' :( property.nightmode | async)}"
+  id="recipt"
+  #recipt
+>
   <mat-card class="input-card box-elevation-z8">
     <mat-card-header>
       <mat-card-title>Recipt</mat-card-title>
@@ -12,7 +16,7 @@
       <div class="centre-button">
         <b><h3>December 7,2019</h3></b>
       </div>
-      <div class="table-wrapper">
+      <div [ngClass]="{'table-wrapper':true, 'dark-table-wrapper' :( property.nightmode | async)}">
         <mat-table [dataSource]="dataSource">
           <ng-container matColumnDef="image">
             <mat-header-cell *matHeaderCellDef>
@@ -66,12 +70,14 @@
     <br />
   </mat-card>
 </div>
-<mat-toolbar color="primary" class="centre-button">
-  <button mat-raised-button color="accent" (click)="downloadImage()">
+<mat-toolbar
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async),'centre-button':true}"
+>
+  <button mat-raised-button class="green-btn" (click)="downloadImage()">
     Download Recipt As Image
   </button>
   &nbsp;&nbsp;
-  <button mat-raised-button color="accent" (click)="downloadPdf()">
+  <button mat-raised-button class="green-btn" (click)="downloadPdf()">
     Download Recipt As Pdf
   </button>
 </mat-toolbar>

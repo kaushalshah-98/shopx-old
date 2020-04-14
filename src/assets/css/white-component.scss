@@ -39,24 +39,27 @@
       height: 50px;
     }
     .mat-raised-button {
-      min-width: 50px;
-      line-height: 30px;
+      min-width: 40px;
+      line-height: 27px;
       padding: 0 13px;
-      &.delete-btn {
-        margin-left: 50px;
-      }
-      &.empty-btn {
-        background-color: $darkgreen;
-        color: $white;
-        margin-left: 25px;
-      }
-      &.view-btn {
-        color: $white;
-        background-color: $blueberry;
-      }
-      &.add-btn {
-        background-color: $yellow;
-      }
+    }
+    .delete-btn {
+      margin-left: 50px;
+      background-color: $red;
+      color: $white;
+    }
+    .empty-btn {
+      background-color: $darkgreen;
+      color: $white;
+      margin-left: 25px;
+    }
+    .view-btn {
+      color: $white;
+      background-color: $blueberry;
+    }
+    .add-btn {
+      color: $black;
+      background-color: $yellow;
     }
     mat-row {
       min-height: 65px;
@@ -128,12 +131,12 @@
         text-align: center;
         font-size: 10px;
         .signin-btn {
-          border: 3px solid #28a745;
-          color: #28a745;
+          border: 3px solid $darkergreen;
+          color: $darkergreen;
           &:hover {
             cursor: pointer;
-            color: white;
-            background-color: #28a745;
+            color: $white;
+            background-color: $darkergreen;
           }
         }
         .blue-btn {
@@ -146,12 +149,6 @@
             color: white;
             // background-color: #3f51b5;
             background-color: #33b5e5;
-          }
-          &:disabled {
-            &:hover {
-              color: $skyblue;
-              background-color: $darkcardgray;
-            }
           }
         }
         .facebook-btn {
@@ -209,6 +206,12 @@
 .order-container {
   padding: 50px 50px 32px 50px;
   min-height: 540px;
+  .cancel-btn {
+    color: $blueberry;
+  }
+  .right-btn {
+    color: $red;
+  }
   .mat-expansion-panel {
     border-radius: 10px !important;
     &:hover {
@@ -238,7 +241,7 @@
     }
     .mat-table {
       .view-btn {
-        color: $blue;
+        color: $blueberry;
       }
       .cancel-btn {
         background-color: $red;
@@ -353,6 +356,15 @@
         font-size: 40px;
         line-height: normal;
       }
+      .delete-btn {
+        color: $red;
+      }
+      .view-btn {
+        color: $blueberry;
+      }
+      .edit-btn {
+        color: $yellow;
+      }
     }
     .mat-raised-button {
       min-width: 45px !important;
@@ -457,9 +469,6 @@
       width: 100%;
     }
   }
-}
-.mat-select-panel {
-  margin-left: 30px !important;
 }
 
 //----------------------- Cards Used in --------------------------------------

@@ -9,6 +9,7 @@ import {
   SocialUser
 } from 'ng4-social-login';
 import { UserManagementService } from 'src/app/core/services/user-service/user-management.service';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
     private userservice: UserManagementService,
     private router: Router,
     private role: RoleService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private property: PropertyAccessService
   ) {}
 
   ngOnInit() {

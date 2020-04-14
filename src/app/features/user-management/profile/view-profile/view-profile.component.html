@@ -26,7 +26,7 @@
     <mat-card class="profile-card">
       <mat-card-title>{{"user.form_heading.profile_details" | translate}}</mat-card-title>
       <mat-card-content>
-        <form class="edit-form">
+        <form [ngClass]="{'edit-form':true,'dark-form': ( property.nightmode | async)}">
           <mat-form-field appearance="outline">
             <mat-label>{{"user.form.username" | translate}}</mat-label>
             <input autocomplete="off" matInput readonly value="{{ userdata?.name }}" />

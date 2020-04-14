@@ -1,5 +1,5 @@
 <app-jumbotron [Heading]="'admin.main_heading.all_orders'"></app-jumbotron>
-<div class="order-container">
+<div [ngClass]="{'order-container':true,'dark-order-container': ( property.nightmode | async)}">
   <mat-accordion>
     <ng-container *ngFor="let user of user">
       <mat-expansion-panel>
@@ -69,13 +69,13 @@
                   </table>
                 </div>
                 <div fxFlex="20%">
-                  <mat-card>
+                  <mat-card class="order-card">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button
                       mat-icon-button
                       matTooltip="{{'tooltip.dispatch' | translate}}"
                       matTooltipPosition="below"
-                      color="primary"
+                      class="right-btn"
                     >
                       <mat-icon>check_circle</mat-icon>
                     </button>
@@ -84,7 +84,7 @@
                       mat-icon-button
                       matTooltip="{{'tooltip.cancel' | translate}}"
                       matTooltipPosition="below"
-                      color="warn"
+                      class="cancel-btn"
                     >
                       <mat-icon>cancel</mat-icon>
                     </button>

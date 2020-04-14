@@ -173,7 +173,7 @@
       <mat-cell *matCellDef="let element">
         <button
           mat-raised-button
-          color="accent"
+          class="add-btn"
           matTooltip="{{'tooltip.update' | translate}}"
           matTooltipPosition="left"
           [matTooltipShowDelay]="500"
@@ -184,7 +184,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button
           mat-raised-button
-          color="primary"
+          class="view-btn"
           matTooltip="{{'tooltip.quick_view' | translate}}"
           matTooltipPosition="right"
           [matTooltipShowDelay]="500"
@@ -200,7 +200,6 @@
         <button
           mat-raised-button
           class="empty-btn"
-          color="accent"
           matTooltip="{{'tooltip.empty_cart' | translate}}"
           matTooltipPosition="above"
           [matTooltipShowDelay]="500"
@@ -212,7 +211,6 @@
       <mat-cell *matCellDef="let element">
         <button
           mat-raised-button
-          color="warn"
           class="delete-btn"
           matTooltip="{{'tooltip.delete_item' | translate}}"
           matTooltipPosition="right"
@@ -236,14 +234,13 @@
 </mat-card>
 <br /><br /><br />
 <mat-toolbar
-  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
-  class="u-text-right table-bottom"
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async), 'u-text-right':true,'table-bottom':true}"
 >
-  <button class="first-btn" mat-raised-button style="width: 20%;" [routerLink]="['/home']">
+  <button class="pink-btn" mat-raised-button style="width: 20%;" [routerLink]="['/home']">
     {{"user.cart.continue_shopping" | translate}}
   </button>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button class="second-btn" mat-raised-button style="width: 20%;" [routerLink]="['/checkout/#']">
+  <button class="red-btn" mat-raised-button style="width: 20%;" [routerLink]="['/checkout/#']">
     {{"user.cart.checkout" | translate}}
   </button>
 </mat-toolbar>

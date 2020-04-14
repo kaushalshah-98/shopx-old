@@ -57,7 +57,10 @@
     <mat-card class="profile-card">
       <mat-card-title>{{"user.form_heading.edit_profile_details" | translate}}</mat-card-title>
       <mat-card-content>
-        <form [formGroup]="editform" class="edit-form">
+        <form
+          [formGroup]="editform"
+          [ngClass]="{'edit-form':true,'dark-form': ( property.nightmode | async)}"
+        >
           <mat-form-field appearance="outline">
             <mat-label>{{"user.form.username" | translate}}</mat-label>
             <input autocomplete="off" matInput formControlName="usernameFormControl" />
@@ -137,11 +140,11 @@
 <mat-toolbar
   [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
 >
-  <button class="first-btn" id="btnSave" mat-flat-button (click)="save()">
+  <button class="pink-btn" id="btnSave" mat-flat-button (click)="save()">
     {{"user.form.save" | translate}}
   </button>
   &nbsp;&nbsp;
-  <button class="second-btn" id="btnCancel" mat-flat-button (click)="cancel()">
+  <button class="red-btn" id="btnCancel" mat-flat-button (click)="cancel()">
     {{"user.form.cancel" | translate}}
   </button>
 </mat-toolbar>

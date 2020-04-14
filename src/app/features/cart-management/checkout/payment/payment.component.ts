@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { BehaviorSubject } from 'rxjs';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-payment',
@@ -60,7 +61,8 @@ export class PaymentComponent implements OnInit {
   paymentform: FormGroup;
   @Input() paddingtop: BehaviorSubject<number>;
   padding: number;
-  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder) {}
+
+  constructor(private myStepper: MatStepper, private formBuilder: FormBuilder,private property: PropertyAccessService) {}
 
   ngOnInit() {
     this.initializeform();

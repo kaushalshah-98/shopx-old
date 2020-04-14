@@ -1,9 +1,12 @@
-<div class="input-template">
+<div [ngClass]="{'input-template':true, 'dark-input-template' :( property.nightmode | async)}">
   <mat-card class="input-card box-elevation-z8">
     <mat-card-header>
       <mat-card-title>{{"user.form.sign_in" | translate}}</mat-card-title>
     </mat-card-header>
-    <form class="input-form" [formGroup]="loginform">
+    <form
+      [ngClass]="{'input-form':true,'dark-form': ( property.nightmode | async)}"
+      [formGroup]="loginform"
+    >
       <mat-form-field class="input-full-width">
         <mat-label>{{"user.form.username" | translate}}</mat-label>
         <input autocomplete="off" matInput formControlName="usernameFormControl" />

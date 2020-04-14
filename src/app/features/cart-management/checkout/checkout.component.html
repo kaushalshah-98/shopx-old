@@ -1,6 +1,10 @@
 <app-navbar (IsFullscreen)="fullscreenstatus($event)" [isHidden]="true"></app-navbar>
 <app-jumbotron [Heading]="'user.main_heading.checkout_form'"></app-jumbotron>
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
+<mat-horizontal-stepper
+  [ngClass]="{'dark-mat-stepper': ( property.nightmode | async)}"
+  [linear]="isLinear"
+  #stepper
+>
   <mat-step>
     <ng-template matStepLabel>
       {{"user.form_heading.fill_out_your_billing_address" | translate}}
