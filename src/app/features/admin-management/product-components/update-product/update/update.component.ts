@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-update',

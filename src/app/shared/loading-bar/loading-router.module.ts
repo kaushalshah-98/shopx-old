@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import {
-  RouterModule,
-  Router,
-  NavigationStart,
-  NavigationError,
+  NavigationCancel,
   NavigationEnd,
-  NavigationCancel
+  NavigationError,
+  NavigationStart,
+  Router,
+  RouterModule
 } from '@angular/router';
 import { LoadingBarService } from './loading-bar.service';
 

@@ -1,14 +1,14 @@
-import { Component, OnInit, ViewEncapsulation, EventEmitter } from '@angular/core';
-import {
-  AuthService,
-  SocialUser,
-  GoogleLoginProvider,
-  FacebookLoginProvider
-} from 'ng4-social-login';
-import { Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { UserManagementService } from 'src/app/core/services/user-service/user-management.service';
+import { Component, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RoleService } from '@services/role-service/role.service';
+import {
+  AuthService,
+  FacebookLoginProvider,
+  GoogleLoginProvider,
+  SocialUser
+} from 'ng4-social-login';
+import { UserManagementService } from 'src/app/core/services/user-service/user-management.service';
 
 @Component({
   selector: 'app-login',

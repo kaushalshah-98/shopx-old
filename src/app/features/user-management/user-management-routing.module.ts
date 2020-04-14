@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AuthGaurdService } from '../../core/auth-management/auth-gaurd/auth-gaurd.service';
-import { WishListComponent } from './wish-list/wish-list.component';
-import { ViewOrdersComponent } from './view-orders/view-orders.component';
-import { ProfileComponent } from './profile/profile.component';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthorsCarouselComponent } from '@shared/authors-carousel/authors-carousel.component';
 import { ContactComponent } from 'src/app/features/user-management/contact/contact.component';
+import { AuthGaurdService } from '../../core/auth-management/auth-gaurd/auth-gaurd.service';
+import { ProfileComponent } from './profile/profile.component';
+import { ViewOrdersComponent } from './view-orders/view-orders.component';
+import { WishListComponent } from './wish-list/wish-list.component';
 
 const routes: Routes = [
   {

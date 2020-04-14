@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
 
 @Component({

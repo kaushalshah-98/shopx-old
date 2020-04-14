@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Author } from '@shared/interfaces';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { Author } from '@shared/interfaces';
 
 @Component({
   selector: 'app-authors-carousel',

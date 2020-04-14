@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 
 @Component({
   selector: 'app-add-product',

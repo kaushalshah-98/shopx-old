@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { MatSort, MatTableDataSource } from '@angular/material';
-import { QuickViewService } from '@shared/quickview/quickview.service';
-import { ProductItem } from '@shared/interfaces';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
+import { ProductItem } from '@shared/interfaces';
+import { QuickViewService } from '@shared/quickview/quickview.service';
 
 @Component({
   selector: 'app-wish-list',
@@ -54,8 +54,7 @@ export class WishListComponent implements OnInit {
   }
 
   fullscreenstatus(event) {
-    if (event) { this.height = 465; }
-    else { this.height = 320; }
+    if (event) { this.height = 465; } else { this.height = 320; }
   }
 }
 const wishlistitems: ProductItem[] = [

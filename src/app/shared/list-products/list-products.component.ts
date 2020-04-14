@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ImagePopupService } from '@shared/image-popup/image-popup.service';
 import { QuickViewService } from '@shared/quickview/quickview.service';
-import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-list-products',

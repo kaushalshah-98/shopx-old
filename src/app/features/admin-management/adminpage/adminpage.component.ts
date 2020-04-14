@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { IMenu } from '@shared/interfaces';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { IMenu } from '@shared/interfaces';
 
 @Component({
   selector: 'app-adminpage',
@@ -11,7 +11,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 export class AdminpageComponent implements OnInit {
   menuItems: IMenu[];
 
-  constructor(private property: PropertyAccessService) {}
+  constructor(private property: PropertyAccessService) { }
 
   ngOnInit() {
     this.fullscreenstatus(this.property.fullscreen);
@@ -71,7 +71,10 @@ export class AdminpageComponent implements OnInit {
     ];
   }
   fullscreenstatus(event) {
-    if (event) { this.property.height.next(540); }
-    else { this.property.height.next(405); }
+    if (event) {
+      this.property.height.next(540);
+    } else {
+      this.property.height.next(405);
+    }
   }
 }

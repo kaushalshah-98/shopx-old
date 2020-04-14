@@ -25,7 +25,7 @@
     "interface-over-type-literal": true,
     "label-position": true,
     "max-classes-per-file": false,
-    "max-line-length": [true, 140],
+    "max-line-length": [true, 1540],
     "member-access": false,
     "member-ordering": [
       true,
@@ -67,7 +67,7 @@
     "object-literal-key-quotes": [true, "as-needed"],
     "object-literal-sort-keys": false,
     "one-line": [true, "check-open-brace", "check-catch", "check-else", "check-whitespace"],
-    "ordered-imports": false,
+    "ordered-imports": true,
     "prefer-const": true,
     "quotemark": [true, "single"],
     "radix": true,

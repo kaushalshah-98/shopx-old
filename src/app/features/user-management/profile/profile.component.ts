@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material';
-import { Subject, BehaviorSubject } from 'rxjs';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { BehaviorSubject, Subject } from 'rxjs';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -25,7 +25,6 @@ export class ProfileComponent implements OnInit {
   }
 
   fullscreenstatus(event) {
-    if (event) { this.paddingtop.next(100); }
-    else { this.paddingtop.next(0); }
+    if (event) { this.paddingtop.next(100); } else { this.paddingtop.next(0); }
   }
 }

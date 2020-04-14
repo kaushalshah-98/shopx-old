@@ -1,6 +1,6 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { delay, finalize, map, take, tap, withLatestFrom } from 'rxjs/operators';
 import { LoadingBarService } from './loading-bar.service';
-import { map, take, delay, withLatestFrom, finalize, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-loading-bar',

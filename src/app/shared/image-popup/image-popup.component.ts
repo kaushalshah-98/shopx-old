@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material';
+import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({

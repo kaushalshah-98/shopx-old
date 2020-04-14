@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild, EventEmitter } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
+import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
-import { ProductItem } from '@shared/interfaces';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { ProductItem } from '@shared/interfaces';
 
 @Component({
   selector: 'app-view-products',

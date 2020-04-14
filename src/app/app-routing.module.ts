@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { DetailviewComponent } from './features/product-management/detailview/detailview.component';
 import { ProductcompareComponent } from './features/product-management/productcompare/productcompare.component';
+import { PageNotFoundComponent } from './page-not-found.component';
 
 const routes: Routes = [
   {

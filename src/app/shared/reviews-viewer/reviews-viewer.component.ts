@@ -1,7 +1,7 @@
-import { Component, OnInit, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ProductReview } from '@shared/interfaces';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { ProductReview } from '@shared/interfaces';
 @Component({
   selector: 'app-reviews-viewer',
   templateUrl: './reviews-viewer.component.html',

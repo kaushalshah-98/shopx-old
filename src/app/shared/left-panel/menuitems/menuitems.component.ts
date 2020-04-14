@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewEncapsulation, HostBinding, Input } from '@angular/core';
+import { Component, HostBinding, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { IMenu } from '@shared/interfaces';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { IMenu } from '@shared/interfaces';
 
 @Component({
   selector: 'app-menuitems',

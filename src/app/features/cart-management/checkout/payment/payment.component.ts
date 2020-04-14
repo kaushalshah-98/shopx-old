@@ -1,7 +1,7 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -96,7 +96,7 @@ export class PaymentComponent implements OnInit {
     return this.paymentform.controls[controlName].hasError(errorName);
   }
   toggle() {
-    this.flip = this.flip == 'inactive' ? 'active' : 'inactive';
+    this.flip = this.flip === 'inactive' ? 'active' : 'inactive';
   }
   toggleFlip(status: boolean) {
     this.flip = status === true ? 'active' : 'inactive';

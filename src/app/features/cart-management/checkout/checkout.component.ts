@@ -31,7 +31,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   fullscreenstatus(event) {
-    if (event) { this.paddingtop.next(80); }
-    else { this.paddingtop.next(20); }
+    if (event) { this.paddingtop.next(80); } else { this.paddingtop.next(20); }
   }
 }

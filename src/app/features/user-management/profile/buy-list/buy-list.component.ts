@@ -1,6 +1,6 @@
-import { Component, OnInit, EventEmitter, Input, ViewEncapsulation } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-buy-list',

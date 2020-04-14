@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-view-profile',

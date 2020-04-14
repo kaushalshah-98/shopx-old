@@ -1,14 +1,14 @@
-import { LoadingBarService } from './loading-bar.service';
-import { Injectable } from '@angular/core';
 import {
   HttpEvent,
-  HttpInterceptor,
+  HttpEventType,
   HttpHandler,
-  HttpRequest,
-  HttpEventType
+  HttpInterceptor,
+  HttpRequest
 } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { LoadingBarService } from './loading-bar.service';
 
 @Injectable()
 export class LoadingBarInterceptor implements HttpInterceptor {

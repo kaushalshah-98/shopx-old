@@ -1,20 +1,20 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './page-not-found.component';
 import { HttpClient } from '@angular/common/http';
 import {
-  TranslateModule,
-  TranslateLoader,
   MissingTranslationHandler,
-  MissingTranslationHandlerParams
+  MissingTranslationHandlerParams,
+  TranslateLoader,
+  TranslateModule
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { ProductManagementModule } from './features/product-management/product-management.module';
+import { PageNotFoundComponent } from './page-not-found.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);

@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { MatSort, MatTableDataSource } from '@angular/material';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { SweetmessageService } from '@services/sweetalert/sweetmessage.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
-import { MatSort, MatTableDataSource } from '@angular/material';
-import { QuickViewService } from '@shared/quickview/quickview.service';
 import { CartItem } from '@shared/interfaces';
-import { FormControl, Validators } from '@angular/forms';
-import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { QuickViewService } from '@shared/quickview/quickview.service';
 
 @Component({
   selector: 'app-view-cartitems',
@@ -89,8 +89,7 @@ export class ViewCartitemsComponent implements OnInit {
   }
 
   fullscreenstatus(event) {
-    if (event) { this.height = 412; }
-    else { this.height = 267; }
+    if (event) { this.height = 412; } else { this.height = 267; }
   }
 }
 

@@ -1,9 +1,9 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
-import { UserManagementService } from '@services/user-service/user-management.service';
-import { BehaviorSubject } from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { UserManagementService } from '@services/user-service/user-management.service';
+import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-edit-profile',
@@ -27,7 +27,7 @@ export class EditProfileComponent implements OnInit {
     private userservice: UserManagementService,
     private formBuilder: FormBuilder,
     private property: PropertyAccessService
-  ) {}
+  ) { }
   ngOnInit() {
     this.initializeform();
     this.userdata = this.userservice.getUserData();
@@ -35,8 +35,8 @@ export class EditProfileComponent implements OnInit {
   onImageSelected(event) {
     const file: File = event.target.files[0];
     const Reader = new FileReader();
-    Reader.onload = (event: any) => {
-      this.selectedimage = event.target.result;
+    Reader.onload = (res: any) => {
+      this.selectedimage = res.target.result;
     };
     Reader.readAsDataURL(file);
   }

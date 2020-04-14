@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '@shared/interfaces';
 
 @Component({
@@ -41,8 +41,8 @@ export class RegisterComponent implements OnInit {
   onImageSelected(event) {
     const file: File = event.target.files[0];
     const Reader = new FileReader();
-    Reader.onload = (event: any) => {
-      this.selectedimage = event.target.result;
+    Reader.onload = (res: any) => {
+      this.selectedimage = res.target.result;
     };
     Reader.readAsDataURL(file);
   }

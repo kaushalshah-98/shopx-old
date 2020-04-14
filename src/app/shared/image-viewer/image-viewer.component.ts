@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
@@ -15,14 +15,10 @@ export class ImageViewerComponent implements OnInit {
 
   ngOnInit() {}
   getnumber(index: number) {
-    if (index < 1) { return this.one; }
-    else if (index === 1) { return this.two; }
-    else { return this.three; }
+    if (index < 1) { return this.one; } else if (index === 1) { return this.two; } else { return this.three; }
   }
   changeimage(index: number) {
-    if (index < 1) { this.changevalue(true, false, false); }
-    else if (index === 1) { this.changevalue(false, true, false); }
-    else { this.changevalue(false, false, true); }
+    if (index < 1) { this.changevalue(true, false, false); } else if (index === 1) { this.changevalue(false, true, false); } else { this.changevalue(false, false, true); }
   }
   changevalue(one: boolean, two: boolean, three: boolean) {
     this.one = one;

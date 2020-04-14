@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { IMenu } from '@shared/interfaces';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { IMenu } from '@shared/interfaces';
 
 @Component({
   selector: 'app-homepage',

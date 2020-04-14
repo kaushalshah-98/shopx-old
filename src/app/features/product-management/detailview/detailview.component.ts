@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-detailview',

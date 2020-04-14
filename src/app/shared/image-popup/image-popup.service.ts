@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ImagePopupComponent } from './image-popup.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { ImagePopupComponent } from './image-popup.component';
 
 @Injectable()
 export class ImagePopupService {

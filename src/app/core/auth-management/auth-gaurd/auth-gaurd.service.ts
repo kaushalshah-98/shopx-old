@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import Swal from 'sweetalert2';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import { RoleService } from '@services/role-service/role.service';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGaurdService {
-  constructor(private router: Router, private role: RoleService) {}
+  constructor(private router: Router, private role: RoleService) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.role.getRole() === 'admin') { return true; }
-    else {
+    if (this.role.getRole() === 'admin') {
+      return true;
+    } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',

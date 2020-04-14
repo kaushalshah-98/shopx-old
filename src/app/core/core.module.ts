@@ -1,29 +1,29 @@
 import { CommonModule } from '@angular/common';
-import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
-import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { ErrorHandler, NgModule, Optional, SkipSelf } from '@angular/core';
 
 // import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 // import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { FormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { environment } from '../../environments/environment';
 
-import { AppErrorHandler } from './services/error-handler/app-error-handler.service';
-import { LocalStorageService } from './services/local-storage/local-storage.service';
-import { HttpErrorInterceptor } from './services/http-interceptors/http-error.interceptor';
-import { NotificationService } from './services/notification/notification.service';
 import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { AppErrorHandler } from './services/error-handler/app-error-handler.service';
+import { HttpErrorInterceptor } from './services/http-interceptors/http-error.interceptor';
+import { LocalStorageService } from './services/local-storage/local-storage.service';
+import { NotificationService } from './services/notification/notification.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   // return new TranslateHttpLoader(

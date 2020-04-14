@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({

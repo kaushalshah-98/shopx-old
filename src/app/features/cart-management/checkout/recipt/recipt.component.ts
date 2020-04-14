@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import * as jspdf from 'jspdf';
-import html2canvas from 'html2canvas';
 import { CartItem } from '@shared/interfaces';
+import html2canvas from 'html2canvas';
+import * as jspdf from 'jspdf';
 @Component({
   selector: 'app-recipt',
   templateUrl: './recipt.component.html',

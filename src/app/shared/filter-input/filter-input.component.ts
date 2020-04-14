@@ -1,6 +1,6 @@
-import { Component, OnInit, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
-import { ProductItem } from '@shared/interfaces';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { ProductItem } from '@shared/interfaces';
 @Component({
   selector: 'app-filter-input',
   templateUrl: './filter-input.component.html',

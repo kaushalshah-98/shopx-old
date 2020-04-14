@@ -1,7 +1,7 @@
-import { Component, ViewEncapsulation, HostListener } from '@angular/core';
-import defaultLanguage from '../assets/i18n/en.json';
+import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import defaultLanguage from '../assets/i18n/en.json';
 
 @Component({
   selector: 'app-root',

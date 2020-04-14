@@ -1,6 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 @Component({
   selector: 'app-fetch-smartphones',

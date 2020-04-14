@@ -1,20 +1,20 @@
+import { DOCUMENT } from '@angular/common';
 import {
   Component,
-  OnInit,
-  ViewEncapsulation,
-  Input,
-  Inject,
   EventEmitter,
-  Output
+  Inject,
+  Input,
+  OnInit,
+  Output,
+  ViewEncapsulation
 } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
-import { UserManagementService } from '@services/user-service/user-management.service';
-import { DOCUMENT } from '@angular/common';
-import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { UserManagementService } from '@services/user-service/user-management.service';
+import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 
 @Component({
   selector: 'app-navbar',
