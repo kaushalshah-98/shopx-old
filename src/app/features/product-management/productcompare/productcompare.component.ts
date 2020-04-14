@@ -17,7 +17,7 @@ export class ProductcompareComponent implements OnInit {
   camera: any[];
   feature: any[];
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
-  dimmed: boolean = false;
+  dimmed = false;
   columnsToDisplay1 = ['name', 'simtype', 'dualsim', 'simsize', 'Network', 'fingerptintsensor'];
   columnsToDisplay2 = ['name', 'type', 'apectratio', 'notch', 'screentobodyratio', 'screensize'];
   columnsToDisplay3 = ['name', 'weight', 'thickness', 'height', 'colors', 'build'];

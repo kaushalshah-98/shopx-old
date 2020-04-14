@@ -10,7 +10,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 })
 export class ViewOrdersComponent implements OnInit {
   heading = 'YOUR ORDERS';
-  i: number = 0;
+  i = 0;
   orderitems: any;
   displayedColumns: string[] = ['number', 'image', 'name', 'price', 'quantity', 'action'];
   constructor(

@@ -18,11 +18,11 @@ import { ProductItem } from '@shared/interfaces';
 })
 export class FetchHeadphonesComponent implements OnInit {
   productitems: ProductItem[];
-  heading: string = 'menu_item.headphones';
+  heading = 'menu_item.headphones';
   @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: ProductItem[];
-  dimmed: boolean = false;
+  dimmed = false;
   constructor() {}
 
   ngOnInit() {

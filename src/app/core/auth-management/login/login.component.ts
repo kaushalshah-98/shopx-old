@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   public user: SocialUser;
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   loginform: FormGroup;
-  show: boolean = false;
+  show = false;
   constructor(
     private socialAuthService: AuthService,
     private userservice: UserManagementService,
@@ -42,11 +42,11 @@ export class LoginComponent implements OnInit {
     return this.loginform.controls[controlName].hasError(errorName);
   }
   login() {
-    let userdata = {
+    const userdata = {
       username: btoa(this.loginform.controls.usernameFormControl.value),
       password: btoa(this.loginform.controls.passwordFormControl.value)
     };
-    let decuserdata = {
+    const decuserdata = {
       username: atob(userdata.username),
       password: atob(userdata.password)
     };

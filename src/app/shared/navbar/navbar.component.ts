@@ -24,8 +24,8 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 })
 export class NavbarComponent implements OnInit {
   @Input() siteLeftPanel: MatSidenav;
-  @Input() isHidden: boolean = false;
-  @Input() isAdmin: boolean = false;
+  @Input() isHidden = false;
+  @Input() isAdmin = false;
   @Output() IsNightmode = new EventEmitter<boolean>();
   @Output() IsFullscreen = new EventEmitter<boolean>();
 
@@ -80,7 +80,7 @@ export class NavbarComponent implements OnInit {
     if (this.isAdmin) {
       return 'ADMIN';
     } else {
-      if (this.userdetails === null) return 'Sign In';
+      if (this.userdetails === null) { return 'Sign In'; }
       this.username = this.userdetails.name;
       return this.username;
     }
@@ -94,7 +94,7 @@ export class NavbarComponent implements OnInit {
     if (this.isAdmin) {
       return 'nav_bar.menu.logout';
     } else {
-      if (this.userdetails === null) return 'nav_bar.menu.login';
+      if (this.userdetails === null) { return 'nav_bar.menu.login'; }
       return 'nav_bar.menu.logout';
     }
   }

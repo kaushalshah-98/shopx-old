@@ -7,7 +7,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  @Input() position: string = 'fixed';
+  @Input() position = 'fixed';
   constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {}

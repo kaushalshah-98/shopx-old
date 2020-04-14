@@ -71,7 +71,7 @@ export class AdminpageComponent implements OnInit {
     ];
   }
   fullscreenstatus(event) {
-    if (event) this.property.height.next(540);
-    else this.property.height.next(405);
+    if (event) { this.property.height.next(540); }
+    else { this.property.height.next(405); }
   }
 }

@@ -9,7 +9,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 })
 export class DeleteProductComponent implements OnInit {
   productid: string;
-  isDisabled: boolean = true;
+  isDisabled = true;
   heightt: number;
   themestatus: boolean;
   constructor(private property: PropertyAccessService) {}

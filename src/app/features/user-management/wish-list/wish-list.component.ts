@@ -15,7 +15,7 @@ export class WishListComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   displayedColumns: string[] = ['image', 'name', 'price', 'action', 'delete'];
   dataSource;
-  height: number = 320;
+  height = 320;
   constructor(
     private dialog: ConfirmDialogService,
     private view: QuickViewService,
@@ -54,8 +54,8 @@ export class WishListComponent implements OnInit {
   }
 
   fullscreenstatus(event) {
-    if (event) this.height = 465;
-    else this.height = 320;
+    if (event) { this.height = 465; }
+    else { this.height = 320; }
   }
 }
 const wishlistitems: ProductItem[] = [

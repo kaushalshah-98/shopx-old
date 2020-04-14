@@ -9,7 +9,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent implements OnInit {
-  isDisabled: boolean = true;
+  isDisabled = true;
   constructor(
     private dialog: ConfirmDialogService,
     private formBuilder: FormBuilder,
@@ -94,7 +94,7 @@ export class AddProductComponent implements OnInit {
     }
   }
   AddProduct() {
-    let productdata = {
+    const productdata = {
       name: this.addproductform.controls.productNameFormControl.value,
       description: this.addproductform.controls.productDescriptionFormControl.value,
       quantity: this.addproductform.controls.quantityFormControl.value,

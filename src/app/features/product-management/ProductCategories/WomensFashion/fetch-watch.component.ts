@@ -17,11 +17,11 @@ import { ProductItem } from '@shared/interfaces';
 })
 export class FetchWatchComponent implements OnInit {
   productitems: ProductItem[];
-  heading: string = 'menu_item.watch';
+  heading = 'menu_item.watch';
   @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: ProductItem[];
-  dimmed: boolean = false;
+  dimmed = false;
   constructor() {}
 
   ngOnInit() {

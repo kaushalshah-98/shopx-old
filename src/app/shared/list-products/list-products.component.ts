@@ -10,7 +10,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 })
 export class ListProductsComponent implements OnInit {
   @Input() productitems;
-  @Input() compare: boolean = false;
+  @Input() compare = false;
   totalprice;
   shipping;
   @Output() selectedMobile: EventEmitter<any> = new EventEmitter<any>();

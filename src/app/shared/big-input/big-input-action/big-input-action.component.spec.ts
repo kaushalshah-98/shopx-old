@@ -22,7 +22,7 @@ describe('BigInputActionComponent', () => {
   const getLabel = () => fixture.debugElement.query(By.css('.mat-button-wrapper > span'));
 
   function createHostComponent(template: string): ComponentFixture<HostComponent> {
-    TestBed.overrideComponent(HostComponent, { set: { template: template } });
+    TestBed.overrideComponent(HostComponent, { set: { template } });
     fixture = TestBed.createComponent(HostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

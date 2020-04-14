@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
     });
   }
   register() {
-    let userdata = {
+    const userdata = {
       name: this.registerform.controls.usernameFormControl.value,
       password: this.registerform.controls.passwordFormControl.value,
       email: this.registerform.controls.emailFormControl.value,

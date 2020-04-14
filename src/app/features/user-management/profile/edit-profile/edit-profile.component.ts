@@ -11,16 +11,16 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
   styleUrls: ['./edit-profile.component.scss']
 })
 export class EditProfileComponent implements OnInit {
-  @Input() selectedIndex: number = 0;
+  @Input() selectedIndex = 0;
   @Input() paddingtop: BehaviorSubject<number>;
   padding: number;
   @Output() selectedIndexx = new EventEmitter<boolean>();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   userdata: any;
-  hide: boolean = true;
+  hide = true;
   editform: FormGroup;
   selectedimage: string;
-  dimmed: boolean = false;
+  dimmed = false;
 
   constructor(
     private dialog: ConfirmDialogService,
@@ -72,7 +72,7 @@ export class EditProfileComponent implements OnInit {
     setTimeout(() => {
       this.dataLoading.emit(false);
       this.dimmed = false;
-      let userdata = {
+      const userdata = {
         name: this.editform.controls.usernameFormControl.value,
         password: this.editform.controls.passwordFormControl.value,
         email: this.editform.controls.emailFormControl.value,

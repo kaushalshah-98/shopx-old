@@ -12,10 +12,10 @@ export class BuyListComponent implements OnInit {
   @Input() paddingtop: BehaviorSubject<number>;
   padding: number;
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
-  isDisabled: boolean = true;
-  isSelected: boolean = true;
-  show: boolean = false;
-  inputvalue: string = '';
+  isDisabled = true;
+  isSelected = true;
+  show = false;
+  inputvalue = '';
   list = [];
   buylist = [];
   dimmed: boolean;
@@ -59,7 +59,7 @@ export class BuyListComponent implements OnInit {
     setTimeout(() => {
       this.dimmed = false;
       this.dataLoading.emit(false);
-      let item = { name: this.inputvalue, done: false };
+      const item = { name: this.inputvalue, done: false };
       this.buylist.push(item);
       this.onClear();
     }, 1000);

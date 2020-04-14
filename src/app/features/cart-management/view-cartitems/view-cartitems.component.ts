@@ -17,12 +17,12 @@ export class ViewCartitemsComponent implements OnInit {
 
   displayedColumns: string[] = ['image', 'name', 'quantity', 'price', 'action', 'delete'];
   dataSource;
-  height: number = 267;
+  height = 267;
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   totalprice;
   shipping;
   quantityformcontrol: FormControl;
-  dimmed: boolean = false;
+  dimmed = false;
   constructor(
     private sweetalert: SweetmessageService,
     private dialog: ConfirmDialogService,
@@ -89,8 +89,8 @@ export class ViewCartitemsComponent implements OnInit {
   }
 
   fullscreenstatus(event) {
-    if (event) this.height = 412;
-    else this.height = 267;
+    if (event) { this.height = 412; }
+    else { this.height = 267; }
   }
 }
 

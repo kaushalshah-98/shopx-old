@@ -8,7 +8,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
   styleUrls: ['./view-profile.component.scss']
 })
 export class ViewProfileComponent implements OnInit {
-  hide: boolean = true;
+  hide = true;
   @Input() paddingtop: BehaviorSubject<number>;
   padding: number;
 

@@ -56,7 +56,7 @@ export class PaymentComponent implements OnInit {
   ];
 
   @Output() step2status = new EventEmitter<boolean>();
-  flip: string = 'inactive';
+  flip = 'inactive';
   paymentform: FormGroup;
   @Input() paddingtop: BehaviorSubject<number>;
   padding: number;

@@ -9,11 +9,11 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
   encapsulation: ViewEncapsulation.None
 })
 export class ReviewsViewerComponent implements OnInit {
-  totalreviewcount: number = 0;
+  totalreviewcount = 0;
   reviews: ProductReview[];
   reviewtext: FormControl = new FormControl('');
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
-  dimmed: boolean = false;
+  dimmed = false;
   constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {
@@ -35,7 +35,7 @@ export class ReviewsViewerComponent implements OnInit {
     setTimeout(() => {
       this.dimmed = false;
       this.dataLoading.emit(false);
-      let item = { username: 'DEFAULT', name: 'DEFAULT', review: this.reviewtext.value };
+      const item = { username: 'DEFAULT', name: 'DEFAULT', review: this.reviewtext.value };
       this.reviews.unshift(item);
       this.reset();
     }, 3000);

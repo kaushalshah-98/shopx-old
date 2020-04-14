@@ -118,25 +118,25 @@ export class ReciptComponent implements OnInit {
     this.dataSource = this.cartitems;
   }
   downloadPdf() {
-    let data = document.getElementById('recipt');
+    const data = document.getElementById('recipt');
     html2canvas(data, {
       scrollY: -window.scrollY,
       backgroundColor: '#ffffff'
     }).then((canvas) => {
       const contentDataURL = canvas.toDataURL('image/png');
-      let pdf = new jspdf('l', 'mm', 'a4'); //Generates PDF in landscape mode
+      const pdf = new jspdf('l', 'mm', 'a4'); // Generates PDF in landscape mode
       // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
       pdf.addImage(contentDataURL, 'PNG', 20, 10, 250, 200);
       pdf.save('recipt.pdf');
     });
   }
   downloadImage() {
-    let data = document.getElementById('recipt');
+    const data = document.getElementById('recipt');
     html2canvas(data, {
       scrollY: -window.scrollY,
       backgroundColor: '#ffffff'
     }).then((canvas) => {
-      let link = document.createElement('a');
+      const link = document.createElement('a');
       document.body.appendChild(link);
       link.download = 'recipt.png';
       link.href = canvas.toDataURL('image/png');

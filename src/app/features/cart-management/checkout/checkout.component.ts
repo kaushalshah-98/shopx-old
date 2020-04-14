@@ -10,8 +10,8 @@ import { BehaviorSubject } from 'rxjs';
 export class CheckoutComponent implements OnInit {
   isLinear = true;
   heading = 'CHECKOUT-FORM';
-  step1: boolean = false;
-  step2: boolean = false;
+  step1 = false;
+  step2 = false;
   paddingtop: BehaviorSubject<number> = new BehaviorSubject(20);
   @ViewChild('stepper', { static: false }) stepper: MatStepper;
 
@@ -31,7 +31,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   fullscreenstatus(event) {
-    if (event) this.paddingtop.next(80);
-    else this.paddingtop.next(20);
+    if (event) { this.paddingtop.next(80); }
+    else { this.paddingtop.next(20); }
   }
 }

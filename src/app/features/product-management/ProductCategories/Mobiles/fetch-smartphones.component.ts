@@ -36,12 +36,12 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 })
 export class FetchSmartphonesComponent implements OnInit {
   productitems: any[];
-  heading: string = 'menu_item.smartphones';
+  heading = 'menu_item.smartphones';
   @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: any[];
   mobiles = [];
-  dimmed: boolean = false;
+  dimmed = false;
   constructor(
     private compare: ComparisonServiceService,
     private router: Router,

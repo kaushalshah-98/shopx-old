@@ -17,6 +17,7 @@
     "lint:ci": "npm run format:check",
     "lint:fix": "ng lint global-portal --fix",
     "lint:styles": "stylelint ./src/**/*.scss",
+    "lint-fix": "tslint --fix --project tsconfig.json --format stylish",
     "e2e": "ng e2e",
     "format:check": "prettier --write --congig ./.prettierrc --list-different \"src/{app,environments,styles}/**/*{.ts,.html,.scss,.json}\"",
     "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/SHOPX/stats-es2015.json",
@@ -78,6 +79,8 @@
     "stylelint": "^13.3.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript-tslint-plugin": "^0.5.4",
     "typescript": "~3.5.3"
   },
   "optionalDependencies": {

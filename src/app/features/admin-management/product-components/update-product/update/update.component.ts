@@ -116,7 +116,7 @@ export class UpdateComponent implements OnInit {
     }
   }
   UpdateProduct() {
-    let productdata = {
+    const productdata = {
       name: this.updateproductform.controls.productNameFormControl.value,
       description: this.updateproductform.controls.productDescriptionFormControl.value,
       quantity: this.updateproductform.controls.quantityFormControl.value,

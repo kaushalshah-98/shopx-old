@@ -17,11 +17,11 @@ import { ProductItem } from '@shared/interfaces';
 })
 export class FetchLaptopComponent implements OnInit {
   productitems: ProductItem[];
-  heading: string = 'menu_item.laptops';
+  heading = 'menu_item.laptops';
   @Output() filter: EventEmitter<string> = new EventEmitter();
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: ProductItem[];
-  dimmed: boolean = false;
+  dimmed = false;
   constructor() {}
 
   ngOnInit() {

@@ -15,7 +15,7 @@ export class ContactComponent implements OnInit {
     { name: 'feedback' }
   ];
   contactform: FormGroup;
-  padding: number = 40;
+  padding = 40;
 
   constructor(private formBuilder: FormBuilder, private property: PropertyAccessService) {}
 
@@ -32,7 +32,7 @@ export class ContactComponent implements OnInit {
     });
   }
   contact() {
-    let data = {
+    const data = {
       // name: this.contactform.controls.usernameFormControl.value,
       message: this.contactform.controls.messageFormControl.value,
       // email: this.contactform.controls.emailFormControl.value,
@@ -45,7 +45,7 @@ export class ContactComponent implements OnInit {
     return this.contactform.controls[controlName].hasError(errorName);
   }
   fullscreenstatus(event) {
-    if (event) this.padding = 100;
-    else this.padding = 40;
+    if (event) { this.padding = 100; }
+    else { this.padding = 40; }
   }
 }

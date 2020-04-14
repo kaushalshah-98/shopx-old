@@ -24,7 +24,7 @@ export class ForgotPasswordComponent implements OnInit {
     return this.forgotpasswordform.controls[controlName].hasError(errorName);
   }
   send() {
-    let userdata = {
+    const userdata = {
       name: this.forgotpasswordform.controls.usernameFormControl.value,
       email: this.forgotpasswordform.controls.emailFormControl.value
     };

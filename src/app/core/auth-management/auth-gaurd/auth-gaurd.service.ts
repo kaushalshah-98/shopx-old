@@ -9,7 +9,7 @@ import { RoleService } from '@services/role-service/role.service';
 export class AuthGaurdService {
   constructor(private router: Router, private role: RoleService) {}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.role.getRole() === 'admin') return true;
+    if (this.role.getRole() === 'admin') { return true; }
     else {
       Swal.fire({
         icon: 'error',
@@ -19,7 +19,7 @@ export class AuthGaurdService {
         text: 'You Are Not Allowed To View This Page.'
       }).then((result) => {
         if (result.value) {
-          //navigating to login page
+          // navigating to login page
           this.router.navigate(['/login']);
         }
       });

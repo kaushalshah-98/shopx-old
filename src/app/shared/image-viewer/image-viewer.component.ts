@@ -7,22 +7,22 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
   styleUrls: ['./image-viewer.component.scss']
 })
 export class ImageViewerComponent implements OnInit {
-  one: boolean = true;
-  two: boolean = false;
-  three: boolean = false;
+  one = true;
+  two = false;
+  three = false;
   @Input() product;
   constructor(private property: PropertyAccessService) {}
 
   ngOnInit() {}
   getnumber(index: number) {
-    if (index < 1) return this.one;
-    else if (index === 1) return this.two;
-    else return this.three;
+    if (index < 1) { return this.one; }
+    else if (index === 1) { return this.two; }
+    else { return this.three; }
   }
   changeimage(index: number) {
-    if (index < 1) this.changevalue(true, false, false);
-    else if (index === 1) this.changevalue(false, true, false);
-    else this.changevalue(false, false, true);
+    if (index < 1) { this.changevalue(true, false, false); }
+    else if (index === 1) { this.changevalue(false, true, false); }
+    else { this.changevalue(false, false, true); }
   }
   changevalue(one: boolean, two: boolean, three: boolean) {
     this.one = one;
