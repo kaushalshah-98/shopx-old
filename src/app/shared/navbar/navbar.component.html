@@ -58,12 +58,12 @@
         >
           <mat-icon>supervisor_account</mat-icon>About The Creators
         </button>
-        <button mat-menu-item [ngClass]="{'dark-menuu-item':( property.nightmode | async)}">
+        <!-- <button mat-menu-item [ngClass]="{'dark-menuu-item':( property.nightmode | async)}">
           <mat-icon>nights_stay</mat-icon>{{'nav_bar.menu.night_mode' |
           translate}}&nbsp;&nbsp;&nbsp;&nbsp;
           <mat-slide-toggle [(ngModel)]="value" (change)="changetheme(value)" color="primary">
           </mat-slide-toggle>
-        </button>
+        </button> -->
         <mat-divider [ngClass]="{'divider':( property.nightmode | async)}"></mat-divider>
         <button
           mat-menu-item
@@ -91,6 +91,36 @@
       >
         <mat-icon class="fullscreen-icon">{{ getText() }}</mat-icon>
       </button>
+      &nbsp;&nbsp;
+      <button
+        matTooltip="{{'tooltip.changetheme' | translate}}"
+        mat-raised-button
+        [matMenuTriggerFor]="thememenu"
+      >
+        <mat-icon>format_paint </mat-icon>
+      </button>
+      <mat-menu #thememenu="matMenu" xPosition="after">
+        <button
+          [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+          mat-menu-item
+          (click)="onThemeChange(false)"
+        >
+          <button mat-mini-fab class="white-btn">
+            <mat-icon *ngIf=" !( property.nightmode | async)">check_circle</mat-icon>
+          </button>
+          {{'nav_bar.menu.light' | translate}}
+        </button>
+        <button
+          [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+          mat-menu-item
+          (click)="onThemeChange(true)"
+        >
+          <button mat-mini-fab class="dark-btn">
+            <mat-icon *ngIf="( property.nightmode | async)">check_circle</mat-icon>
+          </button>
+          {{'nav_bar.menu.dark' | translate}}
+        </button>
+      </mat-menu>
       &nbsp;&nbsp;
       <button mat-raised-button [matMenuTriggerFor]="languagemenu">
         {{ currentLanguage }}

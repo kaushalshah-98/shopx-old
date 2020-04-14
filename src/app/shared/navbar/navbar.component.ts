@@ -143,10 +143,14 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
-  changetheme(status) {
+  onThemeChange(status) {
     this.property.nightmode.next(status);
     this.IsNightmode.emit(status);
   }
+  // changetheme(status) {
+  //   this.property.nightmode.next(status);
+  //   this.IsNightmode.emit(status);
+  // }
   contact() {
     this.router.navigateByUrl('/contactus/$');
   }

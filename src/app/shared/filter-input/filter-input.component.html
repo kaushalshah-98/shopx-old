@@ -18,15 +18,27 @@
     <mat-icon>filter_list</mat-icon>
   </button>
   <mat-menu #filtermenu="matMenu" xPosition="before">
-    <button mat-menu-item (click)="onFilter('name')">
+    <button
+      [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+      mat-menu-item
+      (click)="onFilter('name')"
+    >
       <mat-icon> sort </mat-icon>
       <span>{{'shared.filter.sort_by_name' | translate}} </span>
     </button>
-    <button mat-menu-item (click)="onFilter('low')">
+    <button
+      [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+      mat-menu-item
+      (click)="onFilter('low')"
+    >
       <mat-icon> arrow_downward </mat-icon>
       <span>{{'shared.filter.low_to_high' | translate}}</span>
     </button>
-    <button mat-menu-item (click)="onFilter('high')">
+    <button
+      [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+      mat-menu-item
+      (click)="onFilter('high')"
+    >
       <mat-icon> arrow_upward </mat-icon>
       <span>{{'shared.filter.high_to_low' | translate}}</span>
     </button>

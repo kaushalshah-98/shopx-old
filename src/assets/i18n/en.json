@@ -17,7 +17,9 @@
       "your_account": "Your Account",
       "your_order": "Your Orders",
       "your_wishlist": "Your Wishlist",
-      "about_the_creators": "About The Creators"
+      "about_the_creators": "About The Creators",
+      "light": "Light",
+      "dark": "Dark"
     }
   },
   "footer": {
@@ -37,8 +39,9 @@
     "clear_list": "Clear List",
     "dispatch": "dispatch",
     "cancel": "Cancel",
-    "show":"Show",
-    "hide":"Hide",
+    "show": "Show",
+    "hide": "Hide",
+    "changetheme" :"change theme",
 
     "block": "Block",
     "view": "View",

@@ -33,4 +33,23 @@
       color: $white;
     }
   }
+  // ----------------------------------Mat Mini Fab -----------------------------------------------
+
+  .white-btn {
+    background-color: $darkblue !important;
+  }
+  .dark-btn {
+    background-color: $darkpurple !important;
+  }
+  .white-btn,
+  .dark-btn {
+    height: 30px !important;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 30px !important;
+    .mat-icon {
+      color: $white !important;
+      margin: -10px 0 0 0 !important;
+    }
+  }
 }
