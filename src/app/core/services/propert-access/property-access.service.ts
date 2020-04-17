@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class PropertyAccessService {
   public height = new BehaviorSubject<number>(405);
-  public nightmode = new BehaviorSubject<boolean>(null);
+  public nightmode = new BehaviorSubject<boolean>(false);
   public fullscreen: boolean;
   constructor() {}
 }

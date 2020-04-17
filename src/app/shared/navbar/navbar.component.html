@@ -106,7 +106,7 @@
           (click)="onThemeChange(false)"
         >
           <button mat-mini-fab class="white-btn">
-            <mat-icon *ngIf=" !( property.nightmode | async)">check_circle</mat-icon>
+            <mat-icon *ngIf="( property.nightmode | async) === false">check_circle</mat-icon>
           </button>
           {{'nav_bar.menu.light' | translate}}
         </button>
@@ -116,7 +116,7 @@
           (click)="onThemeChange(true)"
         >
           <button mat-mini-fab class="dark-btn">
-            <mat-icon *ngIf="( property.nightmode | async)">check_circle</mat-icon>
+            <mat-icon *ngIf="( property.nightmode | async) === true">check_circle</mat-icon>
           </button>
           {{'nav_bar.menu.dark' | translate}}
         </button>

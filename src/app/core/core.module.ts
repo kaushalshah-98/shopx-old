@@ -2,27 +2,26 @@ import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { EnsureModuleLoadedOnceGuard } from './ensure-module-loaded-once.guard';
-import { PropertyAccessService } from '@services/propert-access/property-access.service';
-import { ServerErrorInterceptor } from './interceptors/server-error.interceptor';
 import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ApiModule } from './api/api.module';
-
+import { EnsureModuleLoadedOnceGuard } from './ensure-module-loaded-once.guard';
+import { ServerErrorInterceptor } from './interceptors/server-error.interceptor';
 
 @NgModule({
   imports: [CommonModule, RouterModule, ApiModule],
   exports: [RouterModule],
   declarations: [],
   providers: [
-   PropertyAccessService,
-   ComparisonServiceService,
-   LocalStorageService,
+    PropertyAccessService,
+    ComparisonServiceService,
+    LocalStorageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ServerErrorInterceptor,
       multi: true
-    },
+    }
   ] // these should be singleton
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {
@@ -33,5 +32,3 @@ export class CoreModule extends EnsureModuleLoadedOnceGuard {
     super(parentModule);
   }
 }
-
-

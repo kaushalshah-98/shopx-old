@@ -12,11 +12,7 @@
       <mat-form-field appearance="outline">
         <mat-label> {{'shared.reviews_viewer.write_a_review' | translate}}</mat-label>
         <!-- <app-spinner [loading]="dataLoading"></app-spinner> -->
-        <input
-          matInput
-          (keyup.enter)="filterquery()"
-          (keyup.escape)="reset()"
-        />
+        <input matInput (keyup.enter)="filterquery()" (keyup.escape)="reset()" />
         <button mat-icon-button matSuffix (click)="filterquery()">
           <mat-icon>search</mat-icon>
         </button>
