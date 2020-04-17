@@ -14,12 +14,11 @@
         <!-- <app-spinner [loading]="dataLoading"></app-spinner> -->
         <input
           matInput
-          [formControl]="reviewtext"
-          (keyup.enter)="addreview()"
+          (keyup.enter)="filterquery()"
           (keyup.escape)="reset()"
         />
-        <button mat-icon-button matSuffix (click)="addreview()">
-          <mat-icon>add_circle</mat-icon>
+        <button mat-icon-button matSuffix (click)="filterquery()">
+          <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
       <div [ngClass]="{dimmed: dimmed}">

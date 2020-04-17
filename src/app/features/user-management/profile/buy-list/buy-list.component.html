@@ -57,15 +57,27 @@
           </mat-chip>
         </mat-chip-list>
         <mat-menu #todosFilter="matMenu" xPosition="before">
-          <button mat-menu-item (click)="onFilter('ALL')">
+          <button
+            [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+            mat-menu-item
+            (click)="onFilter('ALL')"
+          >
             <mat-icon> view_list </mat-icon>
             <span>{{'user.filter.all' | translate}} </span>
           </button>
-          <button mat-menu-item (click)="onFilter('DONE')">
+          <button
+            [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+            mat-menu-item
+            (click)="onFilter('DONE')"
+          >
             <mat-icon> check </mat-icon>
             <span>{{'user.filter.done' | translate}}</span>
           </button>
-          <button mat-menu-item (click)="onFilter('ACTIVE')">
+          <button
+            [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+            mat-menu-item
+            (click)="onFilter('ACTIVE')"
+          >
             <mat-icon> notifications_active </mat-icon>
             <span>{{'user.filter.active' | translate}}</span>
           </button>

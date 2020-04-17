@@ -162,7 +162,7 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header>
         {{"user.product.price" | translate}}
       </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.price }} </mat-cell>
+      <mat-cell *matCellDef="let element">₹ {{ element.price }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="action">
@@ -230,7 +230,7 @@
 <mat-card
   [ngClass]="{'total-card':true, 'dark-total-card' :( property.nightmode | async) ,dimmed: dimmed}"
 >
-  {{"user.cart.total_price" | translate}} : {{getTotalCost() | currency}}
+  {{"user.cart.total_price" | translate}} : ₹ {{getTotalCost()}}
 </mat-card>
 <br /><br /><br />
 <mat-toolbar

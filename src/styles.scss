@@ -4,33 +4,10 @@
 @import 'assets/css/white-component.scss';
 @import 'assets/css/black-component.scss';
 @import 'assets/css/pre-loader.scss';
-
+@import '~ngx-toastr/toastr.css';
 @import 'assets/css/white-angular-components.scss';
 @import 'assets/css/forced-angular-components.scss';
 
-.list-product-style {
-  // overflow: hidden !important;
-  // min-height: 900px;
-  min-height: 830px;
-}
-.chips {
-  top: 12%;
-  left: 4%;
-  position: absolute;
-}
 
-.mat-button-focus-overlay {
-  background-color: transparent !important;
-}
-.mat-tab-body.mat-tab-body-active {
-  overflow-y: hidden !important;
-}
-button:focus {
-  outline: none !important;
-}
-.mat-dialog-container {
-  overflow: hidden;
-}
-.mat-horizontal-content-container {
-  padding: 0 !important;
-}
+
+

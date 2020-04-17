@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  i18nPrefix: ''
+  i18nPrefix: '',
+  apiUrl: 'https://localhost:4200',
+  environmentName: 'development',
+  displayEnvName: true
 };
 
 /*

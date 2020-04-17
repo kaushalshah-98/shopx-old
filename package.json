@@ -48,6 +48,8 @@
     "jspdf": "^1.5.3",
     "ng4-social-login": "^1.4.2",
     "ngx-image-zoom": "^0.3.4",
+    "ng-inline-svg": "^9.2.2",
+    "ngx-toastr": "^11.3.3",
     "prettier-tslint": "^0.4.2",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.4",

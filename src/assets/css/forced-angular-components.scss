@@ -53,3 +53,26 @@
     }
   }
 }
+
+// ----------------------------------Global css -----------------------------------------------
+
+.mat-button-focus-overlay {
+  background-color: transparent !important;
+}
+.mat-tab-body.mat-tab-body-active {
+  overflow-y: hidden !important;
+}
+button:focus {
+  outline: none !important;
+}
+.mat-dialog-container {
+  overflow: hidden;
+}
+.mat-horizontal-content-container {
+  padding: 0 !important;
+}
+.chips {
+  top: 12%;
+  left: 4%;
+  position: absolute;
+}

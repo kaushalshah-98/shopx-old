@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductManagementModule } from './features/product-management/product-management.module';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { SharedModule } from '@shared/shared.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -34,9 +35,9 @@ export class MissingTranslationHelper implements MissingTranslationHandler {
     // angular
     BrowserAnimationsModule,
     BrowserModule,
-    // core
     CoreModule,
     ProductManagementModule,
+    SharedModule,
 
     // app
     AppRoutingModule,
