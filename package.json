@@ -19,7 +19,7 @@
     "lint:styles": "stylelint ./src/**/*.scss",
     "lint-fix": "tslint --fix --project tsconfig.json --format stylish",
     "e2e": "ng e2e",
-    "format:check": "prettier --write --congig ./.prettierrc --list-different \"src/{app,environments,styles}/**/*{.ts,.html,.scss,.json}\"",
+    "format:check": "prettier --write --config ./.prettierrc --list-different \"src/{app,environments,styles}/**/*{.ts,.html,.scss,.json}\"",
     "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/SHOPX/stats-es2015.json",
     "analyze:ci": "webpack-bundle-analyzer dist/SHOPX/stats-es2015.json --mode static --report dist/analysis.html --no-open"
   },
