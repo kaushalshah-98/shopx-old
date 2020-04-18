@@ -1,7 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { RoleService } from '@services/role-service/role.service';
-import { UserManagementService } from '@services/user-service/user-management.service';
+import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
 import { IMenu } from '@shared/interfaces';
 @Component({
   selector: 'app-left-panel-container',

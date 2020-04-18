@@ -9,7 +9,7 @@ import {
   GoogleLoginProvider,
   SocialUser
 } from 'ng4-social-login';
-import { UserManagementService } from 'src/app/core/services/user-service/user-management.service';
+import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
 
 @Component({
   selector: 'app-login',

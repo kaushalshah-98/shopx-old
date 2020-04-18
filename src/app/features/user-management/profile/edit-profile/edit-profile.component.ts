@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
-import { UserManagementService } from '@services/user-service/user-management.service';
+import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { BehaviorSubject } from 'rxjs';
 
