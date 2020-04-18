@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
-import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
+import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
 
 @Component({
   selector: 'app-navbar',
