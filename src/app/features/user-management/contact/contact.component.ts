@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { UserManagementService } from '../user-service/user-management.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { NotificationService } from '@services/notification/notification.service';
 
 @Component({
   selector: 'app-contact',
@@ -17,7 +20,12 @@ export class ContactComponent implements OnInit {
   contactform: FormGroup;
   padding = 40;
 
-  constructor(private formBuilder: FormBuilder, private property: PropertyAccessService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private property: PropertyAccessService,
+    private userservice: UserManagementService,
+    private notification: NotificationService
+  ) { }
 
   ngOnInit() {
     this.fullscreenstatus(this.property.fullscreen);
@@ -33,12 +41,19 @@ export class ContactComponent implements OnInit {
   }
   contact() {
     const data = {
-      // name: this.contactform.controls.usernameFormControl.value,
       message: this.contactform.controls.messageFormControl.value,
-      // email: this.contactform.controls.emailFormControl.value,
       subject: this.contactform.controls.subjectFormControl.value
     };
-    console.log(data);
+    this.userservice.sendmessage(data).subscribe(
+      (res) => { },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+        this.notification.error(error.message);
+      },
+      () => {
+        this.notification.success('Message Has Been Sent.');
+      }
+    );
     this.contactform.reset();
   }
   public hasError(controlName: string, errorName: string) {

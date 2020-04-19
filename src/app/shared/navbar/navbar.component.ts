@@ -16,6 +16,8 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
+import { ThemeService } from '@services/theme-service/theme.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-navbar',
@@ -33,6 +35,7 @@ export class NavbarComponent implements OnInit {
   username: string;
   elem;
   data: any;
+  isadmin = false;
   value: boolean;
   currentLanguage: string;
   optionmenu: any;
@@ -44,9 +47,11 @@ export class NavbarComponent implements OnInit {
     private notification: NotificationService,
     @Inject(DOCUMENT) private document: any,
     private property: PropertyAccessService,
-    private storage: LocalStorageService
+    private storage: LocalStorageService,
+    private theme: ThemeService
   ) {
     this.data = storage.getItem('USER');
+    if (this.data && this.data.role === 'admin') this.isadmin = true;
     translate.addLangs(['en', 'fr', 'de', 'sk', 'hi', 'es', 'he']);
     translate.setDefaultLang('en');
 
@@ -56,9 +61,28 @@ export class NavbarComponent implements OnInit {
   }
   userdetails;
   login_status: string;
+
   ngOnInit() {
     this.elem = document.documentElement;
     this.getmenu();
+    this.initializeTheme();
+  }
+  initializeTheme() {
+    this.theme.getTheme().subscribe(
+      (res) => {
+        this.property.nightmode.next(res.night_theme);
+        this.IsNightmode.emit(res.night_theme);
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+        this.notification.error(error.message);
+      },
+      () => { }
+    );
+  }
+  go_to_home() {
+    if (this.data && this.data.role === 'admin') this.router.navigateByUrl('/admin')
+    else this.router.navigateByUrl('/home')
   }
   getmenu() {
     if (this.data && this.data.role === 'admin') {
@@ -139,13 +163,20 @@ export class NavbarComponent implements OnInit {
     }
   }
   onThemeChange(status) {
-    this.property.nightmode.next(status);
-    this.IsNightmode.emit(status);
+    const night_theme = { "night_theme": status }
+    this.theme.changeTheme(night_theme).subscribe(
+      (res) => {},
+      (error: HttpErrorResponse) => {
+        console.log(error);
+        this.notification.error(error.message);
+      },
+      () => {
+        this.property.nightmode.next(status);
+        this.IsNightmode.emit(status);
+        this.notification.success('Theme Changed');
+      }
+    );
   }
-  // changetheme(status) {
-  //   this.property.nightmode.next(status);
-  //   this.IsNightmode.emit(status);
-  // }
   contact() {
     this.router.navigateByUrl('/contactus/$');
   }

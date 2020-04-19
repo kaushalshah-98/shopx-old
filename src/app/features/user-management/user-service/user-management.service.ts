@@ -30,4 +30,7 @@ export class UserManagementService {
   forgotpassword(userdata: any): Observable<any> {
     return this.apiservice.post(`${PATH.POST_FORGOT_PASSWORD}`, userdata)
   }
+  sendmessage(payload: any): Observable<any> {
+    return this.apiservice.post(`${PATH.POST_MESSAGE}`, payload)
+  }
 }

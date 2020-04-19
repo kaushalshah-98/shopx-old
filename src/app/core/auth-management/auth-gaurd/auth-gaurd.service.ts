@@ -22,7 +22,6 @@ export class AuthGaurdService {
     return of(this.storage.getItem('USER')).pipe(
       map((user) => {
         if (user && user.role === 'admin') {
-          this.notification.success('Welcome Admin !!')
           return true;
         }
         this.notification.error('Unauthorized Access !!')
@@ -39,10 +38,10 @@ export class AuthGaurdService {
   private validuserAuth(): Observable<boolean> {
     return of(this.storage.getItem('USER')).pipe(
       map((user) => {
-        if (user && user.role === 'user') {
+        if (user) {
           return true;
         }
-        this.notification.warning('You Must be logged in to access this..!')
+        this.notification.warning('You Must be logged in..!')
         return false;
       }),
       take(1)

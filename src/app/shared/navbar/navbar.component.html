@@ -16,11 +16,11 @@
     </button>
     &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
     <img
-      [routerLink]="['/home']"
+    (click)="go_to_home()"
       style="height:22px"
       src=" {{( property.nightmode | async)?'../../../assets/images/shopx.png' :'../../../assets/images/shopx-logo-white.png'}}"
     />
-    <div class="search-bar" id="mainsearch" [hidden]="isHidden || isAdmin">
+    <div class="search-bar" id="mainsearch" [hidden]="isHidden || isadmin">
       <mat-form-field appearance="outline">
         <input autocomplete="off" matInput />
         <mat-icon matSuffix class="search-icon">search</mat-icon>
@@ -74,7 +74,7 @@
         </button>
       </mat-menu>
       <button
-        [hidden]="isAdmin"
+        [hidden]="isadmin"
         matTooltip="{{'tooltip.go_to_cart' | translate}}"
         mat-raised-button
         (click)="goToCart()"
@@ -83,7 +83,7 @@
           >shopping_cart
         </mat-icon>
       </button>
-      <ng-container *ngIf="!isAdmin"> &nbsp;&nbsp; </ng-container>
+      <ng-container *ngIf="!isadmin"> &nbsp;&nbsp; </ng-container>
       <button
         mat-raised-button
         (click)="configureFullscreen()"

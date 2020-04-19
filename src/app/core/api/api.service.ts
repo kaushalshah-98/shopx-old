@@ -48,6 +48,7 @@ export const PATH = {
   GET_USER: (userid) => `/getuser/${userid}`,
   PUT_UPDATE_USER: (userid) => `/updateuserdata/${userid}`,
   POST_FORGOT_PASSWORD: '/forgotpassword',
+  POST_MESSAGE: '/sendmessage',
 
   GET_USER_LIST: '/user-management/users/',
   PUT_USER_STATUS: (userId) => `/user-management/users/${userId}/status`,
@@ -58,6 +59,10 @@ export const PATH = {
   // Buy-List-Management
   GET_BUY_LIST: (userid) => `/getbuylistitems/${userid}`,
   POST_BUY_LIST: (userid) => `/addtolist/${userid}`,
+
+  // Theme-Management
+  GET_THEME: (userid) => `/theme/${userid}`,
+  PUT_THEME: (userid) => `/theme/${userid}`,
 
   GET_ORGANISATION_BY_ID: (nodeId) => `/node-management/node/${nodeId}`,
   GET_NODE_THEME: (domain) => `/node-management/organization/${domain}/theme`,
