@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { DetailviewComponent } from './features/product-management/detailview/detailview.component';
 import { ProductcompareComponent } from './features/product-management/productcompare/productcompare.component';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { AuthGaurdService } from '@core/auth-management/auth-gaurd/auth-gaurd.service';
 
 const routes: Routes = [
   {
@@ -22,8 +23,9 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/admin-management/admin-management.module').then(
         (m) => m.AdminManagementModule
-      )
-  },
+      ),
+      canLoad: [AuthGaurdService]
+    },
   {
     path: 'login',
     loadChildren: () =>

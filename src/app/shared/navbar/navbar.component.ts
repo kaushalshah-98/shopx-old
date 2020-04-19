@@ -54,7 +54,6 @@ export class NavbarComponent implements OnInit {
   login_status: string;
   ngOnInit() {
     this.elem = document.documentElement;
-    this.userdetails = this.userservice.getUserData();
     this.getmenu();
   }
   getmenu() {
@@ -77,15 +76,15 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['cart']);
   }
   getUserName() {
-    if (this.isAdmin) {
-      return 'ADMIN';
-    } else {
-      if (this.userdetails === null) {
-        return 'Sign In';
-      }
-      this.username = this.userdetails.name;
-      return this.username;
-    }
+    // if (this.isAdmin) {
+    //   return 'ADMIN';
+    // } else {
+    //   if (this.userdetails === null) {
+    //     return 'Sign In';
+    //   }
+    //   this.username = this.userdetails.name;
+    //   return this.username;
+    // }
   }
   onLanguageSelect(language) {
     this.translate.use(language);

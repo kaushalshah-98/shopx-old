@@ -33,14 +33,14 @@
           {{"user.form.email" | translate}} {{"user.form_validations.is_required" | translate}}
         </mat-error>
       </mat-form-field>
-      <!-- <mat-form-field class="input-full-width">
+      <mat-form-field class="input-full-width">
         <mat-label>Profile Pic</mat-label>
         <input autocomplete="off" matInput formControlName="photoFormControl" />
         <mat-error *ngIf="hasError('photoFormControl','required')">
           {{"user.form.profile_pic" | translate}} {{"user.form_validations.is_required" |
           translate}}
         </mat-error>
-      </mat-form-field> -->
+      </mat-form-field>
       <mat-form-field class="input-full-width">
         <mat-label>{{"user.form.password" | translate}}</mat-label>
         <input autocomplete="off" matInput formControlName="passwordFormControl" />
@@ -52,7 +52,7 @@
         </mat-error>
       </mat-form-field>
 
-      <input
+      <!-- <input
         accept="image/*"
         type="file"
         formControlName="photoFormControl"
@@ -72,9 +72,9 @@
           [src]="selectedimage != undefined? selectedimage
         : '../../../../assets/images/icon-login-profile.svg'"
         />
-      </ng-container>
+      </ng-container> -->
     </form>
-    <br />
+    <!-- <br /> -->
     <mat-card-content> </mat-card-content>
     <mat-card-actions class="mat-actions">
       <button

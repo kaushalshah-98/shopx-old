@@ -43,13 +43,14 @@ export class ApiService {
 
 export const PATH = {
   // User Management
-  POST_LOGIN: '/user-management/login',
-  GET_USER: (userId) => `/user-management/users/${userId}`,
-  POST_CREATE_USER: '/user-management/users',
+  POST_LOGIN: '/verifyuser',
+  POST_CREATE_USER: '/createuser',
+  GET_USER: (userid) => `/getuser/${userid}`,
+  PUT_UPDATE_USER: (userid) => `/updateuserdata/${userid}`,
+
   GET_USER_LIST: '/user-management/users/',
   PUT_USER_STATUS: (userId) => `/user-management/users/${userId}/status`,
   DELETE_USER: (userId) => `/user-management/users/${userId}/delete`,
-  PUT_UPDATE_USER: (userId) => `/user-management/users/${userId}`,
   POST_RESET_PASSWORD: '/user-management/resetpassword',
   POST_REFRESH_TOKEN: '/user-management/refresh-token',
   // Node Management

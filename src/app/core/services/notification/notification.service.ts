@@ -1,50 +1,39 @@
-import { Injectable, NgZone } from '@angular/core';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
+/**
+ * Provides an abstract wrapper around showing a MatSnackbar
+ * notification based on global environment or API provided
+ * configuration.
+ *
+ * This class Listens for the authentication state to change.
+ * Once the state becomes authenticated, retrieve the startup
+ * configuration from the API service. Once de-authenticated
+ * set the _params to undefined and unsubscribe.
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationService {
-  constructor(private readonly snackBar: MatSnackBar, private readonly zone: NgZone) {}
+  /**
+   * Constructor
+   * @param toast  Toaster
+   */
+  constructor(private toastr: ToastrService) {}
 
-  default(message: string) {
-    this.show(message, {
-      duration: 2000,
-      panelClass: 'default-notification-overlay'
-    });
+  show(message: string) {
+    return this.toastr.success(message);
   }
-
-  info(message: string) {
-    this.show(message, {
-      duration: 2000,
-      panelClass: 'info-notification-overlay'
-    });
-  }
-
   success(message: string) {
-    this.show(message, {
-      duration: 2000,
-      panelClass: 'success-notification-overlay'
-    });
+    return this.toastr.success(message, 'Success');
   }
-
-  warn(message: string) {
-    this.show(message, {
-      duration: 2500,
-      panelClass: 'warning-notification-overlay'
-    });
-  }
-
   error(message: string) {
-    this.show(message, {
-      duration: 3000,
-      panelClass: 'error-notification-overlay'
-    });
+    return this.toastr.error(message, 'Error');
   }
-
-  private show(message: string, configuration: MatSnackBarConfig) {
-    // Need to open snackBar from Angular zone to prevent issues with its position per
-    // https://stackoverflow.com/questions/50101912/snackbar-position-wrong-when-use-errorhandler-in-angular-5-and-material
-    this.zone.run(() => this.snackBar.open(message, null, configuration));
+  warning(message: string) {
+    return this.toastr.warning(message, 'Warning');
+  }
+  info(message: string) {
+    return this.toastr.info(message, 'Information');
   }
 }

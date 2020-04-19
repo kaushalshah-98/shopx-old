@@ -4,6 +4,9 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { BehaviorSubject } from 'rxjs';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { NotificationService } from '@services/notification/notification.service';
+import { User } from '@shared/interfaces';
 
 @Component({
   selector: 'app-edit-profile',
@@ -26,11 +29,32 @@ export class EditProfileComponent implements OnInit {
     private dialog: ConfirmDialogService,
     private userservice: UserManagementService,
     private formBuilder: FormBuilder,
-    private property: PropertyAccessService
-  ) {}
+    private property: PropertyAccessService,
+    private notification: NotificationService
+  ) { }
   ngOnInit() {
     this.initializeform();
-    this.userdata = this.userservice.getUserData();
+    this.fetchuser();
+  }
+  fetchuser() {
+    this.userservice.getuser().subscribe(
+      (res) => {
+        console.log(res);
+        this.userdata = res;
+        this.editform.controls.usernameFormControl.setValue(res.name);
+        this.editform.controls.emailFormControl.setValue(res.email);
+        this.editform.controls.photoFormControl.setValue(res.profilepic);
+        this.editform.controls.passwordFormControl.setValue(res.password);
+
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+        this.notification.error(error.message);
+      },
+      () => {
+        console.log('complete');
+      }
+    );
   }
   onImageSelected(event) {
     const file: File = event.target.files[0];
@@ -47,8 +71,8 @@ export class EditProfileComponent implements OnInit {
         [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z ]*$')]
       ],
       passwordFormControl: ['', [Validators.required, Validators.minLength(4)]],
-      emailFormControl: ['', [Validators.required, Validators.email]]
-      // photoFormControl: ['', [Validators.required]]
+      emailFormControl: ['', [Validators.required, Validators.email]],
+      photoFormControl: ['', [Validators.required]]
     });
   }
   public hasError(controlName: string, errorName: string) {
@@ -67,18 +91,36 @@ export class EditProfileComponent implements OnInit {
     }
   }
   save() {
-    this.dimmed = true;
-    this.dataLoading.emit(true);
-    setTimeout(() => {
-      this.dataLoading.emit(false);
-      this.dimmed = false;
-      const userdata = {
+    if (!this.editform.dirty) {
+      this.notification.warning('Details Are not changed');
+    } else {
+      this.dimmed = true;
+      this.dataLoading.emit(true);
+      const userdata: User = {
         name: this.editform.controls.usernameFormControl.value,
         password: this.editform.controls.passwordFormControl.value,
         email: this.editform.controls.emailFormControl.value,
-        profilepic: this.selectedimage
+        profilepic: this.editform.controls.photoFormControl.value,
       };
-      console.log(userdata);
-    }, 2000);
+      setTimeout(() => {
+        this.userservice.updateuser(userdata).subscribe(
+          (res) => {
+            console.log(res);
+            this.userdata = res;
+          },
+          (error: HttpErrorResponse) => {
+            this.dataLoading.emit(false);
+            this.dimmed = false;
+            console.log(error);
+            this.notification.error(error.message);
+          },
+          () => {
+            this.dataLoading.emit(false);
+            this.dimmed = false;
+            this.notification.info('Profile Is Updated');
+          }
+        );
+      }, 2000);
+    }
   }
 }

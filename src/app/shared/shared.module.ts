@@ -29,6 +29,7 @@ import { QuickViewService } from './quickview/quickview.service';
 import { ReviewsViewerComponent } from './reviews-viewer/reviews-viewer.component';
 import { SharedRoutingModule } from './shared-routing.module';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     BigInputComponent
   ],
   imports: [
+    ToastrModule.forRoot(), // ToastrModule added
     SharedRoutingModule,
     CommonModule,
     TranslateModule,
@@ -85,6 +87,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     BigInputActionComponent,
     BigInputComponent,
 
+    ToastrModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,

@@ -2,7 +2,6 @@ import { Component, EventEmitter, OnInit, ViewEncapsulation } from '@angular/cor
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
-import { RoleService } from '@services/role-service/role.service';
 import {
   AuthService,
   FacebookLoginProvider,
@@ -10,6 +9,9 @@ import {
   SocialUser
 } from 'ng4-social-login';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
+import { NotificationService } from '@services/notification/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { LocalStorageService } from '@services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -24,12 +26,14 @@ export class LoginComponent implements OnInit {
   show = false;
   constructor(
     private socialAuthService: AuthService,
-    private userservice: UserManagementService,
     private router: Router,
-    private role: RoleService,
     private formBuilder: FormBuilder,
-    private property: PropertyAccessService
-  ) {}
+    private property: PropertyAccessService,
+    private userservice: UserManagementService,
+    private notification: NotificationService,
+    private storage: LocalStorageService
+
+  ) { }
 
   ngOnInit() {
     this.initializeForm();
@@ -44,46 +48,98 @@ export class LoginComponent implements OnInit {
     return this.loginform.controls[controlName].hasError(errorName);
   }
   login() {
+    this.showloader();
     const userdata = {
-      username: btoa(this.loginform.controls.usernameFormControl.value),
-      password: btoa(this.loginform.controls.passwordFormControl.value)
+      // username: btoa(this.loginform.controls.usernameFormControl.value),
+      // password: btoa(this.loginform.controls.passwordFormControl.value)
+      name: this.loginform.controls.usernameFormControl.value,
+      password: this.loginform.controls.passwordFormControl.value
     };
-    const decuserdata = {
-      username: atob(userdata.username),
-      password: atob(userdata.password)
-    };
-    console.log(userdata);
-    console.log(decuserdata);
+    this.userservice.verifyuser(userdata).subscribe(
+      (res) => {
+        console.log(res);
+        if (res.length <= 0) {
+          this.notification.error('Incorrect Username or Password')
+        } else if (res.status === false) {
+          this.notification.error('Your Account Has been Blocked')
+        } else {
+          this.storage.setItem('USER', res);
+          this.notification.success('Login Success');
+          this.property.nightmode.next(res.night_theme)
+          this.property.userid = res.userid;
+          if (res.role === 'user') this.router.navigate(['home']);
+          else this.router.navigate(['admin']);
+        }
+      },
+      (error: HttpErrorResponse) => {
+        this.hideloader();
+        console.log(error);
+        this.notification.error(error.message);
+      },
+      () => {
+        this.hideloader();
+      }
+    );
+  }
+  showloader() {
     this.dataLoading.emit(true);
     this.show = true;
-    setTimeout(() => {
-      this.dataLoading.emit(false);
-      this.role.setRole('admin');
-      this.router.navigate(['admin']);
-      // this.userservice.setRole("user");
-      // this.router.navigate(["home"]);
-    }, 3000);
+  }
+  hideloader() {
+    this.dataLoading.emit(false);
+    this.show = false;
   }
   loginWithFacebook() {
-    this.dataLoading.emit(true);
-    this.show = true;
-    setTimeout(() => {
-      this.dataLoading.emit(false);
-      this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then((userdata) => {
-        this.userservice.setUserData(userdata);
-        this.router.navigate(['home']);
+    this.showloader();
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
+      (user) => {
+        const userdata = {
+          name: user.name,
+          password: "",
+          email: user.email,
+          profilepic: user.photoUrl,
+          status: true
+        }
+        this.userservice.createuser(userdata).subscribe(
+          (res) => console.log(res),
+          (error: HttpErrorResponse) => {
+            this.hideloader();
+            console.log(error);
+            this.notification.error(error.message);
+          },
+          () => {
+            this.hideloader();
+            this.notification.success('Your Facebook Account has been found successfully')
+            this.notification.success('Check Your Email..')
+            this.router.navigate(['home']);
+          }
+        );
       });
-    }, 3000);
   }
   loginWithGoogle() {
-    this.dataLoading.emit(true);
-    this.show = true;
-    setTimeout(() => {
-      this.dataLoading.emit(false);
-      this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userdata) => {
-        this.userservice.setUserData(userdata);
-        this.router.navigate(['home']);
-      });
-    }, 3000);
+    this.showloader();
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
+      const userdata = {
+        name: user.name,
+        password: "",
+        email: user.email,
+        profilepic: user.photoUrl,
+        status: true
+      }
+      this.userservice.createuser(userdata).subscribe(
+        (res) => console.log(res),
+        (error: HttpErrorResponse) => {
+          this.hideloader();
+          console.log(error);
+          this.notification.error(error.message);
+        },
+        () => {
+          this.hideloader();
+          this.notification.success('Your Google Account has been found successfully')
+          this.notification.success('Check Your Email..')
+          this.router.navigate(['home']);
+        }
+      );
+    });
   }
 }

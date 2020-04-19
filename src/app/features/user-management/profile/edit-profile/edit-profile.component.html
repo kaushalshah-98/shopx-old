@@ -36,13 +36,13 @@
         <img
           mat-card-image
           [src]="
-            selectedimage != undefined
-              ? selectedimage
+            userdata != undefined
+              ? userdata.profilepic
               : '../../../../assets/images/icon-login-profile.svg'
           "
           alt="Photo of a Shiba Inu"
-          (click)="imageinput.click()"
         />
+        <!-- (click)="imageinput.click()" -->
         <input
           accept="image/*"
           type="file"
@@ -89,7 +89,7 @@
               {{"user.form.email" | translate}} {{"user.form_validations.is_required" | translate}}
             </mat-error>
           </mat-form-field>
-          <!-- <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline">
             <mat-label>{{"user.form.profile_pic" | translate}}</mat-label>
             <input autocomplete="off" matInput formControlName="photoFormControl" />
             <button mat-icon-button matTooltip="view image" matTooltipPosition="left" matSuffix>
@@ -99,7 +99,7 @@
               {{"user.form.profile_pic" | translate}} {{"user.form_validations.is_required" |
               translate}}
             </mat-error>
-          </mat-form-field> -->
+          </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>{{"user.form.password" | translate}}</mat-label>
             <input
@@ -113,7 +113,6 @@
               mat-icon-button
               matTooltip="{{hide ? ('tooltip.show' | translate) : ('tooltip.hide'  |translate) }}"
               matTooltipPosition="left"
-              matSuffix
               matSuffix
               (click)="hide = !hide"
             >

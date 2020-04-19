@@ -14,7 +14,7 @@
           mat-card-image
           [src]="
             userdata != undefined
-              ? userdata.photoUrl
+              ? userdata.profilepic
               : '../../../../assets/images/icon-login-profile.svg'
           "
           alt="Photo of a Shiba Inu"
@@ -44,7 +44,7 @@
               matInput
               [type]="hide ? 'password' : 'text'"
               readonly
-              value="value"
+              value="{{ userdata?.password }}"
             />
             <button
               mat-icon-button

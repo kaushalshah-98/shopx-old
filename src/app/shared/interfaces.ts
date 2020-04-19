@@ -49,7 +49,11 @@ export interface Item {
 export interface User {
   name: string;
   email: string;
-  status: boolean;
+  status?: boolean;
   profilepic: string;
   password: string;
+  night_theme?: boolean;
+  userid?: string;
+  role?: string;
+  type?: string
 }
