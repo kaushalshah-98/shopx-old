@@ -1,9 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { UserManagementService } from '../user-service/user-management.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { NotificationService } from '@services/notification/notification.service';
 
 @Component({
   selector: 'app-contact',
@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
     private property: PropertyAccessService,
     private userservice: UserManagementService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.fullscreenstatus(this.property.fullscreen);
@@ -45,7 +45,7 @@ export class ContactComponent implements OnInit {
       subject: this.contactform.controls.subjectFormControl.value
     };
     this.userservice.sendmessage(data).subscribe(
-      (res) => { },
+      (res) => {},
       (error: HttpErrorResponse) => {
         console.log(error);
         this.notification.error(error.message);

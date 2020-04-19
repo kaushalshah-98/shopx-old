@@ -1,10 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { User } from '@shared/interfaces';
 import { BehaviorSubject } from 'rxjs';
 import { UserManagementService } from '../../user-service/user-management.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { NotificationService } from '@services/notification/notification.service';
-import { User } from '@shared/interfaces';
 
 @Component({
   selector: 'app-view-profile',
@@ -17,11 +17,11 @@ export class ViewProfileComponent implements OnInit {
   padding: number;
   userdata: User;
 
-  constructor(private property: PropertyAccessService,
+  constructor(
+    private property: PropertyAccessService,
     private userservice: UserManagementService,
-    private notification: NotificationService,
-
-  ) { }
+    private notification: NotificationService
+  ) {}
   ngOnInit() {
     this.userservice.getuser().subscribe(
       (res) => {

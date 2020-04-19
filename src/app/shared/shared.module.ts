@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { ToastrModule } from 'ngx-toastr';
 import { AuthorsCarouselComponent } from './authors-carousel/authors-carousel.component';
 import { BigInputActionComponent } from './big-input/big-input-action/big-input-action.component';
 import { BigInputComponent } from './big-input/big-input/big-input.component';
@@ -29,7 +30,6 @@ import { QuickViewService } from './quickview/quickview.service';
 import { ReviewsViewerComponent } from './reviews-viewer/reviews-viewer.component';
 import { SharedRoutingModule } from './shared-routing.module';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [

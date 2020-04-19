@@ -1,6 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LocalStorageService } from '@services/local-storage/local-storage.service';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import {
   AuthService,
@@ -9,9 +12,6 @@ import {
   SocialUser
 } from 'ng4-social-login';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
-import { NotificationService } from '@services/notification/notification.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { LocalStorageService } from '@services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     private userservice: UserManagementService,
     private notification: NotificationService,
     private storage: LocalStorageService
-
   ) { }
 
   ngOnInit() {
@@ -59,16 +58,19 @@ export class LoginComponent implements OnInit {
       (res) => {
         console.log(res);
         if (res.length <= 0) {
-          this.notification.error('Incorrect Username or Password')
+          this.notification.error('Incorrect Username or Password');
         } else if (res.status === false) {
-          this.notification.error('Your Account Has been Blocked')
+          this.notification.error('Your Account Has been Blocked');
         } else {
           this.storage.setItem('USER', res);
           this.notification.success('Login Success');
-          this.property.nightmode.next(res.night_theme)
+          this.property.nightmode.next(res.night_theme);
           this.property.userid = res.userid;
-          if (res.role === 'user') this.router.navigate(['home']);
-          else this.router.navigate(['admin']);
+          if (res.role === 'user') {
+            this.router.navigate(['home']);
+          } else {
+            this.router.navigate(['admin']);
+          }
         }
       },
       (error: HttpErrorResponse) => {
@@ -91,41 +93,14 @@ export class LoginComponent implements OnInit {
   }
   loginWithFacebook() {
     this.showloader();
-    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
-      (user) => {
-        const userdata = {
-          name: user.name,
-          password: "",
-          email: user.email,
-          profilepic: user.photoUrl,
-          status: true
-        }
-        this.userservice.createuser(userdata).subscribe(
-          (res) => console.log(res),
-          (error: HttpErrorResponse) => {
-            this.hideloader();
-            console.log(error);
-            this.notification.error(error.message);
-          },
-          () => {
-            this.hideloader();
-            this.notification.success('Your Facebook Account has been found successfully')
-            this.notification.success('Check Your Email..')
-            this.router.navigate(['home']);
-          }
-        );
-      });
-  }
-  loginWithGoogle() {
-    this.showloader();
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then((user) => {
       const userdata = {
         name: user.name,
-        password: "",
+        password: '',
         email: user.email,
         profilepic: user.photoUrl,
         status: true
-      }
+      };
       this.userservice.createuser(userdata).subscribe(
         (res) => console.log(res),
         (error: HttpErrorResponse) => {
@@ -135,8 +110,34 @@ export class LoginComponent implements OnInit {
         },
         () => {
           this.hideloader();
-          this.notification.success('Your Google Account has been found successfully')
-          this.notification.success('Check Your Email..')
+          this.notification.success('Your Facebook Account has been found successfully');
+          this.notification.success('Check Your Email..');
+          this.router.navigate(['home']);
+        }
+      );
+    });
+  }
+  loginWithGoogle() {
+    this.showloader();
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
+      const userdata = {
+        name: user.name,
+        password: '',
+        email: user.email,
+        profilepic: user.photoUrl,
+        status: true
+      };
+      this.userservice.createuser(userdata).subscribe(
+        (res) => console.log(res),
+        (error: HttpErrorResponse) => {
+          this.hideloader();
+          console.log(error);
+          this.notification.error(error.message);
+        },
+        () => {
+          this.hideloader();
+          this.notification.success('Your Google Account has been found successfully');
+          this.notification.success('Check Your Email..');
           this.router.navigate(['home']);
         }
       );

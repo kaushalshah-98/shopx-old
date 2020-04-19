@@ -2,7 +2,7 @@
 
 <div
   [ngClass]="{'big-input-container':true,'dark-big-input-container' :( property.nightmode | async)}"
-  [ngStyle]="{'padding-top': ((paddingtop | async) >0 ?((paddingtop | async)-35) :0)  +'px'}"
+  [ngStyle]="{'padding-top': ((paddingtop | async) >0 ?((paddingtop | async)-35) :25)  +'px'}"
 >
   <div class="big-delete-input">
     <app-big-input

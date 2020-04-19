@@ -1,4 +1,5 @@
 import { DOCUMENT } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
 import {
   Component,
   EventEmitter,
@@ -11,13 +12,12 @@ import {
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { ThemeService } from '@services/theme-service/theme.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
-import { LocalStorageService } from '@services/local-storage/local-storage.service';
-import { ThemeService } from '@services/theme-service/theme.service';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-navbar',
@@ -51,7 +51,7 @@ export class NavbarComponent implements OnInit {
     private theme: ThemeService
   ) {
     this.data = storage.getItem('USER');
-    if (this.data && this.data.role === 'admin') this.isadmin = true;
+    if (this.data && this.data.role === 'admin') { this.isadmin = true; }
     translate.addLangs(['en', 'fr', 'de', 'sk', 'hi', 'es', 'he']);
     translate.setDefaultLang('en');
 
@@ -81,8 +81,11 @@ export class NavbarComponent implements OnInit {
     );
   }
   go_to_home() {
-    if (this.data && this.data.role === 'admin') this.router.navigateByUrl('/admin')
-    else this.router.navigateByUrl('/home')
+    if (this.data && this.data.role === 'admin') {
+      this.router.navigateByUrl('/admin');
+    } else {
+      this.router.navigateByUrl('/home');
+    }
   }
   getmenu() {
     if (this.data && this.data.role === 'admin') {
@@ -163,9 +166,9 @@ export class NavbarComponent implements OnInit {
     }
   }
   onThemeChange(status) {
-    const night_theme = { "night_theme": status }
+    const night_theme = { night_theme: status };
     this.theme.changeTheme(night_theme).subscribe(
-      (res) => {},
+      (res) => { },
       (error: HttpErrorResponse) => {
         console.log(error);
         this.notification.error(error.message);

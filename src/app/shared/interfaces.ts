@@ -6,7 +6,7 @@ export interface IMenu {
 }
 export interface BuyList {
   name: string;
-  done:boolean;
+  done: boolean;
 }
 export interface ProductItem {
   name: string;
@@ -59,5 +59,5 @@ export interface User {
   night_theme?: boolean;
   userid?: string;
   role?: string;
-  type?: string
+  type?: string;
 }

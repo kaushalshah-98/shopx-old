@@ -1,10 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { User } from '@shared/interfaces';
 import { UserManagementService } from '../user-service/user-management.service';
-import { NotificationService } from '@services/notification/notification.service';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -20,8 +20,8 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private property: PropertyAccessService,
     private userservice: UserManagementService,
-    private notification :NotificationService
-  ) { }
+    private notification: NotificationService
+  ) {}
 
   ngOnInit() {
     this.initializeform();
@@ -47,15 +47,15 @@ export class RegisterComponent implements OnInit {
     };
     console.log(userdata);
     this.userservice.createuser(userdata).subscribe(
-      (res)=> console.log(res),
-      (error : HttpErrorResponse)=>{
+      (res) => console.log(res),
+      (error: HttpErrorResponse) => {
         console.log(error);
         this.notification.error(error.message);
       },
-      ()=>{
+      () => {
         console.log('succesfully created');
-        this.notification.success('Your Profile Has been Registered Successfully')
-        this.notification.success('Check Your Email..')
+        this.notification.success('Your Profile Has been Registered Successfully');
+        this.notification.success('Check Your Email..');
       }
     );
   }

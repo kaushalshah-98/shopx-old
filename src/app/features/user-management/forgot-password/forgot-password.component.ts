@@ -1,10 +1,10 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { UserManagementService } from '../user-service/user-management.service';
-import { NotificationService } from '@services/notification/notification.service';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-forgot-password',
@@ -21,7 +21,7 @@ export class ForgotPasswordComponent implements OnInit {
     private property: PropertyAccessService,
     private userservice: UserManagementService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.initializeForm();
@@ -48,7 +48,7 @@ export class ForgotPasswordComponent implements OnInit {
           this.notification.warning('Name or Email you entered is not register with us');
           this.notification.warning('Only registered users can get password');
         } else {
-          this.notification.success('Your Password Has been Sent to Your Email')
+          this.notification.success('Your Password Has been Sent to Your Email');
         }
       },
       (error: HttpErrorResponse) => {

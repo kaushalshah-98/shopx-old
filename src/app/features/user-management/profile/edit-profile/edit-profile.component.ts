@@ -1,12 +1,12 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
+import { User } from '@shared/interfaces';
 import { BehaviorSubject } from 'rxjs';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { NotificationService } from '@services/notification/notification.service';
-import { User } from '@shared/interfaces';
 
 @Component({
   selector: 'app-edit-profile',
@@ -31,7 +31,7 @@ export class EditProfileComponent implements OnInit {
     private formBuilder: FormBuilder,
     private property: PropertyAccessService,
     private notification: NotificationService
-  ) { }
+  ) {}
   ngOnInit() {
     this.initializeform();
     this.fetchuser();
@@ -45,7 +45,6 @@ export class EditProfileComponent implements OnInit {
         this.editform.controls.emailFormControl.setValue(res.email);
         this.editform.controls.photoFormControl.setValue(res.profilepic);
         this.editform.controls.passwordFormControl.setValue(res.password);
-
       },
       (error: HttpErrorResponse) => {
         console.log(error);
@@ -100,7 +99,7 @@ export class EditProfileComponent implements OnInit {
         name: this.editform.controls.usernameFormControl.value,
         password: this.editform.controls.passwordFormControl.value,
         email: this.editform.controls.emailFormControl.value,
-        profilepic: this.editform.controls.photoFormControl.value,
+        profilepic: this.editform.controls.photoFormControl.value
       };
       setTimeout(() => {
         this.userservice.updateuser(userdata).subscribe(

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
-import { map, take } from 'rxjs/operators';
 import { NotificationService } from '@services/notification/notification.service';
+import { Observable, of } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class AuthGaurdService {
   constructor(
     private router: Router,
     private storage: LocalStorageService,
-    private notification: NotificationService,
-  ) { }
+    private notification: NotificationService
+  ) {}
 
   canLoad(): Observable<boolean> {
     return this.validAuth();
@@ -24,8 +24,8 @@ export class AuthGaurdService {
         if (user && user.role === 'admin') {
           return true;
         }
-        this.notification.error('Unauthorized Access !!')
-        this.notification.warning('You Have Not Admin rights')
+        this.notification.error('Unauthorized Access !!');
+        this.notification.warning('You Have Not Admin rights');
         this.router.navigate(['/login']);
         return false;
       }),
@@ -41,7 +41,7 @@ export class AuthGaurdService {
         if (user) {
           return true;
         }
-        this.notification.warning('You Must be logged in..!')
+        this.notification.warning('You Must be logged in..!');
         return false;
       }),
       take(1)

@@ -1,10 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { BuyList } from '@shared/interfaces';
 import { BehaviorSubject } from 'rxjs';
 import { BuyListService } from './buy-list.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { NotificationService } from '@services/notification/notification.service';
-import { BuyList } from '@shared/interfaces';
 
 @Component({
   selector: 'app-buy-list',
@@ -26,7 +26,7 @@ export class BuyListComponent implements OnInit {
     private property: PropertyAccessService,
     private listservice: BuyListService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.fetchbuylist();
@@ -50,7 +50,6 @@ export class BuyListComponent implements OnInit {
         console.log('complete');
       }
     );
-
   }
   check() {
     this.isSelected = true;
