@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { UserManagementService } from '../user-service/user-management.service';
+import { NotificationService } from '@services/notification/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-forgot-password',
@@ -10,11 +13,15 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 })
 export class ForgotPasswordComponent implements OnInit {
   forgotpasswordform: FormGroup;
+  dataLoading: EventEmitter<boolean> = new EventEmitter(false);
+  show = false;
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private property: PropertyAccessService
-  ) {}
+    private property: PropertyAccessService,
+    private userservice: UserManagementService,
+    private notification: NotificationService
+  ) { }
 
   ngOnInit() {
     this.initializeForm();
@@ -29,11 +36,29 @@ export class ForgotPasswordComponent implements OnInit {
     return this.forgotpasswordform.controls[controlName].hasError(errorName);
   }
   send() {
+    this.dataLoading.emit(true);
     const userdata = {
       name: this.forgotpasswordform.controls.usernameFormControl.value,
       email: this.forgotpasswordform.controls.emailFormControl.value
     };
-    console.log(userdata);
-    this.router.navigate(['login']);
+    this.userservice.forgotpassword(userdata).subscribe(
+      (res) => {
+        console.log(res);
+        if (res.length <= 0) {
+          this.notification.warning('Name or Email you entered is not register with us');
+          this.notification.warning('Only registered users can get password');
+        } else {
+          this.notification.success('Your Password Has been Sent to Your Email')
+        }
+      },
+      (error: HttpErrorResponse) => {
+        this.dataLoading.emit(false);
+        console.log(error);
+        this.notification.error(error.message);
+      },
+      () => {
+        this.dataLoading.emit(false);
+      }
+    );
   }
 }

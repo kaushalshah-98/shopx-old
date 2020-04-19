@@ -139,7 +139,7 @@
 <mat-toolbar
   [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
 >
-  <button class="pink-btn" id="btnSave" mat-flat-button (click)="save()">
+  <button [disabled]="editform.invalid" class="pink-btn" id="btnSave" mat-flat-button (click)="save()">
     {{"user.form.save" | translate}}
   </button>
   &nbsp;&nbsp;

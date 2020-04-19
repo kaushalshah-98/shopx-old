@@ -10,15 +10,18 @@ import { WishListComponent } from './wish-list/wish-list.component';
 const routes: Routes = [
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [AuthGaurdService]
   },
   {
     path: 'wishlist',
-    component: WishListComponent
+    component: WishListComponent,
+    canActivate: [AuthGaurdService]
   },
   {
     path: 'my_orders',
-    component: ViewOrdersComponent
+    component: ViewOrdersComponent,
+    canActivate: [AuthGaurdService]
   },
   {
     path: '^',
@@ -34,4 +37,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class UserManagementRoutingModule {}
+export class UserManagementRoutingModule { }

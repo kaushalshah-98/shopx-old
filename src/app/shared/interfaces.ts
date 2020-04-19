@@ -4,6 +4,10 @@ export interface IMenu {
   url?: string;
   childs?: IMenu[];
 }
+export interface BuyList {
+  name: string;
+  done:boolean;
+}
 export interface ProductItem {
   name: string;
   description: string;

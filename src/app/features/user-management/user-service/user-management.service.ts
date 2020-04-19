@@ -12,7 +12,7 @@ export class UserManagementService {
   constructor(private apiservice: ApiService, private storage: LocalStorageService
   ) {
     const user = this.storage.getItem('USER');
-    this.userid = user.userid;
+    if (user) this.userid = user.userid;
   }
 
   createuser(userdata: User): Observable<any> {
@@ -26,5 +26,8 @@ export class UserManagementService {
   }
   updateuser(userdata: any): Observable<any> {
     return this.apiservice.put(PATH.PUT_UPDATE_USER(this.userid), userdata)
+  }
+  forgotpassword(userdata: any): Observable<any> {
+    return this.apiservice.post(`${PATH.POST_FORGOT_PASSWORD}`, userdata)
   }
 }

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ApiService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   get headers(): HttpHeaders {
     const headersConfig = {
@@ -47,14 +47,18 @@ export const PATH = {
   POST_CREATE_USER: '/createuser',
   GET_USER: (userid) => `/getuser/${userid}`,
   PUT_UPDATE_USER: (userid) => `/updateuserdata/${userid}`,
+  POST_FORGOT_PASSWORD: '/forgotpassword',
 
   GET_USER_LIST: '/user-management/users/',
   PUT_USER_STATUS: (userId) => `/user-management/users/${userId}/status`,
   DELETE_USER: (userId) => `/user-management/users/${userId}/delete`,
   POST_RESET_PASSWORD: '/user-management/resetpassword',
   POST_REFRESH_TOKEN: '/user-management/refresh-token',
-  // Node Management
-  GET_ORGANIZATION_LIST: '/node-management/organization/',
+
+  // Buy-List-Management
+  GET_BUY_LIST: (userid) => `/getbuylistitems/${userid}`,
+  POST_BUY_LIST: (userid) => `/addtolist/${userid}`,
+
   GET_ORGANISATION_BY_ID: (nodeId) => `/node-management/node/${nodeId}`,
   GET_NODE_THEME: (domain) => `/node-management/organization/${domain}/theme`,
   POST_CREATE_NODE: '/node-management/node',

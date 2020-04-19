@@ -1,6 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { BehaviorSubject } from 'rxjs';
+import { BuyListService } from './buy-list.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { NotificationService } from '@services/notification/notification.service';
+import { BuyList } from '@shared/interfaces';
 
 @Component({
   selector: 'app-buy-list',
@@ -11,31 +15,42 @@ import { BehaviorSubject } from 'rxjs';
 export class BuyListComponent implements OnInit {
   @Input() paddingtop: BehaviorSubject<number>;
   padding: number;
-  dataLoading: EventEmitter<boolean> = new EventEmitter(false);
+  dataLoading: EventEmitter<boolean> = new EventEmitter(true);
   isDisabled = true;
   isSelected = true;
-  show = false;
   inputvalue = '';
-  list = [];
-  buylist = [];
+  list: BuyList[] = [];
+  buylist: BuyList[] = [];
   dimmed: boolean;
-  constructor(private property: PropertyAccessService) {}
+  constructor(
+    private property: PropertyAccessService,
+    private listservice: BuyListService,
+    private notification: NotificationService
+  ) { }
 
   ngOnInit() {
-    this.list = [
-      { name: 'shirts', done: false },
-      { name: 'pants', done: true },
-      { name: 'one short', done: false },
-      { name: 'television', done: false },
-      { name: 'mobile', done: false },
-      { name: 'headphones', done: true }
-    ];
-    setTimeout(() => {
-      this.dataLoading.emit(false);
-      this.show = true;
-      this.buylist = this.list;
-      this.check();
-    }, 3000);
+    this.fetchbuylist();
+  }
+  fetchbuylist() {
+    this.showspinner();
+    this.listservice.getbuylist().subscribe(
+      (res) => {
+        console.log(res);
+        this.list = res;
+        this.buylist = this.list;
+      },
+      (error: HttpErrorResponse) => {
+        this.hidespinner();
+        console.log(error);
+        this.notification.error(error.message);
+      },
+      () => {
+        this.hidespinner();
+        this.check();
+        console.log('complete');
+      }
+    );
+
   }
   check() {
     this.isSelected = true;
@@ -54,14 +69,29 @@ export class BuyListComponent implements OnInit {
     }
   }
   onAddToBuyList() {
-    this.dimmed = true;
-    this.dataLoading.emit(true);
+    this.showspinner();
     setTimeout(() => {
-      this.dimmed = false;
-      this.dataLoading.emit(false);
-      const item = { name: this.inputvalue, done: false };
+      const item: BuyList = { name: this.inputvalue, done: false };
       this.buylist.push(item);
       this.onClear();
+      this.listservice.addtolist(this.buylist).subscribe(
+        (res) => {
+          console.log(res);
+          this.isSelected = true;
+        },
+        (error: HttpErrorResponse) => {
+          this.hidespinner();
+          this.check();
+          console.log(error);
+          this.notification.error(error.message);
+        },
+        () => {
+          this.notification.info(`${item.name} is added to the list`);
+          this.hidespinner();
+          this.fetchbuylist();
+          this.check();
+        }
+      );
     }, 1000);
   }
   onClear() {
@@ -73,17 +103,38 @@ export class BuyListComponent implements OnInit {
     this.check();
   }
   onRemoveItem() {
-    this.dimmed = true;
-    this.dataLoading.emit(true);
+    this.showspinner();
     setTimeout(() => {
-      this.dimmed = false;
-      this.dataLoading.emit(false);
       this.list = this.list.filter((item) => !item.done === true);
-      this.buylist = this.list;
-      this.isSelected = true;
+      this.listservice.addtolist(this.list).subscribe(
+        (res) => {
+          console.log(res);
+          this.isSelected = true;
+        },
+        (error: HttpErrorResponse) => {
+          this.hidespinner();
+          this.check();
+          console.log(error);
+          this.notification.error(error.message);
+        },
+        () => {
+          this.notification.info('Items are deleted');
+          this.hidespinner();
+          this.fetchbuylist();
+          this.check();
+        }
+      );
     }, 1000);
   }
-  onFilter(filter) {
+  hidespinner() {
+    this.dimmed = false;
+    this.dataLoading.emit(false);
+  }
+  showspinner() {
+    this.dimmed = true;
+    this.dataLoading.emit(true);
+  }
+  onFilter(filter: string) {
     switch (filter) {
       case 'ALL':
         this.buylist = this.list;

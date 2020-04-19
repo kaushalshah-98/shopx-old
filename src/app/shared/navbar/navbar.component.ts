@@ -15,6 +15,7 @@ import { NotificationService } from '@services/notification/notification.service
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
+import { LocalStorageService } from '@services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -31,6 +32,7 @@ export class NavbarComponent implements OnInit {
 
   username: string;
   elem;
+  data: any;
   value: boolean;
   currentLanguage: string;
   optionmenu: any;
@@ -41,8 +43,10 @@ export class NavbarComponent implements OnInit {
     private translate: TranslateService,
     private notification: NotificationService,
     @Inject(DOCUMENT) private document: any,
-    private property: PropertyAccessService
+    private property: PropertyAccessService,
+    private storage: LocalStorageService
   ) {
+    this.data = storage.getItem('USER');
     translate.addLangs(['en', 'fr', 'de', 'sk', 'hi', 'es', 'he']);
     translate.setDefaultLang('en');
 
@@ -57,15 +61,15 @@ export class NavbarComponent implements OnInit {
     this.getmenu();
   }
   getmenu() {
-    if (!this.isAdmin) {
+    if (this.data && this.data.role === 'admin') {
+      this.optionmenu = [
+        { name: 'nav_bar.menu.your_account', icon: 'account_circle', url: '/usersettings/profile' }
+      ];
+    } else {
       this.optionmenu = [
         { name: 'nav_bar.menu.your_account', icon: 'account_circle', url: '/usersettings/profile' },
         { name: 'nav_bar.menu.your_order', icon: 'assignment', url: '/usersettings/my_orders' },
         { name: 'nav_bar.menu.your_wishlist', icon: 'favorite', url: '/usersettings/wishlist' }
-      ];
-    } else {
-      this.optionmenu = [
-        { name: 'nav_bar.menu.your_account', icon: 'account_circle', url: '/usersettings/profile' }
       ];
     }
   }
@@ -76,15 +80,11 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['cart']);
   }
   getUserName() {
-    // if (this.isAdmin) {
-    //   return 'ADMIN';
-    // } else {
-    //   if (this.userdetails === null) {
-    //     return 'Sign In';
-    //   }
-    //   this.username = this.userdetails.name;
-    //   return this.username;
-    // }
+    if (this.data) {
+      return this.data.name;
+    } else {
+      return 'Sign In';
+    }
   }
   onLanguageSelect(language) {
     this.translate.use(language);
@@ -92,14 +92,10 @@ export class NavbarComponent implements OnInit {
     this.notification.info(`Selected Language is ${language}`);
   }
   getLoginStatus() {
-    if (this.isAdmin) {
-      return 'nav_bar.menu.logout';
-    } else {
-      if (this.userdetails === null) {
-        return 'nav_bar.menu.login';
-      }
+    if (this.data) {
       return 'nav_bar.menu.logout';
     }
+    return 'nav_bar.menu.login';
   }
   logout() {
     if (this.getLoginStatus() === 'nav_bar.menu.login') {
