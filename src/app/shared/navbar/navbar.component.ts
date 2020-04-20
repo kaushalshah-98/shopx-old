@@ -51,7 +51,9 @@ export class NavbarComponent implements OnInit {
     private theme: ThemeService
   ) {
     this.data = storage.getItem('USER');
-    if (this.data && this.data.role === 'admin') { this.isadmin = true; }
+    if (this.data && this.data.role === 'admin') {
+      this.isadmin = true;
+    }
     translate.addLangs(['en', 'fr', 'de', 'sk', 'hi', 'es', 'he']);
     translate.setDefaultLang('en');
 
@@ -68,17 +70,19 @@ export class NavbarComponent implements OnInit {
     this.initializeTheme();
   }
   initializeTheme() {
-    this.theme.getTheme().subscribe(
-      (res) => {
-        this.property.nightmode.next(res.night_theme);
-        this.IsNightmode.emit(res.night_theme);
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error);
-        this.notification.error(error.message);
-      },
-      () => { }
-    );
+    if (this.data) {
+      this.theme.getTheme().subscribe(
+        (res) => {
+          this.property.nightmode.next(res.night_theme);
+          this.IsNightmode.emit(res.night_theme);
+        },
+        (error: HttpErrorResponse) => {
+          console.log(error);
+          this.notification.error(error.message);
+        },
+        () => {}
+      );
+    }
   }
   go_to_home() {
     if (this.data && this.data.role === 'admin') {
@@ -168,7 +172,7 @@ export class NavbarComponent implements OnInit {
   onThemeChange(status) {
     const night_theme = { night_theme: status };
     this.theme.changeTheme(night_theme).subscribe(
-      (res) => { },
+      (res) => {},
       (error: HttpErrorResponse) => {
         console.log(error);
         this.notification.error(error.message);

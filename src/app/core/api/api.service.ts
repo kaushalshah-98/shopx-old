@@ -50,8 +50,9 @@ export const PATH = {
   POST_FORGOT_PASSWORD: '/forgotpassword',
   POST_MESSAGE: '/sendmessage',
 
-  GET_USER_LIST: '/user-management/users/',
-  PUT_USER_STATUS: (userId) => `/user-management/users/${userId}/status`,
+  // Admin Management
+  GET_USER_LIST: '/getallusers',
+  PUT_BLOCK_USER: (userid) => `/blockuser/${userid}`,
   DELETE_USER: (userId) => `/user-management/users/${userId}/delete`,
   POST_RESET_PASSWORD: '/user-management/resetpassword',
   POST_REFRESH_TOKEN: '/user-management/refresh-token',

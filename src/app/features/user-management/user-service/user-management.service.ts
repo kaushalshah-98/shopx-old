@@ -11,7 +11,9 @@ export class UserManagementService {
   userid: string;
   constructor(private apiservice: ApiService, private storage: LocalStorageService) {
     const user = this.storage.getItem('USER');
-    if (user) { this.userid = user.userid; }
+    if (user) {
+      this.userid = user.userid;
+    }
   }
 
   createuser(userdata: User): Observable<any> {

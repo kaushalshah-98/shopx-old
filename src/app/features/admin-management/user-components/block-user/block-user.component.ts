@@ -1,6 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { Subject } from 'rxjs';
+import { AdminManagementService } from '../../admin-service/admin-management.service';
 
 @Component({
   selector: 'app-block-user',
@@ -12,10 +15,21 @@ export class BlockUserComponent implements OnInit {
   isDisabled = true;
   heightt: number;
   themestatus: boolean;
-  constructor(private property: PropertyAccessService) {}
+  constructor(
+    private property: PropertyAccessService,
+    private adminservice: AdminManagementService,
+    private notification: NotificationService
+  ) {}
+
   ngOnInit() {}
+
   onBlockUser() {
-    console.log(this.userid);
+    const status = { status: false };
+    this.adminservice.blockuser(status, this.userid).subscribe(
+      (res) => res,
+      (error: HttpErrorResponse) => this.notification.error(error.message),
+      () => this.notification.success('User has been blocked.')
+    );
   }
   onInputChanged(input: string) {
     if (input === null || input === '') {
