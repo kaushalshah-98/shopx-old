@@ -46,7 +46,7 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
     private productservice: ProductManagementService,
     private notification: NotificationService,
     private dialog: ConfirmDialogService
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -77,7 +77,7 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
         },
         () => {
           this.dimmed = false;
-          this.dataLoading.emit(false)
+          this.dataLoading.emit(false);
         }
       );
     }, 3000);
@@ -101,7 +101,7 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
             (res) => res,
             (error: HttpErrorResponse) => {
               this.dimmed = false;
-              this.notification.error(error.message)
+              this.notification.error(error.message);
             },
             () => {
               this.dimmed = false;

@@ -32,7 +32,7 @@ export class QuickviewComponent implements OnInit {
     this.myThumbnail3 = data.image[2].imageurl;
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -42,7 +42,5 @@ export class QuickviewComponent implements OnInit {
       state: { product_id: this.productdata.product_id }
     });
   }
-  AddToCart(data) {
-
-  }
+  AddToCart(data) {}
 }

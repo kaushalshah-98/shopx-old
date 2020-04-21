@@ -27,7 +27,7 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
     public property: PropertyAccessService,
     private adminservice: AdminManagementService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -75,7 +75,7 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
       (res) => res,
       (error: HttpErrorResponse) => {
         this.dimmed = false;
-        this.notification.error(error.message)
+        this.notification.error(error.message);
       },
       () => {
         this.fetchusers();

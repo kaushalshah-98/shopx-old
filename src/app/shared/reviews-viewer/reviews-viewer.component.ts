@@ -14,7 +14,7 @@ export class ReviewsViewerComponent implements OnInit {
   reviewtext: FormControl = new FormControl('');
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   dimmed = false;
-  constructor(public property: PropertyAccessService) { }
+  constructor(public property: PropertyAccessService) {}
 
   ngOnInit() {
     this.dataLoading.emit(false);
@@ -62,7 +62,5 @@ export class ReviewsViewerComponent implements OnInit {
       this.reset();
     }, 3000);
   }
-  filterquery() {
-
-  }
+  filterquery() {}
 }

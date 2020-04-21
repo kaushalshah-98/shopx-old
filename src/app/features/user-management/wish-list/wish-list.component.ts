@@ -27,7 +27,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
     public property: PropertyAccessService,
     private wishlistservice: WishlistService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
@@ -57,7 +57,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
         },
         () => {
           this.dimmed = false;
-          this.dataLoading.emit(false)
+          this.dataLoading.emit(false);
         }
       );
     }, 1000);
