@@ -26,7 +26,7 @@ export class BuyListComponent implements OnInit {
     private property: PropertyAccessService,
     private listservice: BuyListService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.fetchbuylist();

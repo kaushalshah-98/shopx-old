@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
 import { NotificationService } from '@services/notification/notification.service';
@@ -21,7 +21,7 @@ import { ProductManagementService } from 'src/app/features/product-management/pr
     ])
   ]
 })
-export class ViewProductsComponent implements OnInit {
+export class ViewProductsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
