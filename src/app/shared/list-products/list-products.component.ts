@@ -22,7 +22,7 @@ export class ListProductsComponent implements OnInit {
   constructor(
     private imagepopup: ImagePopupService,
     private view: QuickViewService,
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private wishlistservice: WishlistService,
     private notification: NotificationService,
     private storage: LocalStorageService

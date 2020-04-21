@@ -7,7 +7,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-  constructor(private property: PropertyAccessService) {}
+  constructor(public property: PropertyAccessService) {}
 
   ngOnInit() {}
 }

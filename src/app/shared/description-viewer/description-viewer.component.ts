@@ -8,7 +8,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 })
 export class DescriptionViewerComponent implements OnInit {
   @Input() product: any;
-  constructor(private property: PropertyAccessService) {}
+  constructor(public property: PropertyAccessService) {}
 
   ngOnInit() {
     console.log(this.product);

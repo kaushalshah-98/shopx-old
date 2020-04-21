@@ -9,7 +9,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 })
 export class ConfirmDialogComponent implements OnInit {
   constructor(
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     public dialogRef: MatDialogRef<ConfirmDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data
   ) {}

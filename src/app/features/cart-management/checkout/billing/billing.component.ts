@@ -40,7 +40,7 @@ export class BillingComponent implements OnInit {
   constructor(
     private myStepper: MatStepper,
     private formBuilder: FormBuilder,
-    private property: PropertyAccessService
+    public property: PropertyAccessService
   ) {}
 
   ngOnInit() {

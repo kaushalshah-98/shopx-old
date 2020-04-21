@@ -20,13 +20,14 @@ export class WishListComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<ProductItem>();
   displayedColumns: string[] = ['image', 'name', 'price', 'action', 'delete'];
   height = 320;
+  dimmed: boolean;
   constructor(
     private dialog: ConfirmDialogService,
     private view: QuickViewService,
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private wishlistservice: WishlistService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
@@ -36,6 +37,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
     this.initializeWishList();
   }
   initializeWishList() {
+    this.dimmed = true;
     this.dataLoading.emit(true);
     setTimeout(() => {
       this.wishlistservice.getWishlistItems().subscribe(
@@ -50,9 +52,13 @@ export class WishListComponent implements OnInit, AfterViewInit {
         },
         (error: HttpErrorResponse) => {
           console.log(error);
+          this.dimmed = false;
           this.notification.error(error.message);
         },
-        () => this.dataLoading.emit(false)
+        () => {
+          this.dimmed = false;
+          this.dataLoading.emit(false)
+        }
       );
     }, 1000);
   }
@@ -60,6 +66,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
     this.view.showQuickview(item);
   }
   removeFromWishlist(item: ProductItem) {
+    this.dimmed = true;
     const product = {
       product_id: item.product_id
     };
@@ -71,11 +78,13 @@ export class WishListComponent implements OnInit, AfterViewInit {
           this.wishlistservice.updateWishlist(product).subscribe(
             (res) => console.log(res),
             (error: HttpErrorResponse) => {
+              this.dimmed = false;
               console.log(error);
               this.dataLoading.emit(false);
               this.notification.error(error.message);
             },
             () => {
+              this.dimmed = false;
               this.dataLoading.emit(false);
               this.notification.success('Item is Removed From list!');
               this.initializeWishList();
@@ -107,6 +116,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
     );
   }
   emptywishList() {
+    this.dimmed = true;
     this.dialog
       .showConfirmDialog('confirm.are_you_sure_want_to_clear_your_list')
       .subscribe((result) => {
@@ -115,11 +125,13 @@ export class WishListComponent implements OnInit, AfterViewInit {
           this.wishlistservice.clearWishlist().subscribe(
             (res) => console.log(res),
             (error: HttpErrorResponse) => {
+              this.dimmed = false;
               console.log(error);
               this.dataLoading.emit(false);
               this.notification.error(error.message);
             },
             () => {
+              this.dimmed = false;
               this.dataLoading.emit(false);
               this.notification.success('List is been cleared!');
               this.initializeWishList();

@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'SHOPX';
   isShow: boolean;
   topPosToStartShowing = 20;
-  constructor(private translate: TranslateService, private property: PropertyAccessService) {
+  constructor(private translate: TranslateService, public property: PropertyAccessService) {
     translate.setTranslation('en', defaultLanguage);
     translate.setDefaultLang('en');
   }

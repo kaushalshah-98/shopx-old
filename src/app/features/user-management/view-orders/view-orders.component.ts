@@ -16,7 +16,7 @@ export class ViewOrdersComponent implements OnInit {
   constructor(
     private view: QuickViewService,
     private dialog: ConfirmDialogService,
-    private property: PropertyAccessService
+    public property: PropertyAccessService
   ) {}
 
   ngOnInit() {

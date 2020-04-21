@@ -17,7 +17,7 @@ export class AddProductComponent implements OnInit, AfterViewInit {
   constructor(
     private dialog: ConfirmDialogService,
     private formBuilder: FormBuilder,
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private productservice: ProductManagementService,
     private notification: NotificationService
   ) {}

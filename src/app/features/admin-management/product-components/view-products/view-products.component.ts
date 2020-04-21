@@ -39,13 +39,14 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
     { name: 'MensFashion' },
     { name: 'WomensFashion' }
   ];
+  dimmed: boolean;
   constructor(
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private router: Router,
     private productservice: ProductManagementService,
     private notification: NotificationService,
     private dialog: ConfirmDialogService
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -56,6 +57,7 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
   }
   fetchproducts() {
     this.dataLoading.emit(true);
+    this.dimmed = true;
     setTimeout(() => {
       this.productservice.fetchallproducts().subscribe(
         (res) => {
@@ -70,9 +72,13 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
         },
         (error: HttpErrorResponse) => {
           console.log(error);
+          this.dimmed = false;
           this.notification.error(error.message);
         },
-        () => this.dataLoading.emit(false)
+        () => {
+          this.dimmed = false;
+          this.dataLoading.emit(false)
+        }
       );
     }, 3000);
   }
@@ -85,6 +91,7 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
     this.router.navigateByUrl('/admin/update', { state: { productid: product.product_id } });
   }
   removeProduct(product: ProductItem) {
+    this.dimmed = true;
     this.dialog
       .showConfirmDialog('Are You Sure want to remove this product ?')
       .subscribe((result) => {
@@ -92,8 +99,12 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
           console.log(product.product_id);
           this.productservice.deleteproduct(product.product_id).subscribe(
             (res) => res,
-            (error: HttpErrorResponse) => this.notification.error(error.message),
+            (error: HttpErrorResponse) => {
+              this.dimmed = false;
+              this.notification.error(error.message)
+            },
             () => {
+              this.dimmed = false;
               this.fetchproducts();
               this.notification.success('Product Has been Removed!');
             }

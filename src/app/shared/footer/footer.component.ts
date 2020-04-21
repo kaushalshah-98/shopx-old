@@ -8,7 +8,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 })
 export class FooterComponent implements OnInit {
   @Input() position = 'fixed';
-  constructor(private property: PropertyAccessService) {}
+  constructor(public property: PropertyAccessService) {}
 
   ngOnInit() {}
 }

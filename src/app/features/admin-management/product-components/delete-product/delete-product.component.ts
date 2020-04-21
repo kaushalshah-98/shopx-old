@@ -16,7 +16,7 @@ export class DeleteProductComponent implements OnInit {
   heightt: number;
   themestatus: boolean;
   constructor(
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private productservice: ProductManagementService,
     private notification: NotificationService
   ) {}

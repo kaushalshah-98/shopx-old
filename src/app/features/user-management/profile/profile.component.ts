@@ -10,7 +10,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class ProfileComponent implements OnInit {
   paddingtop: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   selectedIndex: number;
-  constructor(private property: PropertyAccessService) {}
+  constructor(public property: PropertyAccessService) {}
 
   ngOnInit() {
     this.fullscreenstatus(this.property.fullscreen);

@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private userservice: UserManagementService,
     private notification: NotificationService
   ) {}

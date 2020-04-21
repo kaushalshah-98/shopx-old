@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     private socialAuthService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private userservice: UserManagementService,
     private notification: NotificationService,
     private storage: LocalStorageService

@@ -29,7 +29,7 @@ export class EditProfileComponent implements OnInit {
     private dialog: ConfirmDialogService,
     private userservice: UserManagementService,
     private formBuilder: FormBuilder,
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private notification: NotificationService
   ) {}
   ngOnInit() {

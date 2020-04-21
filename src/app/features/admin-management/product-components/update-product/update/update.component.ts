@@ -23,7 +23,7 @@ export class UpdateComponent implements OnInit, AfterViewInit {
     private dialog: ConfirmDialogService,
     private activateRouter: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private productservice: ProductManagementService,
     private notification: NotificationService
   ) {}

@@ -11,7 +11,7 @@ import { IMenu } from '@shared/interfaces';
 export class AdminpageComponent implements OnInit {
   menuItems: IMenu[];
 
-  constructor(private property: PropertyAccessService) {}
+  constructor(public property: PropertyAccessService) {}
 
   ngOnInit() {
     this.fullscreenstatus(this.property.fullscreen);

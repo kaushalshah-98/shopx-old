@@ -11,7 +11,7 @@ export class ImageViewerComponent implements OnInit {
   two = false;
   three = false;
   @Input() product;
-  constructor(private property: PropertyAccessService) {}
+  constructor(public property: PropertyAccessService) {}
 
   ngOnInit() {}
   getnumber(index: number) {

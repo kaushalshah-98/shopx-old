@@ -20,7 +20,7 @@ export class QuickviewComponent implements OnInit {
   productdata: ProductItem;
 
   constructor(
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     public dialogRef: MatDialogRef<QuickviewComponent>,
     @Inject(MAT_DIALOG_DATA) public data,
     private router: Router
@@ -32,7 +32,7 @@ export class QuickviewComponent implements OnInit {
     this.myThumbnail3 = data.image[2].imageurl;
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -41,5 +41,8 @@ export class QuickviewComponent implements OnInit {
     this.router.navigateByUrl('/detailview', {
       state: { product_id: this.productdata.product_id }
     });
+  }
+  AddToCart(data) {
+
   }
 }

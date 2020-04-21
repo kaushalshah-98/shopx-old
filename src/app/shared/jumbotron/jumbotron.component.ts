@@ -8,7 +8,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 })
 export class JumbotronComponent implements OnInit {
   @Input() Heading: string;
-  constructor(private property: PropertyAccessService) {}
+  constructor(public property: PropertyAccessService) {}
 
   ngOnInit() {}
 }

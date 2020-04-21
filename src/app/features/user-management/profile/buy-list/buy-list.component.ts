@@ -23,7 +23,7 @@ export class BuyListComponent implements OnInit {
   buylist: BuyList[] = [];
   dimmed: boolean;
   constructor(
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private listservice: BuyListService,
     private notification: NotificationService
   ) {}

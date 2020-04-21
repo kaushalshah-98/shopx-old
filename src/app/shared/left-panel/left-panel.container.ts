@@ -15,6 +15,6 @@ export class LeftPanelContainer {
   constructor(
     private userservice: UserManagementService,
     private role: RoleService,
-    private property: PropertyAccessService
+    public property: PropertyAccessService
   ) {}
 }

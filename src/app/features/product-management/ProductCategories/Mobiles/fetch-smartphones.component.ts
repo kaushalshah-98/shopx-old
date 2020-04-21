@@ -51,7 +51,7 @@ export class FetchSmartphonesComponent implements OnInit {
     private notification: NotificationService,
     private compare: ComparisonServiceService,
     private router: Router,
-    private property: PropertyAccessService
+    public property: PropertyAccessService
   ) {}
 
   ngOnInit() {

@@ -20,7 +20,7 @@ export class DetailviewComponent implements OnInit {
 
   constructor(
     private activateRouter: ActivatedRoute,
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private productservice: ProductManagementService,
     private notification: NotificationService
   ) {}

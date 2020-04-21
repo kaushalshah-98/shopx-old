@@ -18,7 +18,7 @@ export class ViewProfileComponent implements OnInit {
   userdata: User;
 
   constructor(
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private userservice: UserManagementService,
     private notification: NotificationService
   ) {}

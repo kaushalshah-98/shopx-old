@@ -13,7 +13,7 @@ export class UpdateProductComponent implements OnInit {
   isDisabled = true;
   heightt: number;
   themestatus: boolean;
-  constructor(private router: Router, private property: PropertyAccessService) {}
+  constructor(private router: Router, public property: PropertyAccessService) {}
   ngOnInit() {}
   onProductUpdate() {
     this.router.navigateByUrl('/admin/update', { state: { productid: this.productid } });

@@ -11,7 +11,7 @@ export class ImagePopupComponent {
   myThumbnail: string;
   myFullresImage: string;
   constructor(
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     @Inject(MAT_BOTTOM_SHEET_DATA) public data: any,
     private _bottomSheetRef: MatBottomSheetRef<ImagePopupComponent>
   ) {

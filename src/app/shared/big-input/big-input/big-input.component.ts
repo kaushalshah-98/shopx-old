@@ -15,5 +15,5 @@ export class BigInputComponent {
   @Input() radius = 10;
 
   hasFocus = false;
-  constructor(private property: PropertyAccessService) {}
+  constructor(public property: PropertyAccessService) {}
 }

@@ -9,7 +9,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 export class ImageSliderComponent implements OnInit {
   @Input() items_slider1;
   @Input() items_slider2;
-  constructor(private property: PropertyAccessService) {}
+  constructor(public property: PropertyAccessService) {}
 
   ngOnInit() {}
 }

@@ -43,10 +43,10 @@ export class NavbarComponent implements OnInit {
     private router: Router,
     private userservice: UserManagementService,
     private dialog: ConfirmDialogService,
-    private translate: TranslateService,
+    public translate: TranslateService,
     private notification: NotificationService,
     @Inject(DOCUMENT) private document: any,
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private storage: LocalStorageService,
     private theme: ThemeService
   ) {

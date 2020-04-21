@@ -11,7 +11,7 @@ import { IMenu } from '@shared/interfaces';
 export class HomepageComponent implements OnInit {
   // go to top
   menuItems: IMenu[];
-  constructor(private property: PropertyAccessService) {}
+  constructor(public property: PropertyAccessService) {}
 
   ngOnInit() {
     this.menuItems = [

@@ -27,7 +27,7 @@ export class ViewCartitemsComponent implements OnInit {
     private sweetalert: SweetmessageService,
     private dialog: ConfirmDialogService,
     private view: QuickViewService,
-    private property: PropertyAccessService
+    public property: PropertyAccessService
   ) {}
 
   ngOnInit() {

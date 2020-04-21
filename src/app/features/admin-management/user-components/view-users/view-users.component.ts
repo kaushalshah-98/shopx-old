@@ -22,11 +22,12 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
   userlist: User[];
   selectedStatus = 'ALL';
   status = [{ name: 'ALL' }, { name: 'UnBlocked Users' }, { name: 'Blocked Users' }];
+  dimmed: boolean;
   constructor(
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private adminservice: AdminManagementService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -37,6 +38,7 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
   }
   fetchusers() {
     this.dataLoading.emit(true);
+    this.dimmed = true;
     setTimeout(() => {
       this.adminservice.getusers().subscribe(
         (res) => {
@@ -51,15 +53,18 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
         },
         (error: HttpErrorResponse) => {
           console.log(error);
+          this.dimmed = false;
           this.notification.error(error.message);
         },
         () => {
+          this.dimmed = false;
           this.dataLoading.emit(false);
         }
       );
     }, 3000);
   }
   blockuser(userdata: User) {
+    this.dimmed = true;
     const status = { status: !userdata.status };
     if (userdata.status) {
       this.message = 'User has been blocked';
@@ -68,9 +73,13 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
     }
     this.adminservice.blockuser(status, userdata.userid).subscribe(
       (res) => res,
-      (error: HttpErrorResponse) => this.notification.error(error.message),
+      (error: HttpErrorResponse) => {
+        this.dimmed = false;
+        this.notification.error(error.message)
+      },
       () => {
         this.fetchusers();
+        this.dimmed = false;
         this.notification.success(this.message);
       }
     );

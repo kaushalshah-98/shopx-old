@@ -16,7 +16,7 @@ export class BlockUserComponent implements OnInit {
   heightt: number;
   themestatus: boolean;
   constructor(
-    private property: PropertyAccessService,
+    public property: PropertyAccessService,
     private adminservice: AdminManagementService,
     private notification: NotificationService
   ) {}

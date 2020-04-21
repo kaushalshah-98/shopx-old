@@ -27,7 +27,7 @@ export class ProductcompareComponent implements OnInit {
   columnsToDisplay6 = ['name', 'internal', 'otgsupport', 'expandableupto'];
   columnsToDisplay7 = ['name', 'features', 'front', 'rear', 'flash', 'videorecording'];
 
-  constructor(private compare: ComparisonServiceService, private property: PropertyAccessService) {}
+  constructor(private compare: ComparisonServiceService, public property: PropertyAccessService) {}
   ngOnInit() {
     this.list = this.compare.comparelist;
     this.general = this.compare.general;
