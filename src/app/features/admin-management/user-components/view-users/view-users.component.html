@@ -3,20 +3,27 @@
 <div [ngClass]="{'outer-wrap': true , 'dark-outer-wrap' :( property.nightmode | async)}">
   <mat-card class="display-products-card">
     <mat-card-content>
-      <!-- <div>
-        <div style="padding-right: 30px;">
-          <button
-            mat-icon-button
-            class="pull-right"
-            [matTooltip]="'hello'"
-            matTooltipPosition="above"
-            routerLink="create"
-          >
-            <mat-icon>person_add</mat-icon>
-          </button>
+      <div [ngClass]="{'dark-form': ( property.nightmode | async)}">
+        <div fxLayout="row">
+          <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.gt-md="40">
+            <mat-form-field class="mat-block" id="matFrmFieldUserStatus">
+              <mat-select
+                id="matSelectUserStatus"
+                placeholder="Status"
+                [(value)]="selectedStatus"
+                (selectionChange)="statusChanged(selectedStatus)"
+              >
+                <mat-option
+                  *ngFor="let status of status"
+                  [ngClass]="{'dark-option': ( property.nightmode | async)}"
+                  value="{{status.name}}"
+                  >{{status.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
         </div>
-      </div> -->
-      <div [ngClass]="{'dark-form': ( property.nightmode | async),'u-margin-top-15' :true}">
+        <mat-divider></mat-divider>
         <mat-form-field class="search-block" floatLabel="never">
           <input
             autocomplete="off"

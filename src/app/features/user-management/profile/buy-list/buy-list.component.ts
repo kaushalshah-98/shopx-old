@@ -26,7 +26,7 @@ export class BuyListComponent implements OnInit {
     private property: PropertyAccessService,
     private listservice: BuyListService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.fetchbuylist();
@@ -36,8 +36,15 @@ export class BuyListComponent implements OnInit {
     this.listservice.getbuylist().subscribe(
       (res) => {
         console.log(res);
-        this.list = res;
-        this.buylist = this.list;
+        if (res.length <= 0) {
+          this.notification.info('Your List is Empty!');
+        } else if (res === undefined || res === null) {
+          this.notification.warning('Check Your Network!');
+          this.notification.info('Try to reload the page!');
+        } else {
+          this.list = res;
+          this.buylist = this.list;
+        }
       },
       (error: HttpErrorResponse) => {
         this.hidespinner();

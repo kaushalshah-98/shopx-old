@@ -1,23 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { AfterViewInit, Component, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
+import { ProductItem } from '@shared/interfaces';
 import { map } from 'rxjs/operators';
+import { ProductManagementService } from 'src/app/features/product-management/product-service/product-management.service';
 
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.scss']
 })
-export class UpdateComponent implements OnInit {
+export class UpdateComponent implements OnInit, AfterViewInit {
   state$: any;
-  productdata: any;
+  productdata: ProductItem;
+  dataLoading: EventEmitter<boolean> = new EventEmitter(true);
+  productid: string;
   constructor(
     private dialog: ConfirmDialogService,
     private activateRouter: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private property: PropertyAccessService
+    private property: PropertyAccessService,
+    private productservice: ProductManagementService,
+    private notification: NotificationService
   ) {}
   category = [
     { name: 'Electronics' },
@@ -43,14 +51,32 @@ export class UpdateComponent implements OnInit {
     { name: 'Nightwear' }
   ];
   updateproductform: FormGroup;
-  themestatus: boolean;
 
+  ngAfterViewInit() {
+    // this.dataLoading.emit(false);
+  }
   ngOnInit() {
-    this.property.nightmode.subscribe((res) => (this.themestatus = res));
     this.initializeform();
     this.state$ = this.activateRouter.paramMap
       .pipe(map(() => window.history.state))
-      .subscribe((res) => (this.productdata = res));
+      .subscribe((res) => (this.productid = res.productid));
+    console.log(this.productid);
+    this.fetchproduct();
+  }
+  fetchproduct() {
+    this.dataLoading.emit(true);
+    this.productservice.getproduct(this.productid).subscribe(
+      (res) => {
+        if (res === null || res === undefined) {
+          this.notification.warning('Check Your Network!');
+          this.notification.info('Try to reload the page!');
+        } else {
+          this.productdata = res;
+        }
+      },
+      (error: HttpErrorResponse) => this.notification.error(error.message),
+      () => this.dataLoading.emit(false)
+    );
   }
   initializeform() {
     this.updateproductform = this.formBuilder.group({
@@ -83,50 +109,44 @@ export class UpdateComponent implements OnInit {
       });
     }
   }
-  onCategorySelect(event) {
-    this.updateproductform.controls.selectedinnerCategory.reset();
-    switch (event.value) {
-      case 'Electronics':
-        this.InnerCategory = [{ name: 'TV' }, { name: 'Laptop' }, { name: 'Headphones' }];
-        break;
-      case 'Mobile':
-        this.InnerCategory = [
-          { name: 'Accessories' },
-          { name: 'Tablets' },
-          { name: 'Smartphones' }
-        ];
-        break;
-      case 'MensFashion':
-        this.InnerCategory = [
-          { name: 'T-shirts' },
-          { name: 'Shirts' },
-          { name: 'Shoes' },
-          { name: 'Goggles' }
-        ];
-        break;
-      case 'WomensFashion':
-        this.InnerCategory = [
-          { name: 'Saree' },
-          { name: 'Dress' },
-          { name: 'Shoes' },
-          { name: 'Watch' },
-          { name: 'Nightwear' }
-        ];
-        break;
-    }
-  }
   UpdateProduct() {
-    const productdata = {
+    const product = {
       name: this.updateproductform.controls.productNameFormControl.value,
       description: this.updateproductform.controls.productDescriptionFormControl.value,
       quantity: this.updateproductform.controls.quantityFormControl.value,
       price: this.updateproductform.controls.priceFormControl.value,
       category: this.updateproductform.controls.selectedcategory.value,
       innercategory: this.updateproductform.controls.selectedinnerCategory.value,
-      image1: this.updateproductform.controls.productImage1FormControl.value,
-      image2: this.updateproductform.controls.productImage2FormControl.value || '',
-      image3: this.updateproductform.controls.productImage3FormControl.value || ''
+      image: [
+        {
+          imageurl: this.updateproductform.controls.productImage1FormControl.value
+        },
+        {
+          imageurl:
+            this.updateproductform.controls.productImage2FormControl.value ||
+            'https://bhmlib.org/wp-content/themes/cosimo-pro/images/no-image-box.png'
+        },
+        {
+          imageurl:
+            this.updateproductform.controls.productImage3FormControl.value ||
+            'https://bhmlib.org/wp-content/themes/cosimo-pro/images/no-image-box.png'
+        }
+      ],
+      details: {
+        Comfort: 'Fashionably cotton',
+        Fitting: 'Fitting type is slim fit',
+        Ocassion: 'Casual',
+        Quality:
+          'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+        'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+        Sizes: 'SL,M,L,XL,XXL,XXL',
+        'Made in': 'India'
+      }
     };
-    console.log(productdata);
+    this.productservice.updateproduct(this.productid, product).subscribe(
+      (res) => res,
+      (error: HttpErrorResponse) => this.notification.error(error.message),
+      () => this.notification.success('Product Has been Updated!')
+    );
   }
 }

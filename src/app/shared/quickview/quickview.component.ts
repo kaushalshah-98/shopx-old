@@ -3,6 +3,7 @@ import { Component, EventEmitter, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { ProductItem } from '@shared/interfaces';
 
 @Component({
   selector: 'app-quickview',
@@ -16,7 +17,7 @@ export class QuickviewComponent implements OnInit {
   myThumbnail4: string;
   myThumbnail5: string;
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
-  productdata: any;
+  productdata: ProductItem;
 
   constructor(
     private property: PropertyAccessService,
@@ -37,6 +38,8 @@ export class QuickviewComponent implements OnInit {
   }
   detailview() {
     this.dialogRef.close();
-    this.router.navigateByUrl('/detailview', { state: this.productdata });
+    this.router.navigateByUrl('/detailview', {
+      state: { product_id: this.productdata.product_id }
+    });
   }
 }

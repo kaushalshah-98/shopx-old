@@ -17,6 +17,8 @@ export interface ProductItem {
   details: object;
   innercategory: string;
   image: ProductImage[];
+  type?: string;
+  product_id?: string;
 }
 export interface CartItem {
   name: string;

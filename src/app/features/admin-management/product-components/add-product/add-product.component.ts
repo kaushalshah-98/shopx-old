@@ -1,19 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { AfterViewInit, Component, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
+import { ProductManagementService } from 'src/app/features/product-management/product-service/product-management.service';
 
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss']
 })
-export class AddProductComponent implements OnInit {
+export class AddProductComponent implements OnInit, AfterViewInit {
   isDisabled = true;
+  dataLoading: EventEmitter<boolean> = new EventEmitter(true);
   constructor(
     private dialog: ConfirmDialogService,
     private formBuilder: FormBuilder,
-    private property: PropertyAccessService
+    private property: PropertyAccessService,
+    private productservice: ProductManagementService,
+    private notification: NotificationService
   ) {}
   category = [
     { name: 'Electronics' },
@@ -25,6 +31,9 @@ export class AddProductComponent implements OnInit {
   addproductform: FormGroup;
   themestatus: boolean;
 
+  ngAfterViewInit() {
+    this.dataLoading.emit(false);
+  }
   ngOnInit() {
     this.property.nightmode.subscribe((res) => (this.themestatus = res));
     this.initializeform();
@@ -94,17 +103,50 @@ export class AddProductComponent implements OnInit {
     }
   }
   AddProduct() {
-    const productdata = {
+    this.dataLoading.emit(true);
+    const product = {
       name: this.addproductform.controls.productNameFormControl.value,
       description: this.addproductform.controls.productDescriptionFormControl.value,
       quantity: this.addproductform.controls.quantityFormControl.value,
       price: this.addproductform.controls.priceFormControl.value,
       category: this.addproductform.controls.selectedcategory.value,
       innercategory: this.addproductform.controls.selectedinnerCategory.value,
-      image1: this.addproductform.controls.productImage1FormControl.value,
-      image2: this.addproductform.controls.productImage2FormControl.value || '',
-      image3: this.addproductform.controls.productImage3FormControl.value || ''
+      image: [
+        {
+          imageurl: this.addproductform.controls.productImage1FormControl.value
+        },
+        {
+          imageurl:
+            this.addproductform.controls.productImage2FormControl.value ||
+            'https://bhmlib.org/wp-content/themes/cosimo-pro/images/no-image-box.png'
+        },
+        {
+          imageurl:
+            this.addproductform.controls.productImage3FormControl.value ||
+            'https://bhmlib.org/wp-content/themes/cosimo-pro/images/no-image-box.png'
+        }
+      ],
+      details: {
+        Comfort: 'Fashionably cotton',
+        Fitting: 'Fitting type is slim fit',
+        Ocassion: 'Casual',
+        Quality:
+          'All garments are subjected to the following tests fabric dimensional stability test and print quality inspection for colors and wash fastness Light weight fabric sweeps sweat away from your skin and helps regulate body temperature',
+        'Care Instructions': 'Wash with mild detergent, do not bleach, dry in shade',
+        Sizes: 'SL,M,L,XL,XXL,XXL',
+        'Made in': 'India'
+      }
     };
-    console.log(productdata);
+    this.productservice.addproduct(product).subscribe(
+      (res) => console.log(res),
+      (error: HttpErrorResponse) => {
+        console.log(error);
+        this.notification.error(error.message);
+      },
+      () => {
+        this.notification.success('Product is added successfully!');
+        this.dataLoading.emit(false);
+      }
+    );
   }
 }

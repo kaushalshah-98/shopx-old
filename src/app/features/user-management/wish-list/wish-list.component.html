@@ -1,6 +1,9 @@
 <app-navbar (IsFullscreen)="fullscreenstatus($event)" [isHidden]="true"></app-navbar>
 <app-jumbotron [Heading]="'user.main_heading.your_wish_list'"></app-jumbotron>
-<div [ngClass]="{'table-wrapper':true, 'dark-table-wrapper' :( property.nightmode | async)}">
+<app-spinner [loading]="dataLoading" class="centre-spinner"></app-spinner>
+<div
+  [ngClass]="{'table-wrapper':true, 'dark-table-wrapper' :( property.nightmode | async),dimmed: dimmed}"
+>
   <mat-table
     [ngStyle]="{'max-height': height+'px'}"
     [dataSource]="dataSource"
@@ -42,7 +45,7 @@
           matTooltip="{{'tooltip.add_to_cart' | translate}}"
           matTooltipPosition="left"
           [matTooltipShowDelay]="500"
-          (click)="addTocart(1, element)"
+          (click)="addToWishlist(element)"
         >
           <mat-icon>add_shopping_cart</mat-icon>
         </button>

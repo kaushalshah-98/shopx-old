@@ -45,21 +45,33 @@ export const PATH = {
   // User Management
   POST_LOGIN: '/verifyuser',
   POST_CREATE_USER: '/createuser',
-  GET_USER: (userid) => `/getuser/${userid}`,
-  PUT_UPDATE_USER: (userid) => `/updateuserdata/${userid}`,
+  GET_USER: (userid: string) => `/getuser/${userid}`,
+  PUT_UPDATE_USER: (userid: string) => `/updateuserdata/${userid}`,
   POST_FORGOT_PASSWORD: '/forgotpassword',
   POST_MESSAGE: '/sendmessage',
 
   // Admin Management
   GET_USER_LIST: '/getallusers',
-  PUT_BLOCK_USER: (userid) => `/blockuser/${userid}`,
-  DELETE_USER: (userId) => `/user-management/users/${userId}/delete`,
-  POST_RESET_PASSWORD: '/user-management/resetpassword',
-  POST_REFRESH_TOKEN: '/user-management/refresh-token',
+  PUT_BLOCK_USER: (userid: string) => `/blockuser/${userid}`,
+  DELETE_USER: (userId: string) => `/user-management/users/${userId}/delete`,
+
+  // Product Management
+  GET_PRODUCT_LIST: '/getallproducts',
+  GET_CATEGORY_PRODUCT: (innercategory: string) => `/getallproducts/${innercategory}`,
+  PUT_UPDATE_PRODUCT: (product_id: string) => `/updateproduct/${product_id}`,
+  DELETE_PRODUCT: (product_id: string) => `/removeproduct/${product_id}`,
+  POST_ADD_PRODUCT: '/addproduct',
+  GET_PRODUCT: (product_id: string) => `/getproduct/${product_id}`,
 
   // Buy-List-Management
-  GET_BUY_LIST: (userid) => `/getbuylistitems/${userid}`,
-  POST_BUY_LIST: (userid) => `/addtolist/${userid}`,
+  GET_BUY_LIST: (userid: string) => `/getbuylistitems/${userid}`,
+  POST_BUY_LIST: (userid: string) => `/addtolist/${userid}`,
+
+  // Wish-List-Management
+  GET_WISH_LIST: (userid: string) => `/getwishlistitems/${userid}`,
+  POST_WISH_ITEM: '/AddToWishlist',
+  DELETE_WISH_LIST: (userid: string) => `/emptywishlist/${userid}`,
+  PUT_WISH_ITEM: (userid: string) => `/removewishlistitem/${userid}`,
 
   // Theme-Management
   GET_THEME: (userid) => `/theme/${userid}`,

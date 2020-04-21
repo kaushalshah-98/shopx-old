@@ -3,17 +3,37 @@
 <div [ngClass]="{'outer-wrap': true , 'dark-outer-wrap' :( property.nightmode | async)}">
   <mat-card class="display-products-card">
     <mat-card-content>
-      <div class="side-icon">
-        <button
-          mat-icon-button
-          class="pull-right"
-          matTooltip="{{'tooltip.add_item' | translate}}"
-          matTooltipPosition="left"
-        >
-          <mat-icon>add_circle</mat-icon>
-        </button>
-      </div>
-      <div [ngClass]="{'dark-form': ( property.nightmode | async),'u-margin-top-15' :true}">
+      <div [ngClass]="{'dark-form': ( property.nightmode | async)}">
+        <div fxLayout="row">
+          <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.gt-md="40">
+            <mat-form-field class="mat-block" id="matFrmFieldUserStatus">
+              <mat-select
+                id="matSelectUserStatus"
+                placeholder="Category"
+                [(value)]="selectedStatus"
+                (selectionChange)="sortchanged(selectedStatus)"
+              >
+                <mat-option
+                  *ngFor="let category of category"
+                  [ngClass]="{'dark-option': ( property.nightmode | async)}"
+                  value="{{category.name}}"
+                  >{{category.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="side-icon">
+          <button
+            mat-icon-button
+            class="pull-right"
+            matTooltip="{{'tooltip.add_item' | translate}}"
+            matTooltipPosition="left"
+          >
+            <mat-icon>add_circle</mat-icon>
+          </button>
+        </div>
         <mat-form-field class="search-block" floatLabel="never">
           <input
             autocomplete="off"
@@ -72,7 +92,7 @@
             <ng-container matColumnDef="action">
               <th mat-header-cell mat-sort-header *matHeaderCellDef style="width: 200px;">
                 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp; {{"admin.table.action" | translate}}
+                &nbsp;&nbsp; {{"admin.table.action" | translate}}
               </th>
               <td mat-cell *matCellDef="let element">
                 <button

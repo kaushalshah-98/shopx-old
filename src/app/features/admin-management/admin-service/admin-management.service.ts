@@ -7,13 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminManagementService {
-  userid: string;
-  constructor(private apiservice: ApiService, private storage: LocalStorageService) {
-    const user = this.storage.getItem('USER');
-    if (user) {
-      this.userid = user.userid;
-    }
-  }
+  constructor(private apiservice: ApiService) {}
   blockuser(status: any, userid: string): Observable<any> {
     return this.apiservice.put(PATH.PUT_BLOCK_USER(userid), status);
   }

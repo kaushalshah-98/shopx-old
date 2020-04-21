@@ -26,6 +26,10 @@ export class ViewProfileComponent implements OnInit {
     this.userservice.getuser().subscribe(
       (res) => {
         console.log(res);
+        if (res === null || res === undefined) {
+          this.notification.warning('Check Your Network!');
+          this.notification.info('Try to reload the page!');
+        }
         this.userdata = res;
       },
       (error: HttpErrorResponse) => {

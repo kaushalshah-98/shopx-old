@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { Subject } from 'rxjs';
 
@@ -12,10 +13,10 @@ export class UpdateProductComponent implements OnInit {
   isDisabled = true;
   heightt: number;
   themestatus: boolean;
-  constructor(private property: PropertyAccessService) {}
+  constructor(private router: Router, private property: PropertyAccessService) {}
   ngOnInit() {}
-  onProductDelete() {
-    console.log(this.productid);
+  onProductUpdate() {
+    this.router.navigateByUrl('/admin/update', { state: { productid: this.productid } });
   }
   onInputChanged(input: string) {
     if (input === null || input === '') {

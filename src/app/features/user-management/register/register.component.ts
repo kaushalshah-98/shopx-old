@@ -39,13 +39,17 @@ export class RegisterComponent implements OnInit {
   }
   register() {
     const userdata: User = {
-      name: btoa(this.registerform.controls.usernameFormControl.value),
-      password: btoa(this.registerform.controls.passwordFormControl.value),
-      email: btoa(this.registerform.controls.emailFormControl.value),
-      profilepic: btoa(this.registerform.controls.photoFormControl.value),
+      // name: btoa(this.registerform.controls.usernameFormControl.value),
+      // password: btoa(this.registerform.controls.passwordFormControl.value),
+      // email: btoa(this.registerform.controls.emailFormControl.value),
+      // profilepic: btoa(this.registerform.controls.photoFormControl.value),
+      // status: true,
+      name: this.registerform.controls.usernameFormControl.value,
+      password: this.registerform.controls.passwordFormControl.value,
+      email: this.registerform.controls.emailFormControl.value,
+      profilepic: this.registerform.controls.photoFormControl.value,
       status: true
     };
-    console.log(userdata);
     this.userservice.createuser(userdata).subscribe(
       (res) => console.log(res),
       (error: HttpErrorResponse) => {

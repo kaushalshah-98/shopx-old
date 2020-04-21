@@ -20,6 +20,8 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
   columnsToDisplay = ['status', 'profilepic', 'name', 'email', 'action'];
   message: string;
   userlist: User[];
+  selectedStatus = 'ALL';
+  status = [{ name: 'ALL' }, { name: 'UnBlocked Users' }, { name: 'Blocked Users' }];
   constructor(
     private property: PropertyAccessService,
     private adminservice: AdminManagementService,
@@ -39,8 +41,13 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
       this.adminservice.getusers().subscribe(
         (res) => {
           console.log(res);
-          this.userlist = res;
-          this.dataSource.data = res;
+          if (res === null || res === undefined) {
+            this.notification.warning('Check Your Network!');
+            this.notification.info('Try to reload the page!');
+          } else {
+            this.userlist = res;
+            this.dataSource.data = res;
+          }
         },
         (error: HttpErrorResponse) => {
           console.log(error);
@@ -63,8 +70,8 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
       (res) => res,
       (error: HttpErrorResponse) => this.notification.error(error.message),
       () => {
-        this.notification.success(this.message);
         this.fetchusers();
+        this.notification.success(this.message);
       }
     );
   }
@@ -72,62 +79,17 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  statusChanged(status) {
+    switch (status) {
+      case 'ALL':
+        this.dataSource.data = this.userlist;
+        break;
+      case 'UnBlocked Users':
+        this.dataSource.data = this.userlist.filter((item) => item.status === true);
+        break;
+      case 'Blocked Users':
+        this.dataSource.data = this.userlist.filter((item) => item.status === false);
+        break;
+    }
+  }
 }
-// const users: User[] = [
-//   {
-//     name: 'kaushal',
-//     email: 'hello@gmail.com',
-//     status: true,
-//     password: '',
-//     profilepic:
-//       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
-//   },
-//   {
-//     name: 'vaibhav',
-//     email: 'hello@gmail.com',
-//     status: false,
-//     password: '',
-//     profilepic:
-//       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
-//   },
-//   {
-//     name: 'yash',
-//     email: 'hello@gmail.com',
-//     status: true,
-//     password: '',
-//     profilepic:
-//       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
-//   },
-//   {
-//     name: 'ram',
-//     email: 'hello@gmail.com',
-//     status: false,
-//     password: '',
-//     profilepic:
-//       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
-//   },
-//   {
-//     name: 'manthan',
-//     email: 'hello@gmail.com',
-//     status: true,
-//     password: '',
-//     profilepic:
-//       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
-//   },
-//   {
-//     name: 'vishal',
-//     email: 'hello@gmail.com',
-//     status: true,
-//     password: '',
-//     profilepic:
-//       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
-//   },
-//   {
-//     name: 'sahil',
-//     email: 'hello@gmail.com',
-//     status: false,
-//     password: '',
-//     profilepic:
-//       'https://img.looksgud.com/upload/item-image/576/ccsy/ccsy-maniac-maniac-mens-fullsleeve-round-neck-dark-grey-cotton_500x500_1.jpg'
-//   }
-// ];

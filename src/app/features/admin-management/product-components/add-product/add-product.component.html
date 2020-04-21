@@ -1,4 +1,5 @@
 <app-jumbotron [Heading]="'admin.main_heading.add_product'"></app-jumbotron>
+<app-spinner [loading]="dataLoading" class="centree-spinner"></app-spinner>
 <div [ngClass]="{'billing-container':true,'dark-billing-container': ( property.nightmode | async)}">
   <mat-card class="edit-profile-card">
     <mat-card-content>

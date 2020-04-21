@@ -86,16 +86,19 @@
   position: absolute !important;
   top: 50%;
   left: 47%;
+  z-index: 999;
 }
 .centre-spinner {
   position: absolute !important;
   top: 50%;
   left: 48.5%;
+  z-index: 999;
 }
 .centre-product-spinner {
   position: absolute !important;
   top: 35% !important;
   left: 48.5% !important;
+  z-index: 999;
 }
 //--------------------------- Bottom Action button ------------------------------
 

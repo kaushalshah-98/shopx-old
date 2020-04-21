@@ -41,10 +41,15 @@ export class EditProfileComponent implements OnInit {
       (res) => {
         console.log(res);
         this.userdata = res;
-        this.editform.controls.usernameFormControl.setValue(res.name);
-        this.editform.controls.emailFormControl.setValue(res.email);
-        this.editform.controls.photoFormControl.setValue(res.profilepic);
-        this.editform.controls.passwordFormControl.setValue(res.password);
+        if (res === null || res === undefined) {
+          this.notification.warning('Check Your Network!');
+          this.notification.info('Try to reload the page!');
+        } else {
+          this.editform.controls.usernameFormControl.setValue(res.name);
+          this.editform.controls.emailFormControl.setValue(res.email);
+          this.editform.controls.photoFormControl.setValue(res.profilepic);
+          this.editform.controls.passwordFormControl.setValue(res.password);
+        }
       },
       (error: HttpErrorResponse) => {
         console.log(error);
