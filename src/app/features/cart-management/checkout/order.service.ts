@@ -24,4 +24,7 @@ export class OrderService {
   getAllOrders(): Observable<any> {
     return this.apiservice.get(`${PATH.POST_CART_ITEM}`);
   }
+  removeOrder(data: any): Observable<any> {
+    return this.apiservice.put(PATH.PUT_DELETE_ORDER(this.userid), data);
+  }
 }

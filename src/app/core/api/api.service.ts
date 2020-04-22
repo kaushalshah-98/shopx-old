@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ApiService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   get headers(): HttpHeaders {
     const headersConfig = {
@@ -75,6 +75,7 @@ export const PATH = {
   GET_ORDER_LIST: '/getallorders',
   GET_USER_ORDER_LIST: (userid: string) => `/getUserOrder/${userid}`,
   POST_ORDER: (userid: string) => `/addorder/${userid}`,
+  PUT_DELETE_ORDER: (userid: string) => `/removeorder/${userid}`,
 
   // Wish-List-Management
   GET_WISH_LIST: (userid: string) => `/getwishlistitems/${userid}`,

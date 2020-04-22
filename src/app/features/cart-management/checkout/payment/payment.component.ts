@@ -77,7 +77,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
     private orderservice: OrderService,
     private notification: NotificationService,
     private cartservice: CartManagementService
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.dataLoading.emit(false);
@@ -90,7 +90,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
     this.cartservice
       .getCartItems()
       .then((res) => {
-        this.order = res.map(({ description, name, price, quantity, image, details, ...hi }) => hi);
+        this.order = res.map(({ description, quantity, details, ...hi }) => hi);
       })
       .catch((error) => {
         console.log(error);
