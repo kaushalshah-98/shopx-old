@@ -1,6 +1,9 @@
 @import '../../../assets/css/var.scss';
 
 .quick-view {
+  h2 {
+    font-size: 1.99rem !important;
+  }
   .preview {
     display: -webkit-box;
     display: -webkit-flex;
@@ -67,7 +70,7 @@
   .tab-content {
     overflow: hidden;
     background-color: white;
-    width: 450px;
+    max-width: 450px;
   }
 
   .tab-content img {
@@ -82,6 +85,9 @@
       transform: scale(1.02);
     }
   }
+  .side-description {
+    margin-left: 20px;
+  }
   .action {
     .add-to-cart-btn {
       background-color: $darkblue;
@@ -90,6 +96,12 @@
     .fav-btn {
       background-color: $red;
       color: $white;
+      min-width: 33px !important;
+      width: 0;
+      .mat-icon {
+        margin: 8px 0 0 -10px !important;
+        font-size: 17px !important;
+      }
     }
     .detail-btn {
       background-color: $green;
