@@ -77,7 +77,7 @@ export class NavbarComponent implements OnInit {
         (res) => {
           if (res === null || res === undefined) {
             this.notification.info('Try to reload page. Cant load theme.');
-            this.notification.warning('Check You Network')
+            this.notification.warning('Check You Network');
           } else {
             this.property.nightmode.next(res.night_theme);
             this.IsNightmode.emit(res.night_theme);
@@ -92,7 +92,7 @@ export class NavbarComponent implements OnInit {
           console.log(error);
           this.notification.error(error.message);
         },
-        () => { }
+        () => {}
       );
     }
   }
@@ -189,7 +189,7 @@ export class NavbarComponent implements OnInit {
       this.notification.success('Theme Changed');
     } else {
       this.theme.changeTheme(night_theme).subscribe(
-        (res) => { },
+        (res) => {},
         (error: HttpErrorResponse) => {
           console.log(error);
           this.notification.error(error.message);

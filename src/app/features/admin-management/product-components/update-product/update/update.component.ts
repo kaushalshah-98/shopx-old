@@ -26,7 +26,7 @@ export class UpdateComponent implements OnInit, AfterViewInit {
     public property: PropertyAccessService,
     private productservice: ProductManagementService,
     private notification: NotificationService
-  ) { }
+  ) {}
   category = [
     { name: 'Electronics' },
     { name: 'Mobile' },
@@ -76,7 +76,7 @@ export class UpdateComponent implements OnInit, AfterViewInit {
       },
       (error: HttpErrorResponse) => {
         this.dataLoading.emit(false);
-        this.notification.error(error.message)
+        this.notification.error(error.message);
       },
       () => this.dataLoading.emit(false)
     );
@@ -151,7 +151,7 @@ export class UpdateComponent implements OnInit, AfterViewInit {
       (res) => res,
       (error: HttpErrorResponse) => {
         this.dataLoading.emit(false);
-        this.notification.error(error.message)
+        this.notification.error(error.message);
       },
       () => {
         this.dataLoading.emit(false);

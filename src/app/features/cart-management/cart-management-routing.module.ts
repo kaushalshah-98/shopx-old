@@ -7,11 +7,11 @@ import { ViewCartitemsComponent } from './view-cartitems/view-cartitems.componen
 const routes: Routes = [
   {
     path: '',
-    component: ViewCartitemsComponent,
+    component: ViewCartitemsComponent
   },
   {
     path: '#',
-    component: CheckoutComponent,
+    component: CheckoutComponent
   }
 ];
 
@@ -19,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CartManagementRoutingModule { }
+export class CartManagementRoutingModule {}

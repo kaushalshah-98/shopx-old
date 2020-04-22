@@ -29,7 +29,7 @@ export class FetchShirtComponent implements OnInit {
   constructor(
     private productservice: ProductManagementService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngOnInit() {
     document.getElementById('mainsearch').style.visibility = 'hidden';
@@ -51,7 +51,7 @@ export class FetchShirtComponent implements OnInit {
         },
         (error: HttpErrorResponse) => {
           this.dataLoading.emit(false);
-          this.notification.error(error.message)
+          this.notification.error(error.message);
         },
         () => this.dataLoading.emit(false)
       );

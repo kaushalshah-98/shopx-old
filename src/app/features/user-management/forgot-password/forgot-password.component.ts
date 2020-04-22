@@ -21,7 +21,7 @@ export class ForgotPasswordComponent implements OnInit, AfterViewInit {
     public property: PropertyAccessService,
     private userservice: UserManagementService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.dataLoading.emit(false);

@@ -15,6 +15,5 @@ export class PropertyAccessService {
     if (this.storage.getItem('LOGGEDIN')) {
       this.isloggedin.next(true);
     }
-    console.log(this.isloggedin.value);
   }
 }

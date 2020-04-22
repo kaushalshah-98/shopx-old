@@ -7,15 +7,15 @@ import { WishListComponent } from './wish-list/wish-list.component';
 const routes: Routes = [
   {
     path: 'profile',
-    component: ProfileComponent,
+    component: ProfileComponent
   },
   {
     path: 'wishlist',
-    component: WishListComponent,
+    component: WishListComponent
   },
   {
     path: 'my_orders',
-    component: ViewOrdersComponent,
+    component: ViewOrdersComponent
   }
 ];
 
@@ -23,4 +23,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class UserManagementRoutingModule { }
+export class UserManagementRoutingModule {}

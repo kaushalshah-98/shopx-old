@@ -52,7 +52,7 @@ export class FetchSmartphonesComponent implements OnInit {
     private compare: ComparisonServiceService,
     private router: Router,
     public property: PropertyAccessService
-  ) { }
+  ) {}
 
   ngOnInit() {
     document.getElementById('mainsearch').style.visibility = 'hidden';
