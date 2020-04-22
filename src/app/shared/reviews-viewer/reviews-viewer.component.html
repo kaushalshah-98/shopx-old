@@ -12,19 +12,24 @@
       <mat-form-field appearance="outline">
         <mat-label> {{'shared.reviews_viewer.write_a_review' | translate}}</mat-label>
         <!-- <app-spinner [loading]="dataLoading"></app-spinner> -->
-        <input matInput (keyup.enter)="filterquery()" (keyup.escape)="reset()" />
-        <button mat-icon-button matSuffix (click)="filterquery()">
-          <mat-icon>search</mat-icon>
+        <input
+          matInput
+          [formControl]="reviewtext"
+          (keyup.enter)="addreview()"
+          (keyup.escape)="reset()"
+        />
+        <button mat-icon-button matSuffix (click)="addreview()">
+          <mat-icon>add</mat-icon>
         </button>
       </mat-form-field>
       <div [ngClass]="{dimmed: dimmed}">
         <ng-container *ngFor="let review of reviews">
           <mat-list-item>
             <mat-icon mat-list-icon>star</mat-icon>
-            <div class="username" mat-line>{{review.username}}</div>
+            <div class="username" mat-line>{{review.name}}</div>
             <div mat-line>{{review.review}}</div>
             <button
-              *ngIf="isUserReview(review.username)"
+              *ngIf="isUserReview(review.userid)"
               mat-icon-button
               matSuffix
               (click)="deletereview(review)"

@@ -71,7 +71,5 @@ const components = [
   exports: [components]
 })
 export class ProductManagementModule {
-  constructor() {
-    console.log('Lazily Loaded : ProductModule');
-  }
+  constructor() {}
 }

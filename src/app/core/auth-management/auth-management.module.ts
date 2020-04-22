@@ -50,7 +50,5 @@ export function provideConfig() {
   providers: [{ provide: AuthServiceConfig, useFactory: provideConfig }]
 })
 export class AuthManagementModule {
-  constructor() {
-    console.log('Lazily Loaded:authModule');
-  }
+  constructor() {}
 }

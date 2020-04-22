@@ -159,7 +159,12 @@
   [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
   class="u-text-right centre-button"
 >
-  <button mat-raised-button class="pink-btn" [disabled]="billingform.invalid" (click)="goForward()">
+  <button
+    mat-raised-button
+    class="pink-btn"
+    [disabled]="billingform.invalid"
+    (click)="[goForward(),goForward()]"
+  >
     {{"user.form.confirm_and_continue" | translate}}
   </button>
 </mat-toolbar>

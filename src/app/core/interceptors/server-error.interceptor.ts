@@ -49,6 +49,7 @@ export class ServerErrorInterceptor implements HttpInterceptor {
           }
         }
         console.log(errorMessage);
+        this.notificationService.error(errorMessage);
         return throwError(errorMessage);
       })
     );

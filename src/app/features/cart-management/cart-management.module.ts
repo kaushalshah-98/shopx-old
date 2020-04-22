@@ -21,7 +21,5 @@ import { ViewCartitemsComponent } from './view-cartitems/view-cartitems.componen
   imports: [CommonModule, CartManagementRoutingModule, MatSidenavModule, SharedModule]
 })
 export class CartManagementModule {
-  constructor() {
-    console.log('Lazily Loaded : CartModule');
-  }
+  constructor() {}
 }

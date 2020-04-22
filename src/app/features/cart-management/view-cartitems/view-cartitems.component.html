@@ -150,8 +150,8 @@
               [formControl]="quantityformcontrol"
               type="number"
               min="1"
-              max="{{ element.productqty }}"
-              value="{{ element.quantity }}"
+              max="{{ element.quantity }}"
+              value="{{ element.qty }}"
             />
           </mat-form-field>
         </div>
@@ -230,7 +230,7 @@
 <mat-card
   [ngClass]="{'total-card':true, 'dark-total-card' :( property.nightmode | async) ,dimmed: dimmed}"
 >
-  {{"user.cart.total_price" | translate}} : ₹ {{getTotalCost()}}
+  {{"user.cart.total_price" | translate}} : ₹ {{totalprice}}
 </mat-card>
 <br /><br /><br />
 <mat-toolbar

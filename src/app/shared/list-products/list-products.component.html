@@ -42,7 +42,7 @@
             </div>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-raised-button class="add-to-cart-btn">
+            <button mat-raised-button class="add-to-cart-btn" (click)="addToCart(item)">
               {{"user.product.add_to_cart" | translate}}
             </button>
             <button mat-raised-button class="quick-view-btn" (click)="quickview(item)">

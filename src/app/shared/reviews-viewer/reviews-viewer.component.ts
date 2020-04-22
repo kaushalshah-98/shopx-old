@@ -1,7 +1,11 @@
-import { Component, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
-import { ProductReview } from '@shared/interfaces';
+import { ProductReview, ReviewList, User, Review } from '@shared/interfaces';
+import { ReviewViewerService } from './review-viewer.service';
+import { NotificationService } from '@services/notification/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { LocalStorageService } from '@services/local-storage/local-storage.service';
 @Component({
   selector: 'app-reviews-viewer',
   templateUrl: './reviews-viewer.component.html',
@@ -10,57 +14,107 @@ import { ProductReview } from '@shared/interfaces';
 })
 export class ReviewsViewerComponent implements OnInit {
   totalreviewcount = 0;
-  reviews: ProductReview[];
+  @Input() product_id: string;
+  reviews: ReviewList[];
   reviewtext: FormControl = new FormControl('');
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   dimmed = false;
-  constructor(public property: PropertyAccessService) {}
+  data: User;
+  constructor(
+    public property: PropertyAccessService,
+    private reviewservice: ReviewViewerService,
+    private notification: NotificationService,
+    private storage: LocalStorageService
+  ) {
+    this.data = this.storage.getItem('USER');
+  }
 
   ngOnInit() {
-    this.dataLoading.emit(false);
-    this.reviews = [
-      { username: 'kaushal', name: 'kaushal', review: 'It is a good product' },
-      { username: 'kaushal', name: 'kaushal', review: 'It is a good product' },
-      { username: 'kaushal', name: 'kaushal', review: 'It is a good product' },
-      { username: 'DEFAULT', name: 'DEFAULT', review: 'It is a good product' },
-      { username: 'DEFAULT', name: 'DEFAULT', review: 'It is a good product' },
-      { username: 'kaushal', name: 'kaushal', review: 'It is a good product' },
-      { username: 'DEFAULT', name: 'DEFAULT', review: 'It is a good product' }
-    ];
-    this.totalreviewcount = this.reviews.length;
+    this.fetchreviews();
+  }
+  fetchreviews() {
+    this.dataLoading.emit(true);
+    this.dimmed = true;
+    setTimeout(() => {
+      this.reviewservice.getreviews(this.product_id).subscribe(
+        (res) => {
+          this.reviews = res;
+          this.totalreviewcount = this.reviews.length;
+        },
+        (error: HttpErrorResponse) => {
+          this.dataLoading.emit(false);
+          this.dimmed = false;
+          console.log(error);
+          this.notification.error(error.message);
+        },
+        () => {
+          this.reset();
+          this.dimmed = false;
+          this.dataLoading.emit(false);
+        }
+      );
+    }, 1000);
   }
   addreview() {
-    this.dimmed = true;
-    this.dataLoading.emit(true);
-    setTimeout(() => {
-      this.dimmed = false;
-      this.dataLoading.emit(false);
-      const item = { username: 'DEFAULT', name: 'DEFAULT', review: this.reviewtext.value };
-      this.reviews.unshift(item);
-      this.reset();
-    }, 3000);
+    if (this.data) {
+      this.dimmed = true;
+      this.dataLoading.emit(true);
+
+      const review: ReviewList = {
+        userid: this.data.userid,
+        name: this.data.name,
+        review: this.reviewtext.value
+      }
+      this.reviews.unshift(review);
+      this.reviewservice.addreview(this.product_id, this.reviews).subscribe(
+        (res) => res,
+        (error: HttpErrorResponse) => {
+          this.dataLoading.emit(false);
+          this.dimmed = false;
+          console.log(error);
+          this.notification.error(error.message);
+        },
+        () => {
+          this.dataLoading.emit(false);
+          this.dimmed = false;
+          this.notification.info(`Review is added !`);
+          this.fetchreviews();
+        }
+      );
+    } else {
+      this.notification.warning('You are Not Logged In');
+    }
   }
   reset() {
     this.reviewtext.reset();
     this.totalreviewcount = this.reviews.length;
   }
-  isUserReview(username) {
-    if (username === 'DEFAULT') {
+  isUserReview(userid: string) {
+    if (this.data && userid === this.data.userid) {
       return true;
     }
     return false;
   }
-  deletereview(review) {
+  deletereview(review: ReviewList) {
     this.dimmed = true;
     this.dataLoading.emit(true);
-    setTimeout(() => {
-      this.dimmed = false;
-      this.dataLoading.emit(false);
-      this.reviews = this.reviews.filter(
-        (item) => !(item.review === review.review && item.username === review.username)
-      );
-      this.reset();
-    }, 3000);
+    this.reviews = this.reviews.filter(
+      (item: ReviewList) => !(item.review === review.review && item.userid === review.userid)
+    );
+    this.reviewservice.addreview(this.product_id, this.reviews).subscribe(
+      (res) => res,
+      (error: HttpErrorResponse) => {
+        this.dataLoading.emit(false);
+        this.dimmed = false;
+        console.log(error);
+        this.notification.error(error.message);
+      },
+      () => {
+        this.dataLoading.emit(false);
+        this.dimmed = false;
+        this.notification.info(`Review is deleted !`);
+        this.fetchreviews();
+      }
+    );
   }
-  filterquery() {}
 }

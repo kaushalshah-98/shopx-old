@@ -529,7 +529,6 @@ export class ViewOrdersComponent implements OnInit {
       .showConfirmDialog('Are You Sure Want to Cancel This Order ?')
       .subscribe((result) => {
         if (result === 'yes') {
-          console.log('emptied');
         }
       });
   }

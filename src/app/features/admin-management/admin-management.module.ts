@@ -30,7 +30,5 @@ import { ViewUsersComponent } from './user-components/view-users/view-users.comp
   imports: [CommonModule, SharedModule, AdminManagementRoutingModule]
 })
 export class AdminManagementModule {
-  constructor() {
-    console.log('Lazily Loaded : Admin');
-  }
+  constructor() {}
 }

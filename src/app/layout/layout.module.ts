@@ -20,7 +20,5 @@ import { LayoutRoutingModule } from './layout-routing.module';
   imports: [CommonModule, LayoutRoutingModule, ProductManagementModule, SharedModule, RouterModule]
 })
 export class LayoutModule {
-  constructor() {
-    console.log('Lazily Loaded : Layout');
-  }
+  constructor() {}
 }

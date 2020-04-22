@@ -60,7 +60,6 @@ export class UpdateComponent implements OnInit, AfterViewInit {
     this.state$ = this.activateRouter.paramMap
       .pipe(map(() => window.history.state))
       .subscribe((res) => (this.productid = res.productid));
-    console.log(this.productid);
     this.fetchproduct();
   }
   fetchproduct() {

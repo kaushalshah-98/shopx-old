@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { NotificationService } from '@services/notification/notification.service';
 
 @Component({
   selector: 'app-productcompare',
@@ -27,7 +28,11 @@ export class ProductcompareComponent implements OnInit {
   columnsToDisplay6 = ['name', 'internal', 'otgsupport', 'expandableupto'];
   columnsToDisplay7 = ['name', 'features', 'front', 'rear', 'flash', 'videorecording'];
 
-  constructor(private compare: ComparisonServiceService, public property: PropertyAccessService) {}
+  constructor(
+    private compare: ComparisonServiceService,
+    public property: PropertyAccessService,
+    private notification: NotificationService,
+    ) {}
   ngOnInit() {
     this.list = this.compare.comparelist;
     this.general = this.compare.general;
@@ -40,7 +45,7 @@ export class ProductcompareComponent implements OnInit {
   }
   remove(item) {
     if (this.list.length < 3) {
-      console.log('could not delete');
+      this.notification.info('There must be always two items to compare!');
     } else {
       this.dimmed = true;
       this.dataLoading.emit(true);

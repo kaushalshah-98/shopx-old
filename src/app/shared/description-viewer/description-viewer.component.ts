@@ -10,7 +10,5 @@ export class DescriptionViewerComponent implements OnInit {
   @Input() product: any;
   constructor(public property: PropertyAccessService) {}
 
-  ngOnInit() {
-    console.log(this.product);
-  }
+  ngOnInit() {}
 }

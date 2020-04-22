@@ -35,7 +35,6 @@ export class BuyListComponent implements OnInit {
     this.showspinner();
     this.listservice.getbuylist().subscribe(
       (res) => {
-        console.log(res);
         if (res.length <= 0) {
           this.notification.info('Your List is Empty!');
         } else if (res === undefined || res === null) {
@@ -54,7 +53,6 @@ export class BuyListComponent implements OnInit {
       () => {
         this.hidespinner();
         this.check();
-        console.log('complete');
       }
     );
   }
@@ -81,10 +79,7 @@ export class BuyListComponent implements OnInit {
       this.buylist.push(item);
       this.onClear();
       this.listservice.addtolist(this.buylist).subscribe(
-        (res) => {
-          console.log(res);
-          this.isSelected = true;
-        },
+        (res) => this.isSelected = true,
         (error: HttpErrorResponse) => {
           this.hidespinner();
           this.check();
@@ -113,10 +108,7 @@ export class BuyListComponent implements OnInit {
     setTimeout(() => {
       this.list = this.list.filter((item) => !item.done === true);
       this.listservice.addtolist(this.list).subscribe(
-        (res) => {
-          console.log(res);
-          this.isSelected = true;
-        },
+        (res) => this.isSelected = true,
         (error: HttpErrorResponse) => {
           this.hidespinner();
           this.check();

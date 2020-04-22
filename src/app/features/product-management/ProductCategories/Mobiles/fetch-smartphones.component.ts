@@ -64,7 +64,6 @@ export class FetchSmartphonesComponent implements OnInit {
     setTimeout(() => {
       this.productservice.getallproducts(this.innercategory).subscribe(
         (res) => {
-          console.log(res);
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');
             this.notification.info('Try to reload the page!');
@@ -83,18 +82,18 @@ export class FetchSmartphonesComponent implements OnInit {
   }
   compareitems() {
     if (this.mobiles.length < 1) {
-      console.log('empty');
+      this.notification.warning('Compare List Is Empty')
     } else if (this.mobiles.length < 2) {
-      console.log('atleast two');
+      this.notification.warning('Add one More item to compare with')
     } else {
       this.router.navigateByUrl('/compare');
     }
   }
   onMobileSelect(event: any) {
     if (this.mobiles.includes(event)) {
-      console.log('it is there already');
+      this.notification.warning('It is already there in compareList')
     } else if (this.mobiles.length > 2) {
-      console.log('only 3 allowed');
+      this.notification.warning('Only three items can be compared')
     } else {
       this.compare.comparelist.push(event);
       event.general.name = event.name;

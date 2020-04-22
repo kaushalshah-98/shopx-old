@@ -79,7 +79,11 @@
         mat-raised-button
         (click)="goToCart()"
       >
-        <mat-icon matBadge="3" matBadgeColor="warn" matBadgeOverlap="false" class="cart-icon"
+        <mat-icon
+          matBadge="{{property.cartsize |async}}"
+          matBadgeColor="warn"
+          matBadgeOverlap="false"
+          class="cart-icon"
           >shopping_cart
         </mat-icon>
       </button>

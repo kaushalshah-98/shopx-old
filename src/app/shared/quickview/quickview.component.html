@@ -36,11 +36,11 @@
           <span>₹{{ data.price }}</span>
         </h2>
         <div class="action">
-          <button class="add-to-cart-btn" mat-raised-button (click)="AddToCart(data)">
+          <button class="add-to-cart-btn" mat-raised-button (click)="addToCart(data)">
             {{'user.product.add_to_cart' | translate }}
           </button>
           &nbsp;
-          <button class="fav-btn" mat-raised-button>
+          <button class="fav-btn" mat-raised-button (click)="addToWishlist(data)">
             <mat-icon>favorite</mat-icon>
           </button>
           &nbsp;

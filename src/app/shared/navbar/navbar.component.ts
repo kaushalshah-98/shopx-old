@@ -18,6 +18,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 import { ThemeService } from '@services/theme-service/theme.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
+import { CartManagementService } from 'src/app/features/cart-management/cart-service/cart-management.service';
 
 @Component({
   selector: 'app-navbar',
@@ -41,14 +42,14 @@ export class NavbarComponent implements OnInit {
   optionmenu: any;
   constructor(
     private router: Router,
-    private userservice: UserManagementService,
     private dialog: ConfirmDialogService,
     public translate: TranslateService,
     private notification: NotificationService,
     @Inject(DOCUMENT) private document: any,
     public property: PropertyAccessService,
     private storage: LocalStorageService,
-    private theme: ThemeService
+    private theme: ThemeService,
+    private cartservice: CartManagementService
   ) {
     this.data = storage.getItem('USER');
     if (this.data && this.data.role === 'admin') {
@@ -68,6 +69,24 @@ export class NavbarComponent implements OnInit {
     this.elem = document.documentElement;
     this.getmenu();
     this.initializeTheme();
+    this.fetchCartSize();
+  }
+  async fetchCartSize() {
+    if (this.data) {
+      await this.cartservice.getCartSize()
+        .then((res) => {
+          if (res === null || res === undefined) {
+            this.notification.warning('Check Your Network!');
+            this.notification.info('Try to reload the page!');
+          } else {
+            this.property.cartsize.next(res.cartsize);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.notification.error(error.message);
+        })
+    }
   }
   initializeTheme() {
     if (this.data) {
@@ -77,7 +96,6 @@ export class NavbarComponent implements OnInit {
             this.notification.info('Try to reload page. Cant load theme.');
             this.notification.warning('Check You Network');
           } else {
-            console.log(res);
             this.property.nightmode.next(res.night_theme);
             this.IsNightmode.emit(res.night_theme);
           }
@@ -177,15 +195,13 @@ export class NavbarComponent implements OnInit {
   }
   onThemeChange(status) {
     const night_theme = { night_theme: status };
-    console.log(this.property.isloggedin.value);
     if (!this.property.isloggedin.value) {
       this.property.nightmode.next(status);
       this.IsNightmode.emit(status);
       this.notification.success('Theme Changed');
     } else {
-      console.log('else');
       this.theme.changeTheme(night_theme).subscribe(
-        (res) => console.log(res),
+        (res) => res,
         (error: HttpErrorResponse) => {
           console.log(error);
           this.notification.error(error.message);

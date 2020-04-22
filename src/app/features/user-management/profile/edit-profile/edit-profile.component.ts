@@ -40,7 +40,6 @@ export class EditProfileComponent implements OnInit {
     this.dataLoading.emit(true);
     this.userservice.getuser().subscribe(
       (res) => {
-        console.log(res);
         this.userdata = res;
         if (res === null || res === undefined) {
           this.notification.warning('Check Your Network!');
@@ -57,10 +56,7 @@ export class EditProfileComponent implements OnInit {
         console.log(error);
         this.notification.error(error.message);
       },
-      () => {
-        this.dataLoading.emit(false);
-        console.log('complete');
-      }
+      () => this.dataLoading.emit(false)
     );
   }
   onImageSelected(event) {
@@ -111,10 +107,7 @@ export class EditProfileComponent implements OnInit {
       };
       setTimeout(() => {
         this.userservice.updateuser(userdata).subscribe(
-          (res) => {
-            console.log(res);
-            this.userdata = res;
-          },
+          (res) => this.userdata = res,
           (error: HttpErrorResponse) => {
             this.dataLoading.emit(false);
             this.dimmed = false;

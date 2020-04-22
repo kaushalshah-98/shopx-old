@@ -42,7 +42,6 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.adminservice.getusers().subscribe(
         (res) => {
-          console.log(res);
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');
             this.notification.info('Try to reload the page!');

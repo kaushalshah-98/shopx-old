@@ -1,9 +1,14 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { BehaviorSubject } from 'rxjs';
+import { OrderService } from '../order.service';
+import { NotificationService } from '@services/notification/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { CartManagementService } from '../../cart-service/cart-management.service';
+import { CartItem } from '@shared/interfaces';
 
 @Component({
   selector: 'app-payment',
@@ -28,10 +33,11 @@ import { BehaviorSubject } from 'rxjs';
     ])
   ]
 })
-export class PaymentComponent implements OnInit {
+export class PaymentComponent implements OnInit, AfterViewInit {
   code = 895;
   expiry = '09/06';
   cardnumber = 676767676767;
+  dataLoading: EventEmitter<boolean> = new EventEmitter(true);
   name = 'Kaushal Shah';
   country = [
     { name: 'India' },
@@ -61,15 +67,33 @@ export class PaymentComponent implements OnInit {
   paymentform: FormGroup;
   @Input() paddingtop: BehaviorSubject<number>;
   padding: number;
+  dimmed: boolean;
+  order: any;
 
   constructor(
     private myStepper: MatStepper,
     private formBuilder: FormBuilder,
-    public property: PropertyAccessService
-  ) {}
+    public property: PropertyAccessService,
+    private orderservice: OrderService,
+    private notification: NotificationService,
+    private cartservice: CartManagementService
+  ) { }
 
+  ngAfterViewInit() {
+    this.dataLoading.emit(false);
+  }
   ngOnInit() {
     this.initializeform();
+    this.getorder();
+  }
+  getorder() {
+    this.cartservice.getCartItems()
+      .then((res) => {
+        this.order = res.map(({ description, name, price, quantity, image, details, ...hi }) => hi);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
   initializeform() {
     this.paymentform = this.formBuilder.group({
@@ -109,10 +133,35 @@ export class PaymentComponent implements OnInit {
   }
   goForward() {
     if (this.paymentform.status === 'VALID') {
-      this.myStepper.next();
-      this.step2status.emit(true);
+      this.dataLoading.emit(true);
+      this.dimmed = true;
+      setTimeout(() => {
+        this.orderservice.addOrder(this.order).subscribe(
+          (res) => res,
+          (err: HttpErrorResponse) => {
+            console.log(err);
+            this.notification.error(err.message)
+            this.dataLoading.emit(false);
+            this.dimmed = false;
+          },
+          () => {
+            this.dataLoading.emit(false);
+            this.dimmed = false;
+            setTimeout(() => {
+              this.moveforward();
+            }, 500);
+            this.notification.success('Order Placed Successfully');
+            this.myStepper.next();
+            this.step2status.emit(true);
+          }
+        )
+      }, 3000);
     } else {
       this.step2status.emit(false);
     }
+  }
+  moveforward() {
+    this.myStepper.next();
+    this.step2status.emit(true);
   }
 }

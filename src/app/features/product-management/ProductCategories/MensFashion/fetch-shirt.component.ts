@@ -40,7 +40,6 @@ export class FetchShirtComponent implements OnInit {
     setTimeout(() => {
       this.productservice.getallproducts(this.innercategory).subscribe(
         (res) => {
-          console.log(res);
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');
             this.notification.info('Try to reload the page!');

@@ -8,6 +8,17 @@ export interface BuyList {
   name: string;
   done: boolean;
 }
+export interface Review {
+  name?: string;
+  reviewlist: ReviewList[]
+  product_id?: string
+  type?: string;
+}
+export interface ReviewList {
+  name: string,
+  review: string,
+  userid: string;
+}
 export interface ProductItem {
   name: string;
   description: string;
@@ -24,12 +35,14 @@ export interface CartItem {
   name: string;
   description: string;
   quantity: number;
-  productqty: number;
   category: string;
   price: number;
   details: object;
   innercategory: string;
   image: ProductImage[];
+  type?: string;
+  product_id?: string;
+  qty?: number;
 }
 export interface ProductImage {
   imageurl: string;

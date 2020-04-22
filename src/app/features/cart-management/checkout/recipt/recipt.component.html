@@ -58,12 +58,12 @@
       <div fxLayout="row" fxLayoutAlign="start">
         <div fxFlex="50%" class="billing-section">
           <h3>Billed To</h3>
-          <p>India</p>
-          <p>Gujarat</p>
-          <p>Chanod Colony Vapi</p>
+          <p>{{data?.country}}</p>
+          <p>{{data?.state}}</p>
+          <p>{{data?.address}}</p>
         </div>
         <div fxFlex="50%" class="billing-section">
-          <h3>Total Amount :- 8000</h3>
+          <h3>Total Amount :- {{totalprice}}</h3>
         </div>
       </div>
     </mat-card-content>

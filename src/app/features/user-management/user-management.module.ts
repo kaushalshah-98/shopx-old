@@ -27,7 +27,5 @@ import { WishListComponent } from './wish-list/wish-list.component';
   exports: [ProfileComponent, RegisterComponent]
 })
 export class UserManagementModule {
-  constructor() {
-    console.log('Lazily Loaded : UserModule');
-  }
+  constructor() {}
 }

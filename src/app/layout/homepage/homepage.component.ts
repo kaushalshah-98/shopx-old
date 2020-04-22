@@ -143,7 +143,5 @@ export class HomepageComponent implements OnInit {
     ];
   }
 
-  fullscreenstatus(event) {
-    console.log(event);
-  }
+  fullscreenstatus(event) {}
 }

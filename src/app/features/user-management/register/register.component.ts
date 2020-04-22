@@ -51,13 +51,12 @@ export class RegisterComponent implements OnInit {
       status: true
     };
     this.userservice.createuser(userdata).subscribe(
-      (res) => console.log(res),
+      (res) => res,
       (error: HttpErrorResponse) => {
         console.log(error);
         this.notification.error(error.message);
       },
       () => {
-        console.log('succesfully created');
         this.notification.success('Your Profile Has been Registered Successfully');
         this.notification.success('Check Your Email..');
       }

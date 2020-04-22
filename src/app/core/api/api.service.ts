@@ -67,11 +67,28 @@ export const PATH = {
   GET_BUY_LIST: (userid: string) => `/getbuylistitems/${userid}`,
   POST_BUY_LIST: (userid: string) => `/addtolist/${userid}`,
 
+  // Review-Management
+  GET_REVIEW_LIST: (product_id: string) => `/getreviews/${product_id}`,
+  POST_REVIEW_LIST: (product_id: string) => `/addreview/${product_id}`,
+
+  // Order-Management
+  GET_ORDER_LIST: '/getallorders',
+  GET_USER_ORDER_LIST: (userid: string) => `/getUserOrder/${userid}`,
+  POST_ORDER: (userid: string) => `/addorder/${userid}`,
+
   // Wish-List-Management
   GET_WISH_LIST: (userid: string) => `/getwishlistitems/${userid}`,
   POST_WISH_ITEM: '/AddToWishlist',
   DELETE_WISH_LIST: (userid: string) => `/emptywishlist/${userid}`,
   PUT_WISH_ITEM: (userid: string) => `/removewishlistitem/${userid}`,
+
+  // Cart-Management
+  GET_CART_ITEMS: (userid: string) => `/getcartitems/${userid}`,
+  POST_CART_ITEM: '/AddTocart',
+  DELETE_CART: (userid: string) => `/emptycart/${userid}`,
+  PUT_DELETE_CART_ITEM: (userid: string) => `/removecartitem/${userid}`,
+  PUT_UPDATE_CART__ITEM: (userid: string) => `/updatecartitem/${userid}`,
+  GET_CARTSIZE: (userid: string) => `/cartsize/${userid}`,
 
   // Theme-Management
   GET_THEME: (userid: string) => `/theme/${userid}`,

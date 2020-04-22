@@ -4,9 +4,10 @@ import { LocalStorageService } from '@services/local-storage/local-storage.servi
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ImagePopupService } from '@shared/image-popup/image-popup.service';
-import { ProductItem } from '@shared/interfaces';
+import { ProductItem, ProductImage } from '@shared/interfaces';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 import { WishlistService } from 'src/app/features/user-management/wish-list/wishlist.service';
+import { CartManagementService } from 'src/app/features/cart-management/cart-service/cart-management.service';
 
 @Component({
   selector: 'app-list-products',
@@ -24,11 +25,12 @@ export class ListProductsComponent implements OnInit {
     private view: QuickViewService,
     public property: PropertyAccessService,
     private wishlistservice: WishlistService,
+    private cartservice: CartManagementService,
     private notification: NotificationService,
     private storage: LocalStorageService
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   openBottomSheet(item) {
     this.imagepopup.openBottomSheet(item);
   }
@@ -39,7 +41,6 @@ export class ListProductsComponent implements OnInit {
     this.selectedMobile.emit(item);
   }
   addToWishlist(item: ProductItem) {
-    console.log(this.storage.getItem('USER'));
     if (this.storage.getItem('USER') === null) {
       this.notification.warning('Only Logged in users can add!');
     } else {
@@ -48,7 +49,6 @@ export class ListProductsComponent implements OnInit {
       };
       this.wishlistservice.addtoWishlist(product).subscribe(
         (res) => {
-          console.log(res);
           if (res.message) {
             this.notification.info('This Item is already in list');
           } else {
@@ -59,11 +59,39 @@ export class ListProductsComponent implements OnInit {
           console.log(error);
           this.notification.error(error.message);
         },
-        () => {}
+        () => { }
       );
     }
   }
-  updateCart() {}
-  removeFromCart() {}
-  emptycart() {}
+  async addToCart(item: ProductItem) {
+    if (this.storage.getItem('USER') === null) {
+      this.notification.warning('Only Logged in users can add!');
+    } else {
+      const product = {
+        product_id: item.product_id
+      };
+      await this.cartservice.addtoCart(product)
+        .then((res) => this.notification.success('Item is added To Cart!'))
+        .catch((error) => {
+          console.log(error);
+          this.notification.error(error.message);
+        })
+      await this.cartservice.getCartSize()
+        .then((res) => {
+          if (res === null || res === undefined) {
+            this.notification.warning('Check Your Network!');
+            this.notification.info('Try to reload the page!');
+          } else {
+            this.property.cartsize.next(res.cartsize);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.notification.error(error.message);
+        })
+    }
+  }
+  updateCart() { }
+  removeFromCart() { }
+  emptycart() { }
 }

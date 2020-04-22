@@ -57,7 +57,6 @@ export class LoginComponent implements OnInit {
     setTimeout(() => {
       this.userservice.verifyuser(userdata).subscribe(
         (res) => {
-          console.log(res);
           if (res.length <= 0) {
             this.property.isloggedin.next(true);
             this.notification.error('Incorrect Username or Password');
@@ -106,7 +105,7 @@ export class LoginComponent implements OnInit {
         status: true
       };
       this.userservice.createuser(userdata).subscribe(
-        (res) => console.log(res),
+        (res) => res,
         (error: HttpErrorResponse) => {
           this.hideloader();
           console.log(error);
@@ -132,7 +131,7 @@ export class LoginComponent implements OnInit {
         status: true
       };
       this.userservice.createuser(userdata).subscribe(
-        (res) => console.log(res),
+        (res) => res,
         (error: HttpErrorResponse) => {
           this.hideloader();
           console.log(error);

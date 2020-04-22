@@ -61,7 +61,6 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.productservice.fetchallproducts().subscribe(
         (res) => {
-          console.log(res);
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');
             this.notification.info('Try to reload the page!');
@@ -97,7 +96,6 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
       .showConfirmDialog('Are You Sure want to remove this product ?')
       .subscribe((result) => {
         if (result === 'yes') {
-          console.log(product.product_id);
           this.productservice.deleteproduct(product.product_id).subscribe(
             (res) => res,
             (error: HttpErrorResponse) => {
@@ -115,7 +113,6 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
       });
   }
   sortchanged(category) {
-    console.log(category);
     switch (category) {
       case 'ALL':
         this.dataSource.data = this.productlist;

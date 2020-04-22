@@ -7,6 +7,7 @@ import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.serv
 import { ProductItem } from '@shared/interfaces';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 import { WishlistService } from './wishlist.service';
+import { CartManagementService } from '../../cart-management/cart-service/cart-management.service';
 
 @Component({
   selector: 'app-wish-list',
@@ -25,9 +26,10 @@ export class WishListComponent implements OnInit, AfterViewInit {
     private dialog: ConfirmDialogService,
     private view: QuickViewService,
     public property: PropertyAccessService,
+    private cartservice: CartManagementService,
     private wishlistservice: WishlistService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
@@ -42,7 +44,6 @@ export class WishListComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.wishlistservice.getWishlistItems().subscribe(
         (res) => {
-          console.log(res);
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');
             this.notification.info('Try to reload the page!');
@@ -77,7 +78,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
         if (result === 'yes') {
           this.dataLoading.emit(true);
           this.wishlistservice.updateWishlist(product).subscribe(
-            (res) => console.log(res),
+            (res) => res,
             (error: HttpErrorResponse) => {
               this.dimmed = false;
               console.log(error);
@@ -94,28 +95,31 @@ export class WishListComponent implements OnInit, AfterViewInit {
         }
       });
   }
-  addToWishlist(item: ProductItem) {
+  async addToCart(item: ProductItem) {
     const product = {
       product_id: item.product_id
     };
-    this.wishlistservice.addtoWishlist(product).subscribe(
-      (res) => {
-        console.log(res);
+    await this.cartservice.addtoCart(product)
+      .then((res) => this.notification.success('Item is added To Cart!'))
+      .catch((error) => {
+        console.log(error);
+        this.notification.error(error.message);
+      })
+    await this.cartservice.getCartSize()
+      .then((res) => {
         if (res === null || res === undefined) {
           this.notification.warning('Check Your Network!');
           this.notification.info('Try to reload the page!');
         } else {
-          this.dataSource.data = res;
+          this.property.cartsize.next(res.cartsize);
         }
-      },
-      (error: HttpErrorResponse) => {
+      })
+      .catch((error) => {
         console.log(error);
-        this.dataLoading.emit(false);
         this.notification.error(error.message);
-      },
-      () => this.dataLoading.emit(false)
-    );
+      })
   }
+
   emptywishList() {
     this.dimmed = true;
     this.dialog
@@ -124,7 +128,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
         if (result === 'yes') {
           this.dataLoading.emit(true);
           this.wishlistservice.clearWishlist().subscribe(
-            (res) => console.log(res),
+            (res) => res,
             (error: HttpErrorResponse) => {
               this.dimmed = false;
               console.log(error);

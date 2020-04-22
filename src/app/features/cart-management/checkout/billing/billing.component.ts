@@ -40,8 +40,8 @@ export class BillingComponent implements OnInit {
   constructor(
     private myStepper: MatStepper,
     private formBuilder: FormBuilder,
-    public property: PropertyAccessService
-  ) {}
+    public property: PropertyAccessService,
+  ) { }
 
   ngOnInit() {
     this.initializeform();
@@ -69,10 +69,22 @@ export class BillingComponent implements OnInit {
   }
   goForward() {
     if (this.billingform.status === 'VALID') {
+      const billingdata = {
+        state: this.billingform.controls.selectedstate.value,
+        country: this.billingform.controls.selectedcountry.value,
+        address: this.billingform.controls.address1FormControl.value
+      }
+      setTimeout(() => {
+        this.moveforward();
+      }, 500);
+      this.property.details.next(billingdata);
       this.myStepper.next();
       this.step1status.emit(true);
     } else {
       this.step1status.emit(false);
     }
+  }
+  moveforward() {
+    this.myStepper.next();
   }
 }

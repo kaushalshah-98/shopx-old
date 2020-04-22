@@ -10,6 +10,8 @@ export class PropertyAccessService {
   public nightmode = new BehaviorSubject<boolean>(null);
   public fullscreen: boolean;
   public isloggedin = new BehaviorSubject<boolean>(null);
+  public cartsize = new BehaviorSubject<number>(0);
+  public details = new BehaviorSubject<object>(null);
   public userid = '';
   constructor(private storage: LocalStorageService) {
     if (this.storage.getItem('LOGGEDIN')) {

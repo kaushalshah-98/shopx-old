@@ -25,7 +25,6 @@ export class ViewProfileComponent implements OnInit {
   ngOnInit() {
     this.userservice.getuser().subscribe(
       (res) => {
-        console.log(res);
         if (res === null || res === undefined) {
           this.notification.warning('Check Your Network!');
           this.notification.info('Try to reload the page!');
@@ -36,9 +35,7 @@ export class ViewProfileComponent implements OnInit {
         console.log(error);
         this.notification.error(error.message);
       },
-      () => {
-        console.log('complete');
-      }
+      () => {}
     );
   }
 }

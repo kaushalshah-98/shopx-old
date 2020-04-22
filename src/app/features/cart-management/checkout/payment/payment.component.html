@@ -1,5 +1,6 @@
+<app-spinner [loading]="dataLoading" class="centre-spinner"></app-spinner>
 <div
-  [ngClass]="{'payment-container':true,'dark-payment-container': ( property.nightmode | async)}"
+  [ngClass]="{'payment-container':true,'dark-payment-container': ( property.nightmode | async),dimmed:dimmed}"
   [ngStyle]="{'padding-top': (paddingtop | async) +'px'}"
   fxLayout="row"
   fxLayoutAlign="start center"
