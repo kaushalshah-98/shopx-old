@@ -77,7 +77,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
     private orderservice: OrderService,
     private notification: NotificationService,
     private cartservice: CartManagementService
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.dataLoading.emit(false);

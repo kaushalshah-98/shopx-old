@@ -1,10 +1,10 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, EventEmitter, OnInit } from '@angular/core';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 import { OrderService } from '../../cart-management/checkout/order.service';
-import { NotificationService } from '@services/notification/notification.service';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-orders',
@@ -23,7 +23,7 @@ export class ViewOrdersComponent implements OnInit {
     public property: PropertyAccessService,
     private orderservice: OrderService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.initializeOrders();
@@ -38,7 +38,7 @@ export class ViewOrdersComponent implements OnInit {
         },
         (error: HttpErrorResponse) => {
           this.dataLoading.emit(false);
-          this.notification.error(error.message)
+          this.notification.error(error.message);
         },
         () => this.dataLoading.emit(false)
       );
@@ -58,7 +58,7 @@ export class ViewOrdersComponent implements OnInit {
             (res) => console.log(res),
             (error: HttpErrorResponse) => {
               this.dataLoading.emit(false);
-              this.notification.error(error.message)
+              this.notification.error(error.message);
             },
             () => this.initializeOrders()
           );
