@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '@shared/shared.module';
-import { ContactComponent } from './contact/contact.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { BuyListComponent } from './profile/buy-list/buy-list.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
@@ -22,11 +21,10 @@ import { WishListComponent } from './wish-list/wish-list.component';
     ViewOrdersComponent,
     ProfileComponent,
     BuyListComponent,
-    ContactComponent,
     ForgotPasswordComponent
   ],
   imports: [CommonModule, UserManagementRoutingModule, SharedModule],
-  exports: [ProfileComponent, ContactComponent, RegisterComponent]
+  exports: [ProfileComponent, RegisterComponent]
 })
 export class UserManagementModule {
   constructor() {

@@ -32,21 +32,21 @@ export class AuthGaurdService {
       take(1)
     );
   }
-  canActivate(): Observable<boolean> {
-    return this.validuserAuth();
-  }
-  private validuserAuth(): Observable<boolean> {
-    return of(this.storage.getItem('USER')).pipe(
-      map((user) => {
-        if (user) {
-          return true;
-        }
-        this.notification.warning('You Must be logged in..!');
-        return false;
-      }),
-      take(1)
-    );
-  }
+  // canActivate(): Observable<boolean> {
+  //   return this.validuserAuth();
+  // }
+  // private validuserAuth(): Observable<boolean> {
+  //   return of(this.storage.getItem('USER')).pipe(
+  //     map((user) => {
+  //       if (user) {
+  //         return true;
+  //       }
+  //       this.notification.warning('You Must be logged in..!');
+  //       return false;
+  //     }),
+  //     take(1)
+  //   );
+  // }
   // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
   //   if (this.role.getRole() === 'admin') {
   //     return true;

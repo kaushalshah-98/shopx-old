@@ -52,6 +52,7 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
           }
         },
         (error: HttpErrorResponse) => {
+          this.dataLoading.emit(false);
           console.log(error);
           this.dimmed = false;
           this.notification.error(error.message);
@@ -64,6 +65,7 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
     }, 3000);
   }
   blockuser(userdata: User) {
+    this.dataLoading.emit(true);
     this.dimmed = true;
     const status = { status: !userdata.status };
     if (userdata.status) {
@@ -74,10 +76,12 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
     this.adminservice.blockuser(status, userdata.userid).subscribe(
       (res) => res,
       (error: HttpErrorResponse) => {
+        this.dataLoading.emit(false);
         this.dimmed = false;
         this.notification.error(error.message);
       },
       () => {
+        this.dataLoading.emit(false);
         this.fetchusers();
         this.dimmed = false;
         this.notification.success(this.message);

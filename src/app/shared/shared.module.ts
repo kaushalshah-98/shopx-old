@@ -30,9 +30,11 @@ import { QuickViewService } from './quickview/quickview.service';
 import { ReviewsViewerComponent } from './reviews-viewer/reviews-viewer.component';
 import { SharedRoutingModule } from './shared-routing.module';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ContactComponent } from '../features/user-management/contact/contact.component';
 
 @NgModule({
   declarations: [
+    ContactComponent,
     ProductCarousel2Component,
     AuthorsCarouselComponent,
     DescriptionViewerComponent,
@@ -67,6 +69,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
   providers: [ConfirmDialogService, ImagePopupService, QuickViewService],
   entryComponents: [ConfirmDialogComponent, ImagePopupComponent, QuickviewComponent],
   exports: [
+    ContactComponent,
     ProductCarousel2Component,
     AuthorsCarouselComponent,
     DescriptionViewerComponent,

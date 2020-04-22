@@ -140,6 +140,7 @@ export class AddProductComponent implements OnInit, AfterViewInit {
     this.productservice.addproduct(product).subscribe(
       (res) => console.log(res),
       (error: HttpErrorResponse) => {
+        this.dataLoading.emit(false);
         console.log(error);
         this.notification.error(error.message);
       },

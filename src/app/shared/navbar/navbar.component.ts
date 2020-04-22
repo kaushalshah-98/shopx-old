@@ -67,20 +67,32 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.elem = document.documentElement;
     this.getmenu();
-    this.initializeTheme();
+    if (this.property.isloggedin.value) {
+      this.initializeTheme();
+    }
   }
   initializeTheme() {
     if (this.data) {
       this.theme.getTheme().subscribe(
         (res) => {
-          this.property.nightmode.next(res.night_theme);
-          this.IsNightmode.emit(res.night_theme);
+          if (res === null || res === undefined) {
+            this.notification.info('Try to reload page. Cant load theme.');
+            this.notification.warning('Check You Network')
+          } else {
+            this.property.nightmode.next(res.night_theme);
+            this.IsNightmode.emit(res.night_theme);
+            if (res.night_theme) {
+              this.notification.success('Night Mode is on');
+            } else {
+              this.notification.success('Light Mode is on');
+            }
+          }
         },
         (error: HttpErrorResponse) => {
           console.log(error);
           this.notification.error(error.message);
         },
-        () => {}
+        () => { }
       );
     }
   }
@@ -171,20 +183,26 @@ export class NavbarComponent implements OnInit {
   }
   onThemeChange(status) {
     const night_theme = { night_theme: status };
-    this.theme.changeTheme(night_theme).subscribe(
-      (res) => {},
-      (error: HttpErrorResponse) => {
-        console.log(error);
-        this.notification.error(error.message);
-      },
-      () => {
-        this.property.nightmode.next(status);
-        this.IsNightmode.emit(status);
-        this.notification.success('Theme Changed');
-      }
-    );
+    if (this.property.isloggedin.value) {
+      this.property.nightmode.next(status);
+      this.IsNightmode.emit(status);
+      this.notification.success('Theme Changed');
+    } else {
+      this.theme.changeTheme(night_theme).subscribe(
+        (res) => { },
+        (error: HttpErrorResponse) => {
+          console.log(error);
+          this.notification.error(error.message);
+        },
+        () => {
+          this.property.nightmode.next(status);
+          this.IsNightmode.emit(status);
+          this.notification.success('Theme Changed');
+        }
+      );
+    }
   }
   contact() {
-    this.router.navigateByUrl('/contactus/$');
+    this.router.navigateByUrl('/contactus');
   }
 }

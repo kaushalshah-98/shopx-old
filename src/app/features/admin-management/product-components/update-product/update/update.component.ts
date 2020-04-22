@@ -26,7 +26,7 @@ export class UpdateComponent implements OnInit, AfterViewInit {
     public property: PropertyAccessService,
     private productservice: ProductManagementService,
     private notification: NotificationService
-  ) {}
+  ) { }
   category = [
     { name: 'Electronics' },
     { name: 'Mobile' },
@@ -74,7 +74,10 @@ export class UpdateComponent implements OnInit, AfterViewInit {
           this.productdata = res;
         }
       },
-      (error: HttpErrorResponse) => this.notification.error(error.message),
+      (error: HttpErrorResponse) => {
+        this.dataLoading.emit(false);
+        this.notification.error(error.message)
+      },
       () => this.dataLoading.emit(false)
     );
   }
@@ -110,6 +113,7 @@ export class UpdateComponent implements OnInit, AfterViewInit {
     }
   }
   UpdateProduct() {
+    this.dataLoading.emit(true);
     const product = {
       name: this.updateproductform.controls.productNameFormControl.value,
       description: this.updateproductform.controls.productDescriptionFormControl.value,
@@ -145,8 +149,14 @@ export class UpdateComponent implements OnInit, AfterViewInit {
     };
     this.productservice.updateproduct(this.productid, product).subscribe(
       (res) => res,
-      (error: HttpErrorResponse) => this.notification.error(error.message),
-      () => this.notification.success('Product Has been Updated!')
+      (error: HttpErrorResponse) => {
+        this.dataLoading.emit(false);
+        this.notification.error(error.message)
+      },
+      () => {
+        this.dataLoading.emit(false);
+        this.notification.success('Product Has been Updated!');
+      }
     );
   }
 }

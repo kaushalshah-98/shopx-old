@@ -8,12 +8,10 @@ const routes: Routes = [
   {
     path: '',
     component: ViewCartitemsComponent,
-    canActivate: [AuthGaurdService]
   },
   {
     path: '#',
     component: CheckoutComponent,
-    canActivate: [AuthGaurdService]
   }
 ];
 
@@ -21,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CartManagementRoutingModule {}
+export class CartManagementRoutingModule { }

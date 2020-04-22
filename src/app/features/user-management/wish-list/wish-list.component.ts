@@ -51,6 +51,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
           }
         },
         (error: HttpErrorResponse) => {
+          this.dataLoading.emit(false);
           console.log(error);
           this.dimmed = false;
           this.notification.error(error.message);

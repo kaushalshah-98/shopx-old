@@ -71,6 +71,7 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
           }
         },
         (error: HttpErrorResponse) => {
+          this.dataLoading.emit(false);
           console.log(error);
           this.dimmed = false;
           this.notification.error(error.message);
@@ -100,6 +101,7 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
           this.productservice.deleteproduct(product.product_id).subscribe(
             (res) => res,
             (error: HttpErrorResponse) => {
+              this.dataLoading.emit(false);
               this.dimmed = false;
               this.notification.error(error.message);
             },

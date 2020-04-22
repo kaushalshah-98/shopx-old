@@ -1,8 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
-import { Subject } from 'rxjs';
 import { ProductManagementService } from 'src/app/features/product-management/product-service/product-management.service';
 
 @Component({

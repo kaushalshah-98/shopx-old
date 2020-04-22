@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationService } from '@services/notification/notification.service';
@@ -11,9 +11,9 @@ import { UserManagementService } from '../user-service/user-management.service';
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.scss']
 })
-export class ForgotPasswordComponent implements OnInit {
+export class ForgotPasswordComponent implements OnInit, AfterViewInit {
   forgotpasswordform: FormGroup;
-  dataLoading: EventEmitter<boolean> = new EventEmitter(false);
+  dataLoading: EventEmitter<boolean> = new EventEmitter(true);
   show = false;
   constructor(
     private router: Router,
@@ -21,8 +21,11 @@ export class ForgotPasswordComponent implements OnInit {
     public property: PropertyAccessService,
     private userservice: UserManagementService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
+  ngAfterViewInit() {
+    this.dataLoading.emit(false);
+  }
   ngOnInit() {
     this.initializeForm();
   }
@@ -43,7 +46,6 @@ export class ForgotPasswordComponent implements OnInit {
     };
     this.userservice.forgotpassword(userdata).subscribe(
       (res) => {
-        console.log(res);
         if (res.length <= 0) {
           this.notification.warning('Name or Email you entered is not register with us');
           this.notification.warning('Only registered users can get password');

@@ -4,11 +4,18 @@ import { AuthGaurdService } from '@core/auth-management/auth-gaurd/auth-gaurd.se
 import { DetailviewComponent } from './features/product-management/detailview/detailview.component';
 import { ProductcompareComponent } from './features/product-management/productcompare/productcompare.component';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { UserauthguardService } from '@core/auth-management/user-auth-guard/userauthguard.service';
+import { AuthorsCarouselComponent } from '@shared/authors-carousel/authors-carousel.component';
+import { ContactComponent } from './features/user-management/contact/contact.component';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./layout/layout.module').then((m) => m.LayoutModule)
+    path: 'creators',
+    component: AuthorsCarouselComponent
+  },
+  {
+    path: 'contactus',
+    component: ContactComponent
   },
   {
     path: 'detailview',
@@ -17,6 +24,10 @@ const routes: Routes = [
   {
     path: 'compare',
     component: ProductcompareComponent
+  },
+  {
+    path: '',
+    loadChildren: () => import('./layout/layout.module').then((m) => m.LayoutModule)
   },
   {
     path: 'admin',
@@ -42,39 +53,28 @@ const routes: Routes = [
       import('./core/auth-management/auth-management.module').then((m) => m.AuthManagementModule)
   },
   {
-    path: 'contactus',
-    loadChildren: () =>
-      import('./features/user-management/user-management.module').then(
-        (m) => m.UserManagementModule
-      )
-  },
-  {
     path: 'cart',
     loadChildren: () =>
       import('./features/cart-management/cart-management.module').then(
         (m) => m.CartManagementModule
-      )
+      ),
+    canLoad: [UserauthguardService]
   },
   {
     path: 'checkout',
     loadChildren: () =>
       import('./features/cart-management/cart-management.module').then(
         (m) => m.CartManagementModule
-      )
+      ),
+    canLoad: [UserauthguardService]
   },
   {
     path: 'usersettings',
     loadChildren: () =>
       import('./features/user-management/user-management.module').then(
         (m) => m.UserManagementModule
-      )
-  },
-  {
-    path: 'creators',
-    loadChildren: () =>
-      import('./features/user-management/user-management.module').then(
-        (m) => m.UserManagementModule
-      )
+      ),
+    canLoad: [UserauthguardService]
   },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -89,4 +89,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ForgotPasswordComponent } from 'src/app/features/user-management/forgot-password/forgot-password.component';
 import { RegisterComponent } from 'src/app/features/user-management/register/register.component';
 import { LoginComponent } from './login/login.component';
+import { AuthorsCarouselComponent } from '@shared/authors-carousel/authors-carousel.component';
+import { ContactComponent } from 'src/app/features/user-management/contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },

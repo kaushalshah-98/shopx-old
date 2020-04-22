@@ -37,6 +37,7 @@ export class EditProfileComponent implements OnInit {
     this.fetchuser();
   }
   fetchuser() {
+    this.dataLoading.emit(true);
     this.userservice.getuser().subscribe(
       (res) => {
         console.log(res);
@@ -52,10 +53,12 @@ export class EditProfileComponent implements OnInit {
         }
       },
       (error: HttpErrorResponse) => {
+        this.dataLoading.emit(false);
         console.log(error);
         this.notification.error(error.message);
       },
       () => {
+        this.dataLoading.emit(false);
         console.log('complete');
       }
     );
