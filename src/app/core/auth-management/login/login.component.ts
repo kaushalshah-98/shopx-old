@@ -54,36 +54,38 @@ export class LoginComponent implements OnInit {
       name: this.loginform.controls.usernameFormControl.value,
       password: this.loginform.controls.passwordFormControl.value
     };
-    this.userservice.verifyuser(userdata).subscribe(
-      (res) => {
-        console.log(res);
-        if (res.length <= 0) {
-          this.property.isloggedin.next(true);
-          this.notification.error('Incorrect Username or Password');
-        } else if (res.status === false) {
-          this.notification.error('Your Account Has been Blocked');
-        } else {
-          this.storage.setItem('USER', res);
-          this.storage.setItem('LOGGEDIN', true);
-          this.notification.success('Login Success');
-          this.property.nightmode.next(res.night_theme);
-          this.property.userid = res.userid;
-          if (res.role === 'user') {
-            this.router.navigate(['home']);
+    setTimeout(() => {
+      this.userservice.verifyuser(userdata).subscribe(
+        (res) => {
+          console.log(res);
+          if (res.length <= 0) {
+            this.property.isloggedin.next(true);
+            this.notification.error('Incorrect Username or Password');
+          } else if (res.status === false) {
+            this.notification.error('Your Account Has been Blocked');
           } else {
-            this.router.navigate(['admin']);
+            this.storage.setItem('USER', res);
+            this.storage.setItem('LOGGEDIN', true);
+            this.notification.success('Login Success');
+            this.property.nightmode.next(res.night_theme);
+            this.property.userid = res.userid;
+            if (res.role === 'user') {
+              this.router.navigate(['home']);
+            } else {
+              this.router.navigate(['admin']);
+            }
           }
+        },
+        (error: HttpErrorResponse) => {
+          this.hideloader();
+          console.log(error);
+          this.notification.error(error.message);
+        },
+        () => {
+          this.hideloader();
         }
-      },
-      (error: HttpErrorResponse) => {
-        this.hideloader();
-        console.log(error);
-        this.notification.error(error.message);
-      },
-      () => {
-        this.hideloader();
-      }
-    );
+      );
+    }, 2000);
   }
   showloader() {
     this.dataLoading.emit(true);

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ApiService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   get headers(): HttpHeaders {
     const headersConfig = {
@@ -74,8 +74,8 @@ export const PATH = {
   PUT_WISH_ITEM: (userid: string) => `/removewishlistitem/${userid}`,
 
   // Theme-Management
-  GET_THEME: (userid) => `/theme/${userid}`,
-  PUT_THEME: (userid) => `/theme/${userid}`,
+  GET_THEME: (userid: string) => `/theme/${userid}`,
+  PUT_THEME: (userid: string) => `/changetheme/${userid}`,
 
   GET_ORGANISATION_BY_ID: (nodeId) => `/node-management/node/${nodeId}`,
   GET_NODE_THEME: (domain) => `/node-management/organization/${domain}/theme`,

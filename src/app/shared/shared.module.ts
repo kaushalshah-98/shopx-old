@@ -79,8 +79,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     LeftPanelContainer,
     FooterComponent,
     JumbotronComponent,
-    LoadingBarModule,
-    NgxImageZoomModule,
     QuickviewComponent,
     MenuitemsComponent,
     ImagePopupComponent,
@@ -90,6 +88,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     BigInputActionComponent,
     BigInputComponent,
 
+    LoadingBarModule,
+    NgxImageZoomModule,
     ToastrModule,
     FormsModule,
     ReactiveFormsModule,

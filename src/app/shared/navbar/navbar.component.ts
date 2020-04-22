@@ -67,9 +67,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.elem = document.documentElement;
     this.getmenu();
-    if (this.property.isloggedin.value) {
-      this.initializeTheme();
-    }
+    this.initializeTheme();
   }
   initializeTheme() {
     if (this.data) {
@@ -79,20 +77,16 @@ export class NavbarComponent implements OnInit {
             this.notification.info('Try to reload page. Cant load theme.');
             this.notification.warning('Check You Network');
           } else {
+            console.log(res);
             this.property.nightmode.next(res.night_theme);
             this.IsNightmode.emit(res.night_theme);
-            if (res.night_theme) {
-              this.notification.success('Night Mode is on');
-            } else {
-              this.notification.success('Light Mode is on');
-            }
           }
         },
         (error: HttpErrorResponse) => {
           console.log(error);
           this.notification.error(error.message);
         },
-        () => {}
+        () => { }
       );
     }
   }
@@ -183,13 +177,15 @@ export class NavbarComponent implements OnInit {
   }
   onThemeChange(status) {
     const night_theme = { night_theme: status };
-    if (this.property.isloggedin.value) {
+    console.log(this.property.isloggedin.value);
+    if (!this.property.isloggedin.value) {
       this.property.nightmode.next(status);
       this.IsNightmode.emit(status);
       this.notification.success('Theme Changed');
     } else {
+      console.log('else');
       this.theme.changeTheme(night_theme).subscribe(
-        (res) => {},
+        (res) => console.log(res),
         (error: HttpErrorResponse) => {
           console.log(error);
           this.notification.error(error.message);
