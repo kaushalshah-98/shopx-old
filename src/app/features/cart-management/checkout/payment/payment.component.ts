@@ -1,14 +1,14 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, EventEmitter, Input, OnInit, Output, AfterViewInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
-import { PropertyAccessService } from '@services/propert-access/property-access.service';
-import { BehaviorSubject } from 'rxjs';
-import { OrderService } from '../order.service';
 import { NotificationService } from '@services/notification/notification.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { CartManagementService } from '../../cart-service/cart-management.service';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { CartItem } from '@shared/interfaces';
+import { BehaviorSubject } from 'rxjs';
+import { CartManagementService } from '../../cart-service/cart-management.service';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-payment',
@@ -77,7 +77,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
     private orderservice: OrderService,
     private notification: NotificationService,
     private cartservice: CartManagementService
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.dataLoading.emit(false);
@@ -87,13 +87,14 @@ export class PaymentComponent implements OnInit, AfterViewInit {
     this.getorder();
   }
   getorder() {
-    this.cartservice.getCartItems()
+    this.cartservice
+      .getCartItems()
       .then((res) => {
         this.order = res.map(({ description, name, price, quantity, image, details, ...hi }) => hi);
       })
       .catch((error) => {
         console.log(error);
-      })
+      });
   }
   initializeform() {
     this.paymentform = this.formBuilder.group({
@@ -140,7 +141,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
           (res) => res,
           (err: HttpErrorResponse) => {
             console.log(err);
-            this.notification.error(err.message)
+            this.notification.error(err.message);
             this.dataLoading.emit(false);
             this.dimmed = false;
           },
@@ -154,7 +155,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
             this.myStepper.next();
             this.step2status.emit(true);
           }
-        )
+        );
       }, 3000);
     } else {
       this.step2status.emit(false);

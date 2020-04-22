@@ -82,18 +82,18 @@ export class FetchSmartphonesComponent implements OnInit {
   }
   compareitems() {
     if (this.mobiles.length < 1) {
-      this.notification.warning('Compare List Is Empty')
+      this.notification.warning('Compare List Is Empty');
     } else if (this.mobiles.length < 2) {
-      this.notification.warning('Add one More item to compare with')
+      this.notification.warning('Add one More item to compare with');
     } else {
       this.router.navigateByUrl('/compare');
     }
   }
   onMobileSelect(event: any) {
     if (this.mobiles.includes(event)) {
-      this.notification.warning('It is already there in compareList')
+      this.notification.warning('It is already there in compareList');
     } else if (this.mobiles.length > 2) {
-      this.notification.warning('Only three items can be compared')
+      this.notification.warning('Only three items can be compared');
     } else {
       this.compare.comparelist.push(event);
       event.general.name = event.name;

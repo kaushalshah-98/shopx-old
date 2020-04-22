@@ -40,8 +40,8 @@ export class BillingComponent implements OnInit {
   constructor(
     private myStepper: MatStepper,
     private formBuilder: FormBuilder,
-    public property: PropertyAccessService,
-  ) { }
+    public property: PropertyAccessService
+  ) {}
 
   ngOnInit() {
     this.initializeform();
@@ -73,7 +73,7 @@ export class BillingComponent implements OnInit {
         state: this.billingform.controls.selectedstate.value,
         country: this.billingform.controls.selectedcountry.value,
         address: this.billingform.controls.address1FormControl.value
-      }
+      };
       setTimeout(() => {
         this.moveforward();
       }, 500);

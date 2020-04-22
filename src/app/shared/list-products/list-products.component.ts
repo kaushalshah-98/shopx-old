@@ -4,10 +4,10 @@ import { LocalStorageService } from '@services/local-storage/local-storage.servi
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ImagePopupService } from '@shared/image-popup/image-popup.service';
-import { ProductItem, ProductImage } from '@shared/interfaces';
+import { ProductImage, ProductItem } from '@shared/interfaces';
 import { QuickViewService } from '@shared/quickview/quickview.service';
-import { WishlistService } from 'src/app/features/user-management/wish-list/wishlist.service';
 import { CartManagementService } from 'src/app/features/cart-management/cart-service/cart-management.service';
+import { WishlistService } from 'src/app/features/user-management/wish-list/wishlist.service';
 
 @Component({
   selector: 'app-list-products',
@@ -28,9 +28,9 @@ export class ListProductsComponent implements OnInit {
     private cartservice: CartManagementService,
     private notification: NotificationService,
     private storage: LocalStorageService
-  ) { }
+  ) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
   openBottomSheet(item) {
     this.imagepopup.openBottomSheet(item);
   }
@@ -59,7 +59,7 @@ export class ListProductsComponent implements OnInit {
           console.log(error);
           this.notification.error(error.message);
         },
-        () => { }
+        () => {}
       );
     }
   }
@@ -70,13 +70,15 @@ export class ListProductsComponent implements OnInit {
       const product = {
         product_id: item.product_id
       };
-      await this.cartservice.addtoCart(product)
+      await this.cartservice
+        .addtoCart(product)
         .then((res) => this.notification.success('Item is added To Cart!'))
         .catch((error) => {
           console.log(error);
           this.notification.error(error.message);
-        })
-      await this.cartservice.getCartSize()
+        });
+      await this.cartservice
+        .getCartSize()
         .then((res) => {
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');
@@ -88,10 +90,10 @@ export class ListProductsComponent implements OnInit {
         .catch((error) => {
           console.log(error);
           this.notification.error(error.message);
-        })
+        });
     }
   }
-  updateCart() { }
-  removeFromCart() { }
-  emptycart() { }
+  updateCart() {}
+  removeFromCart() {}
+  emptycart() {}
 }

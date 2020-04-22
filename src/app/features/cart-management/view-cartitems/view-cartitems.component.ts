@@ -1,14 +1,14 @@
-import { Component, EventEmitter, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { AfterViewInit, Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSort, MatTableDataSource } from '@angular/material';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { SweetmessageService } from '@services/sweetalert/sweetmessage.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { CartItem } from '@shared/interfaces';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 import { CartManagementService } from '../cart-service/cart-management.service';
-import { NotificationService } from '@services/notification/notification.service';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-cartitems',
@@ -21,7 +21,7 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<CartItem>();
   height = 267;
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
-  totalprice: number = 0;
+  totalprice = 0;
   shipping;
   quantityformcontrol: FormControl;
   dimmed = false;
@@ -32,7 +32,7 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
     public property: PropertyAccessService,
     private cartservice: CartManagementService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
@@ -46,7 +46,8 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
     this.dimmed = true;
     this.dataLoading.emit(true);
     setTimeout(async () => {
-      await this.cartservice.getCartItems()
+      await this.cartservice
+        .getCartItems()
         .then((res) => {
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');
@@ -65,7 +66,8 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
           this.dataLoading.emit(false);
         });
 
-      await this.cartservice.getCartSize()
+      await this.cartservice
+        .getCartSize()
         .then((res) => {
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');
@@ -77,23 +79,23 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
         .catch((error) => {
           console.log(error);
           this.notification.error(error.message);
-        })
+        });
     }, 1000);
   }
   getTotalCost() {
     this.totalprice = this.dataSource.data
-      .map((t) => (t.price * t.qty))
+      .map((t) => t.price * t.qty)
       .reduce((acc, value) => acc + value, 0);
   }
   quickview(item) {
     this.view.showQuickview(item);
   }
-  addToWishlit() { }
+  addToWishlit() {}
   updateCart(qty: number, cartitem: CartItem) {
     const item = {
       quantity: qty,
       product_id: cartitem.product_id
-    }
+    };
     this.dataLoading.emit(true);
     this.cartservice.updateCart(item).subscribe(
       (res) => res,
@@ -121,7 +123,8 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
       .subscribe(async (result) => {
         if (result === 'yes') {
           this.dataLoading.emit(true);
-          await this.cartservice.removefromCart(product)
+          await this.cartservice
+            .removefromCart(product)
             .then((res) => {
               this.notification.success(`${cartitem.name} has been removed from cart!`);
               this.initializeCart();
@@ -142,11 +145,13 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
   }
   emptycart() {
     this.dimmed = true;
-    this.dialog.showConfirmDialog('confirm.are_you_sure_want_to_clear_your_cart')
+    this.dialog
+      .showConfirmDialog('confirm.are_you_sure_want_to_clear_your_cart')
       .subscribe(async (result) => {
         if (result === 'yes') {
           this.dataLoading.emit(true);
-          await this.cartservice.clearCart()
+          await this.cartservice
+            .clearCart()
             .then((res) => {
               this.notification.success('Cart is been cleared!');
               this.initializeCart();
@@ -171,4 +176,3 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
     }
   }
 }
-

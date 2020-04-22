@@ -10,13 +10,13 @@ export interface BuyList {
 }
 export interface Review {
   name?: string;
-  reviewlist: ReviewList[]
-  product_id?: string
+  reviewlist: ReviewList[];
+  product_id?: string;
   type?: string;
 }
 export interface ReviewList {
-  name: string,
-  review: string,
+  name: string;
+  review: string;
   userid: string;
 }
 export interface ProductItem {

@@ -6,8 +6,8 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { ProductItem } from '@shared/interfaces';
 import { QuickViewService } from '@shared/quickview/quickview.service';
-import { WishlistService } from './wishlist.service';
 import { CartManagementService } from '../../cart-management/cart-service/cart-management.service';
+import { WishlistService } from './wishlist.service';
 
 @Component({
   selector: 'app-wish-list',
@@ -29,7 +29,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
     private cartservice: CartManagementService,
     private wishlistservice: WishlistService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
@@ -99,13 +99,15 @@ export class WishListComponent implements OnInit, AfterViewInit {
     const product = {
       product_id: item.product_id
     };
-    await this.cartservice.addtoCart(product)
+    await this.cartservice
+      .addtoCart(product)
       .then((res) => this.notification.success('Item is added To Cart!'))
       .catch((error) => {
         console.log(error);
         this.notification.error(error.message);
-      })
-    await this.cartservice.getCartSize()
+      });
+    await this.cartservice
+      .getCartSize()
       .then((res) => {
         if (res === null || res === undefined) {
           this.notification.warning('Check Your Network!');
@@ -117,7 +119,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
       .catch((error) => {
         console.log(error);
         this.notification.error(error.message);
-      })
+      });
   }
 
   emptywishList() {

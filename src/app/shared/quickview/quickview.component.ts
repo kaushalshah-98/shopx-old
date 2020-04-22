@@ -1,14 +1,14 @@
 import { state } from '@angular/animations';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { LocalStorageService } from '@services/local-storage/local-storage.service';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ProductItem } from '@shared/interfaces';
-import { WishlistService } from 'src/app/features/user-management/wish-list/wishlist.service';
-import { NotificationService } from '@services/notification/notification.service';
-import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { CartManagementService } from 'src/app/features/cart-management/cart-service/cart-management.service';
-import { HttpErrorResponse } from '@angular/common/http';
+import { WishlistService } from 'src/app/features/user-management/wish-list/wishlist.service';
 
 @Component({
   selector: 'app-quickview',
@@ -40,7 +40,7 @@ export class QuickviewComponent implements OnInit {
     this.myThumbnail3 = data.image[2].imageurl;
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -69,7 +69,7 @@ export class QuickviewComponent implements OnInit {
           console.log(error);
           this.notification.error(error.message);
         },
-        () => { }
+        () => {}
       );
     }
   }
@@ -80,13 +80,15 @@ export class QuickviewComponent implements OnInit {
       const product = {
         product_id: item.product_id
       };
-      await this.cartservice.addtoCart(product)
+      await this.cartservice
+        .addtoCart(product)
         .then((res) => this.notification.success('Item is added To Cart!'))
         .catch((error) => {
           console.log(error);
           this.notification.error(error.message);
-        })
-      await this.cartservice.getCartSize()
+        });
+      await this.cartservice
+        .getCartSize()
         .then((res) => {
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');
@@ -98,7 +100,7 @@ export class QuickviewComponent implements OnInit {
         .catch((error) => {
           console.log(error);
           this.notification.error(error.message);
-        })
+        });
     }
   }
 }

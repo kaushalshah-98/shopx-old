@@ -107,7 +107,7 @@ export class EditProfileComponent implements OnInit {
       };
       setTimeout(() => {
         this.userservice.updateuser(userdata).subscribe(
-          (res) => this.userdata = res,
+          (res) => (this.userdata = res),
           (error: HttpErrorResponse) => {
             this.dataLoading.emit(false);
             this.dimmed = false;

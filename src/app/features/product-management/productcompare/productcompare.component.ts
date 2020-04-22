@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
-import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { NotificationService } from '@services/notification/notification.service';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
 
 @Component({
   selector: 'app-productcompare',
@@ -31,8 +31,8 @@ export class ProductcompareComponent implements OnInit {
   constructor(
     private compare: ComparisonServiceService,
     public property: PropertyAccessService,
-    private notification: NotificationService,
-    ) {}
+    private notification: NotificationService
+  ) {}
   ngOnInit() {
     this.list = this.compare.comparelist;
     this.general = this.compare.general;

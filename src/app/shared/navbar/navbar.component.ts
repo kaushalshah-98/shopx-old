@@ -17,8 +17,8 @@ import { NotificationService } from '@services/notification/notification.service
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ThemeService } from '@services/theme-service/theme.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
-import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
 import { CartManagementService } from 'src/app/features/cart-management/cart-service/cart-management.service';
+import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
 
 @Component({
   selector: 'app-navbar',
@@ -73,7 +73,8 @@ export class NavbarComponent implements OnInit {
   }
   async fetchCartSize() {
     if (this.data) {
-      await this.cartservice.getCartSize()
+      await this.cartservice
+        .getCartSize()
         .then((res) => {
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');
@@ -85,7 +86,7 @@ export class NavbarComponent implements OnInit {
         .catch((error) => {
           console.log(error);
           this.notification.error(error.message);
-        })
+        });
     }
   }
   initializeTheme() {
@@ -104,7 +105,7 @@ export class NavbarComponent implements OnInit {
           console.log(error);
           this.notification.error(error.message);
         },
-        () => { }
+        () => {}
       );
     }
   }

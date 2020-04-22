@@ -23,7 +23,7 @@ export class CartManagementService {
     return this.apiservice.get(PATH.GET_CART_ITEMS(this.userid)).toPromise();
   }
   getCartSize(): Promise<any> {
-    return this.apiservice.get(PATH.GET_CARTSIZE(this.userid)).toPromise();;
+    return this.apiservice.get(PATH.GET_CARTSIZE(this.userid)).toPromise();
   }
   updateCart(product: any): Observable<any> {
     return this.apiservice.put(PATH.PUT_UPDATE_CART__ITEM(this.userid), product);

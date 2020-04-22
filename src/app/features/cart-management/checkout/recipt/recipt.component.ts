@@ -1,11 +1,11 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material';
+import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { CartItem } from '@shared/interfaces';
 import html2canvas from 'html2canvas';
 import * as jspdf from 'jspdf';
-import { NotificationService } from '@services/notification/notification.service';
 import { CartManagementService } from '../../cart-service/cart-management.service';
-import { MatTableDataSource } from '@angular/material';
 @Component({
   selector: 'app-recipt',
   templateUrl: './recipt.component.html',
@@ -14,7 +14,7 @@ import { MatTableDataSource } from '@angular/material';
 export class ReciptComponent implements OnInit {
   cartitems: any[];
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
-  totalprice: number = 0;
+  totalprice = 0;
   dimmed = false;
   displayedColumns: string[] = ['image', 'name', 'quantity', 'price'];
   dataSource = new MatTableDataSource<CartItem>();
@@ -22,20 +22,21 @@ export class ReciptComponent implements OnInit {
   constructor(
     public property: PropertyAccessService,
     private cartservice: CartManagementService,
-    private notification: NotificationService,
-  ) { }
+    private notification: NotificationService
+  ) {}
 
   ngOnInit() {
     this.initializeCart();
-    this.property.details.subscribe(res => {
+    this.property.details.subscribe((res) => {
       this.data = res;
-    })
+    });
   }
   initializeCart() {
     this.dimmed = true;
     this.dataLoading.emit(true);
     setTimeout(async () => {
-      await this.cartservice.getCartItems()
+      await this.cartservice
+        .getCartItems()
         .then((res) => {
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');
@@ -57,7 +58,7 @@ export class ReciptComponent implements OnInit {
   }
   getTotalCost() {
     this.totalprice = this.dataSource.data
-      .map((t) => (t.price * t.qty))
+      .map((t) => t.price * t.qty)
       .reduce((acc, value) => acc + value, 0);
   }
   downloadPdf() {

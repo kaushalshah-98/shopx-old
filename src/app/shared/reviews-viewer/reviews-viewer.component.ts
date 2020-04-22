@@ -1,11 +1,11 @@
-import { Component, EventEmitter, OnInit, ViewEncapsulation, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { PropertyAccessService } from '@services/propert-access/property-access.service';
-import { ProductReview, ReviewList, User, Review } from '@shared/interfaces';
-import { ReviewViewerService } from './review-viewer.service';
-import { NotificationService } from '@services/notification/notification.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Component, EventEmitter, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
+import { NotificationService } from '@services/notification/notification.service';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { ProductReview, Review, ReviewList, User } from '@shared/interfaces';
+import { ReviewViewerService } from './review-viewer.service';
 @Component({
   selector: 'app-reviews-viewer',
   templateUrl: './reviews-viewer.component.html',
@@ -64,7 +64,7 @@ export class ReviewsViewerComponent implements OnInit {
         userid: this.data.userid,
         name: this.data.name,
         review: this.reviewtext.value
-      }
+      };
       this.reviews.unshift(review);
       this.reviewservice.addreview(this.product_id, this.reviews).subscribe(
         (res) => res,

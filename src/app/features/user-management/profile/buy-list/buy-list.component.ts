@@ -79,7 +79,7 @@ export class BuyListComponent implements OnInit {
       this.buylist.push(item);
       this.onClear();
       this.listservice.addtolist(this.buylist).subscribe(
-        (res) => this.isSelected = true,
+        (res) => (this.isSelected = true),
         (error: HttpErrorResponse) => {
           this.hidespinner();
           this.check();
@@ -108,7 +108,7 @@ export class BuyListComponent implements OnInit {
     setTimeout(() => {
       this.list = this.list.filter((item) => !item.done === true);
       this.listservice.addtolist(this.list).subscribe(
-        (res) => this.isSelected = true,
+        (res) => (this.isSelected = true),
         (error: HttpErrorResponse) => {
           this.hidespinner();
           this.check();
