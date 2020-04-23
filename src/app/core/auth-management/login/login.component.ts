@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     private userservice: UserManagementService,
     private notification: NotificationService,
     private storage: LocalStorageService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.initializeForm();
@@ -63,11 +63,11 @@ export class LoginComponent implements OnInit {
           } else if (res.status === false) {
             this.notification.error('Your Account Has been Blocked');
           } else {
+            this.userservice.setUserId(res.userid);
             this.storage.setItem('USER', res);
             this.storage.setItem('LOGGEDIN', true);
             this.notification.success('Login Success');
             this.property.nightmode.next(res.night_theme);
-            this.property.userid = res.userid;
             if (res.role === 'user') {
               this.router.navigate(['home']);
             } else {

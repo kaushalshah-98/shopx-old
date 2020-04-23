@@ -1,4 +1,5 @@
 <app-navbar (IsFullscreen)="fullscreenstatus($event)" [isHidden]="true"></app-navbar>
+<app-spinner [loading]="dataLoading" class="centre-spinner"></app-spinner>
 <div
   [ngClass]="{'input-template':true, 'dark-input-template' :( property.nightmode | async)}"
   [ngStyle]="{'padding-top': padding + 'px'}"

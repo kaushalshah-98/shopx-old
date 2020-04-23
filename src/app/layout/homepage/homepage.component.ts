@@ -45,11 +45,11 @@ export class HomepageComponent implements OnInit {
         name: 'Mobile',
         icon: 'mobile_screen_share',
         childs: [
-          {
-            name: 'Accessories',
-            icon: 'build',
-            url: '/mobile_accessories'
-          },
+          // {
+          //   name: 'Accessories',
+          //   icon: 'build',
+          //   url: '/mobile_accessories'
+          // },
           {
             name: 'Tablets',
             icon: 'tablet',
@@ -103,11 +103,11 @@ export class HomepageComponent implements OnInit {
           {
             name: 'Watch',
             url: '/womens_watch'
-          },
-          {
-            name: 'nightwear',
-            url: '/womens_nightwear'
           }
+          // {
+          //   name: 'nightwear',
+          //   url: '/womens_nightwear'
+          // }
         ]
       }
       // {

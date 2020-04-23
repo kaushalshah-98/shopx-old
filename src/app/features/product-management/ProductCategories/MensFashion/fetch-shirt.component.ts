@@ -25,7 +25,7 @@ export class FetchShirtComponent implements OnInit {
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: ProductItem[];
   dimmed = false;
-  innercategory = 'Shirt';
+  innercategory = 'Shirts';
   constructor(
     private productservice: ProductManagementService,
     private notification: NotificationService

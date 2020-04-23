@@ -14,7 +14,7 @@ import { AdminManagementService } from '../../admin-service/admin-management.ser
 export class ViewUsersComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  dataLoading: EventEmitter<boolean> = new EventEmitter(false);
+  dataLoading: EventEmitter<boolean> = new EventEmitter(true);
   dataSource = new MatTableDataSource<User>();
   pageSizeOptions: number[] = [10, 20, 50, 100];
   columnsToDisplay = ['status', 'profilepic', 'name', 'email', 'action'];
@@ -27,9 +27,10 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
     public property: PropertyAccessService,
     private adminservice: AdminManagementService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
+    this.dataLoading.emit(true);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
@@ -80,9 +81,7 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
         this.notification.error(error.message);
       },
       () => {
-        this.dataLoading.emit(false);
         this.fetchusers();
-        this.dimmed = false;
         this.notification.success(this.message);
       }
     );

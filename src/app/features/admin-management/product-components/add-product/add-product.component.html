@@ -71,7 +71,13 @@
             <td>
               <mat-form-field>
                 <mat-label>{{"admin.productform.quantity" | translate}}</mat-label>
-                <input autocomplete="off" required matInput formControlName="quantityFormControl" />
+                <input
+                  type="number"
+                  autocomplete="off"
+                  required
+                  matInput
+                  formControlName="quantityFormControl"
+                />
                 <mat-error *ngIf="hasError('quantityFormControl','min')">
                   {{"admin.productform_validations.enter_positive_value" | translate}}
                 </mat-error>
@@ -87,7 +93,13 @@
             <td>
               <mat-form-field>
                 <mat-label>{{"admin.productform.price" | translate}}</mat-label>
-                <input autocomplete="off" required matInput formControlName="priceFormControl" />
+                <input
+                  type="number"
+                  autocomplete="off"
+                  required
+                  matInput
+                  formControlName="priceFormControl"
+                />
                 <mat-error *ngIf="hasError('priceFormControl','min')">
                   {{"admin.productform_validations.enter_positive_value" | translate}}
                 </mat-error>

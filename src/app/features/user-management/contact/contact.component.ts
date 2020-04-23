@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
@@ -10,7 +10,7 @@ import { UserManagementService } from '../user-service/user-management.service';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, AfterViewInit {
   subject = [
     { name: 'complaint' },
     { name: 'feature request' },
@@ -19,14 +19,18 @@ export class ContactComponent implements OnInit {
   ];
   contactform: FormGroup;
   padding = 40;
+  dataLoading: EventEmitter<boolean> = new EventEmitter(true);
 
   constructor(
     private formBuilder: FormBuilder,
     public property: PropertyAccessService,
     private userservice: UserManagementService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
+  ngAfterViewInit() {
+    this.dataLoading.emit(false);
+  }
   ngOnInit() {
     this.fullscreenstatus(this.property.fullscreen);
     this.initializeform();
@@ -40,21 +44,24 @@ export class ContactComponent implements OnInit {
     });
   }
   contact() {
+    this.dataLoading.emit(true);
     const data = {
       message: this.contactform.controls.messageFormControl.value,
       subject: this.contactform.controls.subjectFormControl.value
     };
     this.userservice.sendmessage(data).subscribe(
-      (res) => {},
+      (res) => { },
       (error: HttpErrorResponse) => {
         console.log(error);
+        this.dataLoading.emit(false);
         this.notification.error(error.message);
       },
       () => {
+        this.contactform.reset();
+        this.dataLoading.emit(false);
         this.notification.success('Message Has Been Sent.');
       }
     );
-    this.contactform.reset();
   }
   public hasError(controlName: string, errorName: string) {
     return this.contactform.controls[controlName].hasError(errorName);

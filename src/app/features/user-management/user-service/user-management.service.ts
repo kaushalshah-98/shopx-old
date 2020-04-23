@@ -9,12 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class UserManagementService {
   userid: string;
-  constructor(private apiservice: ApiService, private storage: LocalStorageService) {
-    const user = this.storage.getItem('USER');
-    if (user) {
-      this.userid = user.userid;
-    }
-  }
+  constructor(private apiservice: ApiService) { }
 
   createuser(userdata: User): Observable<any> {
     return this.apiservice.post(`${PATH.POST_CREATE_USER}`, userdata);
@@ -23,9 +18,11 @@ export class UserManagementService {
     return this.apiservice.post(`${PATH.POST_LOGIN}`, userdata);
   }
   getuser(): Observable<any> {
+    this.userid = this.getUserID();
     return this.apiservice.get(PATH.GET_USER(this.userid));
   }
   updateuser(userdata: any): Observable<any> {
+    this.userid = this.getUserID();
     return this.apiservice.put(PATH.PUT_UPDATE_USER(this.userid), userdata);
   }
   forgotpassword(userdata: any): Observable<any> {
@@ -33,5 +30,11 @@ export class UserManagementService {
   }
   sendmessage(payload: any): Observable<any> {
     return this.apiservice.post(`${PATH.POST_MESSAGE}`, payload);
+  }
+  setUserId(userid: string) {
+    localStorage.setItem('userid', JSON.stringify(userid));
+  }
+  getUserID() {
+    return JSON.parse(localStorage.getItem('userid'));
   }
 }

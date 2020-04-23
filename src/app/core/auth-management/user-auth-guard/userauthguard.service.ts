@@ -8,14 +8,14 @@ import { map, take } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserauthguardService {
-  constructor(private storage: LocalStorageService, private notification: NotificationService) {}
+  constructor(private storage: LocalStorageService, private notification: NotificationService) { }
   canLoad(): Observable<boolean> {
     return this.validAuth();
   }
   private validAuth(): Observable<boolean> {
     return of(this.storage.getItem('USER')).pipe(
       map((user) => {
-        if (user && user.role === 'user') {
+        if (user && (user.role === 'user' || user.role === 'admin')) {
           return true;
         }
         this.notification.warning('You Must Be Logged In');

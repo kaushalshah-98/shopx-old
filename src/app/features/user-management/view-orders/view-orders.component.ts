@@ -32,10 +32,7 @@ export class ViewOrdersComponent implements OnInit {
     this.dataLoading.emit(true);
     setTimeout(() => {
       this.orderservice.getUserOrder().subscribe(
-        (res) => {
-          console.log(res);
-          this.orderitems = res;
-        },
+        (res) => this.orderitems = res,
         (error: HttpErrorResponse) => {
           this.dataLoading.emit(false);
           this.notification.error(error.message);
@@ -48,14 +45,13 @@ export class ViewOrdersComponent implements OnInit {
     this.view.showQuickview(item);
   }
   cancelOrder(item, i) {
-    console.log(this.orderitems);
     this.dialog
       .showConfirmDialog('Are You Sure Want to Cancel This Order ?')
       .subscribe((result) => {
         if (result === 'yes') {
           this.orderitems.splice(i);
           this.orderservice.removeOrder(this.orderitems).subscribe(
-            (res) => console.log(res),
+            (res) => res,
             (error: HttpErrorResponse) => {
               this.dataLoading.emit(false);
               this.notification.error(error.message);
