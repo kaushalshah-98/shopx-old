@@ -10,10 +10,7 @@ import { UserManagementService } from '../../user-service/user-management.servic
 })
 export class BuyListService {
   userid: string;
-  constructor(
-    private apiservice: ApiService,
-    private userservice: UserManagementService
-  ) { }
+  constructor(private apiservice: ApiService, private userservice: UserManagementService) {}
 
   addtolist(buylist: BuyList[]): Observable<any> {
     this.userid = this.userservice.getUserID();

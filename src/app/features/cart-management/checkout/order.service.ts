@@ -9,10 +9,7 @@ import { UserManagementService } from '../../user-management/user-service/user-m
 })
 export class OrderService {
   userid: string;
-  constructor(
-    private apiservice: ApiService,
-    private userservice: UserManagementService
-  ) { }
+  constructor(private apiservice: ApiService, private userservice: UserManagementService) {}
   addOrder(order: any): Observable<any> {
     this.userid = this.userservice.getUserID();
     order.userid = this.userid;

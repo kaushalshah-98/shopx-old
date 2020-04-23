@@ -32,7 +32,7 @@ export class ViewOrdersComponent implements OnInit {
     this.dataLoading.emit(true);
     setTimeout(() => {
       this.orderservice.getUserOrder().subscribe(
-        (res) => this.orderitems = res,
+        (res) => (this.orderitems = res),
         (error: HttpErrorResponse) => {
           this.dataLoading.emit(false);
           this.notification.error(error.message);

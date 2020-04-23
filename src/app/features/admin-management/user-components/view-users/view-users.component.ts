@@ -27,7 +27,7 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
     public property: PropertyAccessService,
     private adminservice: AdminManagementService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.dataLoading.emit(true);

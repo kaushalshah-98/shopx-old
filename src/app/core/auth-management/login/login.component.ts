@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     private userservice: UserManagementService,
     private notification: NotificationService,
     private storage: LocalStorageService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.initializeForm();

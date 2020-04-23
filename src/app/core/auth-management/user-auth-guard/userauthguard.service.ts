@@ -8,7 +8,7 @@ import { map, take } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserauthguardService {
-  constructor(private storage: LocalStorageService, private notification: NotificationService) { }
+  constructor(private storage: LocalStorageService, private notification: NotificationService) {}
   canLoad(): Observable<boolean> {
     return this.validAuth();
   }

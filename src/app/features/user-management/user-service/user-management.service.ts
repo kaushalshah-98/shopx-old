@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class UserManagementService {
   userid: string;
-  constructor(private apiservice: ApiService) { }
+  constructor(private apiservice: ApiService) {}
 
   createuser(userdata: User): Observable<any> {
     return this.apiservice.post(`${PATH.POST_CREATE_USER}`, userdata);

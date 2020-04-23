@@ -9,10 +9,7 @@ import { UserManagementService } from 'src/app/features/user-management/user-ser
 })
 export class ThemeService {
   userid: string;
-  constructor(
-    private apiservice: ApiService,
-    private userservice: UserManagementService
-  ) { }
+  constructor(private apiservice: ApiService, private userservice: UserManagementService) {}
   changeTheme(night_theme: any): Observable<any> {
     this.userid = this.userservice.getUserID();
     return this.apiservice.put(PATH.PUT_THEME(this.userid), night_theme);

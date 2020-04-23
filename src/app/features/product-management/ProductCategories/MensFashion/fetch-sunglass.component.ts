@@ -1,8 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NotificationService } from '@services/notification/notification.service';
 import { ProductItem } from '@shared/interfaces';
 import { ProductManagementService } from '../../product-service/product-management.service';
-import { NotificationService } from '@services/notification/notification.service';
-import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-fetch-sunglass',
   template: `

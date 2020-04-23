@@ -9,10 +9,7 @@ import { UserManagementService } from '../../user-management/user-service/user-m
 })
 export class CartManagementService {
   userid: string;
-  constructor(
-    private apiservice: ApiService,
-    private userservice: UserManagementService
-  ) { }
+  constructor(private apiservice: ApiService, private userservice: UserManagementService) {}
 
   addtoCart(product: any): Promise<any> {
     product.userid = this.userid;

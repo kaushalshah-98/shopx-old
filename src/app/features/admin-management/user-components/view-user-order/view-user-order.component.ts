@@ -1,10 +1,10 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
-import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { QuickViewService } from '@shared/quickview/quickview.service';
-import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
-import { OrderService } from 'src/app/features/cart-management/checkout/order.service';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { NotificationService } from '@services/notification/notification.service';
+import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
+import { QuickViewService } from '@shared/quickview/quickview.service';
+import { OrderService } from 'src/app/features/cart-management/checkout/order.service';
 
 @Component({
   selector: 'app-view-user-order',
@@ -22,7 +22,7 @@ export class ViewUserOrderComponent implements OnInit {
     public property: PropertyAccessService,
     private orderservice: OrderService,
     private notification: NotificationService
-    ) {}
+  ) {}
 
   ngOnInit() {
     this.initializeOrders();
@@ -31,7 +31,7 @@ export class ViewUserOrderComponent implements OnInit {
     this.dataLoading.emit(true);
     setTimeout(() => {
       this.orderservice.getAllOrders().subscribe(
-        (res) => this.user = res,
+        (res) => (this.user = res),
         (error: HttpErrorResponse) => {
           this.dataLoading.emit(false);
           this.notification.error(error.message);

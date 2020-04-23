@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, EventEmitter, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
@@ -26,7 +26,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
     public property: PropertyAccessService,
     private userservice: UserManagementService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.dataLoading.emit(false);
@@ -50,7 +50,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
       subject: this.contactform.controls.subjectFormControl.value
     };
     this.userservice.sendmessage(data).subscribe(
-      (res) => { },
+      (res) => {},
       (error: HttpErrorResponse) => {
         console.log(error);
         this.dataLoading.emit(false);

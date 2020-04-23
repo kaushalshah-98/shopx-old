@@ -26,7 +26,8 @@ export class AuthorsCarouselComponent implements OnInit {
       },
       {
         name: 'Ramkrishna',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCFaLdbzz110T4h8nwK46aF45crydeYeygNf-EP_EtrqG2yReE&usqp=CAU',
+        image:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCFaLdbzz110T4h8nwK46aF45crydeYeygNf-EP_EtrqG2yReE&usqp=CAU',
         description: 'shared.authors.ramkrishna_description',
         profession: 'shared.authors.ramkrishna_profession'
       }
