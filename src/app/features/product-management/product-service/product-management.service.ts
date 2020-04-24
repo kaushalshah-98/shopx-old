@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductManagementService {
-  constructor(private apiservice: ApiService) { }
+  constructor(private apiservice: ApiService) {}
   fetchallproducts(): Observable<any> {
     return this.apiservice.get(`${PATH.GET_PRODUCT_LIST}`);
   }

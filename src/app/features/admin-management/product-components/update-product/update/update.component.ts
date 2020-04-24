@@ -2,13 +2,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { CONFIRM, NOTIFICATION } from '@core/api/names';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { ProductItem } from '@shared/interfaces';
 import { map } from 'rxjs/operators';
 import { ProductManagementService } from 'src/app/features/product-management/product-service/product-management.service';
-import { CONFIRM, NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-update',
@@ -68,7 +68,7 @@ export class UpdateComponent implements OnInit, AfterViewInit {
     this.productservice.getproduct(this.productid).subscribe(
       (res) => {
         if (res === null || res === undefined) {
-          this.notification.warning( `${NOTIFICATION.Check_Your_Network}`);
+          this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
           this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
         } else {
           this.productdata = res;

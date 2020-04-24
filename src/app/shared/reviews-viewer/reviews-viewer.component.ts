@@ -1,12 +1,12 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { NOTIFICATION } from '@core/api/names';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ProductReview, Review, ReviewList, User } from '@shared/interfaces';
 import { ReviewViewerService } from './review-viewer.service';
-import { NOTIFICATION } from '@core/api/names';
 @Component({
   selector: 'app-reviews-viewer',
   templateUrl: './reviews-viewer.component.html',

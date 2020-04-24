@@ -1,9 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NOTIFICATION } from '@core/api/names';
 import { NotificationService } from '@services/notification/notification.service';
 import { ProductItem } from '@shared/interfaces';
 import { ProductManagementService } from '../../product-service/product-management.service';
-import { NOTIFICATION } from '@core/api/names';
 @Component({
   selector: 'app-fetch-saree',
   template: `
@@ -28,7 +28,7 @@ export class FetchSareeComponent implements OnInit {
   dimmed = false;
   data = {
     innercategory: 'Saree',
-    category: "WomensFashion"
+    category: 'WomensFashion'
   };
   constructor(
     private productservice: ProductManagementService,
@@ -45,7 +45,7 @@ export class FetchSareeComponent implements OnInit {
       this.productservice.getallproducts(this.data).subscribe(
         (res) => {
           if (res === null || res === undefined) {
-             this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
             this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.productitems = res;

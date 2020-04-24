@@ -1,9 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NOTIFICATION } from '@core/api/names';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ProductManagementService } from 'src/app/features/product-management/product-service/product-management.service';
-import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-delete-product',

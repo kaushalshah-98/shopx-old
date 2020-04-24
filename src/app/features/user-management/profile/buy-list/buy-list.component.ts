@@ -1,11 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { NOTIFICATION } from '@core/api/names';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { BuyList } from '@shared/interfaces';
 import { BehaviorSubject } from 'rxjs';
 import { BuyListService } from './buy-list.service';
-import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-buy-list',
@@ -39,7 +39,7 @@ export class BuyListComponent implements OnInit {
         if (res.length <= 0) {
           this.notification.info(`${NOTIFICATION.Your_List_is_Empty}`);
         } else if (res === undefined || res === null) {
-          this.notification.warning( `${NOTIFICATION.Check_Your_Network}`);
+          this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
           this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
         } else {
           this.list = res;

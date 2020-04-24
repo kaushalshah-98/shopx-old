@@ -71,8 +71,7 @@
               {{"user.form.username" | translate}} must be at least 3 characters long.
             </mat-error>
             <mat-error *ngIf="hasError('usernameFormControl','pattern')">
-                                  {{"user.form_validations.invalid_input" |translate}}
-
+              {{"user.form_validations.invalid_input" |translate}}
             </mat-error>
             <mat-error *ngIf="hasError('usernameFormControl','required')">
               {{"user.form.username" | translate}} {{"user.form_validations.is_required" |

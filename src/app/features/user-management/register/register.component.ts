@@ -1,11 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NOTIFICATION } from '@core/api/names';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { User } from '@shared/interfaces';
 import { UserManagementService } from '../user-service/user-management.service';
-import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-register',

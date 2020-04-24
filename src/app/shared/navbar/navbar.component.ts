@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
+import { CONFIRM, NOTIFICATION } from '@core/api/names';
 import { TranslateService } from '@ngx-translate/core';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { NotificationService } from '@services/notification/notification.service';
@@ -19,7 +20,6 @@ import { ThemeService } from '@services/theme-service/theme.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { CartManagementService } from 'src/app/features/cart-management/cart-service/cart-management.service';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
-import { CONFIRM, NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-navbar',
@@ -78,7 +78,7 @@ export class NavbarComponent implements OnInit {
         .getCartSize()
         .then((res) => {
           if (res === null || res === undefined) {
-             this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
             this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.property.cartsize.next(res.cartsize);
@@ -106,7 +106,7 @@ export class NavbarComponent implements OnInit {
           console.log(error);
           this.notification.error(error.message);
         },
-        () => { }
+        () => {}
       );
     }
   }
@@ -158,12 +158,14 @@ export class NavbarComponent implements OnInit {
     if (this.getLoginStatus() === 'nav_bar.menu.login') {
       this.router.navigate(['login']);
     } else {
-      this.dialog.showConfirmDialog(`${CONFIRM.are_you_sure_want_to_logout}`).subscribe((result) => {
-        if (result === 'yes') {
-          localStorage.clear();
-          this.router.navigate(['login']);
-        }
-      });
+      this.dialog
+        .showConfirmDialog(`${CONFIRM.are_you_sure_want_to_logout}`)
+        .subscribe((result) => {
+          if (result === 'yes') {
+            localStorage.clear();
+            this.router.navigate(['login']);
+          }
+        });
     }
   }
   getText() {

@@ -1,11 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit } from '@angular/core';
+import { CONFIRM } from '@core/api/names';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 import { OrderService } from '../../cart-management/checkout/order.service';
-import { CONFIRM } from '@core/api/names';
 
 @Component({
   selector: 'app-view-orders',
@@ -24,7 +24,7 @@ export class ViewOrdersComponent implements OnInit {
     public property: PropertyAccessService,
     private orderservice: OrderService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.initializeOrders();

@@ -1,11 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { NOTIFICATION } from '@core/api/names';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { User } from '@shared/interfaces';
 import { AdminManagementService } from '../../admin-service/admin-management.service';
-import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-view-users',

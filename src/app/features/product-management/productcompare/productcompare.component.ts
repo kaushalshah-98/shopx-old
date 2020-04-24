@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
+import { NOTIFICATION } from '@core/api/names';
 import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
-import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-productcompare',

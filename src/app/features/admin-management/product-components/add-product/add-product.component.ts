@@ -1,11 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CONFIRM, NOTIFICATION } from '@core/api/names';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { ProductManagementService } from 'src/app/features/product-management/product-service/product-management.service';
-import { CONFIRM, NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-add-product',
@@ -21,7 +21,7 @@ export class AddProductComponent implements OnInit, AfterViewInit {
     public property: PropertyAccessService,
     private productservice: ProductManagementService,
     private notification: NotificationService
-  ) { }
+  ) {}
   category = [
     { name: 'Electronics' },
     { name: 'Mobile' },

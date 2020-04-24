@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 /**
  * Provides an abstract wrapper around showing a MatSnackbar
@@ -20,10 +20,7 @@ export class NotificationService {
    * Constructor
    * @param toast  Toaster
    */
-  constructor(
-    private toastr: ToastrService,
-    private translate: TranslateService
-  ) { }
+  constructor(private toastr: ToastrService, private translate: TranslateService) {}
 
   show(message: string) {
     this.translate.get(message).subscribe((res: string) => {

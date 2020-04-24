@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSort, MatTableDataSource } from '@angular/material';
+import { CONFIRM, NOTIFICATION } from '@core/api/names';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { SweetmessageService } from '@services/sweetalert/sweetmessage.service';
@@ -9,7 +10,6 @@ import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.serv
 import { CartItem } from '@shared/interfaces';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 import { CartManagementService } from '../cart-service/cart-management.service';
-import { CONFIRM, NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-view-cartitems',
@@ -51,7 +51,7 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
         .getCartItems()
         .then((res) => {
           if (res === null || res === undefined) {
-             this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
             this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.dataSource.data = res;
@@ -71,7 +71,7 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
         .getCartSize()
         .then((res) => {
           if (res === null || res === undefined) {
-             this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
             this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.property.cartsize.next(res.cartsize);
@@ -127,7 +127,9 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
           await this.cartservice
             .removefromCart(product)
             .then((res) => {
-              this.notification.success(`${cartitem.name} ${NOTIFICATION.has_been_removed_from_cart}`);
+              this.notification.success(
+                `${cartitem.name} ${NOTIFICATION.has_been_removed_from_cart}`
+              );
               this.initializeCart();
             })
             .catch((error) => {

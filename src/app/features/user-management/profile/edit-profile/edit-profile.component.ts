@@ -1,13 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CONFIRM, NOTIFICATION } from '@core/api/names';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { User } from '@shared/interfaces';
 import { BehaviorSubject } from 'rxjs';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
-import { CONFIRM, NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-edit-profile',
@@ -43,7 +43,7 @@ export class EditProfileComponent implements OnInit {
       (res) => {
         this.userdata = res;
         if (res === null || res === undefined) {
-          this.notification.warning( `${NOTIFICATION.Check_Your_Network}`);
+          this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
           this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
         } else {
           this.editform.controls.usernameFormControl.setValue(res.name);

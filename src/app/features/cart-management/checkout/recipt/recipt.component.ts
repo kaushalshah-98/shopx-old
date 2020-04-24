@@ -1,12 +1,12 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { NOTIFICATION } from '@core/api/names';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { CartItem } from '@shared/interfaces';
 import html2canvas from 'html2canvas';
 import * as jspdf from 'jspdf';
 import { CartManagementService } from '../../cart-service/cart-management.service';
-import { NOTIFICATION } from '@core/api/names';
 @Component({
   selector: 'app-recipt',
   templateUrl: './recipt.component.html',
@@ -25,7 +25,7 @@ export class ReciptComponent implements OnInit {
     public property: PropertyAccessService,
     private cartservice: CartManagementService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.initializeCart();

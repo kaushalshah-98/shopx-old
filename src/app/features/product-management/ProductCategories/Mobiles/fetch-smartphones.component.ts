@@ -1,11 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { NOTIFICATION } from '@core/api/names';
 import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ProductManagementService } from '../../product-service/product-management.service';
-import { NOTIFICATION } from '@core/api/names';
 @Component({
   selector: 'app-fetch-smartphones',
   template: `
@@ -48,15 +48,15 @@ export class FetchSmartphonesComponent implements OnInit {
   dimmed = false;
   data = {
     innercategory: 'Smartphones',
-    category: "Mobile"
-  }
+    category: 'Mobile'
+  };
   constructor(
     private productservice: ProductManagementService,
     private notification: NotificationService,
     private compare: ComparisonServiceService,
     private router: Router,
     public property: PropertyAccessService
-  ) { }
+  ) {}
 
   ngOnInit() {
     document.getElementById('mainsearch').style.visibility = 'hidden';
@@ -69,7 +69,7 @@ export class FetchSmartphonesComponent implements OnInit {
       this.productservice.getallproducts(this.data).subscribe(
         (res) => {
           if (res === null || res === undefined) {
-             this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
             this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.productitems = res;

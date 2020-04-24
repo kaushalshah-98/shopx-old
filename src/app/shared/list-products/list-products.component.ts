@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NOTIFICATION } from '@core/api/names';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
@@ -8,7 +9,6 @@ import { ProductImage, ProductItem } from '@shared/interfaces';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 import { CartManagementService } from 'src/app/features/cart-management/cart-service/cart-management.service';
 import { WishlistService } from 'src/app/features/user-management/wish-list/wishlist.service';
-import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-list-products',

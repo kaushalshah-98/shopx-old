@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
+import { NOTIFICATION } from '@core/api/names';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { NotificationService } from '@services/notification/notification.service';
 import { Observable, of } from 'rxjs';
 import { map, take } from 'rxjs/operators';
-import { NOTIFICATION } from '@core/api/names';
 
 @Injectable({
   providedIn: 'root'

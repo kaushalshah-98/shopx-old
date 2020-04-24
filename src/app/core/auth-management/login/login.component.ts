@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NOTIFICATION } from '@core/api/names';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
@@ -12,7 +13,6 @@ import {
   SocialUser
 } from 'ng4-social-login';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
-import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-login',
@@ -114,7 +114,9 @@ export class LoginComponent implements OnInit {
         },
         () => {
           this.hideloader();
-          this.notification.success(`${NOTIFICATION.Your_Facebook_Account_has_been_found_successfully}`);
+          this.notification.success(
+            `${NOTIFICATION.Your_Facebook_Account_has_been_found_successfully}`
+          );
           this.notification.success(`${NOTIFICATION.Check_Your_Email}`);
           this.router.navigate(['home']);
         }
@@ -140,7 +142,9 @@ export class LoginComponent implements OnInit {
         },
         () => {
           this.hideloader();
-          this.notification.success(`${NOTIFICATION.Your_Google_Account_has_been_found_successfully}`);
+          this.notification.success(
+            `${NOTIFICATION.Your_Google_Account_has_been_found_successfully}`
+          );
           this.notification.success(`${NOTIFICATION.Check_Your_Email}`);
           this.router.navigate(['home']);
         }

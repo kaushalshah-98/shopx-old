@@ -3,13 +3,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { NOTIFICATION } from '@core/api/names';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ProductItem } from '@shared/interfaces';
 import { CartManagementService } from 'src/app/features/cart-management/cart-service/cart-management.service';
 import { WishlistService } from 'src/app/features/user-management/wish-list/wishlist.service';
-import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-quickview',
@@ -92,7 +92,7 @@ export class QuickviewComponent implements OnInit {
         .getCartSize()
         .then((res) => {
           if (res === null || res === undefined) {
-             this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
             this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.property.cartsize.next(res.cartsize);
