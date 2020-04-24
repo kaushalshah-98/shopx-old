@@ -197,7 +197,8 @@
                     {{"user.form_validations.is_required" | translate}}
                   </mat-error>
                   <mat-error *ngIf="hasError('nameFormControl','pattern')">
-                    Invalid input
+                                        {{"user.form_validations.invalid_input" |translate}}
+
                   </mat-error>
                 </mat-form-field>
               </td>
@@ -225,7 +226,8 @@
                     {{"user.form_validations.must_be_of_12_digits" | translate}}
                   </mat-error>
                   <mat-error *ngIf="hasError('cardnumberFormControl','pattern')">
-                    Invalid input
+                                        {{"user.form_validations.invalid_input" |translate}}
+
                   </mat-error>
                   <mat-error *ngIf="hasError('cardnumberFormControl','required')">
                     {{"user.form.card_number" | translate}} {{"user.form_validations.is_required" |
@@ -256,7 +258,9 @@
                     <mat-icon>calendar_today</mat-icon>
                   </button>
                   <mat-error *ngIf="hasError('expiryFormControl','pattern')">
-                    Invalid input
+                                        {{"user.form_validations.invalid_input" |translate}}
+
+                    {{"user.form_validations.invalid_input" |translate}}
                   </mat-error>
                   <mat-error *ngIf="hasError('expiryFormControl','required')">
                     {{"user.form.expiry_date" | translate}} {{"user.form_validations.is_required" |
@@ -296,7 +300,8 @@
                     translate}}
                   </mat-error>
                   <mat-error *ngIf="hasError('cvvFormControl','pattern')">
-                    Invalid input
+                                        {{"user.form_validations.invalid_input" |translate}}
+
                   </mat-error>
                   <mat-error *ngIf="hasError('cvvFormControl','required')">
                     {{"user.form.cvv" | translate}} {{"user.form_validations.is_required" |
@@ -311,11 +316,6 @@
     </mat-card>
   </div>
 </div>
-<!-- <div class="centre-button">
-  <button mat-raised-button color="warn" [disabled]="paymentform.invalid" (click)="goForward()">
-    {{"user.form.confirm_and_continue" | translate}}
-  </button>
-</div> -->
 <mat-toolbar
   [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async),'u-text-right':true,'centre-button':true}"
 >

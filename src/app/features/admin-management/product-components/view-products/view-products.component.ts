@@ -8,6 +8,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { ProductItem } from '@shared/interfaces';
 import { ProductManagementService } from 'src/app/features/product-management/product-service/product-management.service';
+import { CONFIRM, NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-view-products',
@@ -46,7 +47,7 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
     private productservice: ProductManagementService,
     private notification: NotificationService,
     private dialog: ConfirmDialogService
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -62,8 +63,8 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
       this.productservice.fetchallproducts().subscribe(
         (res) => {
           if (res === null || res === undefined) {
-            this.notification.warning('Check Your Network!');
-            this.notification.info('Try to reload the page!');
+            this.notification.warning( `${NOTIFICATION.Check_Your_Network}`);
+            this.notification.info( `${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.productlist = res;
             this.dataSource.data = res;
@@ -93,7 +94,7 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
   removeProduct(product: ProductItem) {
     this.dimmed = true;
     this.dialog
-      .showConfirmDialog('Are You Sure want to remove this product ?')
+      .showConfirmDialog(`${CONFIRM.are_you_sure_want_to_remove_product}`)
       .subscribe((result) => {
         if (result === 'yes') {
           this.productservice.deleteproduct(product.product_id).subscribe(
@@ -106,7 +107,7 @@ export class ViewProductsComponent implements OnInit, AfterViewInit {
             () => {
               this.dimmed = false;
               this.fetchproducts();
-              this.notification.success('Product Has been Removed!');
+              this.notification.success( `${NOTIFICATION.Product_Has_been_Removed}`);
             }
           );
         }

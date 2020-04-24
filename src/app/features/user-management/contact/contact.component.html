@@ -6,7 +6,7 @@
 >
   <mat-card class="input-card box-elevation-z8">
     <mat-card-header>
-      <mat-card-title>Contact Us</mat-card-title>
+      <mat-card-title>{{"user.form.contact_us" | translate}}</mat-card-title>
     </mat-card-header>
     <form
       [ngClass]="{'input-form':true,'dark-form': ( property.nightmode | async)}"
@@ -42,18 +42,18 @@
           </td> -->
           <td>
             <mat-form-field class="input-full-width" appearance="outline">
-              <mat-label>Subject</mat-label>
+              <mat-label> {{"user.form.subject.subject" | translate}} </mat-label>
               <mat-select formControlName="subjectFormControl">
                 <mat-option
                   [ngClass]="{'dark-option': ( property.nightmode | async)}"
                   *ngFor="let subject of subject"
                   [value]="subject.name"
                 >
-                  {{subject.name}}
+                  {{subject.name | translate}}
                 </mat-option>
               </mat-select>
               <mat-error *ngIf="hasError('subjectFormControl','required')">
-                {{"user.form.profile_pic" | translate}} {{"user.form_validations.is_required" |
+                {{"user.form.subject.subject" | translate}} {{"user.form_validations.is_required" |
                 translate}}
               </mat-error>
             </mat-form-field>
@@ -62,7 +62,7 @@
       </table>
 
       <mat-form-field class="input-full-width" appearance="outline">
-        <mat-label>Message</mat-label>
+        <mat-label> {{"user.form.message" | translate}} </mat-label>
         <textarea
           cdkTextareaAutosize
           cdkAutosizeMinRows="6"
@@ -71,7 +71,7 @@
           formControlName="messageFormControl"
         ></textarea>
         <mat-error *ngIf="hasError('messageFormControl','required')">
-          {{"user.form.password" | translate}} {{"user.form_validations.is_required" | translate}}
+          {{"user.form.message" | translate}} {{"user.form_validations.is_required" | translate}}
         </mat-error>
       </mat-form-field>
     </form>
@@ -83,7 +83,7 @@
         class="blue-btn"
         (click)="contact()"
       >
-        SEND
+        {{"user.form.send" | translate}}
       </button>
     </div>
   </mat-card>

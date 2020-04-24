@@ -6,6 +6,7 @@ import { CartItem } from '@shared/interfaces';
 import html2canvas from 'html2canvas';
 import * as jspdf from 'jspdf';
 import { CartManagementService } from '../../cart-service/cart-management.service';
+import { NOTIFICATION } from '@core/api/names';
 @Component({
   selector: 'app-recipt',
   templateUrl: './recipt.component.html',
@@ -18,18 +19,20 @@ export class ReciptComponent implements OnInit {
   dimmed = false;
   displayedColumns: string[] = ['image', 'name', 'quantity', 'price'];
   dataSource = new MatTableDataSource<CartItem>();
-  data: any;
+  todaydate: Date;
+  data: object;
   constructor(
     public property: PropertyAccessService,
     private cartservice: CartManagementService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.initializeCart();
     this.property.details.subscribe((res) => {
       this.data = res;
     });
+    this.todaydate = new Date();
   }
   initializeCart() {
     this.dimmed = true;
@@ -39,8 +42,8 @@ export class ReciptComponent implements OnInit {
         .getCartItems()
         .then((res) => {
           if (res === null || res === undefined) {
-            this.notification.warning('Check Your Network!');
-            this.notification.info('Try to reload the page!');
+            this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.dataSource.data = res;
             this.getTotalCost();

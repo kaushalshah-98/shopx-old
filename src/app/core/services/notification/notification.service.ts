@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Provides an abstract wrapper around showing a MatSnackbar
@@ -19,21 +20,39 @@ export class NotificationService {
    * Constructor
    * @param toast  Toaster
    */
-  constructor(private toastr: ToastrService) {}
+  constructor(
+    private toastr: ToastrService,
+    private translate: TranslateService
+  ) { }
 
   show(message: string) {
-    return this.toastr.success(message);
+    this.translate.get(message).subscribe((res: string) => {
+      console.log(res);
+      return this.toastr.success(res);
+    });
   }
   success(message: string) {
-    return this.toastr.success(message, 'Success');
+    this.translate.get(message).subscribe((res: string) => {
+      console.log(res);
+      return this.toastr.success(res, 'Success');
+    });
   }
   error(message: string) {
-    return this.toastr.error(message, 'Error');
+    this.translate.get(message).subscribe((res: string) => {
+      console.log(res);
+      return this.toastr.error(res, 'Error');
+    });
   }
   warning(message: string) {
-    return this.toastr.warning(message, 'Warning');
+    this.translate.get(message).subscribe((res: string) => {
+      console.log(res);
+      return this.toastr.warning(res, 'Warning');
+    });
   }
   info(message: string) {
-    return this.toastr.info(message, 'Information');
+    this.translate.get(message).subscribe((res: string) => {
+      console.log(res);
+      return this.toastr.info(res, 'Information');
+    });
   }
 }

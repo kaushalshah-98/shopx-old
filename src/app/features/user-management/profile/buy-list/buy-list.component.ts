@@ -5,6 +5,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 import { BuyList } from '@shared/interfaces';
 import { BehaviorSubject } from 'rxjs';
 import { BuyListService } from './buy-list.service';
+import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-buy-list',
@@ -36,10 +37,10 @@ export class BuyListComponent implements OnInit {
     this.listservice.getbuylist().subscribe(
       (res) => {
         if (res.length <= 0) {
-          this.notification.info('Your List is Empty!');
+          this.notification.info(`${NOTIFICATION.Your_List_is_Empty}`);
         } else if (res === undefined || res === null) {
-          this.notification.warning('Check Your Network!');
-          this.notification.info('Try to reload the page!');
+          this.notification.warning( `${NOTIFICATION.Check_Your_Network}`);
+          this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
         } else {
           this.list = res;
           this.buylist = this.list;
@@ -87,7 +88,7 @@ export class BuyListComponent implements OnInit {
           this.notification.error(error.message);
         },
         () => {
-          this.notification.info(`${item.name} is added to the list`);
+          this.notification.info(`${item.name} ${NOTIFICATION.is_added_to_the_list}`);
           this.hidespinner();
           this.fetchbuylist();
           this.check();
@@ -116,7 +117,7 @@ export class BuyListComponent implements OnInit {
           this.notification.error(error.message);
         },
         () => {
-          this.notification.info('Items are deleted');
+          this.notification.info(`${NOTIFICATION.Items_are_deleted}`);
           this.hidespinner();
           this.fetchbuylist();
           this.check();

@@ -7,6 +7,7 @@ import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.serv
 import { User } from '@shared/interfaces';
 import { BehaviorSubject } from 'rxjs';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
+import { CONFIRM, NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-edit-profile',
@@ -42,8 +43,8 @@ export class EditProfileComponent implements OnInit {
       (res) => {
         this.userdata = res;
         if (res === null || res === undefined) {
-          this.notification.warning('Check Your Network!');
-          this.notification.info('Try to reload the page!');
+          this.notification.warning( `${NOTIFICATION.Check_Your_Network}`);
+          this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
         } else {
           this.editform.controls.usernameFormControl.setValue(res.name);
           this.editform.controls.emailFormControl.setValue(res.email);
@@ -83,7 +84,7 @@ export class EditProfileComponent implements OnInit {
   }
   cancel() {
     if (this.editform.touched) {
-      this.dialog.showConfirmDialog('confirm.are_you_sure_want_to_cancel').subscribe((result) => {
+      this.dialog.showConfirmDialog(`${CONFIRM.are_you_sure}`).subscribe((result) => {
         if (result === 'yes') {
           this.editform.reset();
           this.selectedIndexx.emit(false);
@@ -95,7 +96,7 @@ export class EditProfileComponent implements OnInit {
   }
   save() {
     if (!this.editform.dirty) {
-      this.notification.warning('Details Are not changed');
+      this.notification.warning(`${NOTIFICATION.Details_Are_not_changed}`);
     } else {
       this.dimmed = true;
       this.dataLoading.emit(true);
@@ -117,7 +118,7 @@ export class EditProfileComponent implements OnInit {
           () => {
             this.dataLoading.emit(false);
             this.dimmed = false;
-            this.notification.info('Profile Is Updated');
+            this.notification.info(`${NOTIFICATION.Profile_Is_Updated}`);
           }
         );
       }, 2000);

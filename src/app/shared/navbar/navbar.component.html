@@ -49,14 +49,14 @@
           [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
           (click)="contact()"
         >
-          <mat-icon>help</mat-icon>Contact us
+          <mat-icon>help</mat-icon>{{'nav_bar.menu.contact_us' | translate}}
         </button>
         <button
           mat-menu-item
           [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
           (click)="route('/creators')"
         >
-          <mat-icon>supervisor_account</mat-icon>About The Creators
+          <mat-icon>supervisor_account</mat-icon>{{'nav_bar.menu.about_the_creators' | translate}}
         </button>
         <!-- <button mat-menu-item [ngClass]="{'dark-menuu-item':( property.nightmode | async)}">
           <mat-icon>nights_stay</mat-icon>{{'nav_bar.menu.night_mode' |

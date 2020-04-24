@@ -8,6 +8,7 @@ import { ProductItem } from '@shared/interfaces';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 import { CartManagementService } from '../../cart-management/cart-service/cart-management.service';
 import { WishlistService } from './wishlist.service';
+import { CONFIRM, NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-wish-list',
@@ -45,8 +46,8 @@ export class WishListComponent implements OnInit, AfterViewInit {
       this.wishlistservice.getWishlistItems().subscribe(
         (res) => {
           if (res === null || res === undefined) {
-            this.notification.warning('Check Your Network!');
-            this.notification.info('Try to reload the page!');
+             this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.dataSource.data = res;
           }
@@ -73,7 +74,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
       product_id: item.product_id
     };
     this.dialog
-      .showConfirmDialog('confirm.are_you_sure_want_to_remove_this_item')
+      .showConfirmDialog(`${CONFIRM.are_you_sure_want_to_remove_product}`)
       .subscribe((result) => {
         if (result === 'yes') {
           this.dataLoading.emit(true);
@@ -88,7 +89,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
             () => {
               this.dimmed = false;
               this.dataLoading.emit(false);
-              this.notification.success('Item is Removed From list!');
+              this.notification.success(`${NOTIFICATION.Item_is_Removed_From_list}`);
               this.initializeWishList();
             }
           );
@@ -101,7 +102,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
     };
     await this.cartservice
       .addtoCart(product)
-      .then((res) => this.notification.success('Item is added To Cart!'))
+      .then((res) => this.notification.success(`${NOTIFICATION.Item_is_added_To_Cart}`))
       .catch((error) => {
         console.log(error);
         this.notification.error(error.message);
@@ -110,8 +111,8 @@ export class WishListComponent implements OnInit, AfterViewInit {
       .getCartSize()
       .then((res) => {
         if (res === null || res === undefined) {
-          this.notification.warning('Check Your Network!');
-          this.notification.info('Try to reload the page!');
+          this.notification.warning( `${NOTIFICATION.Check_Your_Network}`);
+          this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
         } else {
           this.property.cartsize.next(res.cartsize);
         }
@@ -125,7 +126,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
   emptywishList() {
     this.dimmed = true;
     this.dialog
-      .showConfirmDialog('confirm.are_you_sure_want_to_clear_your_list')
+      .showConfirmDialog(`${CONFIRM.are_you_sure_want_to_clear_your_list}`)
       .subscribe((result) => {
         if (result === 'yes') {
           this.dataLoading.emit(true);
@@ -140,7 +141,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
             () => {
               this.dimmed = false;
               this.dataLoading.emit(false);
-              this.notification.success('List is been cleared!');
+              this.notification.success(`${NOTIFICATION.List_is_been_cleared}`);
               this.initializeWishList();
             }
           );

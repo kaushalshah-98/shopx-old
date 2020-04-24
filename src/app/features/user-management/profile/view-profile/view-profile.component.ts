@@ -5,6 +5,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 import { User } from '@shared/interfaces';
 import { BehaviorSubject } from 'rxjs';
 import { UserManagementService } from '../../user-service/user-management.service';
+import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-view-profile',
@@ -26,8 +27,8 @@ export class ViewProfileComponent implements OnInit {
     this.userservice.getuser().subscribe(
       (res) => {
         if (res === null || res === undefined) {
-          this.notification.warning('Check Your Network!');
-          this.notification.info('Try to reload the page!');
+          this.notification.warning( `${NOTIFICATION.Check_Your_Network}`);
+          this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
         }
         this.userdata = res;
       },

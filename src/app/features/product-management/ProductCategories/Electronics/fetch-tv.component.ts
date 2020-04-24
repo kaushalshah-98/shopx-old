@@ -3,6 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NotificationService } from '@services/notification/notification.service';
 import { ProductItem } from '@shared/interfaces';
 import { ProductManagementService } from '../../product-service/product-management.service';
+import { NOTIFICATION } from '@core/api/names';
 @Component({
   selector: 'app-fetch-tv',
   template: `
@@ -44,8 +45,8 @@ export class FetchTvComponent implements OnInit {
       this.productservice.getallproducts(this.data).subscribe(
         (res) => {
           if (res === null || res === undefined) {
-            this.notification.warning('Check Your Network!');
-            this.notification.info('Try to reload the page!');
+             this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.productitems = res;
             this.products = this.productitems;

@@ -9,6 +9,7 @@ import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.serv
 import { CartItem } from '@shared/interfaces';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 import { CartManagementService } from '../cart-service/cart-management.service';
+import { CONFIRM, NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-view-cartitems',
@@ -50,8 +51,8 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
         .getCartItems()
         .then((res) => {
           if (res === null || res === undefined) {
-            this.notification.warning('Check Your Network!');
-            this.notification.info('Try to reload the page!');
+             this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.dataSource.data = res;
             this.getTotalCost();
@@ -70,8 +71,8 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
         .getCartSize()
         .then((res) => {
           if (res === null || res === undefined) {
-            this.notification.warning('Check Your Network!');
-            this.notification.info('Try to reload the page!');
+             this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.property.cartsize.next(res.cartsize);
           }
@@ -108,7 +109,7 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
       () => {
         this.dimmed = false;
         this.dataLoading.emit(false);
-        this.notification.success(`Quantity has been updated to ${qty}`);
+        this.notification.success(`${NOTIFICATION.Quantity_has_been_updated_to} ${qty}`);
         this.initializeCart();
       }
     );
@@ -119,14 +120,14 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
       product_id: cartitem.product_id
     };
     this.dialog
-      .showConfirmDialog('confirm.are_you_sure_want_to_remove_this_item')
+      .showConfirmDialog(`${CONFIRM.are_you_sure_want_to_remove_this_item}`)
       .subscribe(async (result) => {
         if (result === 'yes') {
           this.dataLoading.emit(true);
           await this.cartservice
             .removefromCart(product)
             .then((res) => {
-              this.notification.success(`${cartitem.name} has been removed from cart!`);
+              this.notification.success(`${cartitem.name} ${NOTIFICATION.has_been_removed_from_cart}`);
               this.initializeCart();
             })
             .catch((error) => {
@@ -146,14 +147,14 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
   emptycart() {
     this.dimmed = true;
     this.dialog
-      .showConfirmDialog('confirm.are_you_sure_want_to_clear_your_cart')
+      .showConfirmDialog(`${CONFIRM.are_you_sure_want_to_clear_your_cart}`)
       .subscribe(async (result) => {
         if (result === 'yes') {
           this.dataLoading.emit(true);
           await this.cartservice
             .clearCart()
             .then((res) => {
-              this.notification.success('Cart is been cleared!');
+              this.notification.success(`${NOTIFICATION.Cart_is_been_cleared}`);
               this.initializeCart();
             })
             .catch((error) => {

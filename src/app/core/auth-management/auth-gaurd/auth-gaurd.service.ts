@@ -4,6 +4,7 @@ import { LocalStorageService } from '@services/local-storage/local-storage.servi
 import { NotificationService } from '@services/notification/notification.service';
 import { Observable, of } from 'rxjs';
 import { map, take } from 'rxjs/operators';
+import { NOTIFICATION } from '@core/api/names';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,8 @@ export class AuthGaurdService {
         if (user && user.role === 'admin') {
           return true;
         }
-        this.notification.error('Unauthorized Access !!');
-        this.notification.warning('You Have Not Admin rights');
+        this.notification.error(`${NOTIFICATION.Unauthorized_Access}`);
+        this.notification.warning(`${NOTIFICATION.You_Have_Not_Admin_rights}`);
         this.router.navigate(['/login']);
         return false;
       }),

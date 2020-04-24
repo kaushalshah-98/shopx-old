@@ -5,6 +5,7 @@ import { ComparisonServiceService } from '@services/comparsion-service/compariso
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ProductManagementService } from '../../product-service/product-management.service';
+import { NOTIFICATION } from '@core/api/names';
 @Component({
   selector: 'app-fetch-smartphones',
   template: `
@@ -68,8 +69,8 @@ export class FetchSmartphonesComponent implements OnInit {
       this.productservice.getallproducts(this.data).subscribe(
         (res) => {
           if (res === null || res === undefined) {
-            this.notification.warning('Check Your Network!');
-            this.notification.info('Try to reload the page!');
+             this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.productitems = res;
             this.products = this.productitems;
@@ -85,18 +86,18 @@ export class FetchSmartphonesComponent implements OnInit {
   }
   compareitems() {
     if (this.mobiles.length < 1) {
-      this.notification.warning('Compare List Is Empty');
+      this.notification.warning(`${NOTIFICATION.Compare_List_Is_Empty}`);
     } else if (this.mobiles.length < 2) {
-      this.notification.warning('Add one More item to compare with');
+      this.notification.warning(`${NOTIFICATION.Add_one_More_item_to_compare_with}`);
     } else {
       this.router.navigateByUrl('/compare');
     }
   }
   onMobileSelect(event: any) {
     if (this.mobiles.includes(event)) {
-      this.notification.warning('It is already there in compareList');
+      this.notification.warning(`${NOTIFICATION.It_is_already_there_in_compareList}`);
     } else if (this.mobiles.length > 2) {
-      this.notification.warning('Only three items can be compared');
+      this.notification.warning(`${NOTIFICATION.Only_three_items_can_be_compared}`);
     } else {
       this.compare.comparelist.push(event);
       event.general.name = event.name;

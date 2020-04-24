@@ -8,6 +8,7 @@ import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.serv
 import { ProductItem } from '@shared/interfaces';
 import { map } from 'rxjs/operators';
 import { ProductManagementService } from 'src/app/features/product-management/product-service/product-management.service';
+import { CONFIRM, NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-update',
@@ -67,8 +68,8 @@ export class UpdateComponent implements OnInit, AfterViewInit {
     this.productservice.getproduct(this.productid).subscribe(
       (res) => {
         if (res === null || res === undefined) {
-          this.notification.warning('Check Your Network!');
-          this.notification.info('Try to reload the page!');
+          this.notification.warning( `${NOTIFICATION.Check_Your_Network}`);
+          this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
         } else {
           this.productdata = res;
         }
@@ -104,7 +105,7 @@ export class UpdateComponent implements OnInit, AfterViewInit {
   }
   cancel() {
     if (this.updateproductform.touched) {
-      this.dialog.showConfirmDialog('Are You Sure Want to Cancel ?').subscribe((result) => {
+      this.dialog.showConfirmDialog(`${CONFIRM.are_you_sure}`).subscribe((result) => {
         if (result === 'yes') {
           this.updateproductform.reset();
         }
@@ -154,7 +155,7 @@ export class UpdateComponent implements OnInit, AfterViewInit {
       },
       () => {
         this.dataLoading.emit(false);
-        this.notification.success('Product Has been Updated!');
+        this.notification.success(`${NOTIFICATION.Product_Has_been_Updated}`);
       }
     );
   }

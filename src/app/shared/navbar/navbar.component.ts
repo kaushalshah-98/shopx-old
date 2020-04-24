@@ -19,6 +19,7 @@ import { ThemeService } from '@services/theme-service/theme.service';
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { CartManagementService } from 'src/app/features/cart-management/cart-service/cart-management.service';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
+import { CONFIRM, NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-navbar',
@@ -77,8 +78,8 @@ export class NavbarComponent implements OnInit {
         .getCartSize()
         .then((res) => {
           if (res === null || res === undefined) {
-            this.notification.warning('Check Your Network!');
-            this.notification.info('Try to reload the page!');
+             this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.property.cartsize.next(res.cartsize);
           }
@@ -94,8 +95,8 @@ export class NavbarComponent implements OnInit {
       this.theme.getTheme().subscribe(
         (res) => {
           if (res === null || res === undefined) {
-            this.notification.info('Try to reload page. Cant load theme.');
-            this.notification.warning('Check You Network');
+            this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
+            this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
           } else {
             this.property.nightmode.next(res.night_theme);
             this.IsNightmode.emit(res.night_theme);
@@ -105,7 +106,7 @@ export class NavbarComponent implements OnInit {
           console.log(error);
           this.notification.error(error.message);
         },
-        () => {}
+        () => { }
       );
     }
   }
@@ -145,7 +146,7 @@ export class NavbarComponent implements OnInit {
   onLanguageSelect(language) {
     this.translate.use(language);
     this.currentLanguage = language;
-    this.notification.info(`Selected Language is ${language}`);
+    this.notification.info(`${NOTIFICATION.Selected_Language_is} ${language}`);
   }
   getLoginStatus() {
     if (this.data) {
@@ -157,7 +158,7 @@ export class NavbarComponent implements OnInit {
     if (this.getLoginStatus() === 'nav_bar.menu.login') {
       this.router.navigate(['login']);
     } else {
-      this.dialog.showConfirmDialog('confirm.are_you_sure_want_to_logout').subscribe((result) => {
+      this.dialog.showConfirmDialog(`${CONFIRM.are_you_sure_want_to_logout}`).subscribe((result) => {
         if (result === 'yes') {
           localStorage.clear();
           this.router.navigate(['login']);
@@ -199,7 +200,7 @@ export class NavbarComponent implements OnInit {
     if (!this.property.isloggedin.value) {
       this.property.nightmode.next(status);
       this.IsNightmode.emit(status);
-      this.notification.success('Theme Changed');
+      this.notification.success(`${NOTIFICATION.Theme_Changed}`);
     } else {
       this.theme.changeTheme(night_theme).subscribe(
         (res) => res,
@@ -210,7 +211,7 @@ export class NavbarComponent implements OnInit {
         () => {
           this.property.nightmode.next(status);
           this.IsNightmode.emit(status);
-          this.notification.success('Theme Changed');
+          this.notification.success(`${NOTIFICATION.Theme_Changed}`);
         }
       );
     }

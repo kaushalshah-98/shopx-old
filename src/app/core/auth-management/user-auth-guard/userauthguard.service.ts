@@ -3,6 +3,7 @@ import { LocalStorageService } from '@services/local-storage/local-storage.servi
 import { NotificationService } from '@services/notification/notification.service';
 import { Observable, of } from 'rxjs';
 import { map, take } from 'rxjs/operators';
+import { NOTIFICATION } from '@core/api/names';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class UserauthguardService {
         if (user && (user.role === 'user' || user.role === 'admin')) {
           return true;
         }
-        this.notification.warning('You Must Be Logged In');
+        this.notification.warning(`${NOTIFICATION.You_are_Not_Logged_In}`);
         return false;
       }),
       take(1)

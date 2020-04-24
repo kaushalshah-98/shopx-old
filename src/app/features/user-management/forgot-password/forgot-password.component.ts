@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { UserManagementService } from '../user-service/user-management.service';
+import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-forgot-password',
@@ -47,10 +48,10 @@ export class ForgotPasswordComponent implements OnInit, AfterViewInit {
     this.userservice.forgotpassword(userdata).subscribe(
       (res) => {
         if (res.length <= 0) {
-          this.notification.warning('Name or Email you entered is not register with us');
-          this.notification.warning('Only registered users can get password');
+          this.notification.warning(`${NOTIFICATION.Name_or_Email_you_entered_is_not_register_with_us}`);
+          this.notification.warning(`${NOTIFICATION.Only_registered_users_can_get_password}`);
         } else {
-          this.notification.success('Your Password Has been Sent to Your Email');
+          this.notification.success(`${NOTIFICATION.Your_Password_Has_been_Sent_to_Your_Email}`);
         }
       },
       (error: HttpErrorResponse) => {

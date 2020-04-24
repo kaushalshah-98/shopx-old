@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ProductManagementService } from 'src/app/features/product-management/product-service/product-management.service';
+import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-delete-product',
@@ -24,7 +25,7 @@ export class DeleteProductComponent implements OnInit {
     this.productservice.deleteproduct(this.productid).subscribe(
       (res) => res,
       (error: HttpErrorResponse) => this.notification.error(error.message),
-      () => this.notification.success('Product Has been Removed!')
+      () => this.notification.success(`${NOTIFICATION.Product_Has_been_Removed}`)
     );
   }
   onInputChanged(input: string) {

@@ -5,6 +5,7 @@ import { NotificationService } from '@services/notification/notification.service
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { User } from '@shared/interfaces';
 import { AdminManagementService } from '../../admin-service/admin-management.service';
+import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-view-users',
@@ -44,8 +45,8 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
       this.adminservice.getusers().subscribe(
         (res) => {
           if (res === null || res === undefined) {
-            this.notification.warning('Check Your Network!');
-            this.notification.info('Try to reload the page!');
+            this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.userlist = res;
             this.dataSource.data = res;
@@ -69,9 +70,9 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
     this.dimmed = true;
     const status = { status: !userdata.status };
     if (userdata.status) {
-      this.message = 'User has been blocked';
+      this.message = `${NOTIFICATION.User_has_been_blocked}`;
     } else {
-      this.message = 'User has been unblocked';
+      this.message = `${NOTIFICATION.User_has_been_unblocked}`;
     }
     this.adminservice.blockuser(status, userdata.userid).subscribe(
       (res) => res,

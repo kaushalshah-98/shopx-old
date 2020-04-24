@@ -9,7 +9,7 @@
             <mat-form-field class="mat-block" id="matFrmFieldUserStatus">
               <mat-select
                 id="matSelectUserStatus"
-                placeholder="Category"
+                placeholder="{{'admin.productform.category' | translate}}"
                 [(value)]="selectedStatus"
                 (selectionChange)="sortchanged(selectedStatus)"
               >

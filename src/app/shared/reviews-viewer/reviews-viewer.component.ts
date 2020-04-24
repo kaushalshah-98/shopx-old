@@ -6,6 +6,7 @@ import { NotificationService } from '@services/notification/notification.service
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { ProductReview, Review, ReviewList, User } from '@shared/interfaces';
 import { ReviewViewerService } from './review-viewer.service';
+import { NOTIFICATION } from '@core/api/names';
 @Component({
   selector: 'app-reviews-viewer',
   templateUrl: './reviews-viewer.component.html',
@@ -77,12 +78,12 @@ export class ReviewsViewerComponent implements OnInit {
         () => {
           this.dataLoading.emit(false);
           this.dimmed = false;
-          this.notification.info(`Review is added !`);
+          this.notification.info(`${NOTIFICATION.Review_is_added}`);
           this.fetchreviews();
         }
       );
     } else {
-      this.notification.warning('You are Not Logged In');
+      this.notification.warning(`${NOTIFICATION.You_are_Not_Logged_In}`);
     }
   }
   reset() {
@@ -112,7 +113,7 @@ export class ReviewsViewerComponent implements OnInit {
       () => {
         this.dataLoading.emit(false);
         this.dimmed = false;
-        this.notification.info(`Review is deleted !`);
+        this.notification.info(`${NOTIFICATION.Review_is_deleted}`);
         this.fetchreviews();
       }
     );

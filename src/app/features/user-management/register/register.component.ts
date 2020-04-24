@@ -5,6 +5,7 @@ import { NotificationService } from '@services/notification/notification.service
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { User } from '@shared/interfaces';
 import { UserManagementService } from '../user-service/user-management.service';
+import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-register',
@@ -57,8 +58,8 @@ export class RegisterComponent implements OnInit {
         this.notification.error(error.message);
       },
       () => {
-        this.notification.success('Your Profile Has been Registered Successfully');
-        this.notification.success('Check Your Email..');
+        this.notification.success(`${NOTIFICATION.Your_Profile_Has_been_Registered_Successfully}`);
+        this.notification.success(`${NOTIFICATION.Check_Your_Email}`);
       }
     );
   }

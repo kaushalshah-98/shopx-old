@@ -4,6 +4,7 @@ import { NotificationService } from '@services/notification/notification.service
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { Subject } from 'rxjs';
 import { AdminManagementService } from '../../admin-service/admin-management.service';
+import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-block-user',
@@ -28,7 +29,7 @@ export class BlockUserComponent implements OnInit {
     this.adminservice.blockuser(status, this.userid).subscribe(
       (res) => res,
       (error: HttpErrorResponse) => this.notification.error(error.message),
-      () => this.notification.success('User has been blocked.')
+      () => this.notification.success(`${NOTIFICATION.User_has_been_blocked}`)
     );
   }
   onInputChanged(input: string) {

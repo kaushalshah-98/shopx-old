@@ -5,6 +5,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 import { ConfirmDialogService } from '@shared/confirm-dialog/confirm-dialog.service';
 import { QuickViewService } from '@shared/quickview/quickview.service';
 import { OrderService } from '../../cart-management/checkout/order.service';
+import { CONFIRM } from '@core/api/names';
 
 @Component({
   selector: 'app-view-orders',
@@ -23,7 +24,7 @@ export class ViewOrdersComponent implements OnInit {
     public property: PropertyAccessService,
     private orderservice: OrderService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.initializeOrders();
@@ -46,7 +47,7 @@ export class ViewOrdersComponent implements OnInit {
   }
   cancelOrder(item, i) {
     this.dialog
-      .showConfirmDialog('Are You Sure Want to Cancel This Order ?')
+      .showConfirmDialog(`${CONFIRM.are_you_sure_want_to_cancel_this_order}`)
       .subscribe((result) => {
         if (result === 'yes') {
           this.orderitems.splice(i);

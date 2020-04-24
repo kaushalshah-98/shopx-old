@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ComparisonServiceService } from '@services/comparsion-service/comparison-service.service';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
+import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-productcompare',
@@ -45,7 +46,7 @@ export class ProductcompareComponent implements OnInit {
   }
   remove(item) {
     if (this.list.length < 3) {
-      this.notification.info('There must be always two items to compare!');
+      this.notification.info(`${NOTIFICATION.There_must_be_always_two_items_to_compare}`);
     } else {
       this.dimmed = true;
       this.dataLoading.emit(true);
@@ -87,26 +88,4 @@ export class ProductcompareComponent implements OnInit {
       }, 2000);
     }
   }
-  // setcolums(index) {
-  //   switch (index) {
-  //     case 0: this.columnsToDisplay = ['name', 'simtype', 'dualsim', 'simsize', 'Network', 'fingerptintsensor'];
-  //     case 1: this.columnsToDisplay = ['name', 'type', 'apectratio', 'notch', 'screentobodyratio', 'screensize'];
-  //     case 2: this.columnsToDisplay = ['name', 'weight', 'thickness', 'height', 'colors', 'build'];
-  //     case 3: this.columnsToDisplay = ['name', 'removable', 'quickcharging', 'capacity'];
-  //     case 4: this.columnsToDisplay = ['name', 'chipset', 'cpu', 'gpu', 'ram'];
-  //     case 5: this.columnsToDisplay = ['name', 'internal', 'otgsupport', 'expandableupto'];
-  //     case 6: this.columnsToDisplay = ['name', 'features', 'front', 'rear', 'flash', 'videorecording']
-  //   }
-  // }
-  // getName(index) {
-  //   switch (index) {
-  //     case 0: return 'General'
-  //     case 1: return 'Display'
-  //     case 2: return 'Design'
-  //     case 3: return 'Battery'
-  //     case 4: return 'Performance'
-  //     case 5: return 'Storage'
-  //     case 6: return 'Camera'
-  //   }
-  // }
 }

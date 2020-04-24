@@ -9,6 +9,7 @@ import { CartItem } from '@shared/interfaces';
 import { BehaviorSubject } from 'rxjs';
 import { CartManagementService } from '../../cart-service/cart-management.service';
 import { OrderService } from '../order.service';
+import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-payment',
@@ -151,7 +152,7 @@ export class PaymentComponent implements OnInit, AfterViewInit {
             setTimeout(() => {
               this.moveforward();
             }, 500);
-            this.notification.success('Order Placed Successfully');
+            this.notification.success(`${NOTIFICATION.Order_Placed_Successfully}`);
             this.myStepper.next();
             this.step2status.emit(true);
           }

@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
 import { UserManagementService } from '../user-service/user-management.service';
+import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-contact',
@@ -12,10 +13,10 @@ import { UserManagementService } from '../user-service/user-management.service';
 })
 export class ContactComponent implements OnInit, AfterViewInit {
   subject = [
-    { name: 'complaint' },
-    { name: 'feature request' },
-    { name: 'bug report' },
-    { name: 'feedback' }
+    { name: 'user.form.subject.complaint' },
+    { name: 'user.form.subject.feature_request' },
+    { name: 'user.form.subject.bug_report' },
+    { name: 'user.form.subject.feedback' }
   ];
   contactform: FormGroup;
   padding = 40;
@@ -26,7 +27,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
     public property: PropertyAccessService,
     private userservice: UserManagementService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.dataLoading.emit(false);
@@ -50,7 +51,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
       subject: this.contactform.controls.subjectFormControl.value
     };
     this.userservice.sendmessage(data).subscribe(
-      (res) => {},
+      (res) => { },
       (error: HttpErrorResponse) => {
         console.log(error);
         this.dataLoading.emit(false);
@@ -59,7 +60,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
       () => {
         this.contactform.reset();
         this.dataLoading.emit(false);
-        this.notification.success('Message Has Been Sent.');
+        this.notification.success(`${NOTIFICATION.message_has_been_sent}`);
       }
     );
   }

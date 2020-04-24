@@ -12,6 +12,7 @@ import {
   SocialUser
 } from 'ng4-social-login';
 import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
+import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-login',
@@ -59,14 +60,14 @@ export class LoginComponent implements OnInit {
         (res) => {
           if (res.length <= 0) {
             this.property.isloggedin.next(true);
-            this.notification.error('Incorrect Username or Password');
+            this.notification.error(`${NOTIFICATION.Incorrect_Username_or_Password}`);
           } else if (res.status === false) {
-            this.notification.error('Your Account Has been Blocked');
+            this.notification.error(`${NOTIFICATION.Your_Account_Has_been_Blocked}`);
           } else {
             this.userservice.setUserId(res.userid);
             this.storage.setItem('USER', res);
             this.storage.setItem('LOGGEDIN', true);
-            this.notification.success('Login Success');
+            this.notification.success(`${NOTIFICATION.Login_Success}`);
             this.property.nightmode.next(res.night_theme);
             if (res.role === 'user') {
               this.router.navigate(['home']);
@@ -113,8 +114,8 @@ export class LoginComponent implements OnInit {
         },
         () => {
           this.hideloader();
-          this.notification.success('Your Facebook Account has been found successfully');
-          this.notification.success('Check Your Email..');
+          this.notification.success(`${NOTIFICATION.Your_Facebook_Account_has_been_found_successfully}`);
+          this.notification.success(`${NOTIFICATION.Check_Your_Email}`);
           this.router.navigate(['home']);
         }
       );
@@ -139,8 +140,8 @@ export class LoginComponent implements OnInit {
         },
         () => {
           this.hideloader();
-          this.notification.success('Your Google Account has been found successfully');
-          this.notification.success('Check Your Email..');
+          this.notification.success(`${NOTIFICATION.Your_Google_Account_has_been_found_successfully}`);
+          this.notification.success(`${NOTIFICATION.Check_Your_Email}`);
           this.router.navigate(['home']);
         }
       );

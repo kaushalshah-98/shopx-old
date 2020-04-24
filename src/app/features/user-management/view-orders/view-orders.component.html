@@ -8,7 +8,7 @@
         {{reset()}}
         <mat-expansion-panel-header>
           <mat-panel-title>
-            ORDER {{i + 1 }}
+            {{'admin.table.order' | translate}} {{i + 1 }}
           </mat-panel-title>
           <mat-panel-description>
             {{order[0].date}}
@@ -56,7 +56,14 @@
               </button>
             </th>
             <td mat-cell *matCellDef="let element">
-              <button mat-icon-button class="view-btn" (click)="quickview(element)">
+              <button
+                matTooltip="{{'tooltip.quick_view' | translate}}"
+                matTooltipPosition="right"
+                [matTooltipShowDelay]="500"
+                mat-icon-button
+                class="view-btn"
+                (click)="quickview(element)"
+              >
                 <mat-icon>remove_red_eye</mat-icon>
               </button>
             </td>

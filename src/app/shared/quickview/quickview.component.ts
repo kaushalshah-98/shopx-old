@@ -9,6 +9,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 import { ProductItem } from '@shared/interfaces';
 import { CartManagementService } from 'src/app/features/cart-management/cart-service/cart-management.service';
 import { WishlistService } from 'src/app/features/user-management/wish-list/wishlist.service';
+import { NOTIFICATION } from '@core/api/names';
 
 @Component({
   selector: 'app-quickview',
@@ -52,7 +53,7 @@ export class QuickviewComponent implements OnInit {
   }
   addToWishlist(item: ProductItem) {
     if (this.storage.getItem('USER') === null) {
-      this.notification.warning('Only Logged in users can add!');
+      this.notification.warning(`${NOTIFICATION.Only_Logged_in_users_can_add}`);
     } else {
       const product = {
         product_id: item.product_id
@@ -60,9 +61,9 @@ export class QuickviewComponent implements OnInit {
       this.wishlistservice.addtoWishlist(product).subscribe(
         (res) => {
           if (res.message) {
-            this.notification.info('This Item is already in list');
+            this.notification.info(`${NOTIFICATION.This_Item_is_already_in_list}`);
           } else {
-            this.notification.success('Item is added To Wishlist!');
+            this.notification.success(`${NOTIFICATION.Item_is_added_To_Wishlist}`);
           }
         },
         (error: HttpErrorResponse) => {
@@ -75,14 +76,14 @@ export class QuickviewComponent implements OnInit {
   }
   async addToCart(item: ProductItem) {
     if (this.storage.getItem('USER') === null) {
-      this.notification.warning('Only Logged in users can add!');
+      this.notification.warning(`${NOTIFICATION.Only_Logged_in_users_can_add}`);
     } else {
       const product = {
         product_id: item.product_id
       };
       await this.cartservice
         .addtoCart(product)
-        .then((res) => this.notification.success('Item is added To Cart!'))
+        .then((res) => this.notification.success(`${NOTIFICATION.Item_is_added_To_Cart}`))
         .catch((error) => {
           console.log(error);
           this.notification.error(error.message);
@@ -91,8 +92,8 @@ export class QuickviewComponent implements OnInit {
         .getCartSize()
         .then((res) => {
           if (res === null || res === undefined) {
-            this.notification.warning('Check Your Network!');
-            this.notification.info('Try to reload the page!');
+             this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
           } else {
             this.property.cartsize.next(res.cartsize);
           }
