@@ -21,6 +21,7 @@ export class PageContentComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    document.getElementById('mainsearch').style.visibility = 'visible';
     this.dataLoading.emit(true);
     setTimeout(() => {
       this.dataLoading.emit(false);

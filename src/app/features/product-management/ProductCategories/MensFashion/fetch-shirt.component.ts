@@ -25,7 +25,10 @@ export class FetchShirtComponent implements OnInit {
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: ProductItem[];
   dimmed = false;
-  innercategory = 'Shirts';
+  data = {
+    innercategory: 'Shirts',
+    category: "MensFashion"
+  };
   constructor(
     private productservice: ProductManagementService,
     private notification: NotificationService
@@ -38,7 +41,7 @@ export class FetchShirtComponent implements OnInit {
   fetchproduct() {
     this.dataLoading.emit(true);
     setTimeout(() => {
-      this.productservice.getallproducts(this.innercategory).subscribe(
+      this.productservice.getallproducts(this.data).subscribe(
         (res) => {
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');

@@ -39,13 +39,14 @@
   .preview-thumbnail.nav-tabs {
     border: none;
     top: 5%;
-    left: 20%;
+    // left: 20%;
     position: relative;
   }
 
   .preview-thumbnail.nav-tabs li {
     width: 18%;
     margin-right: 2.5%;
+    margin-left: 35px;
     padding: 5px;
     display: flex;
     justify-content: center;
@@ -56,6 +57,7 @@
     max-width: 100%;
     display: block;
     height: 100px;
+    min-width: 80px;
   }
 
   .preview-thumbnail.nav-tabs li a {
@@ -96,12 +98,12 @@
     .fav-btn {
       background-color: $red;
       color: $white;
-      min-width: 33px !important;
+      // min-width: 33px !important;
       width: 0;
-      .mat-icon {
-        margin: 8px 0 0 -10px !important;
-        font-size: 17px !important;
-      }
+      // .mat-icon {
+      //   margin: 8px 0 0 -10px !important;
+      //   font-size: 17px !important;
+      // }
     }
     .detail-btn {
       background-color: $green;

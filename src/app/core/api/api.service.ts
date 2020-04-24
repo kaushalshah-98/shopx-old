@@ -57,7 +57,7 @@ export const PATH = {
 
   // Product Management
   GET_PRODUCT_LIST: '/getallproducts',
-  GET_CATEGORY_PRODUCT: (innercategory: string) => `/getallproducts/${innercategory}`,
+  GET_CATEGORY_PRODUCT: '/getproducts',
   PUT_UPDATE_PRODUCT: (product_id: string) => `/updateproduct/${product_id}`,
   DELETE_PRODUCT: (product_id: string) => `/removeproduct/${product_id}`,
   POST_ADD_PRODUCT: '/addproduct',

@@ -25,11 +25,14 @@ export class FetchSunglassComponent implements OnInit {
   dataLoading: EventEmitter<boolean> = new EventEmitter(false);
   products: ProductItem[];
   dimmed = false;
-  innercategory = 'Goggles';
+  data = {
+    innercategory: 'Goggles',
+    category: "MensFashion"
+  };
   constructor(
     private productservice: ProductManagementService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngOnInit() {
     document.getElementById('mainsearch').style.visibility = 'hidden';
@@ -38,7 +41,7 @@ export class FetchSunglassComponent implements OnInit {
   fetchproduct() {
     this.dataLoading.emit(true);
     setTimeout(() => {
-      this.productservice.getallproducts(this.innercategory).subscribe(
+      this.productservice.getallproducts(this.data).subscribe(
         (res) => {
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');

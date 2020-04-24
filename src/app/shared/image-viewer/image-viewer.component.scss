@@ -17,9 +17,12 @@
       padding: 0;
       justify-content: center;
       img {
+        // height: 400px !important;
+        // max-height: 350px !important;
+        // max-width: 260px !important;
         height: 400px !important;
-        max-height: 350px !important;
-        max-width: 260px !important;
+    max-height: 400px !important;
+    max-width: 400px !important;
       }
     }
   }

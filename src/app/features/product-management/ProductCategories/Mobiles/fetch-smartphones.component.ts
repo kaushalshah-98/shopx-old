@@ -45,14 +45,17 @@ export class FetchSmartphonesComponent implements OnInit {
   products: any[];
   mobiles = [];
   dimmed = false;
-  innercategory = 'Smartphones';
+  data = {
+    innercategory: 'Smartphones',
+    category: "Mobile"
+  }
   constructor(
     private productservice: ProductManagementService,
     private notification: NotificationService,
     private compare: ComparisonServiceService,
     private router: Router,
     public property: PropertyAccessService
-  ) {}
+  ) { }
 
   ngOnInit() {
     document.getElementById('mainsearch').style.visibility = 'hidden';
@@ -62,7 +65,7 @@ export class FetchSmartphonesComponent implements OnInit {
   fetchproduct() {
     this.dataLoading.emit(true);
     setTimeout(() => {
-      this.productservice.getallproducts(this.innercategory).subscribe(
+      this.productservice.getallproducts(this.data).subscribe(
         (res) => {
           if (res === null || res === undefined) {
             this.notification.warning('Check Your Network!');
