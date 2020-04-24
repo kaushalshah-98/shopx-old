@@ -69,8 +69,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.elem = document.documentElement;
     this.getmenu();
-    this.initializeTheme();
-    this.fetchCartSize();
+    if (this.data) {
+      this.initializeTheme();
+      this.fetchCartSize();
+    }
   }
   async fetchCartSize() {
     if (this.data) {
@@ -106,7 +108,7 @@ export class NavbarComponent implements OnInit {
           console.log(error);
           this.notification.error(error.message);
         },
-        () => {}
+        () => { }
       );
     }
   }

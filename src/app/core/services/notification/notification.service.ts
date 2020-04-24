@@ -20,7 +20,7 @@ export class NotificationService {
    * Constructor
    * @param toast  Toaster
    */
-  constructor(private toastr: ToastrService, private translate: TranslateService) {}
+  constructor(private toastr: ToastrService, private translate: TranslateService) { }
 
   show(message: string) {
     this.translate.get(message).subscribe((res: string) => {
@@ -35,10 +35,7 @@ export class NotificationService {
     });
   }
   error(message: string) {
-    this.translate.get(message).subscribe((res: string) => {
-      console.log(res);
-      return this.toastr.error(res, 'Error');
-    });
+    return this.toastr.error(message, 'Error');
   }
   warning(message: string) {
     this.translate.get(message).subscribe((res: string) => {

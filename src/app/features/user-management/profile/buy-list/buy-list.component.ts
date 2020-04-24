@@ -88,7 +88,7 @@ export class BuyListComponent implements OnInit {
           this.notification.error(error.message);
         },
         () => {
-          this.notification.info(`${item.name} ${NOTIFICATION.is_added_to_the_list}`);
+          this.notification.info(`${NOTIFICATION.is_added_to_the_list}`);
           this.hidespinner();
           this.fetchbuylist();
           this.check();

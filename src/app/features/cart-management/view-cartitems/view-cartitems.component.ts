@@ -109,7 +109,7 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
       () => {
         this.dimmed = false;
         this.dataLoading.emit(false);
-        this.notification.success(`${NOTIFICATION.Quantity_has_been_updated_to} ${qty}`);
+        this.notification.success(`${NOTIFICATION.Quantity_has_been_updated_to}`);
         this.initializeCart();
       }
     );
