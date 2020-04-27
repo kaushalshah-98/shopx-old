@@ -10,6 +10,7 @@ import { ViewProductsComponent } from './product-components/view-products/view-p
 import { BlockUserComponent } from './user-components/block-user/block-user.component';
 import { ViewUserOrderComponent } from './user-components/view-user-order/view-user-order.component';
 import { ViewUsersComponent } from './user-components/view-users/view-users.component';
+import { UsersResolverService } from './user-components/view-users/users-resolver.service';
 
 const routes: Routes = [
   {
@@ -47,7 +48,8 @@ const routes: Routes = [
       },
       {
         path: 'viewusers',
-        component: ViewUsersComponent
+        component: ViewUsersComponent,
+        resolve:{resolvedUsers :UsersResolverService}
       },
       {
         path: 'blockuser',

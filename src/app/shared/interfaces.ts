@@ -76,3 +76,9 @@ export interface User {
   role?: string;
   type?: string;
 }
+
+export class TrackError {
+  message: string;
+  errorNumber: number;
+  friendlymessage: string;
+}

@@ -4,8 +4,10 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { NOTIFICATION } from '@core/api/names';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
-import { User } from '@shared/interfaces';
+import { User, TrackError } from '@shared/interfaces';
 import { AdminManagementService } from '../../admin-service/admin-management.service';
+import { UsersResolverService } from './users-resolver.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view-users',
@@ -27,11 +29,13 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
   constructor(
     public property: PropertyAccessService,
     private adminservice: AdminManagementService,
-    private notification: NotificationService
-  ) {}
+    private notification: NotificationService,
+    private resolveservice: UsersResolverService,
+    private route: ActivatedRoute
+  ) { }
 
   ngAfterViewInit() {
-    this.dataLoading.emit(true);
+    this.dataLoading.emit(false);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
@@ -39,31 +43,38 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
     this.fetchusers();
   }
   fetchusers() {
-    this.dataLoading.emit(true);
-    this.dimmed = true;
-    setTimeout(() => {
-      this.adminservice.getusers().subscribe(
-        (res) => {
-          if (res === null || res === undefined) {
-            this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
-            this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
-          } else {
-            this.userlist = res;
-            this.dataSource.data = res;
-          }
-        },
-        (error: HttpErrorResponse) => {
-          this.dataLoading.emit(false);
-          console.log(error);
-          this.dimmed = false;
-          this.notification.error(error.message);
-        },
-        () => {
-          this.dimmed = false;
-          this.dataLoading.emit(false);
-        }
-      );
-    }, 3000);
+    // this.dataLoading.emit(true);
+    // this.dimmed = true;
+    // setTimeout(() => {
+      let resolvelist: User[] | TrackError = this.route.snapshot.data['resolvedUsers'];
+      if (resolvelist instanceof TrackError) {
+        console.log(`Error message is ${resolvelist.friendlymessage}`);
+      } else {
+        this.userlist = resolvelist;
+        this.dataSource.data = resolvelist;
+      }
+      // this.adminservice.getusers().subscribe(
+      //   (res: User[]) => {
+      //     if (res === null || res === undefined) {
+      //       this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+      //       this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
+      //     } else {
+      //       this.userlist = res;
+      //       this.dataSource.data = res;
+      //     }
+      //   },
+      //   (error: TrackError) => {
+      //     this.dataLoading.emit(false);
+      //     console.log(error);
+      //     this.dimmed = false;
+      //     this.notification.error(error.friendlymessage);
+      //   },
+      //   () => {
+      //     this.dimmed = false;
+      //     this.dataLoading.emit(false);
+      //   }
+      // );
+    // }, 3000);
   }
   blockuser(userdata: User) {
     this.dataLoading.emit(true);

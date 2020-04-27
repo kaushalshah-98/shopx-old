@@ -7,6 +7,7 @@ import { DetailviewComponent } from './features/product-management/detailview/de
 import { ProductcompareComponent } from './features/product-management/productcompare/productcompare.component';
 import { ContactComponent } from './features/user-management/contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { SelectiveStrategyService } from '@services/selective-strategy.service';
 
 const routes: Routes = [
   {
@@ -54,26 +55,22 @@ const routes: Routes = [
   },
   {
     path: 'cart',
+    data: { preload: true },
     loadChildren: () =>
-      import('./features/cart-management/cart-management.module').then(
-        (m) => m.CartManagementModule
-      ),
+      import('./features/cart-management/cart-management.module').then((m) => m.CartManagementModule),
     canLoad: [UserauthguardService]
   },
   {
     path: 'checkout',
     loadChildren: () =>
-      import('./features/cart-management/cart-management.module').then(
-        (m) => m.CartManagementModule
-      ),
+      import('./features/cart-management/cart-management.module').then((m) => m.CartManagementModule),
     canLoad: [UserauthguardService]
   },
   {
     path: 'usersettings',
+    data: { preload: true },
     loadChildren: () =>
-      import('./features/user-management/user-management.module').then(
-        (m) => m.UserManagementModule
-      ),
+      import('./features/user-management/user-management.module').then((m) => m.UserManagementModule),
     canLoad: [UserauthguardService]
   },
   { path: '**', component: PageNotFoundComponent }
@@ -83,10 +80,11 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       // useHash: true,
-      scrollPositionRestoration: 'enabled'
+      scrollPositionRestoration: 'enabled',
       // preloadingStrategy: PreloadAllModules
+      preloadingStrategy: SelectiveStrategyService
     })
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
