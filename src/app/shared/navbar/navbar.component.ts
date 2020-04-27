@@ -56,7 +56,7 @@ export class NavbarComponent implements OnInit {
     if (this.data && this.data.role === 'admin') {
       this.isadmin = true;
     }
-    translate.addLangs(['en', 'fr', 'de', 'sk', 'hi', 'es', 'he']);
+    translate.addLangs(['en', 'fr', 'sk', 'es']);
     translate.setDefaultLang('en');
 
     const browserlang = translate.getBrowserLang();
