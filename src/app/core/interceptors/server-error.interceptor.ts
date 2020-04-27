@@ -16,6 +16,14 @@ export class ServerErrorInterceptor implements HttpInterceptor {
   constructor(private notificationService: NotificationService, private router: Router) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+
+    // let jsonreq :HttpRequest<any> = request.clone(
+    //   {
+    //     setHeaders:{'Content-Type' :'application/json'}
+    //   }
+    // )
+    // return next.handle(jsonreq);
     return next.handle(request).pipe(
       retry(1),
       catchError((error: HttpErrorResponse) => {

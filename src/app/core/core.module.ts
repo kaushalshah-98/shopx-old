@@ -8,6 +8,7 @@ import { PropertyAccessService } from '@services/propert-access/property-access.
 import { ApiModule } from './api/api.module';
 import { EnsureModuleLoadedOnceGuard } from './ensure-module-loaded-once.guard';
 import { ServerErrorInterceptor } from './interceptors/server-error.interceptor';
+import { CacheInterceptorService } from '@services/cache-interceptor/cache-interceptor.service';
 
 @NgModule({
   imports: [CommonModule, RouterModule, ApiModule],
@@ -20,6 +21,11 @@ import { ServerErrorInterceptor } from './interceptors/server-error.interceptor'
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ServerErrorInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CacheInterceptorService,
       multi: true
     }
   ] // these should be singleton
